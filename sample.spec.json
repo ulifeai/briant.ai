@@ -1,0 +1,658 @@
+{
+    "entities": [
+      {
+        "name": "User",
+        "fields": {
+          "id": "String",
+          "name": "String",
+          "email": "String",
+          "role": "Role",
+          "password": "String"
+        }
+      },
+      {
+        "name": "Document",
+        "fields": {
+          "id": "String",
+          "type": "Enum[Certification, Identification]",
+          "filePath": "String",
+          "expirationDate": "Date",
+          "uploadedBy": "User"
+        }
+      },
+      {
+        "name": "Contract",
+        "fields": {
+          "id": "String",
+          "client": "String",
+          "type": "Enum[CareHome, NursingHome, PrivateClient]",
+          "content": "String",
+          "signedBy": "User",
+          "signedOn": "Date"
+        }
+      },
+      {
+        "name": "Timesheet",
+        "fields": {
+          "id": "String",
+          "user": "User",
+          "client": "String",
+          "date": "Date",
+          "hoursWorked": "Number",
+          "signedByUser": "Boolean",
+          "signedByClient": "Boolean"
+        }
+      },
+      {
+        "name": "Transaction",
+        "fields": {
+          "id": "String",
+          "user": "User",
+          "client": "String",
+          "date": "Date",
+          "amount": "Number"
+        }
+      },
+      {
+        "name": "UniformRequest",
+        "fields": {
+          "id": "String",
+          "user": "User",
+          "size": "String",
+          "status": "Enum[Pending, Approved, Rejected]"
+        }
+      },
+      {
+        "name": "InductionMaterial",
+        "fields": {
+          "id": "String",
+          "title": "String",
+          "content": "String"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "name": "Admin"
+      },
+      {
+        "name": "Staff"
+      },
+      {
+        "name": "Manager"
+      }
+    ],
+    "permissions": [
+      {
+        "role": "Admin",
+        "actions": [
+          "RegisterUser",
+          "DeleteUser",
+          "ViewDashboard",
+          "ManageStaff",
+          "ManageDocuments",
+          "CheckCompliance",
+          "SignContract",
+          "GenerateInvoice",
+          "ViewTransactionHistory"
+        ]
+      },
+      {
+        "role": "Manager",
+        "actions": [
+          "ViewDashboard",
+          "ManageDocuments",
+          "CheckCompliance",
+          "ApproveInvoice",
+          "ViewTransactionHistory"
+        ]
+      },
+      {
+        "role": "Staff",
+        "actions": [
+          "ViewDashboard",
+          "SubmitTimesheet",
+          "SignContract",
+          "ViewInvoiceHistory",
+          "ViewTransactionHistory"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "name": "NavigateToDashboard",
+        "type": "Navigation",
+        "page": "DashboardPage"
+      },
+      {
+        "name": "NavigateToStaffRegistration",
+        "type": "Navigation",
+        "page": "StaffRegistration"
+      },
+      {
+        "name": "NavigateToDocumentManagement",
+        "type": "Navigation",
+        "page": "DocumentManagement"
+      },
+      {
+        "name": "NavigateToProfile",
+        "type": "Navigation",
+        "page": "ProfilePage"
+      },
+      {
+        "name": "NavigateToContractSigning",
+        "type": "Navigation",
+        "page": "ContractSigning"
+      },
+      {
+        "name": "NavigateToTimesheetManagement",
+        "type": "Navigation",
+        "page": "TimesheetManagement"
+      },
+      {
+        "name": "NavigateToInvoiceGeneration",
+        "type": "Navigation",
+        "page": "InvoiceGeneration"
+      },
+      {
+        "name": "NavigateToTransactionHistory",
+        "type": "Navigation",
+        "page": "TransactionHistory"
+      },
+      {
+        "name": "Logout",
+        "type": "Navigation",
+        "page": "LoginPage"
+      },
+      {
+        "name": "RegisterUser",
+        "type": "Create",
+        "entity": "User"
+      },
+      {
+        "name": "SubmitUniformRequest",
+        "type": "Create",
+        "entity": "UniformRequest"
+      },
+      {
+        "name": "GenerateInvoice",
+        "type": "Create",
+        "entity": "Invoice"
+      },
+      {
+        "name": "ViewTransactionDetails",
+        "type": "Read",
+        "entity": "Transaction"
+      },
+      {
+        "name": "ReviewDocument",
+        "type": "Read",
+        "entity": "Document"
+      },
+      {
+        "name": "EditUser",
+        "type": "Update",
+        "entity": "User"
+      },
+      {
+        "name": "SaveUser",
+        "type": "Update",
+        "entity": "User"
+      },
+      {
+        "name": "SignContract",
+        "type": "Update",
+        "entity": "Contract"
+      },
+      {
+        "name": "ConfirmSignTimesheet",
+        "type": "Update",
+        "entity": "Timesheet"
+      },
+      {
+        "name": "ConfirmGenerateInvoice",
+        "type": "Update",
+        "entity": "Invoice"
+      },
+      {
+        "name": "ConfirmApproveInvoice",
+        "type": "Update",
+        "entity": "Invoice"
+      },
+      {
+        "name": "DeleteUser",
+        "type": "Delete",
+        "entity": "User"
+      },
+      {
+        "name": "DeleteDocument",
+        "type": "Delete",
+        "entity": "Document"
+      },
+      {
+        "name": "CheckCompliance",
+        "type": "Custom"
+      }
+    ],
+    "layouts": [
+      {
+        "name": "DashboardLayout",
+        "menu": {
+          "items": [
+            {
+              "id": "dashboard",
+              "label": "Dashboard",
+              "onClick": "NavigateToDashboard"
+            },
+            {
+              "id": "staffRegistration",
+              "label": "Staff Registration",
+              "onClick": "NavigateToStaffRegistration"
+            },
+            {
+              "id": "documentManagement",
+              "label": "Document Management",
+              "onClick": "NavigateToDocumentManagement"
+            },
+            {
+              "id": "contractSigning",
+              "label": "Contract Signing",
+              "onClick": "NavigateToContractSigning"
+            },
+            {
+              "id": "timesheetManagement",
+              "label": "Timesheet Management",
+              "onClick": "NavigateToTimesheetManagement"
+            },
+            {
+              "id": "invoiceGeneration",
+              "label": "Invoice Generation",
+              "onClick": "NavigateToInvoiceGeneration"
+            },
+            {
+              "id": "transactionHistory",
+              "label": "Transaction History",
+              "onClick": "NavigateToTransactionHistory"
+            }
+          ]
+        },
+        "header": {
+          "title": "Deep Healthcare Services",
+          "userMenu": {
+            "items": [
+              {
+                "id": "profile",
+                "label": "Profile",
+                "onClick": "NavigateToProfile"
+              },
+              {
+                "id": "logout",
+                "label": "Logout",
+                "onClick": "Logout"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "pages": [
+      {
+        "name": "StaffRegistration",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager"],
+        "content": [
+          {
+            "type": "TextInput",
+            "id": "name",
+            "label": "Name",
+            "placeholder": "Enter your name"
+          },
+          {
+            "type": "TextInput",
+            "id": "email",
+            "label": "Email",
+            "placeholder": "Enter your email"
+          },
+          {
+            "type": "TextArea",
+            "id": "qualifications",
+            "label": "Qualifications",
+            "placeholder": "Enter your qualifications"
+          },
+          {
+            "type": "TextArea",
+            "id": "certifications",
+            "label": "Certifications",
+            "placeholder": "Enter your certifications"
+          },
+          {
+            "type": "TextInput",
+            "id": "phone",
+            "label": "Phone Number",
+            "placeholder": "Enter your phone number"
+          },
+          {
+            "type": "TextInput",
+            "id": "address",
+            "label": "Address",
+            "placeholder": "Enter your address"
+          },
+          {
+            "type": "Button",
+            "id": "submit",
+            "label": "Register",
+            "onClick": "RegisterUser"
+          }
+        ]
+      },
+      {
+        "name": "DocumentManagement",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "Document",
+            "fields": ["type", "filePath", "expirationDate", "uploadedBy"],
+            "actions": [
+              {
+                "label": "Review",
+                "onClick": "ReviewDocument"
+              },
+              {
+                "label": "Delete",
+                "onClick": "DeleteDocument"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ReviewDocument",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "documentType",
+            "label": "Document Type",
+            "value": "Document.type"
+          },
+          {
+            "type": "Text",
+            "id": "filePath",
+            "label": "File Path",
+            "value": "Document.filePath"
+          },
+          {
+            "type": "Text",
+            "id": "expirationDate",
+            "label": "Expiration Date",
+            "value": "Document.expirationDate"
+          },
+          {
+            "type": "Text",
+            "id": "uploadedBy",
+            "label": "Uploaded By",
+            "value": "Document.uploadedBy"
+          }
+        ]
+      },
+      {
+        "name": "ComplianceChecks",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "User",
+            "fields": ["name", "email", "status"],
+            "actions": [
+              {
+                "label": "Check Compliance",
+                "onClick": "CheckCompliance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ContractSigning",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Staff"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "Contract",
+            "fields": ["client", "type", "signedBy", "signedOn"],
+            "actions": [
+              {
+                "label": "Sign Contract",
+                "onClick": "SignContract"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SignContract",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Staff"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "client",
+            "label": "Client",
+            "value": "Contract.client"
+          },
+          {
+            "type": "Text",
+            "id": "type",
+            "label": "Type",
+            "value": "Contract.type"
+          },
+          {
+            "type": "Text",
+            "id": "content",
+            "label": "Content",
+            "value": "Contract.content"
+          },
+          {
+            "type": "Button",
+            "id": "sign",
+            "label": "Sign Contract",
+            "onClick": "ConfirmSignContract"
+          }
+        ]
+      },
+      {
+        "name": "TimesheetManagement",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager", "Staff"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "Timesheet",
+            "fields": ["user", "client", "date", "hoursWorked", "signedByUser", "signedByClient"],
+            "actions": [
+              {
+                "label": "Sign Timesheet",
+                "onClick": "SignTimesheet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SignTimesheet",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Staff"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "user",
+            "label": "User",
+            "value": "Timesheet.user"
+          },
+          {
+            "type": "Text",
+            "id": "client",
+            "label": "Client",
+            "value": "Timesheet.client"
+          },
+          {
+            "type": "Text",
+            "id": "date",
+            "label": "Date",
+            "value": "Timesheet.date"
+          },
+          {
+            "type": "Text",
+            "id": "hoursWorked",
+            "label": "Hours Worked",
+            "value": "Timesheet.hoursWorked"
+          },
+          {
+            "type": "Button",
+            "id": "sign",
+            "label": "Sign",
+            "onClick": "ConfirmSignTimesheet"
+          }
+        ]
+      },
+      {
+        "name": "InvoiceGeneration",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "Invoice",
+            "fields": ["client", "amount", "date", "status"],
+            "actions": [
+              {
+                "label": "Generate Invoice",
+                "onClick": "GenerateInvoice"
+              },
+              {
+                "label": "Approve Invoice",
+                "onClick": "ApproveInvoice"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GenerateInvoice",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "client",
+            "label": "Client",
+            "value": "Invoice.client"
+          },
+          {
+            "type": "Text",
+            "id": "amount",
+            "label": "Amount",
+            "value": "Invoice.amount"
+          },
+          {
+            "type": "Text",
+            "id": "date",
+            "label": "Date",
+            "value": "Invoice.date"
+          },
+          {
+            "type": "Button",
+            "id": "generate",
+            "label": "Generate",
+            "onClick": "ConfirmGenerateInvoice"
+          }
+        ]
+      },
+      {
+        "name": "ApproveInvoice",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Manager"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "client",
+            "label": "Client",
+            "value": "Invoice.client"
+          },
+          {
+            "type": "Text",
+            "id": "amount",
+            "label": "Amount",
+            "value": "Invoice.amount"
+          },
+          {
+            "type": "Text",
+            "id": "date",
+            "label": "Date",
+            "value": "Invoice.date"
+          },
+          {
+            "type": "Button",
+            "id": "approve",
+            "label": "Approve",
+            "onClick": "ConfirmApproveInvoice"
+          }
+        ]
+      },
+      {
+        "name": "TransactionHistory",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager", "Staff"],
+        "content": [
+          {
+            "type": "TableList",
+            "entity": "Transaction",
+            "fields": ["user", "client", "date", "amount"],
+            "actions": [
+              {
+                "label": "View Details",
+                "onClick": "ViewTransactionDetails"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ViewTransactionDetails",
+        "layout": "DashboardLayout",
+        "allowedRoles": ["Admin", "Manager", "Staff"],
+        "content": [
+          {
+            "type": "Text",
+            "id": "user",
+            "label": "User",
+            "value": "Transaction.user"
+          },
+          {
+            "type": "Text",
+            "id": "client",
+            "label": "Client",
+            "value": "Transaction.client"
+          },
+          {
+            "type": "Text",
+            "id": "date",
+            "label": "Date",
+            "value": "Transaction.date"
+          },
+          {
+            "type": "Text",
+            "id": "amount",
+            "label": "Amount",
+            "value": "Transaction.amount"
+          }
+        ]
+      }
+    ]
+  }
+  
