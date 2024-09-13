@@ -27,11 +27,14 @@ export default function Home() {
     let app_description: string = formData.get('app_description') as string || "";
     // console.log(formData.get('description'))
     try {
-      const response = await axios.post("/api/ai", {
+      const response = await axios.post("/api/ai/generator/sitemap", {
         app_context: app_description,
       });
-      setLayoutSetions(response.data.layout)
+      // setLayoutSetions(response.data.layout)
     localStorage.setItem("app_description",  app_description);
+    localStorage.setItem("app_data",  JSON.stringify(response.data));
+
+    router.push("/dashboard")
 
 
       const element = document.getElementById("layoutSection")

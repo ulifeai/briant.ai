@@ -3,6 +3,10 @@ import { HumanMessage, SystemMessage, AIMessage } from "@langchain/core/messages
 import { JsonOutputParser } from "@langchain/core/output_parsers";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { Contact } from "lucide-react";
+import { GENERATE_PAGE_SECTIONS_PROMPT, GENERATE_SITEMAP_PROMPT, PAGE_DETAILS_GENERATOR_PROMPT } from "./prompts";
+import { Model } from "./model";
+import { generateComponentsDocumentation } from "./generator/utils";
+import { WebPageConfig } from "@/types/webpageconfig";
 
 // Define your desired data structure. Only used for typing the parser output.
 interface Layout {
@@ -10,11 +14,20 @@ interface Layout {
     description: string;
 }
 
-export const model = new ChatOpenAI({
-  model: "gpt-4o",
-  temperature: 0
-});
 
+export interface Sitemap {
+    sitename: string,
+    pages: {
+        static: Layout[],
+        auth: Layout[],
+        admin: Layout[],
+    }
+}
+
+
+
+const parser_sitemap = new JsonOutputParser<Sitemap[]>();
+const parser_website = new JsonOutputParser<WebPageConfig[]>();
 const parser_layout = new JsonOutputParser<Layout[]>();
 const parser_copy = new JsonOutputParser<{component: string, updated_texts: string[]}[]>();
 
@@ -23,55 +36,77 @@ async function invoke(prompt_text: string, message: string, history: (HumanMessa
     const prompt = ChatPromptTemplate.fromTemplate(
         prompt_text + "\n{query}\n"
     );
-    const chain = prompt.pipe(model).pipe(parser);
-    const response = await chain.invoke({query: message});
+
+    let chain =prompt.pipe(Model).pipe(parser);
+    const response = await chain.invoke({query: message, string: ""});
     return response
 }
-
-export const generateLayout = async (app_context: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
+export const generateSitemap = async (app_context: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
     return await invoke(
-        `
-        Here is a list of possible sections of a landing page:
-        
-        Header navigations
-        Header sections
-        Features sections
-        Pricing sections
-        CTA sections
-        Metrics sections
-        Newsletter CTA sections
-        Testimonial sections
-        Social proof sections
-        Blog sections
-        Blog post sections
-        Content & rich text sections
-        Contact sections
-        Team sections
-        Careers sections
-        FAQ sections
-        Footers
-        Banners
+        GENERATE_SITEMAP_PROMPT,
+        `${app_context}`,
+        past_context,
+        parser_sitemap
+    )
+}
 
-        You are an expert in layout design and landing page creation. Given a landing page creation usecase, you should carefully pick from these section the sections
-        relevant for the given usecase and assemble them to form a landing page layout. for each section you should add a description. each description should be without visual details but functional details. It should be explicit enough for another AI generate the copyright of this component without other informations.
+
+export const generateLayout = async (app_context: string, page_data: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
+    return await invoke(
+        GENERATE_PAGE_SECTIONS_PROMPT,
+        // `
+        // Here is a list of possible sections of a landing page:
         
-        Respond with a valid array of JSON object, containing two fields: 'title' and 'desciption'. with the following structure
+        // Header navigations
+        // Header sections
+        // Features sections
+        // Pricing sections
+        // CTA sections
+        // Metrics sections
+        // Newsletter CTA sections
+        // Testimonial sections
+        // Social proof sections
+        // Blog sections
+        // Blog post sections
+        // Content & rich text sections
+        // Contact sections
+        // Team sections
+        // Careers sections
+        // FAQ sections
+        // Footers
+        // Banners
+
+        // You are an expert in layout design and landing page creation. Given a landing page creation usecase, you should carefully pick from these section the sections
+        // relevant for the given usecase and assemble them to form a landing page layout. for each section you should add a description. each description should be without visual details but functional details. It should be explicit enough for another AI generate the copyright of this component without other informations.
+        
+        // Respond with a valid array of JSON object, containing two fields: 'title' and 'desciption'. with the following structure
 
        
-        Don't add any explanations, just answer with the json output. You should add nothing else but the JSON output.
+        // Don't add any explanations, just answer with the json output. You should add nothing else but the JSON output.
 
-        Make sure the json output is correct, verify your response and make sure the json is correct.
+        // Make sure the json output is correct, verify your response and make sure the json is correct.
 
 
-        I want to generate a landing page for this usecase:
-        `,
+        // I want to generate a landing page for this usecase:
+        // `,
 
-        `${app_context}`,
+        `${app_context}, ${page_data}`,
 
         past_context,
         parser_layout
     )
 }
+
+export const generatePageCode = async (app_layout: string, page_data: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
+    return await invoke(
+        PAGE_DETAILS_GENERATOR_PROMPT,
+        `App layout: ${app_layout}, more data about the application: ${page_data}`,
+        past_context,
+        parser_website
+    )
+}
+
+
 
 export const generateCopy = async (html_content: any, context_data: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
     return await invoke(

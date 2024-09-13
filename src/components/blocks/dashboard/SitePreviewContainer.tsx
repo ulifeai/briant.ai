@@ -10,7 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { useState } from "react";
+import { IframeHTMLAttributes, useEffect, useRef, useState } from "react";
 import { DashboardActionsHeader } from "@/components/custom/DashboardActionsHeader";
 import SitePreview from "./SitePreview";
 import {
@@ -19,9 +19,16 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 
-export default function SitePreviewContainer() {
+export default function SitePreviewContainer({website_content}: {website_content: string}) {
 
   const [viewMode, setViewMode] = useState('web')
+  const iframeRef = useRef<any>(null)
+
+  useEffect(()=>{
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      iframeRef.current?.contentWindow.postMessage({website_content}, "*")
+    }
+  }, [website_content])
 
     return <div className="flex-1 flex flex-col">
     {/* Top Header */}
@@ -74,7 +81,7 @@ export default function SitePreviewContainer() {
          
         </div> */}
 
-        <iframe src="http://localhost:3000/preview" className="w-full h-[95vh]"></iframe>
+        <iframe ref={iframeRef} src="http://localhost:3001/preview" className="w-full h-[95vh]"></iframe>
           
       </div>
     </ScrollArea>
