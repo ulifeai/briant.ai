@@ -15,23 +15,45 @@ type JSXChild =
     | t.JSXExpressionContainer
     | t.JSXSpreadChild;
 
+/**
+ * Updated ConverterNode interface with an optional 'package' property.
+ * Ensure that your '../../types/converter' reflects this addition.
+ */
+interface ExtendedConverterNode extends ConverterNode {
+    package?: string;
+}
+
 export class React2Json {
+    // **1. Import Mapping**
+    /**
+     * A map to store component names and their corresponding source packages.
+     * This map is reset for each file processed to ensure accuracy.
+     */
+    private importMap: Map<string, string> = new Map();
+
     /**
      * Function to transform a string of React code into a JSON representation.
      * @param {string} code - The string of React code to transform.
-     * @returns {ConverterNode | null} - The JSON representation of the React code or null if not found.
+     * @returns {ExtendedConverterNode | null} - The JSON representation of the React code or null if not found.
      */
-    public reactCodeToJson(code: string): ConverterNode | null {
+    public reactCodeToJson(code: string): ExtendedConverterNode | null {
+        // **5. Reset importMap for each file**
+        this.importMap.clear();
+
         // Parse the code into an AST
         const ast = parse(code, {
             sourceType: "module",
             plugins: ["jsx", "typescript"],
         });
 
-        let jsonStructure: ConverterNode | null = null;
+        let jsonStructure: ExtendedConverterNode | null = null;
 
-        // Traverse the AST to find the ReturnStatement
+        // Traverse the AST to process ImportDeclarations and find the ReturnStatement
         traverse(ast, {
+            // **2. Processing Import Declarations**
+            ImportDeclaration: (path: NodePath<t.ImportDeclaration>) => {
+                this.handleImportDeclaration(path.node);
+            },
             ReturnStatement: (path: NodePath<t.ReturnStatement>) => {
                 const argument = path.node.argument;
                 if (argument && t.isJSXElement(argument)) {
@@ -47,26 +69,58 @@ export class React2Json {
         return jsonStructure;
     }
 
+    // **2. Processing Import Declarations**
+    /**
+     * Processes an ImportDeclaration node to populate the importMap.
+     * @param {t.ImportDeclaration} node - The ImportDeclaration AST node.
+     */
+    private handleImportDeclaration(node: t.ImportDeclaration) {
+        const source = node.source.value; // e.g., 'react', 'antd', './CustomComponent'
+
+        node.specifiers.forEach(specifier => {
+            if (t.isImportSpecifier(specifier)) {
+                // Named import: import { Button } from 'antd';
+                const importedName = (specifier.imported as t.Identifier).name;
+                const localName = specifier.local.name;
+                this.importMap.set(localName, source);
+            } else if (t.isImportDefaultSpecifier(specifier)) {
+                // Default import: import React from 'react';
+                const localName = specifier.local.name;
+                this.importMap.set(localName, source);
+            } else if (t.isImportNamespaceSpecifier(specifier)) {
+                // Namespace import: import * as UI from 'ui-library';
+                const localName = specifier.local.name;
+                this.importMap.set(localName, source);
+            }
+            // You can handle more specifier types if needed
+        });
+    }
+
     /**
      * Helper function to convert a JSXElement node to a ConverterNode.
      * @param {t.JSXElement} node - The JSXElement node.
-     * @returns {ConverterNode} - The ConverterNode representation.
+     * @returns {ExtendedConverterNode} - The ConverterNode representation with optional package info.
      */
-    private jsxElementToJson(node: t.JSXElement): ConverterNode {
+    private jsxElementToJson(node: t.JSXElement): ExtendedConverterNode {
         const openingElement = node.openingElement;
         const tagName = this.getJSXTagName(openingElement.name);
 
         const isComponent = /^[A-Z]/.test(tagName);
         const nodeType: ConverterNode["type"] = isComponent ? "component" : "element";
-        // FIX THIS
         const props: Record<string, any> = {};
         let className = "";
+        let packageName: string | undefined;
+
+        if (isComponent) {
+            // **4. Retrieve the package name from importMap**
+            packageName = this.importMap.get(tagName);
+        }
 
         // Process each attribute of the JSX element
         openingElement.attributes.forEach((attr: t.JSXAttribute | t.JSXSpreadAttribute) => {
             if (t.isJSXAttribute(attr)) {
                 const propName = attr.name.name;
-                let propValue = null;
+                let propValue: any = null;
 
                 if (attr.value) {
                     if (t.isStringLiteral(attr.value)) {
@@ -106,11 +160,12 @@ export class React2Json {
             .flat()
             .filter((child: ConverterNode | null): child is ConverterNode => child !== null);
 
-        const elementNode: ConverterNode = {
+        const elementNode: ExtendedConverterNode = {
             type: nodeType,
             ...(nodeType === "element"
                 ? { tag: tagName }
                 : { component: tagName }),
+            ...(isComponent && packageName ? { package: packageName } : {}),
             props: Object.keys(props).length > 0 ? props : undefined,
             children: children.length > 0 ? children : undefined,
         };
@@ -369,7 +424,7 @@ export class React2Json {
 
     /**
      * Helper function to convert an expression to a string representation.
-     * @param {t.Expression} expression - The expression node.
+     * @param {t.Node} expression - The expression node.
      * @returns {string} - The string representation of the expression.
      */
     private expressionToString(expression: t.Node): string {
@@ -388,7 +443,7 @@ export class React2Json {
                 : t.isStringLiteral(expression.property)
                     ? expression.property.value
                     : this.expressionToString(expression.property);
-            const operator = expression.optional ? '?.' : '.';
+            const operator = t.isOptionalMemberExpression(expression) && expression.optional ? '?.' : '.';
             return `${objectStr}${operator}${propertyStr}`;
         } else if (t.isCallExpression(expression) || t.isOptionalCallExpression(expression)) {
             const callee = this.expressionToString(expression.callee);

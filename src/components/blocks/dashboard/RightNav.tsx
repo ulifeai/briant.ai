@@ -1,3 +1,5 @@
+import BlockCustomizer from "@/components/custom/BlockCustomizer";
+import { ThemeCustomizer } from "@/components/custom/theme-customizer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -42,12 +44,20 @@ const layoutSections = [
   }
 ]
 
-export default function RightNav() {
-    return <div className="w-64 bg-muted border-r border-gray-800 flex flex-col absolute right-0 top-[3rem] h-full bg-black">
-    <div className="p-4 border-b border-gray-800">
-     
+type RightNavProps = {
+  sideContent: any
+}
+
+
+export default function RightNav({sideContent}: RightNavProps) {
+    return <div className=" bg-muted w-[17vw] border-r border-border bg-white absolute flex flex-col right-0 top-[3.5rem] h-full">
+      
+    <div className="p-4 ">
+    {sideContent ? <div>
+          <BlockCustomizer  componentType={sideContent.type} id={sideContent.id} onChange={(a: any)=>{console.log(a)}}/>  
+      </div> :  <ThemeCustomizer></ThemeCustomizer>}
     </div>
-    <ScrollArea className="flex-grow">
+    {/* <ScrollArea className="flex-grow">
       <div className="pt-4 space-y-4">
         <div>
           <h3 className="mb-2 text-sm font-bold px-4 text-muted-foreground flex justify-start">
@@ -77,7 +87,7 @@ export default function RightNav() {
             ))}
           </Accordion>
          
-          {/* <div className="space-y-1">
+          <div className="space-y-1">
             <Button variant="ghost" className="text-xs font-light w-full justify-start">
             <LayoutIcon className="mr-2 h-3 w-3" />
               Contact
@@ -88,11 +98,11 @@ export default function RightNav() {
             <LayoutIcon className="mr-2 h-3 w-3" />
               About
             </Button>
-          </div> */}
+          </div>
         </div>
        
        
       </div>
-    </ScrollArea>
+    </ScrollArea> */}
   </div>
 }

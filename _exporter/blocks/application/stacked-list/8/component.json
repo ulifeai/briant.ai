@@ -1,0 +1,368 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "flex flex-col"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-col justify-between items-start mb-4"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "h1",
+              "props": {
+                "className": "text-2xl font-semibold"
+              },
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "p",
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-row lg:items-center items-center justify-between lg:w-fit w-full"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-row gap-x-4 mr-3"
+              },
+              "children": [
+                {
+                  "type": "loop",
+                  "loop": {
+                    "array": "buttons",
+                    "iterator": "button"
+                  },
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "Button",
+                      "package": "@/components/ui/button",
+                      "props": {
+                        "key": "{index}",
+                        "variant": "{button.variant}",
+                        "size": "{button.size}",
+                        "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                        "asChild": true,
+                        "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "a",
+                          "props": {
+                            "href": "{button.href}"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "component",
+              "component": "Popover",
+              "package": "@/components/ui/popover",
+              "children": [
+                {
+                  "type": "component",
+                  "component": "PopoverTrigger",
+                  "package": "@/components/ui/popover",
+                  "props": {
+                    "asChild": true
+                  },
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "Button",
+                      "package": "@/components/ui/button",
+                      "props": {
+                        "variant": "{\"none\"}"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-row items-center justify-center gap-x-1 cursor-pointer w-8 h-8 my-auto"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                              }
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                              }
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "PopoverContent",
+                  "package": "@/components/ui/popover",
+                  "props": {
+                    "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "floatingBoxMenu",
+                        "iterator": "box"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "a",
+                          "props": {
+                            "key": "{index}",
+                            "href": "{box.href}",
+                            "tabIndex": "{0}",
+                            "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "box.name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex flex-col border-t-[1px] border-black"
+      },
+      "children": [
+        {
+          "type": "loop",
+          "loop": {
+            "array": "cards",
+            "iterator": "card"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "a",
+              "props": {
+                "key": "{index}",
+                "href": "{card.href}",
+                "className": "flex flex-col lg:items-center items-start justify-center gap-y-4 lg:grid lg:grid-cols-[1fr_max-content] auto-rows-auto\tborder-b-[1px] border-black gap-x-3 px-6 py-4"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex flex-row justify-start items-center gap-3"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "p-2 bg-[#eee]"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Image",
+                          "package": "next/image",
+                          "props": {
+                            "src": "{card.srcImage}",
+                            "width": "{200}",
+                            "height": "{200}",
+                            "alt": "{card.altImage}",
+                            "className": "h-8 w-8 object-cover"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "flex flex-col justify-between items-start"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "p",
+                          "props": {
+                            "className": "font-semibold"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "card.name"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-row gap-x-3 justify-start items-center"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "text-sm"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "card.date"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "text": "•"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "text-sm"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "card.categorie"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex flex-row items-center lg:justify-center justify-between gap-x-10 w-full"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "flex flex-row justify-start items-center"
+                      },
+                      "children": [
+                        {
+                          "type": "loop",
+                          "loop": {
+                            "array": "card.teamImage",
+                            "iterator": "team"
+                          },
+                          "children": [
+                            {
+                              "type": "component",
+                              "component": "Image",
+                              "package": "next/image",
+                              "props": {
+                                "key": "{index}",
+                                "src": "{team.src}",
+                                "width": "{24}",
+                                "height": "{24}",
+                                "alt": "{team.alt}",
+                                "className": "h-10 w-10 rounded-full object-cover -ml-2 border-2 border-white"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "ChevronRight",
+                      "package": "lucide-react"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

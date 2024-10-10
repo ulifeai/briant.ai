@@ -1,0 +1,8 @@
+{
+  "type": "component",
+  "component": "Facebook",
+  "package": "lucide-react",
+  "props": {
+    "className": "h-5 w-5"
+  }
+}

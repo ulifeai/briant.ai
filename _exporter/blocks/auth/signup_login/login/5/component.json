@@ -1,0 +1,509 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "h-screen"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "w-full sm:w-1/2 relative px-[5%]"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col h-full"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex justify-start items-center h-16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Image",
+                          "package": "next/image",
+                          "props": {
+                            "width": "{63}",
+                            "height": "{27}",
+                            "src": "{logo.src}",
+                            "alt": "{logo.alt}"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mx-24 flex flex-col justify-center h-full"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "max-w-[480px]"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-col gap-6"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "h1",
+                              "props": {
+                                "className": "text-4xl sm:text-5xl text-black text-center font-bold"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "title"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "p",
+                              "props": {
+                                "className": "text-lg text-center"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "description"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "form",
+                              "props": {
+                                "action": "",
+                                "className": "flex flex-col gap-6"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "text-base text-black mb-2"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "dynamicText",
+                                          "text": "labels.0"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "text-base text-black mb-2"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "dynamicText",
+                                          "text": "labels.1"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex flex-col gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Button",
+                                      "package": "@/components/ui/button",
+                                      "props": {
+                                        "variant": "{button.variant}",
+                                        "className": "rounded-none w-full px-3 py-6 text-base"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "dynamicText",
+                                          "text": "button.title"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "loop",
+                                      "loop": {
+                                        "array": "buttons",
+                                        "iterator": "button"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Button",
+                                          "package": "@/components/ui/button",
+                                          "props": {
+                                            "variant": "{button.variant}",
+                                            "className": "text-black text-lg rounded-none w-auto px-3 py-6 bg-white border border-black flex gap-4"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "component",
+                                              "component": "Image",
+                                              "package": "next/image",
+                                              "props": {
+                                                "src": "{!button.image ? \"\" : button.image.src}",
+                                                "alt": "{!button.image ? \"\" : button.image.alt}",
+                                                "width": "{17.28}",
+                                                "height": "{17.28}"
+                                              }
+                                            },
+                                            {
+                                              "type": "dynamicText",
+                                              "text": "button.title"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex gap-2 mx-auto"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "span",
+                                      "props": {
+                                        "className": "hidden sm:block"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "dynamicText",
+                                          "text": "signup_description"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Link",
+                                      "package": "next/link",
+                                      "props": {
+                                        "href": "{signup_link_src}",
+                                        "className": "underline decoration-solid"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "text": "Sign up"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "text-start text-sm h-16 absolute bottom-0 right-0 left-0 top-auto ps-[5%]"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "footer_description"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "w-1/2 bg-[#eeeeee]  h-screen"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "h-full w-full flex flex-col justify-center items-center p-20"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Carousel",
+                  "package": "@/components/ui/carousel",
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "CarouselContent",
+                      "package": "@/components/ui/carousel",
+                      "children": [
+                        {
+                          "type": "loop",
+                          "loop": {
+                            "array": "compagnyprofiles",
+                            "iterator": "item"
+                          },
+                          "children": [
+                            {
+                              "type": "component",
+                              "component": "CarouselItem",
+                              "package": "@/components/ui/carousel",
+                              "props": {
+                                "className": "flex flex-col items-center max-w-3xl gap-8"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/star.png",
+                                        "alt": "star",
+                                        "width": "{20}",
+                                        "height": "{19}"
+                                      }
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/star.png",
+                                        "alt": "star",
+                                        "width": "{20}",
+                                        "height": "{19}"
+                                      }
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/star.png",
+                                        "alt": "star",
+                                        "width": "{20}",
+                                        "height": "{19}"
+                                      }
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/star.png",
+                                        "alt": "star",
+                                        "width": "{20}",
+                                        "height": "{19}"
+                                      }
+                                    },
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/star.png",
+                                        "alt": "star",
+                                        "width": "{20}",
+                                        "height": "{19}"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "text-center text-2xl font-bold"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "dynamicText",
+                                      "text": "item.paragraph"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex items-center gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "flex gap-4 items-center"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Image",
+                                          "package": "next/image",
+                                          "props": {
+                                            "src": "{item.image.src}",
+                                            "alt": "{item.image.alt}",
+                                            "width": "{56}",
+                                            "height": "{56}",
+                                            "className": "rounded-full"
+                                          }
+                                        },
+                                        {
+                                          "type": "element",
+                                          "tag": "div",
+                                          "children": [
+                                            {
+                                              "type": "element",
+                                              "tag": "p",
+                                              "props": {
+                                                "className": "font-semibold"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "dynamicText",
+                                                  "text": "item.name"
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "element",
+                                              "tag": "p",
+                                              "children": [
+                                                {
+                                                  "type": "dynamicText",
+                                                  "text": "item.description"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "h-full border border-black"
+                                      }
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Image",
+                                          "package": "next/image",
+                                          "props": {
+                                            "src": "/images/webflow.svg",
+                                            "alt": "star",
+                                            "width": "{120}",
+                                            "height": "{48}"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "CarouselPrevious",
+                      "package": "@/components/ui/carousel"
+                    },
+                    {
+                      "type": "component",
+                      "component": "CarouselNext",
+                      "package": "@/components/ui/carousel"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

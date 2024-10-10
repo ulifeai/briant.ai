@@ -1,0 +1,237 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "lg:max-h-full px-[2%] py-16 container  m-auto"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex flex-col items-center w-full gap-y-12 lg:items-center"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-col-reverse w-full"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "w-full my-12"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{image.image}",
+                    "alt": "{image.alt}",
+                    "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
+                    "className": "w-full h-full my-2 object-cover max-h-[50rem]"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col text-center items-center gap-x-8"
+              },
+              "children": [
+                {
+                  "type": "logical",
+                  "operator": "&&",
+                  "condition": "tag",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "span",
+                      "props": {
+                        "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "tag"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "h1",
+                  "props": {
+                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
+                    "className": "text-4xl font-bold py-2 max-w-[50rem]"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "title"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "max-w-[50rem]"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "props": {
+                        "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                        "className": "text-base py-2"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "description"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "mt-8"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "{`w-full flex items-center`}"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "lg:max-w-[30rem] mx-auto"
+                              },
+                              "children": [
+                                {
+                                  "type": "conditional",
+                                  "condition": "form",
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "form",
+                                      "props": {
+                                        "action": "",
+                                        "className": "flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Input",
+                                          "package": "@/components/ui/input",
+                                          "props": {
+                                            "type": "text",
+                                            "placeholder": "{form?.placeholder ?? \"\"}",
+                                            "className": "border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
+                                          }
+                                        },
+                                        {
+                                          "type": "loop",
+                                          "loop": {
+                                            "array": "buttons",
+                                            "iterator": "button"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "component",
+                                              "component": "Button",
+                                              "package": "@/components/ui/button",
+                                              "props": {
+                                                "key": "{index}",
+                                                "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                                                "className": "whitespace-nowrap h-10 px-4 py-2"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "dynamicText",
+                                                  "text": "button.title"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "else": [
+                                    {
+                                      "type": "fragment",
+                                      "children": [
+                                        {
+                                          "type": "loop",
+                                          "loop": {
+                                            "array": "buttons",
+                                            "iterator": "button"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "component",
+                                              "component": "Button",
+                                              "package": "@/components/ui/button",
+                                              "props": {
+                                                "key": "{index}",
+                                                "variant": "{button.variant}",
+                                                "size": "{button.size}",
+                                                "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                                                "className": "whitespace-nowrap h-10 px-4 mx-2 py-2"
+                                              },
+                                              "children": [
+                                                {
+                                                  "type": "dynamicText",
+                                                  "text": "button.title"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "{` text-xs`}"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "dynamicText",
+                                      "text": "(form?.description ?? \"\")"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

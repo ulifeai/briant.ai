@@ -3,6 +3,9 @@ import { Button } from "../ui/button"
 import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group"
 import { Dispatch, SetStateAction } from "react"
 import { ModeToggle } from "./ModeToggle"
+import { ThemeCustomizer } from "@/components/custom/theme-customizer"
+import { useParams } from "next/navigation"
+import Link from "next/link"
 
 type Props = {
     viewMode: string,
@@ -10,18 +13,21 @@ type Props = {
 
 }
 export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
+    const params = useParams<{ id: string }>()
+
     return (
         <div className="bg-muted py-2 px-4 border-b border-border">
             <div className="flex items-center justify-between">
-            <div>
+            <div className="flex">
                 <Button className="bg-primary mr-4" size="sm">
-                <Sparkles className="h-4 w-4 mr-2" />
-                Change style with AI
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    Change style with AI
                 </Button>
                 <Button size="sm">
-                <Settings className="h-4 w-4 mr-2" />
-                Custom style
+                    <Settings className="h-4 w-4 mr-2" />
+                    Custom style
                 </Button>
+                {/* <ThemeCustomizer /> */}
             </div>
             <div className="flex items-center space-x-4">
                 <ToggleGroup type="single" value={viewMode} onValueChange={(value) => value && setViewMode(value)}>
@@ -46,13 +52,15 @@ export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
                     <CodeIcon className="h-4 w-4" />
                 </ToggleGroupItem>
                 </ToggleGroup> */}
-                <Button  size="sm">
-                <DownloadIcon className="h-4 w-4 mr-2" />
-                Download source
-                </Button>
+                <Link href={"/api/app/project/download/"+params.id}>
+                    <Button  size="sm">
+                        <DownloadIcon className="h-4 w-4 mr-2" />
+                        Download source
+                    </Button>
+                </Link>
                 <Button className="bg-primary" size="sm">
-                <UploadIcon className="h-4 w-4 mr-2" />
-                Deploy
+                    <UploadIcon className="h-4 w-4 mr-2" />
+                    Deploy
                 </Button>
                 <ModeToggle></ModeToggle>
             </div>

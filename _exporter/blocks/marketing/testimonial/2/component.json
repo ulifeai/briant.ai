@@ -1,0 +1,156 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "container mx-auto px-4 py-16 md:px-6 lg:px-8"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "h2",
+      "props": {
+        "className": "text-4xl font-bold text-center mb-4"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "title"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "props": {
+        "className": "text-xl text-center  mb-12"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "subtitle"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "mx-auto gap-6 flex flex-1 flex-row justify-center gap-x-6"
+      },
+      "children": [
+        {
+          "type": "loop",
+          "loop": {
+            "array": "testimonials",
+            "iterator": "testimonial"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "key": "{testimonial.id}",
+                "className": "rounded-lg p-8 mb-8"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex justify-center mb-4"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "img",
+                      "props": {
+                        "src": "{testimonial.logo}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "blockquote",
+                  "props": {
+                    "className": "text-xl text-center mb-8"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "\""
+                    },
+                    {
+                      "type": "dynamicText",
+                      "text": "testimonial.quote"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\""
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex flex-col items-center"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "w-12 h-12 bg-gray-200 rounded-full mb-4"
+                      }
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "text-center"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "p",
+                          "props": {
+                            "className": "font-semibold"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "testimonial.author"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "p",
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "testimonial.position"
+                            },
+                            {
+                              "type": "text",
+                              "text": ","
+                            },
+                            {
+                              "type": "dynamicText",
+                              "text": "testimonial.company"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

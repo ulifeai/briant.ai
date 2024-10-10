@@ -1,0 +1,450 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "px-[5%] h-screen"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex flex-col gap-32 h-svh"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex justify-between items-center h-16"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Image",
+                  "package": "next/image",
+                  "props": {
+                    "width": "{63}",
+                    "height": "{27}",
+                    "src": "{logo.src}",
+                    "alt": "{logo.alt}"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex gap-2"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "span",
+                  "props": {
+                    "className": "hidden sm:block"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "signup_description"
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "Link",
+                  "package": "next/link",
+                  "props": {
+                    "href": "{signup_link_src}",
+                    "className": "underline decoration-solid"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "Sign up"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "w-full"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col justify-center items-center"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Tabs",
+                  "package": "@/components/ui/tabs",
+                  "props": {
+                    "defaultValue": "Sign Up",
+                    "className": "max-w-[40rem] flex flex-col gap-6"
+                  },
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "TabsList",
+                      "package": "@/components/ui/tabs",
+                      "props": {
+                        "className": "flex justify-center"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "TabsTrigger",
+                          "package": "@/components/ui/tabs",
+                          "props": {
+                            "value": "Sign Up",
+                            "className": "rounded-none w-1/2 text-base px-6 py-3"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "Sign Up"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "component",
+                          "component": "TabsTrigger",
+                          "package": "@/components/ui/tabs",
+                          "props": {
+                            "value": "Login",
+                            "className": "rounded-none w-1/2 text-base px-6 py-3"
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "text": "Login"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "TabsContent",
+                      "package": "@/components/ui/tabs",
+                      "props": {
+                        "value": "Sign Up",
+                        "className": "flex flex-col gap-6"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "h1",
+                          "props": {
+                            "className": "text-4xl sm:text-5xl text-black text-center font-bold"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "title.0"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "p",
+                          "props": {
+                            "className": "text-lg text-center"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "description.0"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "form",
+                          "props": {
+                            "action": "",
+                            "className": "flex flex-col gap-9"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "flex flex-col gap-4"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "placeholder": "Name",
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "placeholder": "Email",
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "placeholder": "Password",
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "flex flex-col gap-4"
+                              },
+                              "children": [
+                                {
+                                  "type": "component",
+                                  "component": "Button",
+                                  "package": "@/components/ui/button",
+                                  "props": {
+                                    "className": "rounded-none w-full px-3 py-6 text-base"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "text": "Log in"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "component",
+                                  "component": "Button",
+                                  "package": "@/components/ui/button",
+                                  "props": {
+                                    "className": "text-black text-lg rounded-none w-auto px-3 py-6 bg-white border border-black flex gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/logo-google.svg",
+                                        "alt": "",
+                                        "width": "{17.28}",
+                                        "height": "{17.28}"
+                                      }
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": "Log in with Google"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "TabsContent",
+                      "package": "@/components/ui/tabs",
+                      "props": {
+                        "value": "Login",
+                        "className": "flex flex-col gap-6"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "h1",
+                          "props": {
+                            "className": "text-4xl sm:text-5xl text-black text-center font-bold"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "title.1"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "p",
+                          "props": {
+                            "className": "text-lg text-center"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "description.1"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "element",
+                          "tag": "form",
+                          "props": {
+                            "action": "",
+                            "className": "flex flex-col gap-9"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "flex flex-col gap-4"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div"
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "placeholder": "Email",
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Input",
+                                      "package": "@/components/ui/input",
+                                      "props": {
+                                        "placeholder": "Password",
+                                        "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "props": {
+                                "className": "flex flex-col gap-4"
+                              },
+                              "children": [
+                                {
+                                  "type": "component",
+                                  "component": "Button",
+                                  "package": "@/components/ui/button",
+                                  "props": {
+                                    "className": "rounded-none w-full px-3 py-6 text-base"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "text": "Log in"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "component",
+                                  "component": "Button",
+                                  "package": "@/components/ui/button",
+                                  "props": {
+                                    "className": "text-black text-lg rounded-none w-auto px-3 py-6 bg-white border border-black flex gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "component",
+                                      "component": "Image",
+                                      "package": "next/image",
+                                      "props": {
+                                        "src": "/images/logo-google.svg",
+                                        "alt": "",
+                                        "width": "{17.28}",
+                                        "height": "{17.28}"
+                                      }
+                                    },
+                                    {
+                                      "type": "text",
+                                      "text": "Log in with Google"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "text-center text-sm h-16 fixed bottom-0 right-0 left-0"
+          },
+          "children": [
+            {
+              "type": "text",
+              "text": "© 2022 Relume"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

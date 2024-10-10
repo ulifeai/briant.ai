@@ -2,16 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Sitemap } from "@/lib/ai/invoke";
-import { File } from "lucide-react";
+import { Category } from "@/models/Page";
+import { Sitemap } from "@/validators/modelOutput";
+import axios from "axios";
+import { Check, CheckCheckIcon, Clock1, File } from "lucide-react";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function LeftNav({onItemClick, activeMenu}:{onItemClick: Function, activeMenu: string}) {
+export default function LeftNav({onItemClick, activeMenu, sitemap}:{onItemClick: Function, activeMenu: string, sitemap: any}) {
 
-    const [sitemap, setSitemap] = useState<Sitemap | undefined>()
-    useEffect(()=>{
-      setSitemap(JSON.parse(localStorage.getItem("app_data") ?? "")??undefined)
-    }, [])
     return <div className="w-56 bg-muted border-r border-border flex flex-col">
     <div className="p-4 border-b border-border">
       Dxter.ai
@@ -25,11 +24,16 @@ export default function LeftNav({onItemClick, activeMenu}:{onItemClick: Function
             </div>
           </h3>
           {sitemap?.pages.static.map((item: any, index: number)=>(
-            <div className={(activeMenu == item.title ? "bg-gray-100 " : "") + "space-y-1"} key={index} onClick={()=>onItemClick(item, "static page")}>
+            <div className={(activeMenu == item.name ? "bg-gray-100 " : "") + "space-y-1 flex jutify-between items-center pr-8"} key={item._id} onClick={()=>onItemClick(item, "static page")}>
               <Button variant="ghost" className="text-xs w-full justify-start font-[400]">
               <File className="mr-2 h-3 w-3" />
-                {item.title}
+                {item.name}
               </Button>
+              {item.blocks.length == 0 ? (
+                <Clock1 className="mr-2 h-4 w-4" />
+              ): (
+                <CheckCheckIcon className="mr-2 h-4 w-4 text-green-500" />
+              )}
             </div>
           ))}
           
@@ -54,11 +58,18 @@ export default function LeftNav({onItemClick, activeMenu}:{onItemClick: Function
             </div>              
           </h3>
           {sitemap?.pages.auth.map((item: any, index: number)=>(
-            <div className="space-y-1" key={index} onClick={()=>onItemClick(item, "auth page")}>
+            <div className={(activeMenu == item.name ? "bg-gray-100 " : "") + "space-y-1 flex jutify-between items-center pr-8"} key={item._id} onClick={()=>onItemClick(item, "auth page")}>
               <Button variant="ghost" className="text-xs w-full justify-start font-[400]">
               <File className="mr-2 h-3 w-3" />
-                {item.title}
+                {item.name}
+
               </Button>
+              {item.blocks.length == 0 ? (
+                <Clock1 className="mr-2 h-4 w-4" />
+              ): (
+                <Check className="mr-2 h-4 w-4 text-grenn-500" />
+              )}
+
             </div>
           ))}
           {/* <div className="space-y-1 ml-0">
@@ -80,11 +91,16 @@ export default function LeftNav({onItemClick, activeMenu}:{onItemClick: Function
             </div>              
           </h3>
           {sitemap?.pages.admin.map((item: any, index: number)=>(
-            <div className="space-y-1" key={index} onClick={()=>onItemClick(item, "dashboard page")}>
+            <div className={(activeMenu == item.name ? "bg-gray-100 " : "") + "space-y-1 flex jutify-between items-center pr-8"} key={item._id} onClick={()=>onItemClick(item, "dashboard page")}>
               <Button variant="ghost" className="text-xs w-full justify-start font-[400]">
               <File className="mr-2 h-3 w-3" />
-                {item.title}
+                {item.name}
               </Button>
+              {item.blocks.length == 0 ? (
+                <Clock1 className="mr-2 h-4 w-4" />
+              ): (
+                <Check className="mr-2 h-4 w-4 text-grenn-500" />
+              )}
             </div>
           ))}
           {/* <div className="space-y-1 ml-0">
@@ -102,4 +118,5 @@ export default function LeftNav({onItemClick, activeMenu}:{onItemClick: Function
       </div>
     </ScrollArea>
   </div>
+  
 }

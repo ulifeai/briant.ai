@@ -1,0 +1,222 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "container mx-auto px-4 py-16 md:px-6 lg:px-8"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "h2",
+      "props": {
+        "className": "text-4xl font-bold text-center mb-4"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "title"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "p",
+      "props": {
+        "className": "text-xl text-center text-gray-600 mb-12"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "subtitle"
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Tabs",
+      "package": "@/components/ui/tabs",
+      "props": {
+        "defaultValue": "{testimonials.0.id}",
+        "className": "max-w-4xl mx-auto border border-gray-200"
+      },
+      "children": [
+        {
+          "type": "loop",
+          "loop": {
+            "array": "testimonials",
+            "iterator": "testimonial"
+          },
+          "children": [
+            {
+              "type": "component",
+              "component": "TabsContent",
+              "package": "@/components/ui/tabs",
+              "props": {
+                "key": "{testimonial.id}",
+                "value": "{testimonial.id}"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "rounded-lg p-8 mb-8"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "flex justify-center mb-4"
+                      },
+                      "children": [
+                        {
+                          "type": "loop",
+                          "loop": {
+                            "array": "[...Array(testimonial.rating)]",
+                            "iterator": "_"
+                          },
+                          "children": [
+                            {
+                              "type": "component",
+                              "component": "Star",
+                              "package": "lucide-react",
+                              "props": {
+                                "key": "{i}",
+                                "className": "w-6 h-6 text-yellow-400 fill-current"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "blockquote",
+                      "props": {
+                        "className": "text-xl text-center mb-8"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "\""
+                        },
+                        {
+                          "type": "dynamicText",
+                          "text": "testimonial.quote"
+                        },
+                        {
+                          "type": "text",
+                          "text": "\""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "flex flex-col items-center"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "w-12 h-12 bg-gray-200 rounded-full mb-4"
+                          }
+                        },
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "text-center"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "p",
+                              "props": {
+                                "className": "font-semibold"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "testimonial.author"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "p",
+                              "props": {
+                                "className": "text-gray-600"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "testimonial.position"
+                                },
+                                {
+                                  "type": "text",
+                                  "text": ","
+                                },
+                                {
+                                  "type": "dynamicText",
+                                  "text": "testimonial.company"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "component",
+          "component": "TabsList",
+          "package": "@/components/ui/tabs",
+          "props": {
+            "className": "flex justify-center border-b border-gray-200"
+          },
+          "children": [
+            {
+              "type": "loop",
+              "loop": {
+                "array": "testimonials",
+                "iterator": "testimonial"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "TabsTrigger",
+                  "package": "@/components/ui/tabs",
+                  "props": {
+                    "key": "{testimonial.id}",
+                    "value": "{testimonial.id}",
+                    "className": "flex-1 py-4 px-6 focus:outline-none data-[state=active]:border-2 data-[state=active]:border-black"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "img",
+                      "props": {
+                        "src": "{testimonial.logo}",
+                        "alt": "{testimonial.alt}",
+                        "className": "mx-auto h-10"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

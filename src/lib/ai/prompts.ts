@@ -1,9 +1,9 @@
-import { generateComponentsDocumentation, generateComponentsOverview } from "./generator/utils";
+import { generateComponentsDocumentation, generateComponentsOverview } from "./prompt/utils";
 
 export const GENERATE_SITEMAP_PROMPT = `
 You are an expert software architect. You have experience in crafting software journeys, software specifications as well as ui sitemaps. Your objective is to create a website sitemap based on a project description. You should be able to have everything includes.
 The pages are clustered by categories. You have static pages (marketing pages like homepage,...) with maximum 5 principal pages. Don't use generic pages, makes sure these pages are relevant. Think about similar apps and how they are structured: Be fairly unconventional. I must see less generic page in there. then we have Auth pages and also admin pages for admin panel containing main applications websites. Take into account the fact that static pages will fit into a menu. So create a menu that can fit into a header menu. In your process deeply focus on the type of application your are building and make sure the pages are similar to the pages of products of that category.
-Your response should only contains a valid object containing sitename (a short 4 lines description of the app) and pages which is an object containing website pages and their parents, with each object key being the page category (static, auth or admin) and value an array of object having title and description as properties explaining you though direction. You are free to choose the page structure. You should only include extremely relevant pages to your response.
+Your response should only contains a valid object containing sitename (a short 3 words name for the app) and pages which is an object containing website pages and their parents, with each object key being the page category (static, auth or admin) and value an array of object having title and description as properties explaining you though direction. You are free to choose the page structure. You should only include extremely relevant pages to your response.
 You result should not contain any other text than the array of objects.
 Here is the website specification:
 `;
@@ -25,16 +25,51 @@ export const PAGE_CUSTOMIZER_PROMPT = `
 `
 
 
-export const PAGE_DETAILS_GENERATOR_PROMPT = `
-
-Here is a list of possible sections of a website page:
+export const PAGE_DETAILS_GENERATOR_PROMPT = 
+`
+Below is a list of possible sections for a website page:
 ${generateComponentsOverview()}
-For each component, here is their documentations:
+
+Each component is documented in detail:
 ${generateComponentsDocumentation()}
 
-It should be an array of json with two values: type which is the name of the component and data which are the parameters of the component. Your output should only be the array json and nothing more. 
-If a component comes multiple times, create multiple array entries for each appearance of the component.
-Your output should contain nothing more. 
-Following this documentation, generate a complete code for the page with the following reference and description:
+Your task is to generate a JSON array where each element has two properties:
+
+- **type**: The name of the component.
+- **data**: The parameters of the component as specified in the documentation.
+
+**Guidelines:**
+
+- **Purposeful Design for Any Domain**: Understand the type of website being created (e.g., online shop, medical business landing page, technology blog) and tailor the content to suit the specific industry. Ensure that the selected components and their arrangement effectively communicate the purpose and meet the needs of the target audience.
+
+- **Capture Domain Nuances**: Incorporate industry-specific terminology, features, and user expectations. For example, a medical business might focus on services offered, patient testimonials, and contact information, while an online shop would emphasize product showcases, shopping cart functionality, and special offers.
+
+- **Enhance Content Specificity**: Provide compelling and specific content that highlights the unique selling points of the business or service. Use persuasive, benefit-oriented language to engage the user and address their needs and pain points.
+
+- **Diverse and Complementary Component Versions**: Use different versions of components to add variety and visual interest. Select versions that complement each other and enhance the overall design consistency. For example, choose appropriate 'feature' component versions that best showcase the offerings of the business.
+
+- **Logical User Journey**: Arrange components in a logical order that guides the user through the website smoothly. Start with a strong header, introduce key features or services, build credibility with testimonials or case studies, present pricing or service details, and end with a compelling call-to-action.
+
+- **Introduce Additional Depth**: Consider adding components like 'logo' for social proof (displaying partner or client logos), 'blog' for sharing insights and updates, or a 'contact' section for support information to provide more depth and engagement opportunities.
+
+- **Avoid Repetition**: Ensure that each component and its content are unique and add value. Do not repeat the same component or version unless it serves a distinct purpose.
+
+- **Rich and Detailed Content**: Provide meaningful content for each section. For sections without images, include at least **five sentences**. For sections with images, include at least **three sentences**. Focus on how each feature or aspect benefits the user and solves their problems.
+
+- **Customized Calls to Action**: Use action-oriented and specific language in buttons and CTAs to encourage user engagement (e.g., "Schedule an Appointment," "Shop Now," "Download Free eBook"). Ensure consistency in button styles and variants.
+
+- **Meaningful Imagery and Alt Text**: Even though all image paths are 'placeholder-image.svg', provide meaningful and descriptive 'alt' texts that match the content and context of the images.
+
+- **Visual Consistency and Accessibility**: Maintain a cohesive visual theme throughout the website. Ensure high contrast between text and background colors, use readable font sizes, and follow accessibility best practices, including providing alt text for all images.
+
+- **User Engagement**: Include elements that encourage user interaction, such as newsletter sign-ups, contact forms, appointment scheduling, or interactive features relevant to the domain.
+
+- **Output Requirements**:
+
+  - **JSON Only**: Your final output should be the JSON array only, without any additional text or explanations.
+  - **Complete Component Data**: Include all necessary data for each component as specified in the documentation.
+  - **Unique Multiple Appearances**: If a component appears multiple times (e.g., multiple feature sections), ensure each instance has unique content and serves a specific purpose in the user journey.
+
+Using the provided documentation, generate the complete code for the page, ensuring it adheres to the above guidelines and effectively showcases the capabilities and offerings of the website's domain.
 
 `

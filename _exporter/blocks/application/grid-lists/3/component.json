@@ -1,0 +1,428 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "flex flex-col"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-col justify-between items-start"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "h1",
+              "props": {
+                "className": "text-2xl font-semibold"
+              },
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "p",
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-row lg:justify-between lg:items-center gap-4"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "form",
+              "props": {
+                "action": ""
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex items-center relative"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "input",
+                      "props": {
+                        "type": "text",
+                        "placeholder": "{placeholder}",
+                        "className": "border-[1px] border-black rounded-none text-black bg-white h-auto min-h-10 px-3 py-2 text-base pl-11 lg:w-72 w-56"
+                      }
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "absolute top-auto bottom-auto left-3 right-auto"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-col justify-center items-center w-6 h-6"
+                          },
+                          "children": [
+                            {
+                              "type": "component",
+                              "component": "Search",
+                              "package": "lucide-react"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "component",
+              "component": "Popover",
+              "package": "@/components/ui/popover",
+              "children": [
+                {
+                  "type": "component",
+                  "component": "PopoverTrigger",
+                  "package": "@/components/ui/popover",
+                  "props": {
+                    "asChild": true
+                  },
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "Button",
+                      "package": "@/components/ui/button",
+                      "props": {
+                        "variant": "{\"none\"}",
+                        "size": "{\"none\"}"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-row items-center justify-center px-4 py-2 gap-1 border-[1px] border-black rounded-none cursor-pointer"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "div",
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "SortByName"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "component",
+                              "component": "ChevronDown",
+                              "package": "lucide-react"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "PopoverContent",
+                  "package": "@/components/ui/popover",
+                  "props": {
+                    "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "floatingBoxMenu",
+                        "iterator": "box"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "a",
+                          "props": {
+                            "key": "{index}",
+                            "href": "{box.href}",
+                            "tabIndex": "{0}",
+                            "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "box.name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "grid lg:grid-cols-3 grid-cols-1 auto-rows-auto gap-6"
+      },
+      "children": [
+        {
+          "type": "loop",
+          "loop": {
+            "array": "cards",
+            "iterator": "card"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "key": "{index}",
+                "className": "flex flex-col items-center justify-center text-start border-[1px] border-black p-6"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex flex-row items-center justify-between mb-6 w-full"
+                  },
+                  "children": [
+                    {
+                      "type": "component",
+                      "component": "Image",
+                      "package": "next/image",
+                      "props": {
+                        "src": "{card.image.src}",
+                        "width": "{200}",
+                        "height": "{200}",
+                        "alt": "{card.image.alt}",
+                        "className": "h-20 w-20 rounded-full object-cover"
+                      }
+                    },
+                    {
+                      "type": "component",
+                      "component": "Popover",
+                      "package": "@/components/ui/popover",
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "PopoverTrigger",
+                          "package": "@/components/ui/popover",
+                          "props": {
+                            "asChild": true
+                          },
+                          "children": [
+                            {
+                              "type": "component",
+                              "component": "Button",
+                              "package": "@/components/ui/button",
+                              "props": {
+                                "variant": "{\"none\"}"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex flex-row items-center justify-center gap-x-1 cursor-pointer w-8 h-8 my-auto"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                      }
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                      }
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "component",
+                          "component": "PopoverContent",
+                          "package": "@/components/ui/popover",
+                          "props": {
+                            "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
+                          },
+                          "children": [
+                            {
+                              "type": "loop",
+                              "loop": {
+                                "array": "card.floatingBox",
+                                "iterator": "box"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "a",
+                                  "props": {
+                                    "key": "{index}",
+                                    "href": "{box.href}",
+                                    "tabIndex": "{0}",
+                                    "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "dynamicText",
+                                      "text": "box.name"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mb-4 text-center  w-full"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "font-semibold"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "card.name"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "text-sm"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "card.title"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "card.text"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex flex-col gap-y-2 mt-8 w-full"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "card.buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "key": "{index}",
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                            "asChild": true,
+                            "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none w-full"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "a",
+                              "props": {
+                                "href": "{button.href}"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "button.name"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

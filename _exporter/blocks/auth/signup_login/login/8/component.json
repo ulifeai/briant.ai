@@ -1,0 +1,316 @@
+{
+  "type": "element",
+  "tag": "div",
+  "props": {
+    "className": "h-screen"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "w-full sm:w-1/2 px-[5%]"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col h-full"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "flex justify-start items-center h-16"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Image",
+                          "package": "next/image",
+                          "props": {
+                            "width": "{63}",
+                            "height": "{27}",
+                            "src": "{logo.src}",
+                            "alt": "{logo.alt}"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "sm:mx-24 flex flex-col justify-center h-full"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "max-w-[480px]"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "className": "flex flex-col gap-6"
+                          },
+                          "children": [
+                            {
+                              "type": "element",
+                              "tag": "h1",
+                              "props": {
+                                "className": "text-4xl sm:text-5xl text-black text-center font-bold"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "title"
+                                },
+                                {
+                                  "type": "text",
+                                  "text": "// title"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "p",
+                              "props": {
+                                "className": "text-lg text-center"
+                              },
+                              "children": [
+                                {
+                                  "type": "dynamicText",
+                                  "text": "description"
+                                },
+                                {
+                                  "type": "text",
+                                  "text": "//description"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "element",
+                              "tag": "form",
+                              "props": {
+                                "action": "",
+                                "className": "flex flex-col gap-9"
+                              },
+                              "children": [
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex flex-col gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "loop",
+                                      "loop": {
+                                        "array": "placeholders",
+                                        "iterator": "item"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tag": "div",
+                                          "children": [
+                                            {
+                                              "type": "component",
+                                              "component": "Input",
+                                              "package": "@/components/ui/input",
+                                              "props": {
+                                                "placeholder": "Email",
+                                                "className": "border border-black min-h-11 px-3 py-2 rounded-none"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "w-full"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Button",
+                                          "package": "@/components/ui/button",
+                                          "props": {
+                                            "variant": "{button.variant}",
+                                            "className": "rounded-none w-full px-3 py-6 text-base"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "dynamicText",
+                                              "text": "button.title"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "text": "//title"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "hr",
+                                  "props": {
+                                    "className": "border-black"
+                                  }
+                                },
+                                {
+                                  "type": "element",
+                                  "tag": "div",
+                                  "props": {
+                                    "className": "flex flex-col gap-4"
+                                  },
+                                  "children": [
+                                    {
+                                      "type": "loop",
+                                      "loop": {
+                                        "array": "buttons",
+                                        "iterator": "button"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "component",
+                                          "component": "Button",
+                                          "package": "@/components/ui/button",
+                                          "props": {
+                                            "variant": "{button.variant}",
+                                            "className": "text-black text-lg rounded-none w-auto px-3 py-6 bg-white border border-black flex gap-4"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "component",
+                                              "component": "Image",
+                                              "package": "next/image",
+                                              "props": {
+                                                "src": "{!button.image ? \"\" : button.image.src}",
+                                                "alt": "{!button.image ? \"\" : button.image.alt}",
+                                                "width": "{17.28}",
+                                                "height": "{17.28}"
+                                              }
+                                            },
+                                            {
+                                              "type": "dynamicText",
+                                              "text": "button.title"
+                                            },
+                                            {
+                                              "type": "text",
+                                              "text": "// title"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "element",
+                                      "tag": "div",
+                                      "props": {
+                                        "className": "flex gap-2 mx-auto"
+                                      },
+                                      "children": [
+                                        {
+                                          "type": "element",
+                                          "tag": "span",
+                                          "props": {
+                                            "className": "hidden sm:block"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "dynamicText",
+                                              "text": "signup_description"
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "component",
+                                          "component": "Link",
+                                          "package": "next/link",
+                                          "props": {
+                                            "href": "{signup_link_src}",
+                                            "className": "underline decoration-solid"
+                                          },
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "text": "Sign up"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "w-1/2 bg-[#eeeeee] h-screen hidden sm:block"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "h-full w-full"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Image",
+                  "package": "next/image",
+                  "props": {
+                    "src": "{imageside.src}",
+                    "width": "{100}",
+                    "height": "{100}",
+                    "alt": "{imageside.alt}",
+                    "className": "w-full h-full object-cover"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
