@@ -1,0 +1,11 @@
+{
+  "type": "element",
+  "tag": "div",
+  "children": [
+    {
+      "type": "component",
+      "component": "HeroHeaderBlock32",
+      "package": "./32/component"
+    }
+  ]
+}

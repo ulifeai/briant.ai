@@ -60,7 +60,7 @@ export default function GridListBlock({
                 variant={button.variant as "default" | "outline" | "ghost"}
                 size={button.size as "default" | "sm" | "lg"}
                 style={{ borderRadius: "var(--button-radius)" }}
-                className="whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                className="whitespace-nowrap px-4 py-2 "
                 asChild
               >
                 <a href={button.href}>{button.name}</a>

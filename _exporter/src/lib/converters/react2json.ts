@@ -104,7 +104,6 @@ export class React2Json {
     private jsxElementToJson(node: t.JSXElement): ExtendedConverterNode {
         const openingElement = node.openingElement;
         const tagName = this.getJSXTagName(openingElement.name);
-
         const isComponent = /^[A-Z]/.test(tagName);
         const nodeType: ConverterNode["type"] = isComponent ? "component" : "element";
         const props: Record<string, any> = {};

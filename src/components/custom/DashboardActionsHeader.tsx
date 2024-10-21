@@ -52,7 +52,7 @@ export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
                     <CodeIcon className="h-4 w-4" />
                 </ToggleGroupItem>
                 </ToggleGroup> */}
-                <Link href={"/api/app/project/download/"+params.id}>
+                <Link href={"/api/app/project/download/"+params.id} target="downloadPage">
                     <Button  size="sm">
                         <DownloadIcon className="h-4 w-4 mr-2" />
                         Download source

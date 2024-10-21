@@ -9,9 +9,9 @@
       "type": "element",
       "tag": "div",
       "props": {
-        "style": "{{\n  backgroundImage: `url(${image.image})`,\n  backgroundSize: \"cover\",\n  backgroundPosition: \"center\",\n  filter: \"brightness(0.4)\"\n}}",
+        "style": "{{\n  backgroundImage: `url(/placeholder.png)`,\n  backgroundSize: \"cover\",\n  backgroundPosition: \"center\",\n  filter: \"brightness(0.4)\"\n}}",
         "role": "img",
-        "aria-label": "{image.alt}",
+        "aria-label": "{image?.alt}",
         "className": "absolute inset-0 z-0"
       }
     },
@@ -19,7 +19,7 @@
       "type": "element",
       "tag": "div",
       "props": {
-        "className": "relative z-10 w-full max-w-6xl mx-auto text-white"
+        "className": "relative z-10 w-full container max-w-6xl mx-auto text-white"
       },
       "children": [
         {

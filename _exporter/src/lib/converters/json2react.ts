@@ -363,7 +363,7 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
      */
     private logicalToCode(node: Node, props: Props, context: any, indentLevel: number) {
         const conditionResult = this.evaluateExpression(node.condition ?? "", props, context);
-
+        console.log("CONDITIONAL ", conditionResult)
         if ((node.operator === '&&' && conditionResult) || (node.operator === '||' && !conditionResult)) {
             return (node.children ?? [])
                 .map(child => this.jsonToReactCode(child, props, context, indentLevel))

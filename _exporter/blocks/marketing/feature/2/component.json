@@ -15,6 +15,22 @@
         {
           "type": "element",
           "tag": "div",
+          "children": [
+            {
+              "type": "element",
+              "tag": "img",
+              "props": {
+                "src": "{image?.image}",
+                "alt": "{image?.alt}",
+                "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
+                "className": "w-full h-full object-cover max-h-[30rem]"
+              }
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
           "props": {
             "className": "flex flex-col"
           },
@@ -29,8 +45,9 @@
                   "condition": "tag",
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "span",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
                         "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
                       },
@@ -44,11 +61,12 @@
                   ]
                 },
                 {
-                  "type": "element",
-                  "tag": "h1",
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
                   "props": {
-                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                    "className": "text-4xl font-bold py-2"
+                    "as": "h1",
+                    "className": "mb-4"
                   },
                   "children": [
                     {
@@ -58,10 +76,11 @@
                   ]
                 },
                 {
-                  "type": "element",
-                  "tag": "p",
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
                   "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                    "as": "p",
                     "className": "text-base py-2"
                   },
                   "children": [
@@ -72,54 +91,52 @@
                   ]
                 },
                 {
-                  "type": "logical",
-                  "operator": "&&",
-                  "condition": "subheadings",
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "gap-6 items-start flex flex-col mt-8"
+                  },
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "grid gap-6 sm:grid-cols-2 mt-8"
+                      "type": "loop",
+                      "loop": {
+                        "array": "subheadings",
+                        "iterator": "subheading"
                       },
                       "children": [
                         {
-                          "type": "loop",
-                          "loop": {
-                            "array": "subheadings",
-                            "iterator": "subheading"
+                          "type": "element",
+                          "tag": "div",
+                          "props": {
+                            "key": "{index}",
+                            "className": "flex justify-center items-start space-x-3"
                           },
                           "children": [
+                            {
+                              "type": "component",
+                              "component": "Package2",
+                              "package": "lucide-react",
+                              "props": {
+                                "className": "h-6 w-6"
+                              }
+                            },
                             {
                               "type": "element",
                               "tag": "div",
                               "props": {
-                                "key": "{index}"
+                                "className": "mx-0"
                               },
                               "children": [
                                 {
                                   "type": "element",
                                   "tag": "h3",
                                   "props": {
-                                    "className": "text-md font-semibold"
+                                    "className": "text-normal"
                                   },
                                   "children": [
                                     {
                                       "type": "dynamicText",
                                       "text": "subheading.title"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "p",
-                                  "props": {
-                                    "className": "mt-2 text-sm"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "subheading.description"
                                     }
                                   ]
                                 }
@@ -188,7 +205,7 @@
                                           "props": {
                                             "key": "{index}",
                                             "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 py-2"
+                                            "className": "whitespace-nowrap"
                                           },
                                           "children": [
                                             {
@@ -257,22 +274,6 @@
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "children": [
-            {
-              "type": "element",
-              "tag": "img",
-              "props": {
-                "src": "{image.image}",
-                "alt": "{image.alt}",
-                "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
-                "className": "w-full h-full object-cover max-h-[30rem]"
-              }
             }
           ]
         }

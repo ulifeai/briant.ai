@@ -2,16 +2,16 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "relative px-[5%] py-16 max-h-[20rem] flex items-center overflow-hidden"
+    "className": "relative px-[5%] py-16 min-h-[30rem] flex items-center overflow-hidden"
   },
   "children": [
     {
       "type": "element",
       "tag": "div",
       "props": {
-        "style": "{{\n  backgroundImage: `url(${image.image})`,\n  backgroundSize: \"cover\",\n  backgroundPosition: \"center\",\n  filter: \"brightness(0.4)\"\n}}",
+        "style": "{{\n  backgroundImage: `url(2.jpg)`,\n  backgroundSize: \"cover\",\n  backgroundPosition: \"center\",\n  filter: \"brightness(0.0)\"\n}}",
         "role": "img",
-        "aria-label": "{image.alt}",
+        "aria-label": "{image?.alt}",
         "className": "absolute inset-0 z-0"
       }
     },
@@ -19,7 +19,7 @@
       "type": "element",
       "tag": "div",
       "props": {
-        "className": "relative z-10 w-full max-w-6xl mx-auto text-white"
+        "className": "relative z-10 w-full container max-w-6xl mx-auto text-white"
       },
       "children": [
         {
@@ -46,10 +46,11 @@
                       "condition": "tag",
                       "children": [
                         {
-                          "type": "element",
-                          "tag": "span",
+                          "type": "component",
+                          "component": "Text",
+                          "package": "@/components/ui/base/text",
                           "props": {
-                            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
+                            "className": "text-sm text-white font-semibold uppercase tracking-wider  mb-2"
                           },
                           "children": [
                             {
@@ -61,11 +62,12 @@
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "h1",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                        "className": "text-4xl font-bold py-2"
+                        "as": "h1",
+                        "className": "mb-4 text-lowercase first-letter-uppercase"
                       },
                       "children": [
                         {
@@ -75,11 +77,12 @@
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "p",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                        "className": "text-base py-2 text-gray-200"
+                        "as": "p",
+                        "className": "text-base text-white py-2"
                       },
                       "children": [
                         {

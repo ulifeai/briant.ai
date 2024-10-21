@@ -8,13 +8,16 @@ import { PathManager } from "../../utils/folder";
 export class Page {
     block: Blocks = new Blocks();
 
-    async bootstrap(pagesData: { page: string, data: { type: string, data: Record<string, any> }[], type: string }[]) {
+    async bootstrap(pagesData: { page: string, path: string, data: { type: string, data: Record<string, any> }[], type: string }[]) {
 
         for (let i = 0; i < pagesData.length; i++) {
             const pageItem = pagesData[i];
             const pageName = pageItem.page;
-            const ComponentNames = await this.block.createBlocks(pageItem.data, pageItem.type)
-            await this.generatePage(pageName, ComponentNames, pageItem.type)
+            if (pageItem.data) {
+                const ComponentNames = await this.block.createBlocks(pageItem.data, pageItem.type)
+                await this.generatePage(pageName, ComponentNames, pageItem.type, pageItem.path)
+            }
+
         }
 
     }
@@ -26,15 +29,15 @@ export class Page {
      * @param components - An array of component names to import and render.
      * @param folder - The folder inside 'blocks' from which to import the components.
      */
-    async generatePage(pageName: string, components: string[], folder: string): Promise<void> {
+    async generatePage(pageName: string, components: string[], folder: string, pathName: string): Promise<void> {
         // Define the base directory where the pages are located
         const baseDir = `${PathManager.getbasePath()}/src/app/`; // Adjust if necessary
-        const pageDir = path.join(baseDir, pageName);
+        const pageDir = path.join(baseDir, pathName);
         try {
             // Create the page directory
             // Generate import statements
-            const importStatements = `import React from 'react';
-${removeDuplicates(components).map((name) => "import " + name + " from '../../blocks/" + folder + "/" + name + "'").join('; \n')};
+            const importStatements = `"use client";\nimport React from 'react';
+${removeDuplicates(components).map((name) => "import " + name + (pathName == "/" ? " from '../blocks/" : " from '../../blocks/") + folder + "/" + name + "'").join('; \n')};
 `;
 
             // Generate the component render

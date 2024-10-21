@@ -3,6 +3,5 @@ export function range(start: number, stop: number, step: number) {
     while (b < stop) {
         a.push(b += step || 1);
     }
-    console.log(a, start, stop)
     return a;
 }

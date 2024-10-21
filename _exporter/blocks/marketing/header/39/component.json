@@ -1,0 +1,160 @@
+{
+  "type": "element",
+  "tag": "section",
+  "props": {
+    "className": "px-[5%] py-16 md:py-24 lg:py-28"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "container"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "ml-[5%] max-w-3xl grid grid-cols-1 items-start gap-2 md:gap-6 lg:mb-20 lg:gap-5 mb-16"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "h1",
+              "props": {
+                "className": "text-3xl font-bold md:text-6xl lg:text-7xl"
+              },
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col justify-end"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "props": {
+                    "className": "md:text-md"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "description"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mt-6 flex gap-x-4 md:mt-8"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "key": "{index}",
+                            "className": "whitespace-nowrap px-4 py-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex flex-col lg:grid lg:grid-cols-[1fr_.4fr_.4fr] items-end gap-10 sm:gap-8"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "w-full lg:my-[15%]"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{images.0.src}",
+                    "alt": "{images.0.alt}",
+                    "className": "aspect-[3/2] size-full object-cover"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "w-full"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{images.1.src}",
+                    "alt": "{images.1.alt}",
+                    "className": "aspect-square size-full object-cover"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "w-full self-start"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{images.2.src}",
+                    "alt": "{images.2.alt}",
+                    "className": "aspect-[3/4] size-full object-cover"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

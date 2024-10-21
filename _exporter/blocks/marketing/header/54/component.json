@@ -1,0 +1,142 @@
+{
+  "type": "element",
+  "tag": "section",
+  "props": {
+    "className": "py-16 md:py-24 lg:py-28"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "flex flex-col lg:h-[100svh] h-auto lg:max-h-[100svh] max-h-none gap-10 sm:gap-8"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "relative flex flex-col flex-1 w-full"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "lg:flex-1 relative"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{images.0.src}",
+                    "alt": "{images.0.alt}",
+                    "className": "aspect-[3/2] absolute size-full object-cover inset-0"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "lg:w-[20%] w-[30%] absolute bottom-[-15%] right-[5%]"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "src": "{images.1.src}",
+                    "alt": "{images.1.alt}",
+                    "className": "aspect-square size-full object-cover"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "mx-auto max-w-[100rem] p-[5%] flex flex-col  lg:grid lg:grid-cols-[1fr_1fr] items-start justify-between gap-x-5 md:gap-6 lg:gap-12 lg:mb-20"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "h1",
+              "props": {
+                "className": "text-2xl font-bold md:text-5xl lg:text-6xl"
+              },
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col justify-end"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "p",
+                  "props": {
+                    "className": "md:text-md"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "description"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mt-6 flex gap-x-4 md:mt-8"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "key": "{index}",
+                            "className": "whitespace-nowrap px-4 py-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.title"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

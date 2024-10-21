@@ -15,7 +15,7 @@ interface Testimonial {
 
 interface CustomerTestimonialsProps {
   title?: string;
-  subtitle?: string;
+  description?: string;
   testimonials?: Testimonial[];
 }
 
@@ -67,13 +67,13 @@ const defaultTestimonials: Testimonial[] = [
 
 export default function CustomerTestimonials({
   title = "Customer testimonials",
-  subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   testimonials = defaultTestimonials,
 }: CustomerTestimonialsProps) {
   return (
     <div className="container mx-auto px-4 py-16 md:px-6 lg:px-8">
       <h2 className="text-4xl font-bold text-center mb-4">{title}</h2>
-      <p className="text-xl text-center text-gray-600 mb-12">{subtitle}</p>
+      <p className="text-xl text-center text-gray-600 mb-12">{description}</p>
 
       <Tabs
         defaultValue={testimonials[0].id}

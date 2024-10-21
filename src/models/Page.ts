@@ -13,6 +13,7 @@ export interface IPage extends Document {
     project_id: Types.ObjectId;
     id: string;
     name: string;
+    path: string;
     description: string;
     category: Category;
     createdAt: Date;
@@ -34,6 +35,11 @@ const pageSchema: Schema<IPage> = new Schema(
             index: true,
         },
         name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        path: {
             type: String,
             required: true,
             trim: true,

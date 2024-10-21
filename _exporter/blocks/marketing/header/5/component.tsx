@@ -11,10 +11,10 @@ interface HeaderBlockProps {
       variant: string;
       size: string;
     }[];
-  image: {
-    image: string;
-    alt: string;
-  };
+    images: {
+      src: string;
+      alt?: string;
+    }[];
   form?: {
     description?: string;
     placeholder?: string;
@@ -27,7 +27,7 @@ export default function HeaderBlock({
   description,
   buttons,
   form,
-  image,
+  images,
 }: HeaderBlockProps) {
   return (
     <div className=" lg:max-h-full px-[2%] py-16 container  m-auto ">
@@ -35,8 +35,8 @@ export default function HeaderBlock({
         <div className="flex flex-col-reverse w-full">
           <div className="w-full my-12">
             <img
-              src={image?.image}
-              alt={image?.alt}
+              src={images[0]?.src}
+              alt={images[0]?.alt}
               className="w-full h-full my-2 object-cover max-h-[50rem]"
               style={{ borderRadius: "var(--image-radius)" }}
             />

@@ -77,6 +77,7 @@ export async function createProject(data: {
                         const createdPage = await createPage({
                             category: key as Category,
                             name: page.title,
+                            path: page.path,
                             description: page.description,
                             project_id: newProject._id as string
                         });

@@ -10,10 +10,10 @@ interface HeaderBlockProps {
       variant: string;
       size: string;
     }[];
-  image: {
-    image: string;
-    alt: string;
-  };
+    images: {
+      src: string;
+      alt?: string;
+    }[];
   form?: {
     description?: string;
     placeholder?: string;
@@ -26,7 +26,7 @@ export default function Component({
   description,
   buttons,
   form,
-  image,
+  images,
 }: HeaderBlockProps) {
   return (
     <div className="relative px-[5%] py-16 min-h-screen flex items-center overflow-hidden">
@@ -34,17 +34,17 @@ export default function Component({
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${image.image})`,
+          backgroundImage: `url(${images[0].src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(0.4)",
         }}
         role="img"
-        aria-label={image.alt}
+        aria-label={images[0].alt}
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto text-white">
+      <div className="relative z-10 w-full max-w-6xl container mx-auto text-white">
         <div className="flex flex-col items-center text-center gap-y-12 lg:items-center">
           <div className="flex flex-col">
             <div>

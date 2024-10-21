@@ -1,0 +1,200 @@
+{
+  "type": "element",
+  "tag": "section",
+  "props": {
+    "ref": "{transformRef}",
+    "className": "relative h-[150vh] px-[5%] md:h-[300vh]"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "sticky top-0 h-[100vh] overflow-hidden"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "absolute bottom-0 left-0 right-auto top-0 z-10"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "motion.div",
+              "props": {
+                "style": "{{\n  y: yFirst\n}}",
+                "className": "flex flex-col gap-[26vw] pt-[70vh]"
+              },
+              "children": [
+                {
+                  "type": "loop",
+                  "loop": {
+                    "array": "images.slice(0, 4)",
+                    "iterator": "image"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "key": "{index}",
+                        "className": "{clsx(\"relative h-[35vw] pt-[120%] sm:h-auto\", {\n  \"w-[30vw] md:w-[28vw] lg:w-[22vw]\": index === 0,\n  \"left-[52vw] mt-[-46vw] w-[30vw] md:w-[28vw] lg:left-[58vw] lg:w-[22vw]\": index === 1,\n  \"left-[4vw] mt-[-5vw] w-[28vw] md:w-[26vw] lg:w-[20vw]\": index === 2,\n  \"left-[64vw] mt-[-45vw] w-[26vw] md:w-[24vw] lg:w-[18vw]\": index === 3\n})}"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "src": "{image.src}",
+                            "alt": "{image.alt}",
+                            "className": "absolute inset-0 size-full object-cover"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "motion.div",
+          "props": {
+            "style": "{{\n  y: ySecond\n}}",
+            "className": "absolute bottom-0 left-auto right-0 top-0 z-0"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "flex flex-col gap-[26vw] pt-[70vh]"
+              },
+              "children": [
+                {
+                  "type": "loop",
+                  "loop": {
+                    "array": "images.slice(4)",
+                    "iterator": "image"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "key": "{index}",
+                        "className": "{clsx(\"relative h-[35vw] pt-[120%] opacity-75 sm:h-auto\", {\n  \"w-[28vw] md:w-[26vw] lg:w-[20vw]\": index === 0,\n  \"right-[50vw] mt-[-44vw] w-[26vw] md:w-[24vw] lg:right-[54vw] lg:w-[18vw]\": index === 1\n})}"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "src": "{image.src}",
+                            "alt": "{image.alt}",
+                            "className": "absolute inset-0 size-full object-cover"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "container mx-auto relative flex h-full max-w-2xl items-center pb-24 pt-16 text-center md:pt-24 lg:py-28"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
+                  "props": {
+                    "as": "hero",
+                    "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "title"
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
+                  "props": {
+                    "as": "p",
+                    "className": "text-base py-2"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "description"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "relative z-20 mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "key": "{index}",
+                            "className": "whitespace-nowrap px-4 py-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.title"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "absolute inset-0 -z-10 mt-[35rem] md:mt-[100vh]"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "relative px-[5%] py-16 max-h-[20rem] flex items-center overflow-hidden"
+    "className": "relative px-[5%] py-16 max-h-[20rem] container flex items-center overflow-hidden"
   },
   "children": [
     {
@@ -31,11 +31,12 @@
                   "tag": "div",
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "h1",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                        "className": "text-4xl font-bold py-2"
+                        "as": "h1",
+                        "className": "mb-4"
                       },
                       "children": [
                         {
@@ -45,10 +46,11 @@
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "p",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                        "as": "p",
                         "className": "text-base py-2"
                       },
                       "children": [

@@ -6,6 +6,7 @@ export interface IBlock extends Document {
     page_id: Types.ObjectId; // References Page's _id
     id: string; // Auto-generated UUID
     content: Record<string, any>; // JSON field
+    order: number,
     createdAt: Date;
     updatedAt: Date;
 }
@@ -23,6 +24,10 @@ const blockSchema: Schema<IBlock> = new Schema(
             default: uuidv4, // Auto-generate UUID
             unique: true, // Ensure 'id' is unique
             index: true,
+        },
+        order: {
+            type: Number,
+            default: 0, // Assign a default value
         },
         content: {
             type: Schema.Types.Mixed, // Allows any JSON structure

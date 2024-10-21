@@ -482,9 +482,12 @@ app.post("/generate/project", async (req: Request, res: Response) => {
 
     PathManager.setbasePath(tmp_folder)
     await Structure.extractZip(tmp_folder)
+    await Structure.createCssFiles(req.body.customizations)
 
-    const p = new Page();
-    await p.bootstrap(req.body.pages);
+    console.log(JSON.stringify(req.body))
+
+    const pageInstance = new Page();
+    await pageInstance.bootstrap(req.body.pages);
 
     await Structure.zipFolder(tmp_folder, projectName + ".zip")
 
@@ -495,11 +498,11 @@ app.post("/generate/project", async (req: Request, res: Response) => {
                 res.status(500).send('Error downloading the ZIP file.');
             } else {
                 // Optionally delete the ZIP file after sending
-                // fs.unlink(projectName + ".zip", (unlinkErr) => {
-                //     if (unlinkErr) {
-                //         console.error('Error deleting ZIP file:', unlinkErr);
-                //     }
-                // });
+                fs.unlink(projectName + ".zip", (unlinkErr) => {
+                    if (unlinkErr) {
+                        console.error('Error deleting ZIP file:', unlinkErr);
+                    }
+                });
             }
         });
     } catch (error) {

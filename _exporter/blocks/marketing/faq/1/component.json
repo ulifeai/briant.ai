@@ -2,7 +2,7 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "flex flex-row justify-center items-center hover:border border-primary"
+    "className": "flex flex-row justify-center container items-center hover:border border-primary"
   },
   "children": [
     {

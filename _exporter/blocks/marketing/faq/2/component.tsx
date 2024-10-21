@@ -34,7 +34,7 @@ export default function FAQBlock({
   button,
 }: FAQBlockProps) {
   return (
-    <div className="flex flex-row justify-center items-center hover:border border-primary">
+    <div className="flex flex-row container justify-center items-center hover:border border-primary">
       <div className="px-5 py-5 w-full">
         <div className="py-16 sm:py-28 px-[10%] flex flex-col gap-12 mx-auto">
           <div className="flex flex-col text-center items-center gap-4">

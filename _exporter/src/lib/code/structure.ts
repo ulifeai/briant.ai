@@ -1,13 +1,53 @@
 import fs from "fs-extra"
 import unzipper from "unzipper";
 import archiver from 'archiver';
-
-import path from "path";
-import { glob } from "glob";
-import ejs from "ejs";
+import { Blocks } from "./blocks";
+import path from 'path';
+import { capitalizeFirstLetter } from "../../utils/string";
+import { removeDuplicates } from "../../utils/array";
+import { PathManager } from "../../utils/folder";
+import { googleFonts } from "../../utils/fonts";
+import { hexToHsl } from "../../utils/hextohsl";
 
 
 export class Structure {
+    static async createCssFiles(customizations: any) {
+        if (!customizations)
+            return;
+        const baseDir = `${PathManager.getbasePath()}/src/app/`; // Adjust if necessary
+        const pageDir = path.join(baseDir, ".");
+        try {
+
+            let importStatements = `@import url('${googleFonts[customizations.headerFont]}');\n`
+            importStatements += `@import url('${googleFonts[customizations.pageTextFont]}');`
+
+            let pageContent = `
+body {
+    --primary: ${hexToHsl(customizations?.primaryColor ?? "")};
+    --primary-foreground: 0, 0%, 100%;
+    --text-foreground: #545454;
+    --secondary: ${hexToHsl(customizations?.secondaryColor ?? "")};
+    --secondary-foreground: 0, 0%, 100%;
+    --button-radius: ${customizations.borderRadius}px;
+    --image-radius: ${customizations.imageRadius}px;
+    --header-font: "${customizations.headerFont}";
+    --page-font: "${customizations.pageTextFont}";
+    fontFamily: "var(--page-font)";
+}
+            `
+            // Combine imports and component
+            const fileContent = `${importStatements}\n${pageContent}`;
+            const filePath = path.join(pageDir, 'index.css'); // Using .ts as per user request
+            await fs.ensureFile(filePath);
+            // Write the file
+            await fs.writeFile(filePath, fileContent, 'utf8');
+
+            console.log(`index.css created successfully at ${filePath}`);
+        } catch (error) {
+            console.error(`Error creating index.css:`, error);
+            throw error;
+        }
+    }
 
     static CONFIG = {
         zipPath: './../../../_base.zip', // Path to the base Next.js ZIP

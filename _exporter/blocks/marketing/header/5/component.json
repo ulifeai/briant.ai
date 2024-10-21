@@ -30,8 +30,8 @@
                   "type": "element",
                   "tag": "img",
                   "props": {
-                    "src": "{image.image}",
-                    "alt": "{image.alt}",
+                    "src": "{images.0?.src}",
+                    "alt": "{images.0?.alt}",
                     "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
                     "className": "w-full h-full my-2 object-cover max-h-[50rem]"
                   }

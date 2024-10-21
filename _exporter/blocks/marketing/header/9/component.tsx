@@ -1,3 +1,4 @@
+import {Text} from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -10,10 +11,10 @@ interface HeaderBlockProps {
       variant: string;
       size: string;
   }[];
-  image: {
-    image: string;
-    alt: string;
-  };
+  images: {
+    src: string;
+    alt?: string;
+  }[];
   form?: {
     description?: string;
     placeholder?: string;
@@ -26,32 +27,32 @@ export default function HeaderBlock({
   description,
   buttons,
   form,
-  image,
+  images,
 }: HeaderBlockProps) {
 console.log(buttons)
 
   return (
-    <div className="lg:max-h-full">
+    <div className="lg:max-h-full container mx-auto">
       <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
         <div className="flex flex-col">
           <div className="px-[5%] py-16 ">
-            {tag && (
-              <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
+          {tag && (
+              <Text className="text-sm text-white font-semibold uppercase tracking-wider  mb-2">
                 {tag}
-              </span>
+              </Text>
             )}
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
+            <Text
+              as="hero"
+              className="mb-4 text-8xl text-lowercase first-letter-uppercase"
             >
               {title}
-            </h1>
-            <p
+            </Text>
+            <Text
+            as="p"
               className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
             >
               {description}
-            </p>
+            </Text>
             <div className="mt-8">
               <div className={`w-full flex items-center`}>
                 <div className="lg:max-w-[30rem]">
@@ -68,7 +69,7 @@ console.log(buttons)
                       {buttons?.map((button, index) => (
                         <Button
                           key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
+                          className="whitespace-nowrap "
                           style={{ borderRadius: "var(--button-radius)" }}
                         >
                           {button.title}
@@ -99,8 +100,8 @@ console.log(buttons)
         </div>
         <div>
           <img
-            src={image?.image}
-            alt={image?.alt}
+            src={images[0]?.src}
+            alt={images[0]?.alt}
             className="w-full h-full object-cover  h-screen"
             style={{ borderRadius: "var(--image-radius)" }}
           />

@@ -2,7 +2,7 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "lg:max-h-full"
+    "className": "lg:max-h-full container mx-auto"
   },
   "children": [
     {
@@ -30,8 +30,8 @@
                   "type": "element",
                   "tag": "img",
                   "props": {
-                    "src": "{image.image}",
-                    "alt": "{image.alt}",
+                    "src": "{images.0?.src}",
+                    "alt": "{images.0?.alt}",
                     "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
                     "className": "w-full h-full object-cover max-h-[30rem]"
                   }
@@ -51,8 +51,9 @@
                   "condition": "tag",
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "span",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
                         "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
                       },
@@ -66,11 +67,12 @@
                   ]
                 },
                 {
-                  "type": "element",
-                  "tag": "h1",
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
                   "props": {
-                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                    "className": "text-4xl font-bold py-2"
+                    "as": "h1",
+                    "className": "mb-4 text-lowercase text-5xl first-letter-uppercase"
                   },
                   "children": [
                     {
@@ -80,10 +82,11 @@
                   ]
                 },
                 {
-                  "type": "element",
-                  "tag": "p",
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
                   "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                    "as": "p",
                     "className": "text-base py-2"
                   },
                   "children": [
@@ -150,7 +153,7 @@
                                           "props": {
                                             "key": "{index}",
                                             "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 py-2"
+                                            "className": "whitespace-nowrap"
                                           },
                                           "children": [
                                             {

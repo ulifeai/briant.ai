@@ -4,7 +4,7 @@ export const componentVersions: Record<string, number> = {
     blogHeader: 2,
     blogPost: 5,
     cta: 10,
-    header: 14,
+    header: 42,
     feature: 14,
     navbar: 8,
     pricing: 8,

@@ -86,7 +86,7 @@ export default function HeaderBlock({
                       {buttons?.map((button, index) => (
                         <Button
                           key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
+                          className="whitespace-nowrap "
                           style={{ borderRadius: "var(--button-radius)" }}
                         >
                           {button.title}

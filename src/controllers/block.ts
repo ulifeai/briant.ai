@@ -15,7 +15,9 @@ export async function getBlocks(pageId: string): Promise<IBlock[]> {
             throw new Error('Page not found');
         }
 
-        const blocks = await Block.find({ page_id: page._id }).lean().exec();
+        const blocks = await Block.find({ page_id: page._id })
+            .sort({ order: 1 })
+            .lean().exec();
         return blocks;
     } catch (error) {
         logger.error('Error loading blocks: %o', error);
@@ -31,12 +33,17 @@ export async function getBlocks(pageId: string): Promise<IBlock[]> {
  */
 export async function getOrCreateBlocks(validatedData: { page_id: string, app_context: string, page_description: string }): Promise<IBlock[]> {
     try {
+        console.log(validatedData.page_id, "=======")
         const page = await Page.findOne({ _id: validatedData.page_id }).exec();
         if (!page) {
             throw new Error('Page not found');
         }
+        console.log(page, "=======")
 
-        const blocks = await Block.find({ page_id: page._id }).lean().exec();
+
+        const blocks = await Block.find({ page_id: page._id })
+            .sort({ createdAt: 1 })
+            .lean().exec();
 
         if (blocks.length == 0) {
             let data = await generateLayout(validatedData.app_context.toString(), validatedData.page_description.toString())
@@ -47,7 +54,8 @@ export async function getOrCreateBlocks(validatedData: { page_id: string, app_co
                 const element = pageCode.data[index];
                 const newBlock = await createBlock({
                     page_id: validatedData.page_id,
-                    content: element
+                    content: element,
+                    order: index
                 })
                 endBlocks.push(newBlock);
             }
@@ -85,9 +93,10 @@ export async function getBlockById(blockId: string): Promise<IBlock | null> {
 export async function createBlock(data: {
     page_id: string; // UUID of the page
     content: Record<string, any>;
+    order: number;
 }): Promise<IBlock> {
     try {
-        const { page_id, content } = data;
+        const { page_id, content, order } = data;
 
         // Find the page by UUID
         const page = await Page.findOne({ _id: page_id }).exec();
@@ -98,6 +107,7 @@ export async function createBlock(data: {
         const newBlock: IBlock = new Block({
             page_id: page._id,
             content,
+            order
         });
 
         const savedBlock = await newBlock.save();

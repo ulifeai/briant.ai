@@ -75,7 +75,7 @@
                         "size": "{button.size}",
                         "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
                         "asChild": true,
-                        "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                        "className": "whitespace-nowrap px-4 py-2"
                       },
                       "children": [
                         {
@@ -298,7 +298,7 @@
                         "size": "{card.button.size}",
                         "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
                         "asChild": true,
-                        "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                        "className": "whitespace-nowrap px-4 py-2"
                       },
                       "children": [
                         {

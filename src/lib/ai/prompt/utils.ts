@@ -308,9 +308,10 @@ Renders a feature or header section with various layouts based on the version.
       - \`title\` (string): The text displayed on the button.
       - \`variant\` (string): The style variant for the button (e.g., 'primary', 'secondary').
       - \`size\` (string): The size of the button (e.g., 'small', 'medium', 'large').
-  - \`image\` (object, optional): Contains image data for the section.
-    - \`image\` (string): URL of the main image.
-    - \`alt\` (string): Alt text for the image.
+  - \`images\` (array, optional): Contains image data for the section.
+    - Each image has:
+      - \`src\` (string): URL of the main image.
+      - \`alt\` (string): Alt text for the image.
   - \`form\` (object, optional): Contains form-related data.
     - \`description\` (string, optional): Description text for the form.
     - \`placeholder\` (string, optional): Placeholder text for the input field.
@@ -322,7 +323,7 @@ Renders a feature or header section with various layouts based on the version.
 - Version 2: Reverse layout with image below text.
 - Versions 5-7: Various grid layouts.
 
-feature has 7 versions and header has 10 versions.
+feature has 7 versions and header has 44 versions.
 
 
 
@@ -444,8 +445,8 @@ Renders testimonials in various layouts based on the provided version.
 
 - \`data\` (object)
   - \`version\` (number): Version number, determines style and layout.
-  - \`heading\` (string, optional): Main heading of the testimonial section.
-  - \`description\` (string, optional): Description text below the heading.
+  - \`title\` (string, optional): Main title of the testimonial section.
+  - \`description\` (string, optional): Description text below the title.
   - \`testimonials\` (array of objects):
     - Each testimonial includes:
       - \`image\` (object, optional):
@@ -474,7 +475,7 @@ Renders testimonials in various layouts based on the provided version.
 \`\`\`jsx
 const testimonialData = {{
   version: 1,
-  heading: 'Our Happy Customers',
+  title: 'Our Happy Customers',
   description: "Here's what our customers have to say about us.",
   testimonials: [
     {{

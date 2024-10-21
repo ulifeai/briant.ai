@@ -1,3 +1,4 @@
+import {Text} from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -29,42 +30,41 @@ export default function Component({
   image,
 }: HeaderBlockProps) {
   return (
-    <div className="relative px-[5%] py-16 max-h-[20rem] flex items-center overflow-hidden">
-      {/* Background Image */}
+    <div className="relative px-[5%] py-16 min-h-[30rem] flex items-center overflow-hidden">
+      
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${image.image})`,
+          backgroundImage: `url(2.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "brightness(0.4)",
+          filter: "brightness(0.0)",
         }}
         role="img"
-        aria-label={image.alt}
+        aria-label={image?.alt}
       />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto text-white">
+      <div className="relative z-10 w-full container max-w-6xl mx-auto text-white">
         <div className="flex flex-col gap-y-12 lg:gap-x-12 lg:items-center">
           <div className="flex flex-col">
             <div>
-              {tag && (
-                <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                  {tag}
-                </span>
-              )}
-              <h1
-                className="text-4xl font-bold py-2"
-                style={{ fontFamily: "var(--header-font)" }}
-              >
-                {title}
-              </h1>
-              <p
-                className="text-base py-2 text-gray-200"
-                style={{ fontFamily: "var(--page-font)" }}
-              >
-                {description}
-              </p>
+            {tag && (
+              <Text className="text-sm text-white font-semibold uppercase tracking-wider  mb-2">
+                {tag}
+              </Text>
+            )}
+            <Text
+              as="h1"
+              className="mb-4 text-lowercase first-letter-uppercase"
+            >
+              {title}
+            </Text>
+            <Text
+            as="p"
+              className="text-base text-white py-2"
+            >
+              {description}
+            </Text>
               <div className="mt-8">
                 <div className="w-full flex items-center">
                   <div className="lg:max-w-[30rem]">
@@ -110,7 +110,6 @@ export default function Component({
           </div>
           <div className="hidden lg:block">
             {" "}
-            {/* Placeholder for layout balance */}
           </div>
         </div>
       </div>

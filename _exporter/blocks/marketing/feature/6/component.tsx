@@ -1,7 +1,28 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Package2 } from "lucide-react";
+"use client"
 
+import { ArrowUpRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import Image from 'next/image'
+import { Text } from "@/components/ui/base/text"
+
+const items = [
+  {
+    title: "Althhorpe Street Leamigton Spa",
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    image: '/placeholder.svg?height=400&width=400&text=De-risking'
+  },
+  {
+    title: "Althhorpe Street Leamigton Spa",
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    image: '/placeholder.svg?height=400&width=400&text=Planning'
+  },
+  {
+    title: "Althhorpe Street Leamigton Spa",
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    image: '/placeholder.svg?height=400&width=400&text=ROI'
+  }
+]
 interface HeaderBlockProps {
   tag: string;
   title: string;
@@ -20,6 +41,10 @@ interface HeaderBlockProps {
     description?: string;
     placeholder?: string;
   };
+  feature_items?: {
+    title: string;
+    description: string;
+  }[]
 }
 
 export default function HeaderBlock({
@@ -29,81 +54,51 @@ export default function HeaderBlock({
   buttons,
   form,
   image,
+  feature_items = items
 }: HeaderBlockProps) {
   return (
-    <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
-      <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
-        <div className="flex flex-col">
-          <div>
-            <div>
-              <Package2 className="h-10 w-10 mb-4" />
-            </div>
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
-            >
-              {title}
-            </h1>
-            <p
-              className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
-            >
-              {description}
-            </p>
-            <div className="mt-8">
-              <div className={`w-full flex items-center`}>
-                <div className="lg:max-w-[30rem]">
-                  {form ? (
-                    <form
-                      action=""
-                      className="flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={form?.placeholder ?? ""}
-                        className="border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                      />
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </form>
-                  ) : (
-                    <>
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          variant={button.variant as "default" | "outline"}
-                          size={button.size as "default" | "sm" | "lg"}
-                          className="whitespace-nowrap h-10 px-4 mx-2 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </>
-                  )}
+    <div className="container px-[5%] mx-auto bg-gray-50 px-4 py-8">
+      {tag && (
+        <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
+          {tag}
+        </span>
+      )}
+      <Text
+        as="h1"
+        className="mb-4"
+      >
+        {title}
+      </Text>
+      <Text
+      as="p"
+        className="text-base py-2 max-w-4xl"
+      >
+        {description}
+      </Text>
 
-                  <div className={` text-xs`}>{form?.description ?? ""}</div>
-                </div>
-              </div>
-            </div>
+      {feature_items.map((item, index) => (
+        <Card className="mb-8 mt-12 bg-white">
+        <CardContent className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 p-8`}>
+          <div className="w-full md:w-1/2 space-y-6">
+            <Text as="h1" className="text-4xl font-normal">{item.title}</Text>
+            <p className="text-gray-600 mb-8">{item.description}</p>
+            <Button variant="outline" className="rounded-full border-secondary mt-8">
+              Take action <ArrowUpRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
-        </div>
-        <div>
-          <img
-            src={image?.image}
-            alt={image?.alt}
-            className="w-full h-full object-cover max-h-[30rem]"
-            style={{ borderRadius: "var(--image-radius)" }}
-          />
-        </div>
-      </div>
+          <div className="w-full md:w-1/2">
+            <Image
+              src={"/placeholder-image.svg"}
+              alt={""}
+              width={500}
+              height={200}
+              className="rounded-xl h-[18rem] object-cover shadow-lg"
+            />
+          </div>
+        </CardContent>
+      </Card>
+      ))}
     </div>
   );
 }
+

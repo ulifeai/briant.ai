@@ -34,17 +34,17 @@ export default function Component({
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${image.image})`,
+          backgroundImage: `url(/placeholder.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "brightness(0.4)",
         }}
         role="img"
-        aria-label={image.alt}
+        aria-label={image?.alt}
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto text-white">
+      <div className="relative z-10 w-full container max-w-6xl mx-auto text-white">
         <div className="flex flex-col gap-y-12 lg:gap-x-12 lg:items-center">
           <div className="flex flex-col text-center items-center">
             <div>

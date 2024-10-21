@@ -11,7 +11,7 @@
       "props": {
         "style": "{{\n  backgroundImage: `url(placeholder.png)`,\n  backgroundSize: \"cover\",\n  backgroundPosition: \"center\",\n  filter: \"brightness(0.4)\"\n}}",
         "role": "img",
-        "aria-label": "{image.alt}",
+        "aria-label": "{images.0?.alt}",
         "className": "absolute inset-0 z-0"
       }
     },
@@ -41,14 +41,16 @@
                   "tag": "div",
                   "children": [
                     {
-                      "type": "conditional",
+                      "type": "logical",
+                      "operator": "&&",
                       "condition": "tag",
                       "children": [
                         {
-                          "type": "element",
-                          "tag": "span",
+                          "type": "component",
+                          "component": "Text",
+                          "package": "@/components/ui/base/text",
                           "props": {
-                            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
+                            "className": "text-sm text-white font-semibold uppercase tracking-wider  mb-2"
                           },
                           "children": [
                             {
@@ -57,20 +59,15 @@
                             }
                           ]
                         }
-                      ],
-                      "else": [
-                        {
-                          "type": "text",
-                          "text": ""
-                        }
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "h1",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                        "className": "text-4xl font-bold py-2"
+                        "as": "hero",
+                        "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
                       },
                       "children": [
                         {
@@ -80,11 +77,12 @@
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "p",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                        "className": "text-base py-2 text-gray-200"
+                        "as": "p",
+                        "className": "text-base text-white py-2"
                       },
                       "children": [
                         {

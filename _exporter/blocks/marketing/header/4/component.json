@@ -2,7 +2,7 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "lg:max-h-full"
+    "className": "lg:max-h-full container mx-auto"
   },
   "children": [
     {
@@ -30,8 +30,8 @@
                   "type": "element",
                   "tag": "img",
                   "props": {
-                    "src": "{image.image}",
-                    "alt": "{image.alt}",
+                    "src": "{images.0?.src}",
+                    "alt": "{images.0?.alt}",
                     "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
                     "className": "w-full h-full object-cover max-h-[30rem]"
                   }
@@ -45,26 +45,6 @@
                 "className": "px-[2%] py-16 container flex flex-row gap-x-8 m-auto max-w-[80rem]"
               },
               "children": [
-                {
-                  "type": "logical",
-                  "operator": "&&",
-                  "condition": "tag",
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "span",
-                      "props": {
-                        "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "tag"
-                        }
-                      ]
-                    }
-                  ]
-                },
                 {
                   "type": "element",
                   "tag": "h1",

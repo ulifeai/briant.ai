@@ -14,6 +14,7 @@ export const LayoutSchemaArray = z.object({
  */
 export const LayoutSchema = z.object({
     title: z.string(),
+    path: z.string(),
     description: z.string(),
 });
 
@@ -22,8 +23,8 @@ export const LayoutSchema = z.object({
  */
 export const PagesSchema = z.object({
     static: z.array(LayoutSchema),
-    auth: z.array(LayoutSchema),
-    admin: z.array(LayoutSchema),
+    auth: z.array(LayoutSchema).optional(),
+    admin: z.array(LayoutSchema).optional(),
 });
 
 /**
@@ -101,6 +102,7 @@ type ComponentCopyArray = { component: string; updated_texts: string[] }[];
 // Define your desired data structure. Only used for typing the parser output.
 interface Layout {
     title: string;
+    path?: string;
     description: string;
 }
 

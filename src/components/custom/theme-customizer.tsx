@@ -59,7 +59,9 @@ const fonts = [  "DM Sans",
     "Open Sans",
     "Inconsolata",
     "Raleway",
-    "Merriweather"]
+    "Merriweather",
+    "Plus Jakarta Sans"
+]
 
 export function ThemeCustomizer() {
   const [themeOptions, setThemeOptions] = useConfig()
@@ -70,6 +72,10 @@ export function ThemeCustomizer() {
   const updateThemeOption = (key: keyof ThemeOptions, value: any) => {
     setThemeOptions((prev) => ({ ...prev, [key]: value }))
   }
+
+  useEffect(()=>{
+    console.log(themeOptions, "FILTER 2")
+  }, [themeOptions])
 
 //   const generateTailwindTheme = () => {
 //     console.log(themeOptions)
@@ -200,7 +206,7 @@ export function ThemeCustomizer() {
                     id="borderRadius"
                     className='h-4 '
                     min={0}
-                    max={20}
+                    max={40}
                     step={1}
                     value={[themeOptions.borderRadius]}
                     onValueChange={(value) => updateThemeOption('borderRadius', value[0])}

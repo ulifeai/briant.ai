@@ -1,0 +1,138 @@
+{
+  "type": "element",
+  "tag": "section",
+  "props": {
+    "className": "px-[5%] py-16 md:py-24 lg:py-28"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "container grid grid-cols-1 gap-12 md:grid-cols-[0.5fr_1fr] md:gap-16"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "flex h-full flex-col justify-between"
+          },
+          "children": [
+            {
+              "type": "component",
+              "component": "Text",
+              "package": "@/components/ui/base/text",
+              "props": {
+                "as": "hero",
+                "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+              },
+              "children": [
+                {
+                  "type": "dynamicText",
+                  "text": "title"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "ml-[7.5%]"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
+                  "props": {
+                    "as": "p",
+                    "className": "text-base py-2"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "description"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mt-6 flex gap-4 md:mt-8 md:flex-wrap"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "key": "{index}",
+                            "className": "whitespace-nowrap px-4 py-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.title"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "grid grid-cols-[1fr_0.75fr] items-start gap-6 sm:gap-8"
+          },
+          "children": [
+            {
+              "type": "loop",
+              "loop": {
+                "array": "images",
+                "iterator": "image"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "key": "{index}",
+                    "className": "w-full"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "img",
+                      "props": {
+                        "src": "{image.src}",
+                        "alt": "{image.alt}",
+                        "className": "{clsx(\"size-full object-cover\", {\n  \"aspect-[2/3]\": index === 0,\n  \"aspect-square\": index !== 0\n})}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

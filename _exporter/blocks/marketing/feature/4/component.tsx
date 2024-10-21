@@ -1,7 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Package2 } from "lucide-react";
+import { Package2 } from "lucide-react";
+import Image from "next/image"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Users2, ClipboardCheck, DollarSign } from "lucide-react"
+import {Text} from "@/components/ui/base/text";
 
+const items = [
+  {
+    icon: <Users2 className="h-6 w-6 text-orange-500" />,
+    title: "Consultancy",
+    description: "It is a long established fact that a reader will be content distracted by the readable many content of a page when it looking."
+  },
+  {
+    icon: <ClipboardCheck className="h-6 w-6 text-orange-500" />,
+    title: "Audit & assurance",
+    description: "It is a long established fact that a reader will be content distracted by the readable many content of a page when it looking."
+  },
+  {
+    icon: <DollarSign className="h-6 w-6 text-orange-500" />,
+    title: "Tax planning services",
+    description: "It is a long established fact that a reader will be content distracted by the readable many content of a page when it looking."
+  }
+]
 interface HeaderBlockProps {
   tag: string;
   title: string;
@@ -20,10 +41,10 @@ interface HeaderBlockProps {
     description?: string;
     placeholder?: string;
   };
-  subheadings?: {
+  feature_items?: {
     title: string;
     description: string;
-  }[];
+  }[]
 }
 
 export default function HeaderBlock({
@@ -33,100 +54,58 @@ export default function HeaderBlock({
   buttons,
   form,
   image,
-  subheadings,
+  feature_items = items
 }: HeaderBlockProps) {
   return (
-    <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
-      <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
-        <div className="flex flex-col">
-          <div>
-            {tag && (
-              <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                {tag}
-              </span>
-            )}
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
-            >
-              {title}
-            </h1>
-            <p
-              className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
-            >
-              {description}
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2  mt-8">
-              {subheadings?.map((subheading, index) => (
-                <div
-                  key={index}
-                  className="flex items-start flex-col space-y-3"
-                >
-                  <Package2 className="h-8 w-8" />
-                  <div className="mx-0">
-                    <h3 className="text-md font-semibold">
-                      {subheading.title}
-                    </h3>
-                    <p className="mt-2 text-sm">{subheading.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <div className={`w-full flex items-center`}>
-                <div className="lg:max-w-[30rem]">
-                  {form ? (
-                    <form
-                      action=""
-                      className="flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={form?.placeholder ?? ""}
-                        className="border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                      />
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </form>
-                  ) : (
-                    <>
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          variant={button.variant as "default" | "outline"}
-                          size={button.size as "default" | "sm" | "lg"}
-                          className="whitespace-nowrap h-10 px-4 mx-2 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </>
-                  )}
-
-                  <div className={` text-xs`}>{form?.description ?? ""}</div>
-                </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="relative w-full h-[300px] rounded-xl overflow-hidden mb-8">
+      <Image
+        src="/placeholder.png"
+        alt="Two people smiling and looking at each other"
+        layout="fill"
+        objectFit="cover"
+      />
+      <div className="absolute text-white inset-0 bg-black bg-opacity-40 flex flex-col items-start justify-end p-8">
+        {/* {tag && (
+          <Text className="text-sm font-semibold uppercase tracking-wider  mb-2">
+            {tag}
+          </Text>
+        )} */}
+        <Text
+          as="h1"
+          className="mb-2"
+        >
+          {title}
+        </Text>
+        <Text
+        as="p"
+          className="py-2 text-white max-w-4xl"
+        >
+          {description}
+        </Text>
+      </div>
+    </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {feature_items.map((service, index) => (
+          <Card className={index%2 == 0 ? "bg-gray-200": "bg-gray-200"} key={index}>
+            <CardHeader>
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4">
+                {index + 1}
               </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <img
-            src={image?.image}
-            alt={image?.alt}
-            className="w-full h-full object-cover max-h-[30rem]"
-            style={{ borderRadius: "var(--image-radius)" }}
-          />
-        </div>
+              <CardTitle>{service.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="leading-loose text-md text-gray-600">{service.description}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );
 }
+
+
+
+
+
+

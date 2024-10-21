@@ -1,0 +1,277 @@
+{
+  "type": "element",
+  "tag": "section",
+  "props": {
+    "className": "relative h-[250vh]"
+  },
+  "children": [
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "px-[5%] pt-16 md:pt-24 lg:pt-28"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "container"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "div",
+              "props": {
+                "className": "mx-auto w-full max-w-2xl text-center"
+              },
+              "children": [
+                {
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
+                  "props": {
+                    "as": "hero",
+                    "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "title"
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "Text",
+                  "package": "@/components/ui/base/text",
+                  "props": {
+                    "as": "p",
+                    "className": "text-base py-2"
+                  },
+                  "children": [
+                    {
+                      "type": "dynamicText",
+                      "text": "description"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                  },
+                  "children": [
+                    {
+                      "type": "loop",
+                      "loop": {
+                        "array": "buttons",
+                        "iterator": "button"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Button",
+                          "package": "@/components/ui/button",
+                          "props": {
+                            "variant": "{button.variant}",
+                            "size": "{button.size}",
+                            "key": "{index}",
+                            "className": "whitespace-nowrap px-4 py-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "button.title"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "sticky top-0 flex h-screen w-full items-center overflow-hidden"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tag": "div",
+          "props": {
+            "className": "z-10 grid h-[60vh] w-full grid-flow-col grid-cols-[25%_50%_25%]  content-center items-center justify-center md:h-[70vh] md:grid-cols-[32%_36%_32%] lg:h-[80vh]"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tag": "motion.div",
+              "props": {
+                "style": "{leftImageGroup}",
+                "className": "grid grid-flow-col grid-cols-1 items-center justify-items-end gap-4 justify-self-end px-4"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "relative hidden md:block md:w-[25vw] lg:w-[20vw]"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "img",
+                      "props": {
+                        "className": "aspect-[2/3] w-full object-cover"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "relative grid w-[40vw] grid-cols-1 grid-rows-[auto_auto] gap-4 self-center md:w-[18vw]"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "relative"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "className": "aspect-square w-full object-cover"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "relative"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "className": "aspect-[3/4] w-full object-cover"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "motion.div",
+              "props": {
+                "style": "{centerImageContainer}",
+                "className": "relative"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "img",
+                  "props": {
+                    "className": "size-full object-cover"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tag": "motion.div",
+              "props": {
+                "style": "{rightImageGroup}",
+                "className": "grid grid-flow-col items-center justify-items-start gap-4 justify-self-start px-4"
+              },
+              "children": [
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "relative grid w-[40vw] grid-cols-1 grid-rows-[auto_auto] gap-4 self-center md:w-[18vw]"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "relative w-[40vw] sm:w-auto"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "className": "aspect-[3/4] w-full object-cover"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "relative w-[40vw] sm:w-auto"
+                      },
+                      "children": [
+                        {
+                          "type": "element",
+                          "tag": "img",
+                          "props": {
+                            "className": "aspect-square w-full object-cover"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tag": "div",
+                  "props": {
+                    "className": "relative hidden md:block md:w-[25vw] lg:w-[20vw]"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "img",
+                      "props": {
+                        "className": "aspect-[2/3] w-full object-cover"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tag": "div",
+      "props": {
+        "className": "absolute inset-0 -z-10 mt-[100vh]"
+      }
+    }
+  ]
+}

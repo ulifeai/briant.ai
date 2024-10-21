@@ -2,285 +2,190 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "px-[5%] py-16 lg:max-h-full container mx-auto"
+    "className": "bg-white p-8 px-[5%] font-sans"
   },
   "children": [
+    {
+      "type": "logical",
+      "operator": "&&",
+      "condition": "tag",
+      "children": [
+        {
+          "type": "component",
+          "component": "Text",
+          "package": "@/components/ui/base/text",
+          "props": {
+            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
+          },
+          "children": [
+            {
+              "type": "dynamicText",
+              "text": "tag"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Text",
+      "package": "@/components/ui/base/text",
+      "props": {
+        "as": "h1",
+        "className": "mb-4"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "title"
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Text",
+      "package": "@/components/ui/base/text",
+      "props": {
+        "as": "p",
+        "className": "text-base py-2"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "description"
+        }
+      ]
+    },
     {
       "type": "element",
       "tag": "div",
       "props": {
-        "className": "flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center"
+        "className": "grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       },
       "children": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col"
+          "type": "loop",
+          "loop": {
+            "array": "items",
+            "iterator": "item"
           },
           "children": [
             {
-              "type": "element",
-              "tag": "div",
+              "type": "component",
+              "component": "Card",
+              "package": "@/components/ui/card",
+              "props": {
+                "key": "{index}",
+                "className": "w-full max-w-md"
+              },
               "children": [
                 {
-                  "type": "logical",
-                  "operator": "&&",
-                  "condition": "tag",
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "span",
-                      "props": {
-                        "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "tag"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "h1",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                    "className": "text-4xl font-bold py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                    "className": "text-base py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "grid gap-6 sm:grid-cols-2  mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "subheadings",
-                        "iterator": "subheading"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "key": "{index}",
-                            "className": "flex items-start space-x-3"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Package2",
-                              "package": "lucide-react",
-                              "props": {
-                                "className": "h-8 w-8"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "h3",
-                                  "props": {
-                                    "className": "text-md font-semibold"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "subheading.title"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "p",
-                                  "props": {
-                                    "className": "mt-2 text-sm"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "subheading.description"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-8"
-                  },
+                  "type": "component",
+                  "component": "CardHeader",
+                  "package": "@/components/ui/card",
                   "children": [
                     {
                       "type": "element",
                       "tag": "div",
                       "props": {
-                        "className": "{`w-full flex items-center`}"
+                        "className": "text-md mb-2"
                       },
                       "children": [
                         {
-                          "type": "element",
-                          "tag": "div",
+                          "type": "text",
+                          "text": "Apartment"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "CardTitle",
+                      "package": "@/components/ui/card",
+                      "props": {
+                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
+                        "className": "text-2xl font-normal"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "item.title"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "CardContent",
+                  "package": "@/components/ui/card",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "p",
+                      "props": {
+                        "className": "text-md mb-4"
+                      },
+                      "children": [
+                        {
+                          "type": "dynamicText",
+                          "text": "item.description"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "Button",
+                      "package": "@/components/ui/button",
+                      "props": {
+                        "variant": "outline",
+                        "className": "rounded-full"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "text": "Get consulation"
+                        },
+                        {
+                          "type": "component",
+                          "component": "ArrowUpRight",
+                          "package": "lucide-react",
                           "props": {
-                            "className": "lg:max-w-[30rem]"
-                          },
-                          "children": [
-                            {
-                              "type": "conditional",
-                              "condition": "form",
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "form",
-                                  "props": {
-                                    "action": "",
-                                    "className": "flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "component",
-                                      "component": "Input",
-                                      "package": "@/components/ui/input",
-                                      "props": {
-                                        "type": "text",
-                                        "placeholder": "{form?.placeholder ?? \"\"}",
-                                        "className": "border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                                      }
-                                    },
-                                    {
-                                      "type": "loop",
-                                      "loop": {
-                                        "array": "buttons",
-                                        "iterator": "button"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "component",
-                                          "component": "Button",
-                                          "package": "@/components/ui/button",
-                                          "props": {
-                                            "key": "{index}",
-                                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 py-2"
-                                          },
-                                          "children": [
-                                            {
-                                              "type": "dynamicText",
-                                              "text": "button.title"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "else": [
-                                {
-                                  "type": "fragment",
-                                  "children": [
-                                    {
-                                      "type": "loop",
-                                      "loop": {
-                                        "array": "buttons",
-                                        "iterator": "button"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "component",
-                                          "component": "Button",
-                                          "package": "@/components/ui/button",
-                                          "props": {
-                                            "key": "{index}",
-                                            "variant": "{button.variant}",
-                                            "size": "{button.size}",
-                                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 mx-2 py-2"
-                                          },
-                                          "children": [
-                                            {
-                                              "type": "dynamicText",
-                                              "text": "button.title"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "{` text-xs`}"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "(form?.description ?? \"\")"
-                                }
-                              ]
-                            }
-                          ]
+                            "className": "ml-2 h-4 w-4"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "component",
+                  "component": "CardFooter",
+                  "package": "@/components/ui/card",
+                  "children": [
+                    {
+                      "type": "element",
+                      "tag": "div",
+                      "props": {
+                        "className": "w-full"
+                      },
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Image",
+                          "package": "next/image",
+                          "props": {
+                            "src": "{\"/placeholder.png?\"}",
+                            "alt": "{item.title}",
+                            "width": "{300}",
+                            "height": "{150}",
+                            "className": "w-full rounded-lg"
+                          }
                         }
                       ]
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "children": [
-            {
-              "type": "element",
-              "tag": "img",
-              "props": {
-                "src": "{image.image}",
-                "alt": "{image.alt}",
-                "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
-                "className": "w-full h-full object-cover max-h-[30rem]"
-              }
             }
           ]
         }

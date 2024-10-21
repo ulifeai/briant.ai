@@ -15,7 +15,7 @@ export interface Props {
 }
 
 export interface Node {
-  type: NodeType;
+  type: NodeType | string;
   tag?: string;
   props?: Props;
   text?: string;

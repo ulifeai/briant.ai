@@ -5,7 +5,7 @@ import { DashboardActionsHeader } from "@/components/custom/DashboardActionsHead
 
 import { useConfig } from "@/hooks/useConfig";
 
-export default function SitePreviewContainer({website_content, loadingIframe, windowClick}: {website_content: any, loadingIframe: boolean, windowClick: Function}) {
+export default function SitePreviewContainer({ website_content, loadingIframe, windowClick, onThemeChange}: {website_content: any, loadingIframe: boolean, windowClick: Function, onThemeChange: Function}) {
 
   const [viewMode, setViewMode] = useState('web')
   const [themeOptions, setThemeOptions] = useConfig()
@@ -20,8 +20,9 @@ export default function SitePreviewContainer({website_content, loadingIframe, wi
   }, [loadingIframe])
 
   useEffect(()=>{
-   
     sendIframeMessage("set_theme",{themeOptions})
+    onThemeChange(themeOptions)
+    
   }, [themeOptions])
 
 
@@ -43,13 +44,13 @@ export default function SitePreviewContainer({website_content, loadingIframe, wi
           {/* <div className="text-center pt-6 pb-2 text-gray-200">
             <Button variant={"outline"} className="px-8 py-0 border-gray-50 bg-transparent">{viewMode}</Button>
           </div> */}
-    <ScrollArea className="h-full w-[70vw] flex-1 container overflow-auto pt-6 pb-6 text-black">
-      <div className={`rounded-md h-[120vh] bg-white mx-auto ${
-        viewMode === 'web' ? 'max-w-7xl' : 
+    <ScrollArea className="h-full w-[67vw] flex-1 container overflow-auto pt-6 pb-6 text-black">
+      <div className={`rounded-md ml-[3.5vw] h-[120vh] bg-white mx-auto ${
+        viewMode === 'web' ? 'w-[80vw]' : 
         viewMode === 'tablet' ? 'max-w-2xl' : 
         'max-w-sm'
       }`}
-      style={{ transform: "scale(0.85)", transformOrigin: "center top"}}
+      style={{ transform: "scale(0.75)", transformOrigin: "left top"}}
       >
          {/* <header className="border-b border-gray-800 bg-background">
             <div className="container mx-auto px-4">

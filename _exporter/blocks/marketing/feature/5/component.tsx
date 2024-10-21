@@ -1,7 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Package2 } from "lucide-react";
+"use client"
 
+import Image from 'next/image'
+import { ArrowUpIcon } from 'lucide-react'
+import { useState } from 'react'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import {Text} from "@/components/ui/base/text";
+
+const items = [
+  {
+    title: 'De-risking your project',
+    description: 'Identify and mitigate potential risks early in your project lifecycle.',
+    image: '/placeholder.svg?height=400&width=400&text=De-risking'
+  },
+  {
+    title: 'Planning strategies',
+    description: 'Develop comprehensive strategies to ensure project success.',
+    image: '/placeholder.svg?height=400&width=400&text=Planning'
+  },
+  {
+    title: 'Return on investment',
+    description: 'Maximize your ROI through careful planning and execution.',
+    image: '/placeholder.svg?height=400&width=400&text=ROI'
+  },
+  {
+    title: 'Convert traveler demand',
+    description: 'Implement strategies to increase traveler conversion rates.',
+    image: '/placeholder.svg?height=400&width=400&text=Traveler+Demand'
+  }
+]
 interface HeaderBlockProps {
   tag: string;
   title: string;
@@ -20,10 +52,10 @@ interface HeaderBlockProps {
     description?: string;
     placeholder?: string;
   };
-  subheadings?: {
+  feature_items?: {
     title: string;
     description: string;
-  }[];
+  }[]
 }
 
 export default function HeaderBlock({
@@ -33,97 +65,64 @@ export default function HeaderBlock({
   buttons,
   form,
   image,
-  subheadings,
+  feature_items = items
 }: HeaderBlockProps) {
-  return (
-    <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
-      <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
-        <div className="flex flex-col">
-          <div>
-            {tag && (
-              <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                {tag}
-              </span>
-            )}
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
-            >
-              {title}
-            </h1>
-            <p
-              className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
-            >
-              {description}
-            </p>
-            <div className="gap-6 items-start flex flex-col mt-8">
-              {subheadings?.map((subheading, index) => (
-                <div
-                  key={index}
-                  className="flex justify-center items-start space-x-3"
-                >
-                  <Package2 className="h-6 w-6" />
-                  <div className="mx-0">
-                    <h3 className="text-normal">{subheading.title}</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <div className={`w-full flex items-center`}>
-                <div className="lg:max-w-[30rem]">
-                  {form ? (
-                    <form
-                      action=""
-                      className="flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={form?.placeholder ?? ""}
-                        className="border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                      />
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </form>
-                  ) : (
-                    <>
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          variant={button.variant as "default" | "outline"}
-                          size={button.size as "default" | "sm" | "lg"}
-                          className="whitespace-nowrap h-10 px-4 mx-2 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </>
-                  )}
+  const [expandedItem, setExpandedItem] = useState<string | null>(null)
 
-                  <div className={` text-xs`}>{form?.description ?? ""}</div>
-                </div>
-              </div>
-            </div>
-          </div>
+  return (
+    <div className="p-8 px-[5%]">
+      {tag && (
+        <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
+          {tag}
+        </span>
+      )}
+      <Text
+        as="h1"
+        className="mb-4"
+      >
+        {title}
+      </Text>
+      <Text
+      as="p"
+        className="text-base py-2 max-w-5xl"
+      >
+        {description}
+      </Text>
+      <div className="flex mt-8 w-full justify-between items-center">
+        <div className="space-y-6 w-1/2 justify-betwwen">
+          {feature_items.map((item) => (
+            <Collapsible
+              key={item.title}
+              open={expandedItem === item.title}
+              onOpenChange={() => setExpandedItem(expandedItem === item.title ? null : item.title)}
+            >
+              <CollapsibleTrigger className="flex items-center justify-between w-full border-b border-gray-200 pb-2">
+                <span className="text-xl">{item.title}</span>
+                <ArrowUpIcon 
+                  className={`h-5 w-5 text-gray-400 transition-transform duration-200 ${
+                    expandedItem === item.title ? 'transform rotate-180' : ''
+                  }`}
+                />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pt-2 CollapsibleContent pb-4 transition-all duration-200 ease-in-out">
+                <p className="text-gray-600">
+                  {item.description}
+                </p>
+              </CollapsibleContent>
+            </Collapsible>
+          ))}
         </div>
-        <div>
-          <img
-            src={image?.image}
-            alt={image?.alt}
-            className="w-full h-full object-cover max-h-[30rem]"
-            style={{ borderRadius: "var(--image-radius)" }}
+        <div className="w-1/2 mx-auto relative">
+          <Image
+            src='/placeholder-image.svg'
+            alt="Dashboard visualization"
+            width={400}
+            height={400}
+            className="rounded-lg mx-auto shadow-lg transition-opacity duration-200 ease-in-out"
           />
         </div>
       </div>
     </div>
   );
 }
+

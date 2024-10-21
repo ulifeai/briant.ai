@@ -1,17 +1,38 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Package2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import {Text} from "@/components/ui/base/text";
+
+const items = [
+  {
+    title: 'De-risking your project',
+    description: 'Identify and mitigate potential risks early in your project lifecycle.',
+    image: '/placeholder.svg?height=400&width=400&text=De-risking'
+  },
+  {
+    title: 'Planning strategies',
+    description: 'Develop comprehensive strategies to ensure project success.',
+    image: '/placeholder.svg?height=400&width=400&text=Planning'
+  },
+  {
+    title: 'Return on investment',
+    description: 'Maximize your ROI through careful planning and execution.',
+    image: '/placeholder.svg?height=400&width=400&text=ROI'
+  }
+]
+
 
 interface HeaderBlockProps {
   tag: string;
   title: string;
   description: string;
 
-      buttons: {
-      title: string;
-      variant: string;
-      size: string;
-    }[];
+  buttons: {
+    title: string;
+    variant: string;
+    size: string;
+  }[];
   image: {
     image: string;
     alt: string;
@@ -20,10 +41,11 @@ interface HeaderBlockProps {
     description?: string;
     placeholder?: string;
   };
-  subheadings?: {
+  feature_items?: {
     title: string;
+    image: string;
     description: string;
-  }[];
+  }[]
 }
 
 export default function HeaderBlock({
@@ -33,96 +55,56 @@ export default function HeaderBlock({
   buttons,
   form,
   image,
-  subheadings,
+  feature_items = items
 }: HeaderBlockProps) {
   return (
-    <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
-      <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
-        <div className="flex flex-col">
-          <div>
-            {tag && (
-              <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                {tag}
-              </span>
-            )}
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
-            >
-              {title}
-            </h1>
-            <p
-              className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
-            >
-              {description}
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2  mt-8">
-              {subheadings?.map((subheading, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <Package2 className="h-8 w-8 " />
-                  <div>
-                    <h3 className="text-md font-semibold">
-                      {subheading.title}
-                    </h3>
-                    <p className="mt-2 text-sm">{subheading.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <div className={`w-full flex items-center`}>
-                <div className="lg:max-w-[30rem]">
-                  {form ? (
-                    <form
-                      action=""
-                      className="flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={form?.placeholder ?? ""}
-                        className="border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                      />
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          className="whitespace-nowrap h-10 px-4 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </form>
-                  ) : (
-                    <>
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          variant={button.variant as "default" | "outline"}
-                          size={button.size as "default" | "sm" | "lg"}
-                          className="whitespace-nowrap h-10 px-4 mx-2 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </>
-                  )}
-
-                  <div className={` text-xs`}>{form?.description ?? ""}</div>
-                </div>
+    <div className="bg-white p-8 px-[5%] font-sans">
+      
+      {tag && (
+        <Text className="text-sm font-semibold uppercase tracking-wider  mb-2">
+          {tag}
+        </Text>
+      )}
+      <Text
+        as="h1"
+        className="mb-4"
+      >
+        {title}
+      </Text>
+      <Text
+      as="p"
+        className="text-base py-2"
+      >
+        {description}
+      </Text>
+      <div className="grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {items.map((item, index) => (
+          <Card className="w-full max-w-md" key={index}>
+            <CardHeader>
+              <div className="text-md mb-2">Apartment</div>
+              <CardTitle className="text-2xl font-normal" style={{
+                fontFamily: "var(--header-font)"
+              }}>{item.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-md mb-4">{item.description}</p>
+              <Button variant="outline" className="rounded-full">
+                Get consulation <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+            </CardContent>
+            <CardFooter>
+              <div className="w-full">
+                <Image
+                  src={"/placeholder.png?"}
+                  alt={item.title}
+                  width={300}
+                  height={150}
+                  className="w-full rounded-lg"
+                />
               </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <img
-            src={image?.image}
-            alt={image?.alt}
-            className="w-full h-full object-cover max-h-[30rem]"
-            style={{ borderRadius: "var(--image-radius)" }}
-          />
-        </div>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
     </div>
   );

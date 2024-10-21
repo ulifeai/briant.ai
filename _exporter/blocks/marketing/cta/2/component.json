@@ -2,14 +2,14 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "relative px-[5%] py-16 max-h-[20rem] flex items-center overflow-hidden"
+    "className": "relative px-[5%] py-16 min-h-[30rem] bg-secondary flex items-center overflow-hidden"
   },
   "children": [
     {
       "type": "element",
       "tag": "div",
       "props": {
-        "className": "relative z-10 w-full max-w-6xl mx-auto"
+        "className": "relative z-10 w-full container max-w-6xl mx-auto text-white"
       },
       "children": [
         {
@@ -31,11 +31,33 @@
                   "tag": "div",
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "h1",
+                      "type": "logical",
+                      "operator": "&&",
+                      "condition": "tag",
+                      "children": [
+                        {
+                          "type": "component",
+                          "component": "Text",
+                          "package": "@/components/ui/base/text",
+                          "props": {
+                            "className": "text-sm text-white font-semibold uppercase tracking-wider  mb-2"
+                          },
+                          "children": [
+                            {
+                              "type": "dynamicText",
+                              "text": "tag"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                        "className": "text-4xl font-bold py-2"
+                        "as": "h1",
+                        "className": "mb-4 text-lowercase first-letter-uppercase"
                       },
                       "children": [
                         {
@@ -45,11 +67,12 @@
                       ]
                     },
                     {
-                      "type": "element",
-                      "tag": "p",
+                      "type": "component",
+                      "component": "Text",
+                      "package": "@/components/ui/base/text",
                       "props": {
-                        "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                        "className": "text-base py-2"
+                        "as": "p",
+                        "className": "text-base text-white py-2"
                       },
                       "children": [
                         {

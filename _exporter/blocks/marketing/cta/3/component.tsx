@@ -1,3 +1,4 @@
+import {Text} from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -29,7 +30,7 @@ export default function Component({
   image,
 }: HeaderBlockProps) {
   return (
-    <div className="relative px-[5%] py-16 max-h-[20rem] flex items-center overflow-hidden">
+    <div className="relative px-[5%] py-16 max-h-[20rem] container flex items-center overflow-hidden">
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         <div className="flex flex-col gap-y-12 items-center lg:gap-x-12 lg:items-center">
           <div className="flex flex-col items-center text-center">
@@ -39,18 +40,23 @@ export default function Component({
                   {tag}
                 </span>
               )} */}
-              <h1
-                className="text-4xl font-bold py-2"
-                style={{ fontFamily: "var(--header-font)" }}
+              {/* {tag && (
+              <Text className="text-sm font-semibold uppercase tracking-wider  mb-2">
+                  {tag}
+                </Text>
+              )} */}
+              <Text
+                as="h1"
+                className="mb-4"
               >
                 {title}
-              </h1>
-              <p
+              </Text>
+              <Text
+              as="p"
                 className="text-base py-2"
-                style={{ fontFamily: "var(--page-font)" }}
               >
                 {description}
-              </p>
+              </Text>
               <div className="mt-8">
                 <div className="w-full flex items-center">
                   <div className="lg:max-w-[30rem] mx-auto">

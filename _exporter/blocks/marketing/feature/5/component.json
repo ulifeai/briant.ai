@@ -2,251 +2,139 @@
   "type": "element",
   "tag": "div",
   "props": {
-    "className": "px-[5%] py-16 lg:max-h-full container mx-auto"
+    "className": "p-8 px-[5%]"
   },
   "children": [
+    {
+      "type": "logical",
+      "operator": "&&",
+      "condition": "tag",
+      "children": [
+        {
+          "type": "element",
+          "tag": "span",
+          "props": {
+            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
+          },
+          "children": [
+            {
+              "type": "dynamicText",
+              "text": "tag"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Text",
+      "package": "@/components/ui/base/text",
+      "props": {
+        "as": "h1",
+        "className": "mb-4"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "title"
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Text",
+      "package": "@/components/ui/base/text",
+      "props": {
+        "as": "p",
+        "className": "text-base py-2 max-w-5xl"
+      },
+      "children": [
+        {
+          "type": "dynamicText",
+          "text": "description"
+        }
+      ]
+    },
     {
       "type": "element",
       "tag": "div",
       "props": {
-        "className": "flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center"
+        "className": "flex mt-8 w-full justify-between items-center"
       },
       "children": [
         {
           "type": "element",
           "tag": "div",
           "props": {
-            "className": "flex flex-col"
+            "className": "space-y-6 w-1/2 justify-betwwen"
           },
           "children": [
             {
-              "type": "element",
-              "tag": "div",
+              "type": "loop",
+              "loop": {
+                "array": "feature_items",
+                "iterator": "item"
+              },
               "children": [
                 {
-                  "type": "logical",
-                  "operator": "&&",
-                  "condition": "tag",
+                  "type": "component",
+                  "component": "Collapsible",
+                  "package": "@/components/ui/collapsible",
+                  "props": {
+                    "key": "{item.title}",
+                    "open": "{expandedItem === item.title}",
+                    "onOpenChange": "{() => setExpandedItem(expandedItem === item.title ? null : item.title)}"
+                  },
                   "children": [
                     {
-                      "type": "element",
-                      "tag": "span",
+                      "type": "component",
+                      "component": "CollapsibleTrigger",
+                      "package": "@/components/ui/collapsible",
                       "props": {
-                        "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "tag"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "h1",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                    "className": "text-4xl font-bold py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                    "className": "text-base py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "gap-6 items-start flex flex-col mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "subheadings",
-                        "iterator": "subheading"
+                        "className": "flex items-center justify-between w-full border-b border-gray-200 pb-2"
                       },
                       "children": [
                         {
                           "type": "element",
-                          "tag": "div",
+                          "tag": "span",
                           "props": {
-                            "key": "{index}",
-                            "className": "flex justify-center items-start space-x-3"
+                            "className": "text-xl"
                           },
                           "children": [
                             {
-                              "type": "component",
-                              "component": "Package2",
-                              "package": "lucide-react",
-                              "props": {
-                                "className": "h-6 w-6"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "mx-0"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "h3",
-                                  "props": {
-                                    "className": "text-normal"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "subheading.title"
-                                    }
-                                  ]
-                                }
-                              ]
+                              "type": "dynamicText",
+                              "text": "item.title"
                             }
                           ]
+                        },
+                        {
+                          "type": "component",
+                          "component": "ArrowUpIcon",
+                          "package": "lucide-react",
+                          "props": {
+                            "className": "{`h-5 w-5 text-gray-400 transition-transform duration-200 ${expandedItem === item.title ? 'transform rotate-180' : ''}`}"
+                          }
                         }
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-8"
-                  },
-                  "children": [
+                    },
                     {
-                      "type": "element",
-                      "tag": "div",
+                      "type": "component",
+                      "component": "CollapsibleContent",
+                      "package": "@/components/ui/collapsible",
                       "props": {
-                        "className": "{`w-full flex items-center`}"
+                        "className": "pt-2 CollapsibleContent pb-4 transition-all duration-200 ease-in-out"
                       },
                       "children": [
                         {
                           "type": "element",
-                          "tag": "div",
+                          "tag": "p",
                           "props": {
-                            "className": "lg:max-w-[30rem]"
+                            "className": "text-gray-600"
                           },
                           "children": [
                             {
-                              "type": "conditional",
-                              "condition": "form",
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "form",
-                                  "props": {
-                                    "action": "",
-                                    "className": "flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "component",
-                                      "component": "Input",
-                                      "package": "@/components/ui/input",
-                                      "props": {
-                                        "type": "text",
-                                        "placeholder": "{form?.placeholder ?? \"\"}",
-                                        "className": "border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                                      }
-                                    },
-                                    {
-                                      "type": "loop",
-                                      "loop": {
-                                        "array": "buttons",
-                                        "iterator": "button"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "component",
-                                          "component": "Button",
-                                          "package": "@/components/ui/button",
-                                          "props": {
-                                            "key": "{index}",
-                                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 py-2"
-                                          },
-                                          "children": [
-                                            {
-                                              "type": "dynamicText",
-                                              "text": "button.title"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "else": [
-                                {
-                                  "type": "fragment",
-                                  "children": [
-                                    {
-                                      "type": "loop",
-                                      "loop": {
-                                        "array": "buttons",
-                                        "iterator": "button"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "component",
-                                          "component": "Button",
-                                          "package": "@/components/ui/button",
-                                          "props": {
-                                            "key": "{index}",
-                                            "variant": "{button.variant}",
-                                            "size": "{button.size}",
-                                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                            "className": "whitespace-nowrap h-10 px-4 mx-2 py-2"
-                                          },
-                                          "children": [
-                                            {
-                                              "type": "dynamicText",
-                                              "text": "button.title"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "{` text-xs`}"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "(form?.description ?? \"\")"
-                                }
-                              ]
+                              "type": "dynamicText",
+                              "text": "item.description"
                             }
                           ]
                         }
@@ -261,15 +149,20 @@
         {
           "type": "element",
           "tag": "div",
+          "props": {
+            "className": "w-1/2 mx-auto relative"
+          },
           "children": [
             {
-              "type": "element",
-              "tag": "img",
+              "type": "component",
+              "component": "Image",
+              "package": "next/image",
               "props": {
-                "src": "{image.image}",
-                "alt": "{image.alt}",
-                "style": "{{\n  borderRadius: \"var(--image-radius)\"\n}}",
-                "className": "w-full h-full object-cover max-h-[30rem]"
+                "src": "/placeholder-image.svg",
+                "alt": "Dashboard visualization",
+                "width": "{400}",
+                "height": "{400}",
+                "className": "rounded-lg mx-auto shadow-lg transition-opacity duration-200 ease-in-out"
               }
             }
           ]

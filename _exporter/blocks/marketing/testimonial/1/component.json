@@ -27,7 +27,7 @@
       "children": [
         {
           "type": "dynamicText",
-          "text": "subtitle"
+          "text": "description"
         }
       ]
     },

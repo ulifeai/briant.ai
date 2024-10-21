@@ -1,6 +1,5 @@
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react"
 
 interface FooterLink {
@@ -25,15 +24,6 @@ interface FooterProps {
   copyrightText: string
 }
 
-const SocialIcon = ({ platform }: { platform: SocialLink['platform'] }) => {
-  switch (platform) {
-    case 'facebook': return <Facebook className="h-5 w-5" />
-    case 'instagram': return <Instagram className="h-5 w-5" />
-    case 'twitter': return <Twitter className="h-5 w-5" />
-    case 'linkedin': return <Linkedin className="h-5 w-5" />
-    case 'youtube': return <Youtube className="h-5 w-5" />
-  }
-}
 
 export default function Footer({
   variant,
@@ -47,17 +37,17 @@ export default function Footer({
   copyrightText
 }: FooterProps) {
   return (
-    <footer className="container max-w-7xl w-full border-t border-gray-200 py-8">
+    <footer className="container max-w-7xl mx-auto w-full border-t border-gray-200 py-8">
       <div className="container mx-auto px-4">
-        <div className="text-2xl font-bold mb-8">{logo.image}</div>
+        <div className="text-2xl font-bold mb-8">{logo?.image}</div>
 
         <div className="flex items-center flex-col space-y-5 md:flex-row justify-between space-x-8">
           
             <nav className="flex flex-wrap flex-col md:flex-row justify-center gap-6">
               {navLinks?.map((link, index) => (
-                <Link key={index} href={link.href} className="text-sm  hover:text-gray-900">
+                <div className="text-sm  hover:text-gray-900">
                   {link.label}
-                </Link>
+                </div>
               ))}
             </nav>
 
@@ -77,9 +67,15 @@ export default function Footer({
             {variant === 'social' && socialLinks && (
               <div className="flex space-x-4">
                 {socialLinks?.map((link, index) => (
-                  <Link key={index} href={link.href} className=" hover:text-gray-900">
-                    <SocialIcon platform={link.platform} />
-                  </Link>
+                  <div className=" hover:text-gray-900">}
+                    {link.platform == 'facebook' && <Facebook className="h-5 w-5" />}
+                    {link.platform == 'instagram'&& <Instagram className="h-5 w-5" />}
+                    {link.platform == 'twitter'&& <Twitter className="h-5 w-5" />}
+                    {link.platform == 'linkedin'&& <Linkedin className="h-5 w-5" />}
+                    {link.platform == 'youtube'&& <Youtube className="h-5 w-5" />}
+                      
+                    
+                  </div>
                 ))}
               </div>
             )}
@@ -88,9 +84,9 @@ export default function Footer({
           <div  className="flex flex-col items-center space-y-8 mt-8">
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             {legalLinks?.map((link, index) => (
-              <Link key={index} href={link.href} className="hover:text-gray-900">
+              <div className="hover:text-gray-900">
                 {link.label}
-              </Link>
+              </div>
             ))}
           </div>
 

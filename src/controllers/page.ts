@@ -11,6 +11,7 @@ import { getBlocks } from './block';
 export async function getPages(projectId: string): Promise<IPage[]> {
     try {
         const project = await Project.findOne({ _id: projectId }).exec();
+        console.log(project)
         if (!project) {
             throw new Error('Project not found');
         }
@@ -74,11 +75,12 @@ export async function getPageById(pageId: string): Promise<IPage | null> {
 export async function createPage(data: {
     project_id: string; // UUID of the project
     name: string;
+    path: string;
     description: string;
     category: Category
 }): Promise<IPage> {
     try {
-        const { project_id, name, category, description } = data;
+        const { project_id, name, path, category, description } = data;
 
         // Find the project by UUID
         const project = await Project.findOne({ _id: project_id }).exec();
@@ -95,6 +97,7 @@ export async function createPage(data: {
         const newPage: IPage = new Page({
             project_id: project._id,
             name,
+            path,
             description,
             category
         });

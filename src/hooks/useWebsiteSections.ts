@@ -204,7 +204,7 @@ const data = [
 ]
 
 
-const configAtom = atomWithStorage("websiteContent", {
+const configAtom = atomWithStorage<any>("websiteContent", {
     pageCode: []
 })
 

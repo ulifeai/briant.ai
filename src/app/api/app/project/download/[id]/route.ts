@@ -5,6 +5,7 @@ import { getPages } from '@/controllers/page';
 import { createResponse } from '@/lib/utils/response'; // Assuming these utilities exist
 import axios from 'axios'; // Removed node-fetch as it's not used
 import { getBlocks } from '@/controllers/block';
+import { getProjectById } from '@/controllers/project';
 
 /**
  * Handle GET request to retrieve all projects for a user.
@@ -25,6 +26,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
         }
 
         const projectId = params.id;
+        const project = await getProjectById(projectId)
         const pages = await getPages(projectId);
 
         const pageData = await Promise.all(pages.map(async (page) => {
@@ -32,6 +34,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
             const jsonStructure = blocks.map((block) => block.content);
             return {
                 page: page.name.replaceAll(" ", "_"),
+                path: page.path ?? page.name.replaceAll(" ", "_"),
                 type: page.category,
                 data: jsonStructure
             };
@@ -41,7 +44,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
         // Fetch the ZIP file from the Express server with correct responseType
         const response = await axios.post(expressServerUrl, {
-            pages: pageData
+            pages: pageData,
+            customizations: project?.customizations
         }, {
             responseType: 'arraybuffer', // Ensure binary data is handled correctly
         });

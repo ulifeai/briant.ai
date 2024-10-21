@@ -1,3 +1,4 @@
+import {Text} from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -10,10 +11,10 @@ interface HeaderBlockProps {
       variant: string;
       size: string;
     }[];
-  image: {
-    image: string;
-    alt: string;
-  };
+    images: {
+      src: string;
+      alt?: string;
+    }[];
   form?: {
     description?: string;
     placeholder?: string;
@@ -26,7 +27,7 @@ export default function Component({
   description,
   buttons,
   form,
-  image,
+  images,
 }: HeaderBlockProps) {
   return (
     <div className="relative px-[5%] py-16 min-h-screen flex items-center overflow-hidden">
@@ -40,7 +41,7 @@ export default function Component({
           filter: "brightness(0.4)",
         }}
         role="img"
-        aria-label={image.alt}
+        aria-label={images[0]?.alt}
       />
 
       {/* Content */}
@@ -48,23 +49,23 @@ export default function Component({
         <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-1 lg:gap-x-12 lg:items-center">
           <div className="flex flex-col max-w-[75vh]">
             <div>
-              {tag ? (
-                <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                  {tag}
-                </span>
-              ): null}
-              <h1
-                className="text-4xl font-bold py-2"
-                style={{ fontFamily: "var(--header-font)" }}
-              >
-                {title}
-              </h1>
-              <p
-                className="text-base py-2 text-gray-200"
-                style={{ fontFamily: "var(--page-font)" }}
-              >
-                {description}
-              </p>
+            {tag && (
+              <Text className="text-sm text-white font-semibold uppercase tracking-wider  mb-2">
+                {tag}
+              </Text>
+            )}
+            <Text
+              as="hero"
+              className="mb-4 text-8xl text-lowercase first-letter-uppercase"
+            >
+              {title}
+            </Text>
+            <Text
+            as="p"
+              className="text-base text-white py-2"
+            >
+              {description}
+            </Text>
               <div className="mt-8">
                 <div className="w-full flex items-center">
                   <div className="lg:max-w-[30rem]">

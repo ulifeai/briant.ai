@@ -10,6 +10,7 @@ import { createPage } from '@/controllers/page';
 import { Category } from '@/models/Page';
 import { createResponse, ResponseData } from '@/lib/utils/response'; // Assuming these utilities exist
 import { validateSchema } from '@/lib/utils/validate'; // Assuming this utility exists
+import { defaultCustomization } from '@/lib/utils/ui';
 
 /**
  * Handle GET request to retrieve all projects for a user.
@@ -87,6 +88,8 @@ export async function POST(req: NextRequest) {
             400
         );
     try {
+        if (!validatedData.customizations)
+            validatedData.customizations = defaultCustomization
 
         const newProject = await createProject({ ...validatedData, name: "" });
 
