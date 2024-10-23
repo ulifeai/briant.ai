@@ -1,11 +1,309 @@
 {
-  "type": "element",
-  "tag": "div",
-  "children": [
+  "imports": [
     {
-      "type": "component",
-      "component": "HeroHeaderBlock32",
-      "package": "./32/component"
+      "source": "./1/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock1"
+        }
+      ]
+    },
+    {
+      "source": "./2/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock2"
+        }
+      ]
+    },
+    {
+      "source": "./3/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock3"
+        }
+      ]
+    },
+    {
+      "source": "./4/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock4"
+        }
+      ]
+    },
+    {
+      "source": "./5/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock5"
+        }
+      ]
+    },
+    {
+      "source": "./6/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock6"
+        }
+      ]
+    },
+    {
+      "source": "./7/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock7"
+        }
+      ]
+    },
+    {
+      "source": "./8/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock8"
+        }
+      ]
+    },
+    {
+      "source": "./9/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock9"
+        }
+      ]
+    },
+    {
+      "source": "./10/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock10"
+        }
+      ]
+    },
+    {
+      "source": "./11/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock11"
+        }
+      ]
+    },
+    {
+      "source": "./12/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock12"
+        }
+      ]
+    },
+    {
+      "source": "./13/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock13"
+        }
+      ]
+    },
+    {
+      "source": "./14/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock14"
+        }
+      ]
+    },
+    {
+      "source": "./15/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock15"
+        }
+      ]
+    },
+    {
+      "source": "./16/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock16"
+        }
+      ]
+    },
+    {
+      "source": "./17/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock17"
+        }
+      ]
+    },
+    {
+      "source": "./18/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock18"
+        }
+      ]
+    },
+    {
+      "source": "./19/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock19"
+        }
+      ]
+    },
+    {
+      "source": "./20/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock20"
+        }
+      ]
+    },
+    {
+      "source": "./21/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock21"
+        }
+      ]
+    },
+    {
+      "source": "./22/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock22"
+        }
+      ]
+    },
+    {
+      "source": "./23/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock23"
+        }
+      ]
+    },
+    {
+      "source": "./24/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock24"
+        }
+      ]
+    },
+    {
+      "source": "./25/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock25"
+        }
+      ]
+    },
+    {
+      "source": "./26/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock26"
+        }
+      ]
+    },
+    {
+      "source": "./27/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock27"
+        }
+      ]
+    },
+    {
+      "source": "./28/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock28"
+        }
+      ]
+    },
+    {
+      "source": "./29/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock29"
+        }
+      ]
+    },
+    {
+      "source": "./30/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock30"
+        }
+      ]
+    },
+    {
+      "source": "./31/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock31"
+        }
+      ]
+    },
+    {
+      "source": "./32/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "HeroHeaderBlock32"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Sample",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "component",
+            "component": "HeroHeaderBlock32",
+            "package": "./32/component"
+          }
+        ]
+      }
     }
   ]
 }

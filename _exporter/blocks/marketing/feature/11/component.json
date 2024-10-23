@@ -1,0 +1,408 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Timer",
+          "local": "Timer"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "py-12 relative overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "max-w-[480px] px-3 mx-auto lg:max-w-[1280px]"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "max-w-5xl text-center mb-20 mx-auto box-border"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h2",
+                          "className": "mb-8 text-5xl lg:text-7xl font-bold text-center"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "p",
+                          "className": "text-lg  text-[#768b8d] mb-4 max-w-sm mx-auto"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "rounded-lg bg-[#fbe7e7] py-24 px-10 box-border lg:px-10 lg:py-24"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex box-border flex-col-reverse lg:flex-row lg:justify-between"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "lg:w-1/2 px-3"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "pb-12 mb-12 flex items-center border-b"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#fff9e9]"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Timer",
+                                        "package": "lucide-react"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "ms-4 box-border flex flex-col"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Simple & Unique"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-[#768b8d] text-base"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Created by our talented designer"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "pb-12 mb-12 flex items-center border-b"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#a8f2d7]"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Timer",
+                                        "package": "lucide-react"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "ms-4 box-border flex flex-col"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Layered & Well Documented"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-[#768b8d] text-base"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "The best layer organisation"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "pb-12 mb-12 flex items-center border-b"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#c6eeff]"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Timer",
+                                        "package": "lucide-react"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "ms-4 box-border flex flex-col"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "World Class UI Design"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-[#768b8d] text-base"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "We are not tolerant about taste"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "lg:w-1/2 mb-20 order-1 px-3 flex flex-col justify-center"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "max-w-md"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "h4",
+                                    "props": {
+                                      "className": "mb-5 text-4xl font-bold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Start custom & build!"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "p",
+                                    "props": {
+                                      "className": "mb-20 *:"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Nunc et tellus non erat accumsan\n                                aliquam eget non mi. Integer \n                                fringilla pellentesque finibus."
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col gap-5 lg:flex-row lg:items-center justify-around"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "block"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-bold text-4xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Only $50"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "p",
+                                        "props": {
+                                          "className": "text-xl font-semibold text-gray-400"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "for Silver package"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "a",
+                                    "props": {
+                                      "href": "",
+                                      "className": "rounded-full bg-red-500 hover:bg-red-200 text-center align-middle cursor-pointer px-7 py-4 text-white text-lg font-semibold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "See our plans"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

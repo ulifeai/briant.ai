@@ -1,228 +1,258 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "relative"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "px-[5%]"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex max-h-[60rem] min-h-svh items-center"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "container py-16 md:py-24 lg:py-28"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mx-auto max-w-lg text-center"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Text",
-                      "package": "@/components/ui/base/text",
-                      "props": {
-                        "as": "hero",
-                        "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "title"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "Text",
-                      "package": "@/components/ui/base/text",
-                      "props": {
-                        "as": "p",
-                        "className": "text-base py-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "description"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
-                      },
-                      "children": [
-                        {
-                          "type": "loop",
-                          "loop": {
-                            "array": "buttons",
-                            "iterator": "button"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Button",
-                              "package": "@/components/ui/button",
-                              "props": {
-                                "variant": "{button.variant}",
-                                "size": "{button.size}",
-                                "key": "{index}",
-                                "className": "whitespace-nowrap px-4 py-2"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "button.title"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "absolute inset-0 -z-10 overflow-hidden"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "absolute inset-0 z-10 bg-black/50"
-                  }
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "grid w-full grid-cols-2 gap-x-4 px-4 md:grid-cols-3 lg:grid-cols-5"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "imageColumns",
-                        "iterator": "column"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "key": "{index}",
-                            "className": "{`grid size-full columns-2 grid-cols-1 gap-4 self-center ${column.className}`}"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "imagesPartOne",
-                                "iterator": "image"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "key": "{index}",
-                                    "className": "grid size-full grid-cols-1 gap-4"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "element",
-                                      "tag": "div",
-                                      "props": {
-                                        "className": "relative w-full pt-[120%]"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "element",
-                                          "tag": "img",
-                                          "props": {
-                                            "src": "{image.src}",
-                                            "alt": "{image.alt}",
-                                            "className": "absolute inset-0 size-full object-cover"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "imagesPartTwo",
-                                "iterator": "image"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "key": "{index}",
-                                    "className": "grid size-full grid-cols-1 gap-4"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "element",
-                                      "tag": "div",
-                                      "props": {
-                                        "className": "relative w-full pt-[120%]"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "element",
-                                          "tag": "img",
-                                          "props": {
-                                            "src": "{image.src}",
-                                            "alt": "{image.alt}",
-                                            "className": "absolute inset-0 size-full object-cover"
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "relative"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "px-[5%]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex max-h-[60rem] min-h-svh items-center"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "container py-16 md:py-24 lg:py-28"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mx-auto max-w-lg text-center"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "hero",
+                              "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "title"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h6",
+                              "className": "text-base py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                            },
+                            "children": [
+                              {
+                                "type": "loop",
+                                "loop": {
+                                  "array": "buttons",
+                                  "iterator": "button"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Button",
+                                    "package": "@/components/ui/button",
+                                    "props": {
+                                      "variant": "{button.variant}",
+                                      "size": "{button.size}",
+                                      "key": "{index}",
+                                      "className": "whitespace-nowrap px-4 py-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "button.title"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "absolute inset-0 -z-10 overflow-hidden"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "absolute inset-0 z-10 bg-black/50"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "grid w-full grid-cols-2 gap-x-4 px-4 md:grid-cols-3 lg:grid-cols-5"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "imageColumns",
+                              "iterator": "column"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "key": "{index}",
+                                  "className": "{`grid size-full columns-2 grid-cols-1 gap-4 self-center ${column.className}`}"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "imagesPartOne",
+                                      "iterator": "image"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "grid size-full grid-cols-1 gap-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "relative w-full pt-[120%]"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "{image.src}",
+                                                  "alt": "{image.alt}",
+                                                  "className": "absolute inset-0 size-full object-cover"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "imagesPartTwo",
+                                      "iterator": "image"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "grid size-full grid-cols-1 gap-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "relative w-full pt-[120%]"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "{image.src}",
+                                                  "alt": "{image.alt}",
+                                                  "className": "absolute inset-0 size-full object-cover"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,222 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "py-20 bg-white overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto w-full"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap items-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full bg-white lg:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h2",
+                              "className": "leading-none font-bold text-6xl mb-9 md:text-8xl"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "title"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "text-gray-900 leading-relaxed font-medium text-lg mb-10 md:max-w-sm"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "shadow-2xl rounded-xl mb-11 h-auto max-w-[240px]"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/base/button",
+                                "props": {
+                                  "variant": "five",
+                                  "children": "Learn how to save more",
+                                  "className": "text-white font-semibold py-4 px-6 bg-indigo-600 border border-indigo-700 rounded-xl  h-auto"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-wrap"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "p-2 w-auto"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/images/money-coins.png",
+                                      "alt": "money-coin",
+                                      "className": "w-full h-auto"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "p-2 flex-1"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "p",
+                                      "className": "text-gray-600 font-medium md:max-w-md"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. \n                        Velit officia consequat duis enim velit mollit."
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full lg:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "img",
+                            "props": {
+                              "src": "/7.jpg",
+                              "alt": "image",
+                              "className": "w-full h-auto"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

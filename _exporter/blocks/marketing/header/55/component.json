@@ -1,163 +1,203 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "px-[5%] py-16 md:py-24 lg:py-28"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "rb-12 mb-12 md:mb-18 lg:mb-20"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "w-full max-w-lg"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h1",
-                  "props": {
-                    "className": "mb-5 text-3xl font-bold md:mb-6 md:text-4xl lg:text-7xl"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "md:text-md"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-6 flex gap-x-4 md:mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "variant": "{button.variant}",
-                            "size": "{button.size}",
-                            "key": "{index}",
-                            "className": "whitespace-nowrap px-4 py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.title"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "relative flex justify-center gap-6 sm:gap-8 md:gap-0"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "motion.div",
-              "props": {
-                "style": "{leftImageTranslate}",
-                "className": "absolute bottom-0 left-0 z-10 w-2/5"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.0.src}",
-                    "alt": "{images.0.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "motion.div",
-              "props": {
-                "style": "{centerImageTranslate}",
-                "className": "mx-[10%] mb-[10%] w-1/2"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.1.src}",
-                    "alt": "{images.1.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "motion.div",
-              "props": {
-                "style": "{rightImageTranslate}",
-                "className": "absolute right-0 top-[10%] w-2/5"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.2.src}",
-                    "alt": "{images.2.alt}",
-                    "className": "aspect-[4/3] size-full object-cover"
-                  }
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
+    },
+    {
+      "source": "framer-motion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "motion",
+          "local": "motion"
+        },
+        {
+          "type": "named",
+          "imported": "useScroll",
+          "local": "useScroll"
+        },
+        {
+          "type": "named",
+          "imported": "useTransform",
+          "local": "useTransform"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "const {\n  scrollYProgress\n} = useScroll();\nconst leftImageTranslate = {\n  y: useTransform(scrollYProgress, [0, 1], [\"-15.444%\", \"0%\"])\n};\nconst centerImageTranslate = {\n  y: useTransform(scrollYProgress, [0, 1], [\"15.333%\", \"0%\"])\n};\nconst rightImageTranslate = {\n  y: useTransform(scrollYProgress, [0, 0.5], [\"11.333%\", \"-20%\"])\n};",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "px-[5%] py-16 md:py-24 lg:py-28"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "rb-12 mb-12 md:mb-18 lg:mb-20"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-full max-w-lg"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h1",
+                        "props": {
+                          "className": "mb-5 text-3xl font-bold md:mb-6 md:text-4xl lg:text-7xl"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "md:text-md"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mt-6 flex gap-x-4 md:mt-8"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "variant": "{button.variant}",
+                                  "size": "{button.size}",
+                                  "key": "{index}",
+                                  "className": "whitespace-nowrap px-4 py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "relative flex justify-center gap-6 sm:gap-8 md:gap-0"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "style": "{leftImageTranslate}",
+                      "className": "absolute bottom-0 left-0 z-10 w-2/5"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.0.src}",
+                          "alt": "{images.0.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "style": "{centerImageTranslate}",
+                      "className": "mx-[10%] mb-[10%] w-1/2"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.1.src}",
+                          "alt": "{images.1.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "style": "{rightImageTranslate}",
+                      "className": "absolute right-0 top-[10%] w-2/5"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.2.src}",
+                          "alt": "{images.2.alt}",
+                          "className": "aspect-[4/3] size-full object-cover"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

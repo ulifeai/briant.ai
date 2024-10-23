@@ -1,222 +1,252 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "py-16 md:py-24 lg:py-28"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container p-[5%] flex flex-col items-center"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "Text",
-              "package": "@/components/ui/base/text",
-              "props": {
-                "as": "hero",
-                "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "title"
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "Text",
-              "package": "@/components/ui/base/text",
-              "props": {
-                "as": "p",
-                "className": "text-base py-2"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "description"
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "buttons",
-                    "iterator": "button"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "{button.variant}",
-                        "size": "{button.size}",
-                        "key": "{index}",
-                        "className": "whitespace-nowrap px-4 py-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "button.title"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex w-screen justify-start overflow-hidden"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "grid shrink-0 grid-cols-1 gap-y-4"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "ml-[-20.5%] grid w-full animate-loop-horizontal auto-cols-fr grid-cols-2 gap-4 self-center"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "[...new Array(2)]",
-                        "iterator": "e"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "key": "{index}",
-                            "className": "grid w-full grid-flow-col gap-4"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "images",
-                                "iterator": "image"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "key": "{imageIndex}",
-                                    "className": "relative w-[60vw] pt-[75%] sm:w-[18rem] md:w-[26rem]"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "element",
-                                      "tag": "img",
-                                      "props": {
-                                        "src": "{image.src}",
-                                        "alt": "{image.alt}",
-                                        "className": "absolute inset-0 h-full w-full object-cover"
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "ml-[-50%] grid w-full animate-loop-horizontal-reverse grid-cols-2 gap-4 self-center"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "[...new Array(2)]",
-                        "iterator": "e"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "key": "{index}",
-                            "className": "grid w-full grid-flow-col gap-4"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "images",
-                                "iterator": "image"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "key": "{imageIndex}",
-                                    "className": "relative w-[60vw] pt-[75%] sm:w-[18rem] md:w-[26rem]"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "element",
-                                      "tag": "img",
-                                      "props": {
-                                        "src": "{image.src}",
-                                        "alt": "{image.alt}",
-                                        "className": "absolute inset-0 h-full w-full object-cover"
-                                      }
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "py-16 md:py-24 lg:py-28"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container p-[5%] flex flex-col items-center"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "rb-12 mb-12 max-w-lg text-center md:mb-18 lg:mb-20"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Text",
+                    "package": "@/components/ui/base/text",
+                    "props": {
+                      "as": "hero",
+                      "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "Text",
+                    "package": "@/components/ui/base/text",
+                    "props": {
+                      "as": "h6",
+                      "className": "text-base py-2"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "description"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "buttons",
+                          "iterator": "button"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "{button.variant}",
+                              "size": "{button.size}",
+                              "key": "{index}",
+                              "className": "whitespace-nowrap px-4 py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "button.title"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex w-screen justify-start overflow-hidden"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "grid shrink-0 grid-cols-1 gap-y-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "ml-[-20.5%] grid w-full animate-loop-horizontal auto-cols-fr grid-cols-2 gap-4 self-center"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...new Array(2)]",
+                              "iterator": "e"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "key": "{index}",
+                                  "className": "grid w-full grid-flow-col gap-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "images",
+                                      "iterator": "image"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "key": "{imageIndex}",
+                                          "className": "relative w-[60vw] pt-[75%] sm:w-[18rem] md:w-[26rem]"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "{image.src}",
+                                              "alt": "{image.alt}",
+                                              "className": "absolute inset-0 h-full w-full object-cover"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "ml-[-50%] grid w-full animate-loop-horizontal-reverse grid-cols-2 gap-4 self-center"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...new Array(2)]",
+                              "iterator": "e"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "key": "{index}",
+                                  "className": "grid w-full grid-flow-col gap-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "images",
+                                      "iterator": "image"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "key": "{imageIndex}",
+                                          "className": "relative w-[60vw] pt-[75%] sm:w-[18rem] md:w-[26rem]"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "{image.src}",
+                                              "alt": "{image.alt}",
+                                              "className": "absolute inset-0 h-full w-full object-cover"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,195 +1,276 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "bg-white p-8 px-[5%] font-sans"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "logical",
-      "operator": "&&",
-      "condition": "tag",
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "component",
-          "component": "Text",
-          "package": "@/components/ui/base/text",
-          "props": {
-            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "tag"
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
     },
     {
-      "type": "component",
-      "component": "Text",
-      "package": "@/components/ui/base/text",
-      "props": {
-        "as": "h1",
-        "className": "mb-4"
-      },
-      "children": [
+      "source": "lucide-react",
+      "specifiers": [
         {
-          "type": "dynamicText",
-          "text": "title"
+          "type": "named",
+          "imported": "ArrowUpRight",
+          "local": "ArrowUpRight"
         }
       ]
     },
     {
-      "type": "component",
-      "component": "Text",
-      "package": "@/components/ui/base/text",
-      "props": {
-        "as": "p",
-        "className": "text-base py-2"
-      },
-      "children": [
+      "source": "next/image",
+      "specifiers": [
         {
-          "type": "dynamicText",
-          "text": "description"
+          "type": "default",
+          "local": "Image"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      },
-      "children": [
+      "source": "@/components/ui/card",
+      "specifiers": [
         {
-          "type": "loop",
-          "loop": {
-            "array": "items",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "Card",
-              "package": "@/components/ui/card",
-              "props": {
-                "key": "{index}",
-                "className": "w-full max-w-md"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "CardHeader",
-                  "package": "@/components/ui/card",
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "text-md mb-2"
-                      },
-                      "children": [
-                        {
-                          "type": "text",
-                          "text": "Apartment"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "CardTitle",
-                      "package": "@/components/ui/card",
-                      "props": {
-                        "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                        "className": "text-2xl font-normal"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.title"
-                        }
-                      ]
-                    }
-                  ]
+          "type": "named",
+          "imported": "Card",
+          "local": "Card"
+        },
+        {
+          "type": "named",
+          "imported": "CardContent",
+          "local": "CardContent"
+        },
+        {
+          "type": "named",
+          "imported": "CardFooter",
+          "local": "CardFooter"
+        },
+        {
+          "type": "named",
+          "imported": "CardHeader",
+          "local": "CardHeader"
+        },
+        {
+          "type": "named",
+          "imported": "CardTitle",
+          "local": "CardTitle"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeatureBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "bg-white p-8 px-[5%] font-sans container"
+        },
+        "children": [
+          {
+            "type": "logical",
+            "operator": "&&",
+            "condition": "tag",
+            "children": [
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
                 },
-                {
-                  "type": "component",
-                  "component": "CardContent",
-                  "package": "@/components/ui/card",
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "p",
-                      "props": {
-                        "className": "text-md mb-4"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.description"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "outline",
-                        "className": "rounded-full"
-                      },
-                      "children": [
-                        {
-                          "type": "text",
-                          "text": "Get consulation"
-                        },
-                        {
-                          "type": "component",
-                          "component": "ArrowUpRight",
-                          "package": "lucide-react",
-                          "props": {
-                            "className": "ml-2 h-4 w-4"
-                          }
-                        }
-                      ]
-                    }
-                  ]
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "tag"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "component",
+            "component": "Text",
+            "package": "@/components/ui/base/text",
+            "props": {
+              "as": "h1",
+              "className": "mb-4"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "title"
+              }
+            ]
+          },
+          {
+            "type": "component",
+            "component": "Text",
+            "package": "@/components/ui/base/text",
+            "props": {
+              "as": "h6",
+              "className": "text-base py-2"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "description"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            },
+            "children": [
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "feature_items",
+                  "iterator": "item"
                 },
-                {
-                  "type": "component",
-                  "component": "CardFooter",
-                  "package": "@/components/ui/card",
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "w-full"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Image",
-                          "package": "next/image",
-                          "props": {
-                            "src": "{\"/placeholder.png?\"}",
-                            "alt": "{item.title}",
-                            "width": "{300}",
-                            "height": "{150}",
-                            "className": "w-full rounded-lg"
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Card",
+                    "package": "@/components/ui/card",
+                    "props": {
+                      "key": "{index}",
+                      "className": "w-full max-w-md"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "CardHeader",
+                        "package": "@/components/ui/card",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "text-md mb-2"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Apartment"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "CardTitle",
+                            "package": "@/components/ui/card",
+                            "props": {
+                              "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
+                              "className": "text-2xl font-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.title"
+                              }
+                            ]
                           }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "CardContent",
+                        "package": "@/components/ui/card",
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "text-md mb-8 py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "outline",
+                              "className": "rounded-full"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Get consulation"
+                              },
+                              {
+                                "type": "component",
+                                "component": "ArrowUpRight",
+                                "package": "lucide-react",
+                                "props": {
+                                  "className": "ml-2 h-4 w-4"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "CardFooter",
+                        "package": "@/components/ui/card",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-full"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Image",
+                                "package": "next/image",
+                                "props": {
+                                  "src": "{item.image ?? \"/placeholder.png?\"}",
+                                  "alt": "{item.title}",
+                                  "width": "{300}",
+                                  "height": "{150}",
+                                  "className": "w-full rounded-lg h-[150]"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Package2 } from "lucide-react";
 
-interface HeaderBlockProps {
+interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
@@ -20,21 +20,21 @@ interface HeaderBlockProps {
     description?: string;
     placeholder?: string;
   };
-  subheadings?: {
+  feature_items?: {
     title: string;
     description: string;
   }[];
 }
 
-export default function HeaderBlock({
+export default function FeatureBlock({
   tag,
   title,
   description,
   buttons,
   form,
   image,
-  subheadings,
-}: HeaderBlockProps) {
+  feature_items,
+}: FeatureBlockProps) {
   return (
     <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
       <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
@@ -58,7 +58,7 @@ export default function HeaderBlock({
               {description}
             </p>
             <div className="grid gap-6 sm:grid-cols-2  mt-8">
-              {subheadings?.map((subheading, index) => (
+              {feature_items?.map((subheading, index) => (
                 <div
                   key={index}
                   className="flex items-start flex-col space-y-3"

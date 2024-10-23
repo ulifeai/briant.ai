@@ -1,846 +1,1009 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "{`flex flex-col gap-4 max-w-[560px] ${classNameContainer}`}"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex flex-col gap-2"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h2",
-          "props": {
-            "className": "text-xl font-bold"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "heading"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "text-base"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "paragraphtext"
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "form",
-      "props": {
-        "action": "",
-        "className": "flex flex-col gap-4"
-      },
-      "children": [
+      "source": "@/components/ui/input",
+      "specifiers": [
         {
-          "type": "logical",
-          "operator": "&&",
-          "condition": "profil",
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${profil.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "text",
-                      "text": "Photo"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row gap-8 items-center"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Image",
-                      "package": "next/image",
-                      "props": {
-                        "width": "{80}",
-                        "height": "{80}",
-                        "src": "/images/imageform.svg",
-                        "alt": "",
-                        "className": "rounded-full"
-                      }
-                    },
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "outline",
-                        "className": "rounded-none border-black px-5 py-2 text-base"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "uploadbuttontext"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "inputs",
-            "iterator": "input"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${input.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "input.label"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Input",
-                  "package": "@/components/ui/input",
-                  "props": {
-                    "placeholder": "{input.placeholder}",
-                    "className": "border border-black rounded-none px-3 py-2 min-h-11"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "textareas",
-            "iterator": "textarea"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2 ${textarea.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "textarea.label"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Textarea",
-                  "package": "@/components/ui/textarea",
-                  "props": {
-                    "placeholder": "{textarea.placeholder}",
-                    "className": "border border-black rounded-none px-3 p-3 min-h-48 text-base"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "logical",
-          "operator": "&&",
-          "condition": "thereispassword",
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col gap-2"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "text",
-                      "text": "Password"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row border border-black items-center px-3"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Input",
-                      "package": "@/components/ui/input",
-                      "props": {
-                        "placeholder": "Curren password",
-                        "className": "border-none rounded-none px-3 py-2 min-h-11 text-base"
-                      }
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Eye",
-                          "package": "lucide-react",
-                          "props": {
-                            "className": "ms-3"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row border border-black items-center px-3"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Input",
-                      "package": "@/components/ui/input",
-                      "props": {
-                        "placeholder": "New password",
-                        "className": "border-none rounded-none px-3 py-2 min-h-11 text-base"
-                      }
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Eye",
-                          "package": "lucide-react",
-                          "props": {
-                            "className": "ms-3"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "selects",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.label"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Select",
-                  "package": "@radix-ui/react-select",
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "SelectTrigger",
-                      "package": "@/components/ui/select",
-                      "props": {
-                        "className": "rounded-none border border-black"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "SelectValue",
-                          "package": "@/components/ui/select",
-                          "props": {
-                            "placeholder": "Select one..."
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "SelectContent",
-                      "package": "@/components/ui/select",
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "SelectGroup",
-                          "package": "@radix-ui/react-select",
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "SelectLabel",
-                              "package": "@radix-ui/react-select",
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "item.label"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "item.choices",
-                                "iterator": "choice"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "SelectItem",
-                                  "package": "@radix-ui/react-select",
-                                  "props": {
-                                    "value": "apple"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "choice"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "multiplechoices",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "label",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.question"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "item.buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "variant": "{button.variant}",
-                            "className": "rounded-none border-black px-5 py-2 text-base"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.children"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "radioblocks",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h2",
-                  "props": {
-                    "className": "text-xl font-bold"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "text-base"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.description"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "RadioGroup",
-                  "package": "@/components/ui/radio-group",
-                  "props": {
-                    "defaultValue": "comfortable"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "item.radiochoices",
-                        "iterator": "radiochoice"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex items-center space-x-2"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "RadioGroupItem",
-                              "package": "@/components/ui/radio-group",
-                              "props": {
-                                "value": "default",
-                                "id": "r1"
-                              }
-                            },
-                            {
-                              "type": "component",
-                              "component": "Label",
-                              "package": "@/components/ui/label",
-                              "props": {
-                                "htmlFor": "r1"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "radiochoice"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "checkboxes",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h2",
-                  "props": {
-                    "className": "text-xl font-bold"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "text-base"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col gap-2"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "item.rcheckboxchoices",
-                        "iterator": "choice"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex items-center space-x-2"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Checkbox",
-                              "package": "@/components/ui/checkbox",
-                              "props": {
-                                "id": "terms2"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "label",
-                              "props": {
-                                "htmlFor": "terms2",
-                                "className": "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "choice"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "switchChoices",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex flex-col gap-2  ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h2",
-                  "props": {
-                    "className": "text-xl font-bold"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "text-base"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "item.description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col gap-2"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "item.choices",
-                        "iterator": "choice"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex items-center space-x-2"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Label",
-                              "package": "@/components/ui/label",
-                              "props": {
-                                "htmlFor": "airplane-mode"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "choice"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "component",
-                              "component": "Switch",
-                              "package": "@/components/ui/switch",
-                              "props": {
-                                "id": "airplane-mode"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "loop",
-          "loop": {
-            "array": "pricings",
-            "iterator": "item"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "{`flex  gap-4 items-center relative border border-black py-6 ps-24 pe-16 ${item.class}`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "p-3 bg-[#EEEEEE] absolute left-5"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Image",
-                      "package": "next/image",
-                      "props": {
-                        "src": "{item.image.src}",
-                        "alt": "{item.image.alt}",
-                        "height": "{32}",
-                        "width": "{32}"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "RadioGroup",
-                  "package": "@/components/ui/radio-group",
-                  "props": {
-                    "className": "flex flex-col gap-2 text-lg"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "strong",
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "item.title"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "dynamicText",
-                          "text": "item.price"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.description"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "RadioGroupItem",
-                      "package": "@/components/ui/radio-group",
-                      "props": {
-                        "value": "compact",
-                        "id": "r3",
-                        "className": "absolute right-5 top-5"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex justify-end flex-row gap-2  pt-4"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "Button",
-              "package": "@/components/ui/button",
-              "props": {
-                "variant": "outline",
-                "className": "rounded-none border-black px-5 py-2 text-base"
-              },
-              "children": [
-                {
-                  "type": "text",
-                  "text": "Cancel"
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "Button",
-              "package": "@/components/ui/button",
-              "props": {
-                "className": "rounded-none px-5 py-2 text-base"
-              },
-              "children": [
-                {
-                  "type": "text",
-                  "text": "Save"
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Input",
+          "local": "Input"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/select",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "SelectContent",
+          "local": "SelectContent"
+        },
+        {
+          "type": "named",
+          "imported": "SelectTrigger",
+          "local": "SelectTrigger"
+        },
+        {
+          "type": "named",
+          "imported": "SelectValue",
+          "local": "SelectValue"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/textarea",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Textarea",
+          "local": "Textarea"
+        }
+      ]
+    },
+    {
+      "source": "@radix-ui/react-select",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Select",
+          "local": "Select"
+        },
+        {
+          "type": "named",
+          "imported": "SelectGroup",
+          "local": "SelectGroup"
+        },
+        {
+          "type": "named",
+          "imported": "SelectItem",
+          "local": "SelectItem"
+        },
+        {
+          "type": "named",
+          "imported": "SelectLabel",
+          "local": "SelectLabel"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Eye",
+          "local": "Eye"
+        },
+        {
+          "type": "named",
+          "imported": "Mail",
+          "local": "Mail"
+        }
+      ]
+    },
+    {
+      "source": "next/image",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Image"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/label",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Label",
+          "local": "Label"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/radio-group",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "RadioGroup",
+          "local": "RadioGroup"
+        },
+        {
+          "type": "named",
+          "imported": "RadioGroupItem",
+          "local": "RadioGroupItem"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/checkbox",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Checkbox",
+          "local": "Checkbox"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/switch",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Switch",
+          "local": "Switch"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FormPage",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "{`flex flex-col gap-4 max-w-[560px] ${classNameContainer}`}"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex flex-col gap-2"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h2",
+                "props": {
+                  "className": "text-xl font-bold"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "heading"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "text-base"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "paragraphtext"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "form",
+            "props": {
+              "action": "",
+              "className": "flex flex-col gap-4"
+            },
+            "children": [
+              {
+                "type": "logical",
+                "operator": "&&",
+                "condition": "profil",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${profil.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Photo"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row gap-8 items-center"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Image",
+                            "package": "next/image",
+                            "props": {
+                              "width": "{80}",
+                              "height": "{80}",
+                              "src": "/images/imageform.svg",
+                              "alt": "",
+                              "className": "rounded-full"
+                            }
+                          },
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "outline",
+                              "className": "rounded-none border-black px-5 py-2 text-base"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "uploadbuttontext"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "inputs",
+                  "iterator": "input"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${input.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "input.label"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Input",
+                        "package": "@/components/ui/input",
+                        "props": {
+                          "placeholder": "{input.placeholder}",
+                          "className": "border border-black rounded-none px-3 py-2 min-h-11"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "textareas",
+                  "iterator": "textarea"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2 ${textarea.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "textarea.label"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Textarea",
+                        "package": "@/components/ui/textarea",
+                        "props": {
+                          "placeholder": "{textarea.placeholder}",
+                          "className": "border border-black rounded-none px-3 p-3 min-h-48 text-base"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "logical",
+                "operator": "&&",
+                "condition": "thereispassword",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col gap-2"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Password"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row border border-black items-center px-3"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Input",
+                            "package": "@/components/ui/input",
+                            "props": {
+                              "placeholder": "Curren password",
+                              "className": "border-none rounded-none px-3 py-2 min-h-11 text-base"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Eye",
+                                "package": "lucide-react",
+                                "props": {
+                                  "className": "ms-3"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row border border-black items-center px-3"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Input",
+                            "package": "@/components/ui/input",
+                            "props": {
+                              "placeholder": "New password",
+                              "className": "border-none rounded-none px-3 py-2 min-h-11 text-base"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Eye",
+                                "package": "lucide-react",
+                                "props": {
+                                  "className": "ms-3"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "selects",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.label"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Select",
+                        "package": "@radix-ui/react-select",
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "SelectTrigger",
+                            "package": "@/components/ui/select",
+                            "props": {
+                              "className": "rounded-none border border-black"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "SelectValue",
+                                "package": "@/components/ui/select",
+                                "props": {
+                                  "placeholder": "Select one..."
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "SelectContent",
+                            "package": "@/components/ui/select",
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "SelectGroup",
+                                "package": "@radix-ui/react-select",
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "SelectLabel",
+                                    "package": "@radix-ui/react-select",
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "item.label"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "item.choices",
+                                      "iterator": "choice"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "SelectItem",
+                                        "package": "@radix-ui/react-select",
+                                        "props": {
+                                          "value": "apple"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "choice"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "multiplechoices",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "label",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.question"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "item.buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "variant": "{button.variant}",
+                                  "className": "rounded-none border-black px-5 py-2 text-base"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.children"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "radioblocks",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h2",
+                        "props": {
+                          "className": "text-xl font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-base"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "RadioGroup",
+                        "package": "@/components/ui/radio-group",
+                        "props": {
+                          "defaultValue": "comfortable"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "item.radiochoices",
+                              "iterator": "radiochoice"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex items-center space-x-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "RadioGroupItem",
+                                    "package": "@/components/ui/radio-group",
+                                    "props": {
+                                      "value": "default",
+                                      "id": "r1"
+                                    }
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Label",
+                                    "package": "@/components/ui/label",
+                                    "props": {
+                                      "htmlFor": "r1"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "radiochoice"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "checkboxes",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h2",
+                        "props": {
+                          "className": "text-xl font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-base"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col gap-2"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "item.rcheckboxchoices",
+                              "iterator": "choice"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex items-center space-x-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Checkbox",
+                                    "package": "@/components/ui/checkbox",
+                                    "props": {
+                                      "id": "terms2"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "label",
+                                    "props": {
+                                      "htmlFor": "terms2",
+                                      "className": "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "choice"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "switchChoices",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex flex-col gap-2  ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h2",
+                        "props": {
+                          "className": "text-xl font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-base"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "item.description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col gap-2"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "item.choices",
+                              "iterator": "choice"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex items-center space-x-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Label",
+                                    "package": "@/components/ui/label",
+                                    "props": {
+                                      "htmlFor": "airplane-mode"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "choice"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Switch",
+                                    "package": "@/components/ui/switch",
+                                    "props": {
+                                      "id": "airplane-mode"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "pricings",
+                  "iterator": "item"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "{`flex  gap-4 items-center relative border border-black py-6 ps-24 pe-16 ${item.class}`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3 bg-[#EEEEEE] absolute left-5"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Image",
+                            "package": "next/image",
+                            "props": {
+                              "src": "{item.image.src}",
+                              "alt": "{item.image.alt}",
+                              "height": "{32}",
+                              "width": "{32}"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "RadioGroup",
+                        "package": "@/components/ui/radio-group",
+                        "props": {
+                          "className": "flex flex-col gap-2 text-lg"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "strong",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "item.title"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "dynamicText",
+                                "text": "item.price"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "RadioGroupItem",
+                            "package": "@/components/ui/radio-group",
+                            "props": {
+                              "value": "compact",
+                              "id": "r3",
+                              "className": "absolute right-5 top-5"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex justify-end flex-row gap-2  pt-4"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Button",
+                    "package": "@/components/ui/button",
+                    "props": {
+                      "variant": "outline",
+                      "className": "rounded-none border-black px-5 py-2 text-base"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Cancel"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "Button",
+                    "package": "@/components/ui/button",
+                    "props": {
+                      "className": "rounded-none px-5 py-2 text-base"
+                    },
+                    "children": [
+                      {
+                        "type": "text",
+                        "text": "Save"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

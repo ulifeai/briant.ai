@@ -1,0 +1,335 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "py-24 bg-indigo-600 overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full md:w-1/2 lg:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "blog box-border"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "h2",
+                                  "className": "text-white leading-tight font-bold text-6xl mb-7"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "title"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "p",
+                                  "className": "text-opacity-80 text-white"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "description"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full md:w-1/2 lg:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-wrap justify-center items-center"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "transition duration-1000 ease-in-out rounded-3xl overflow-hidden relative"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{image?.image ?? \"/7.jpg\"}",
+                                      "alt": "image",
+                                      "className": "w-full h-auto align-middle"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "py-8 px-9 bg-opacity-30 bg-white absolute left-0 bottom-0 backdrop-blur-xl"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-white tracking-normal uppercase font-semibold py-[0.375rem] px-[0.875rem] bg-red-500 inline-block mb-3 rounded-full"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Live"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-bold text-xl mb-3"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Give an amazing on-board experience of your product"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-600 font-semibold text-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "4096 people are joining"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "px-8 w-full md:w-1/2 lg:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-wrap h-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "self-end flex flex-wrap items-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "feature_items",
+                                      "iterator": "item"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "fragment",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "p-10 w-full"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "div",
+                                                "props": {
+                                                  "className": "bg-indigo-600"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "component",
+                                                    "component": "Text",
+                                                    "package": "@/components/ui/base/text",
+                                                    "props": {
+                                                      "as": "h3",
+                                                      "className": "text-white font-bold text-2xl mb-5 leading-snug"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "item.title"
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "type": "component",
+                                                    "component": "Text",
+                                                    "package": "@/components/ui/base/text",
+                                                    "props": {
+                                                      "as": "p",
+                                                      "className": "text-opacity-70 leading-relaxed font-medium text-white"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "item.description"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "logical",
+                                            "operator": "&&",
+                                            "condition": "index != feature_items.length",
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "div",
+                                                "props": {
+                                                  "className": "px-10 w-full bg-indigo-600"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "div",
+                                                    "props": {
+                                                      "className": "bg-indigo-500 h-px"
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

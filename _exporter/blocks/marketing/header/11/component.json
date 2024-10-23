@@ -1,191 +1,221 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "grid grid-cols-1 gap-y-16 pt-16 md:grid-flow-row md:pt-24 lg:grid-flow-col lg:grid-cols-2 lg:items-center lg:pt-0"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mx-[5%] max-w-[40rem] justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "component",
-          "component": "Text",
-          "package": "@/components/ui/base/text",
-          "props": {
-            "as": "hero",
-            "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "title"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "p",
-          "props": {
-            "className": "md:text-md"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "description"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "mt-6 flex gap-x-4 md:mt-8"
-          },
-          "children": [
-            {
-              "type": "loop",
-              "loop": {
-                "array": "buttons",
-                "iterator": "button"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Button",
-                  "package": "@/components/ui/button",
-                  "props": {
-                    "variant": "{button.variant}",
-                    "size": "{button.size}",
-                    "key": "{index}",
-                    "className": "whitespace-nowrap px-4 py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "button.title"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "h-[30rem] overflow-hidden pl-[5vw] pr-[5vw] md:h-[40rem] lg:h-screen lg:pl-0"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "grid w-full grid-cols-2 gap-x-4"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "-mt-[120%] grid size-full animate-loop-vertically columns-2 grid-cols-1 gap-4 self-center"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "images",
-                    "iterator": "image"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "key": "{index}",
-                        "className": "grid size-full grid-cols-1 gap-4"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "relative w-full pt-[120%]"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "img",
-                              "props": {
-                                "src": "{image.src}",
-                                "alt": "{image.alt}",
-                                "className": "absolute inset-0 size-full object-cover"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "grid size-full animate-loop-vertically grid-cols-1 gap-4"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "images",
-                    "iterator": "image"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "key": "{index}",
-                        "className": "grid size-full grid-cols-1 gap-4"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "relative w-full pt-[120%]"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "img",
-                              "props": {
-                                "src": "{image.src}",
-                                "alt": "{image.alt}",
-                                "className": "absolute inset-0 size-full object-cover"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "grid grid-cols-1 gap-y-16 pt-16 md:grid-flow-row md:pt-24 lg:grid-flow-col lg:grid-cols-2 lg:items-center lg:pt-0"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mx-[5%] max-w-[40rem] justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "as": "hero",
+                  "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "p",
+                "props": {
+                  "className": "md:text-md"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "description"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "mt-6 flex gap-x-4 md:mt-8"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "buttons",
+                      "iterator": "button"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Button",
+                        "package": "@/components/ui/button",
+                        "props": {
+                          "variant": "{button.variant}",
+                          "size": "{button.size}",
+                          "key": "{index}",
+                          "className": "whitespace-nowrap px-4 py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "button.title"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "h-[30rem] overflow-hidden pl-[5vw] pr-[5vw] md:h-[40rem] lg:h-screen lg:pl-0"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "grid w-full grid-cols-2 gap-x-4"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "-mt-[120%] grid size-full animate-loop-vertically columns-2 grid-cols-1 gap-4 self-center"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "images",
+                          "iterator": "image"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "key": "{index}",
+                              "className": "grid size-full grid-cols-1 gap-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative w-full pt-[120%]"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{image.src}",
+                                      "alt": "{image.alt}",
+                                      "className": "absolute inset-0 size-full object-cover"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "grid size-full animate-loop-vertically grid-cols-1 gap-4"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "images",
+                          "iterator": "image"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "key": "{index}",
+                              "className": "grid size-full grid-cols-1 gap-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative w-full pt-[120%]"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{image.src}",
+                                      "alt": "{image.alt}",
+                                      "className": "absolute inset-0 size-full object-cover"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

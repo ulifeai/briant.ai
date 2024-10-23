@@ -45,7 +45,7 @@ export default function HeroHeaderBlock({
             </Text>
             <div className="mx-[7.5%] self-end md:mt-48">
             <Text
-            as="p"
+            as="h6"
               className="text-base py-2"
             >
               {description}

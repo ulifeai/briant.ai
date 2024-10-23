@@ -57,7 +57,7 @@ export default function HeaderBlock({
             
             <div className="max-w-[50rem]">
             <Text
-              as="p"
+              as="h6"
               className="text-base py-2"
             >
               {description}

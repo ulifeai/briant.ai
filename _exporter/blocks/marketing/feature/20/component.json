@@ -1,0 +1,264 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "pt-28 pb-40 bg-white overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto w-full"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Text",
+                    "package": "@/components/ui/base/text",
+                    "props": {
+                      "as": "h2",
+                      "className": "leading-none font-bold text-6xl mb-20"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap bg-white"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full  md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "#",
+                              "className": "rounded-3xl overflow-hidden"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "props": {
+                                  "src": "/7.jpg",
+                                  "alt": "image",
+                                  "className": "rounded-3xl"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "pb-32 border-b mb-11"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h3",
+                                      "className": "font-semibold text-lg"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "description"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-8 w-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "text-indigo-600 text-lg mb-4 font-semibold"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Ultimated Meeting"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-900 font-medium"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint."
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-8 w-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "text-indigo-600 text-lg mb-4 font-semibold"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Ultimated Meeting"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-900 font-medium"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint."
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

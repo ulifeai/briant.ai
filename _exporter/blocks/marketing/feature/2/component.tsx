@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Package2 } from "lucide-react";
 
-interface HeaderBlockProps {
+interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
@@ -27,7 +27,7 @@ interface HeaderBlockProps {
   }[];
 }
 
-export default function HeaderBlock({
+export default function FeatureBlock({
   tag,
   title,
   description,
@@ -35,7 +35,7 @@ export default function HeaderBlock({
   form,
   image,
   subheadings,
-}: HeaderBlockProps) {
+}: FeatureBlockProps) {
   return (
     <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
       <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
@@ -62,7 +62,7 @@ export default function HeaderBlock({
             {title}
           </Text>
           <Text
-          as="p"
+          as="h6"
             className="text-base py-2"
           >
             {description}

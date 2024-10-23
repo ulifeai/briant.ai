@@ -1,0 +1,382 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "relative py-12 overflow-hidden block"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/star-left.png",
+                  "alt": "",
+                  "className": "absolute start-0 left-0 bottom-0 box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/blue-light-right.png",
+                  "alt": "",
+                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-3"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mx-auto max-w-[32rem] box-border lg:max-w-[1280px]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mb-24 items-center box-border mx-3 lg:flex"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mb-12 box-border lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h1",
+                                      "className": "mb-8 font-bold text-6xl md:text-7xl"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "p",
+                                      "className": "text-[1.95em] font-semibold text-gray-500 leading-normal"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "description"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "border-box lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "props": {
+                                  "src": "/images/image.svg",
+                                  "alt": "feature 4",
+                                  "className": "w-full block align-middle lg:ms-40 lg:w-[28rem] rounded-3xl"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "pb-12 mb-12 relative box-border lg:flex lg:justify-between"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "absolute h-full border-e end-0 top-0 hidden"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "absolute h-full border-e end-0 top-0 hidden"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative p-12 flex flex-col gap-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-[#e6fdf5] flex items-center justify-center mx-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Mouse",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "width": "{24}",
+                                          "height": "{24}",
+                                          "className": "align-middle"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-col gap-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-2xl text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Simple & Uniuqe"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-sm text-[#768b8d] text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Created by our talended designer"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative p-12 flex flex-col gap-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-[#ffb3b3] flex items-center justify-center mx-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Mouse",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "width": "{24}",
+                                          "height": "{24}",
+                                          "className": "align-middle"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-col gap-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-2xl text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Well Documented"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-sm text-[#768b8d] text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "The best layer organization"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative p-12 flex flex-col gap-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-[60px] h-[60px] rounded-full bg-[#c6eeff] flex items-center justify-center mx-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Mouse",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "width": "{24}",
+                                          "height": "{24}",
+                                          "className": "align-middle"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-col gap-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "font-semibold text-2xl text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "World Class UI Design"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "text-sm text-[#768b8d] text-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "We are not tolerant about taste"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -23,7 +23,7 @@ const items = [
     description: "It is a long established fact that a reader will be content distracted by the readable many content of a page when it looking."
   }
 ]
-interface HeaderBlockProps {
+interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
@@ -47,15 +47,15 @@ interface HeaderBlockProps {
   }[]
 }
 
-export default function HeaderBlock({
+export default function FeatureBlock({
   tag,
   title,
   description,
   buttons,
   form,
   image,
-  feature_items = items
-}: HeaderBlockProps) {
+  feature_items
+}: FeatureBlockProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="relative w-full h-[300px] rounded-xl overflow-hidden mb-8">
@@ -78,7 +78,7 @@ export default function HeaderBlock({
           {title}
         </Text>
         <Text
-        as="p"
+        as="h6"
           className="py-2 text-white max-w-4xl"
         >
           {description}
@@ -86,7 +86,7 @@ export default function HeaderBlock({
       </div>
     </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {feature_items.map((service, index) => (
+        {feature_items?.map((service, index) => (
           <Card className={index%2 == 0 ? "bg-gray-200": "bg-gray-200"} key={index}>
             <CardHeader>
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-4">

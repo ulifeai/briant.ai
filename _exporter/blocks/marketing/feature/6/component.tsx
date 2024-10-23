@@ -23,7 +23,7 @@ const items = [
     image: '/placeholder.svg?height=400&width=400&text=ROI'
   }
 ]
-interface HeaderBlockProps {
+interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
@@ -47,7 +47,7 @@ interface HeaderBlockProps {
   }[]
 }
 
-export default function HeaderBlock({
+export default function FeatureBlock({
   tag,
   title,
   description,
@@ -55,9 +55,9 @@ export default function HeaderBlock({
   form,
   image,
   feature_items = items
-}: HeaderBlockProps) {
+}: FeatureBlockProps) {
   return (
-    <div className="container px-[5%] mx-auto bg-gray-50 px-4 py-8">
+    <div className="container px-[5%] mx-auto px-4 py-8">
       {tag && (
         <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
           {tag}
@@ -70,7 +70,7 @@ export default function HeaderBlock({
         {title}
       </Text>
       <Text
-      as="p"
+      as="h6"
         className="text-base py-2 max-w-4xl"
       >
         {description}
@@ -80,8 +80,8 @@ export default function HeaderBlock({
         <Card className="mb-8 mt-12 bg-white">
         <CardContent className={`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 p-8`}>
           <div className="w-full md:w-1/2 space-y-6">
-            <Text as="h1" className="text-4xl font-normal">{item.title}</Text>
-            <p className="text-gray-600 mb-8">{item.description}</p>
+            <Text as="h1" className="text-4xl font-semibold">{item.title}</Text>
+            <Text as="h6" className="mb-8">{item.description}</Text>
             <Button variant="outline" className="rounded-full border-secondary mt-8">
               Take action <ArrowUpRight className="ml-2 h-4 w-4" />
             </Button>

@@ -1,0 +1,436 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "relative pb-40 pt-12 box-border overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/star-left.png",
+                  "alt": "",
+                  "className": "absolute start-0 left-0 bottom-0 box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/blue-light-right.png",
+                  "alt": "",
+                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "relative max-w-[480px] lg:max-w-[1280px]  mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "box-border"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col-reverse items-center lg:flex-row lg:justify-between"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "relative w-full box-border px-3"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "props": {
+                                  "src": "/2.jpg",
+                                  "alt": "",
+                                  "className": "max-w-md mx-auto block align-middle rounded-xl"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "rounded-xl bg-white ps-6 pe-20 py-6 absolute end-0 bottom-0 shadow-md"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "mb-6 flex items-center box-border bg-white"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-[50px] h-[50px] bg-[#e6fdf5] rounded-full bg-pink flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "ms-4 box-border bg-white flex flex-col"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-sm bg-white"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Sign Up for Free"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-[#768b8d] text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "We are not tolerant about taste"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "mb-6 flex items-center box-border bg-white"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-[50px] h-[50px] bg-[#ffb3b3] rounded-full bg-pink flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "ms-4 box-border bg-white flex flex-col"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-sm bg-white"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Sign Up for Free"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-[#768b8d] text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "We are not tolerant about taste"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "mb-6 flex items-center box-border bg-white"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-[50px] h-[50px] bg-[#c6eeff] rounded-full bg-pink flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "ms-4 box-border bg-white flex flex-col"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-sm bg-white"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Sign Up for Free"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-[#768b8d] text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "We are not tolerant about taste"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "rounded-xl bg-white p-4 mt-10 absolute start-0 top-0 shadow-sm"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex items-center gap-4"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "img",
+                                        "props": {
+                                          "src": "/7.jpg",
+                                          "alt": "",
+                                          "className": "w-[40px] align-middle overflow-clip rounded-full"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "ms-2 flex flex-col"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Received $450.00"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-[#768b8d] text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "From Angelilce Neisa!"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mb-12 w-full px-3 lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "max-w-xl box-border lg:w-full"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "bg-[#fbe7e7] text-red-500 rounded-full py-2 px-4"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "tag"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "h2",
+                                    "props": {
+                                      "className": "block text-5xl font-bold text-black mt-8  lg:text-6xl mb-6"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h6",
+                                      "className": "mb-8 font-semibold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "description"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "p",
+                                      "className": "text-lg  text-[#768b8d]"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Payment with us is easy and straight forward, you can pay in dollars, \n                                    euros and bitcoin or ether tokens.We accept \n                                    all major currencies and cryptocurrencies"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

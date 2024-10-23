@@ -1,218 +1,357 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "relative md:min-h-screen"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "px-[5%] py-16 md:py-24 lg:py-28"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "container"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "rb-12 mb-12 grid grid-cols-1 items-start gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:mb-20 lg:gap-x-20 lg:gap-y-16"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Text",
-                  "package": "@/components/ui/base/text",
-                  "props": {
-                    "as": "hero",
-                    "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mx-[7.5%] self-end md:mt-48"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Text",
-                      "package": "@/components/ui/base/text",
-                      "props": {
-                        "as": "p",
-                        "className": "text-base py-2"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "description"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "mt-6 flex gap-x-4 md:mt-8"
-                      },
-                      "children": [
-                        {
-                          "type": "loop",
-                          "loop": {
-                            "array": "buttons",
-                            "iterator": "button"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Button",
-                              "package": "@/components/ui/button",
-                              "props": {
-                                "variant": "{button.variant}",
-                                "size": "{button.size}",
-                                "key": "{index}",
-                                "className": "whitespace-nowrap px-4 py-2"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "button.title"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col items-end justify-center md:h-[60vh] lg:h-[80vh] lg:justify-start"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Dialog",
-                  "package": "@/components/ui/dialog",
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "DialogTrigger",
-                      "package": "@/components/ui/dialog",
-                      "props": {
-                        "asChild": true
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "motion.button",
-                          "props": {
-                            "style": "{{\n  scale: isMobile ? 1 : imageScale\n}}",
-                            "className": "relative flex size-full origin-top-right items-center justify-center"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "img",
-                              "props": {
-                                "src": "{images.0.src}",
-                                "alt": "{images.0.alt}",
-                                "className": "size-full object-cover"
-                              }
-                            },
-                            {
-                              "type": "component",
-                              "component": "FaCirclePlay",
-                              "package": "react-icons/fa6",
-                              "props": {
-                                "className": "absolute z-20 size-16 text-white"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "span",
-                              "props": {
-                                "className": "absolute inset-0 z-10 bg-black/50"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "DialogPortal",
-                      "package": "@/components/ui/dialog",
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "DialogOverlay",
-                          "package": "@/components/ui/dialog",
-                          "props": {
-                            "className": "bg-black/90"
-                          }
-                        },
-                        {
-                          "type": "component",
-                          "component": "DialogContent",
-                          "package": "@/components/ui/dialog",
-                          "children": [
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "!isIframeLoaded",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "CgSpinner",
-                                  "package": "react-icons/cg",
-                                  "props": {
-                                    "className": "mx-auto size-16 animate-spin text-white"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "element",
-                              "tag": "iframe",
-                              "props": {
-                                "src": "{video}",
-                                "allow": "autoplay; encrypted-media; picture-in-picture",
-                                "allowFullScreen": true,
-                                "onLoad": "{() => setIsIframeLoaded(true)}",
-                                "className": "{clsx(\"z-0 mx-auto aspect-video h-full w-full md:w-[738px] lg:w-[940px]\", {\n  visible: isIframeLoaded,\n  hidden: !isIframeLoaded\n})}"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        },
+        {
+          "type": "named",
+          "imported": "useRef",
+          "local": "useRef"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "framer-motion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "motion",
+          "local": "motion"
+        },
+        {
+          "type": "named",
+          "imported": "useScroll",
+          "local": "useScroll"
+        },
+        {
+          "type": "named",
+          "imported": "useSpring",
+          "local": "useSpring"
+        },
+        {
+          "type": "named",
+          "imported": "useTransform",
+          "local": "useTransform"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "react-icons/fa6",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "FaCirclePlay",
+          "local": "FaCirclePlay"
+        }
+      ]
+    },
+    {
+      "source": "react-icons/cg",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "CgSpinner",
+          "local": "CgSpinner"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/dialog",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Dialog",
+          "local": "Dialog"
+        },
+        {
+          "type": "named",
+          "imported": "DialogContent",
+          "local": "DialogContent"
+        },
+        {
+          "type": "named",
+          "imported": "DialogOverlay",
+          "local": "DialogOverlay"
+        },
+        {
+          "type": "named",
+          "imported": "DialogPortal",
+          "local": "DialogPortal"
+        },
+        {
+          "type": "named",
+          "imported": "DialogTrigger",
+          "local": "DialogTrigger"
+        }
+      ]
+    },
+    {
+      "source": "@uidotdev/usehooks",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "useMediaQuery",
+          "local": "useMediaQuery"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "const [isIframeLoaded, setIsIframeLoaded] = useState(false);\nconst isMobile = useMediaQuery(\"(max-width: 767px)\");\nconst {\n  scrollYProgress\n} = useScroll();\nconst imageScale = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "relative md:min-h-screen"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "px-[5%] py-16 md:py-24 lg:py-28"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "container"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "rb-12 mb-12 grid grid-cols-1 items-start gap-y-5 md:mb-18 md:grid-cols-2 md:gap-x-12 md:gap-y-8 lg:mb-20 lg:gap-x-20 lg:gap-y-16"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "hero",
+                          "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mx-[7.5%] self-end md:mt-48"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h6",
+                              "className": "text-base py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mt-6 flex gap-x-4 md:mt-8"
+                            },
+                            "children": [
+                              {
+                                "type": "loop",
+                                "loop": {
+                                  "array": "buttons",
+                                  "iterator": "button"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Button",
+                                    "package": "@/components/ui/button",
+                                    "props": {
+                                      "variant": "{button.variant}",
+                                      "size": "{button.size}",
+                                      "key": "{index}",
+                                      "className": "whitespace-nowrap px-4 py-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "button.title"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col items-end justify-center md:h-[60vh] lg:h-[80vh] lg:justify-start"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Dialog",
+                        "package": "@/components/ui/dialog",
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "DialogTrigger",
+                            "package": "@/components/ui/dialog",
+                            "props": {
+                              "asChild": true
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "motion.button",
+                                "props": {
+                                  "style": "{{\n  scale: isMobile ? 1 : imageScale\n}}",
+                                  "className": "relative flex size-full origin-top-right items-center justify-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{images.0.src}",
+                                      "alt": "{images.0.alt}",
+                                      "className": "size-full object-cover"
+                                    }
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "FaCirclePlay",
+                                    "package": "react-icons/fa6",
+                                    "props": {
+                                      "className": "absolute z-20 size-16 text-white"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "absolute inset-0 z-10 bg-black/50"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "DialogPortal",
+                            "package": "@/components/ui/dialog",
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "DialogOverlay",
+                                "package": "@/components/ui/dialog",
+                                "props": {
+                                  "className": "bg-black/90"
+                                }
+                              },
+                              {
+                                "type": "component",
+                                "component": "DialogContent",
+                                "package": "@/components/ui/dialog",
+                                "children": [
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "!isIframeLoaded",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "CgSpinner",
+                                        "package": "react-icons/cg",
+                                        "props": {
+                                          "className": "mx-auto size-16 animate-spin text-white"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "iframe",
+                                    "props": {
+                                      "src": "{video}",
+                                      "allow": "autoplay; encrypted-media; picture-in-picture",
+                                      "allowFullScreen": true,
+                                      "onLoad": "{() => setIsIframeLoaded(true)}",
+                                      "className": "{clsx(\"z-0 mx-auto aspect-video h-full w-full md:w-[738px] lg:w-[940px]\", {\n  visible: isIframeLoaded,\n  hidden: !isIframeLoaded\n})}"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

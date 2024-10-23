@@ -47,11 +47,7 @@ Renders a Frequently Asked Questions (FAQ) section with various layouts based on
 
 **Versions and Layouts:**
 
-- Versions 1, 4, 7: Centered titles and paragraphs.
-- Versions 2, 5, 9: Left-aligned text.
-- Versions 3, 6, 8: Split layout with text and questions.
-- Versions 10, 11: Grid layout with two columns.
-- Versions 12, 13, 14: Grid layout with two or three columns, optional images.
+- Versions: 2 versions
 
 **Example:**
 
@@ -71,164 +67,6 @@ const data = {{
 
 \`\`\`
 
----
-
-### Blog Component
-
-Renders a blog section with a list of blog posts, supporting multiple layouts.
-
-**Props:**
-
-- \`data\` (object)
-  - \`version\` (number): Determines the layout (versions 1-3).
-  - \`heading\` (string): Main heading text.
-  - \`tagline\` (string): Tagline above the heading.
-  - \`description\` (string): Description below the heading.
-  - \`blogPosts\` (array of objects):
-    - Each blog post has:
-      - \`title\` (string): Blog post title.
-      - \`excerpt\` (string): Blog post excerpt.
-      - \`image\` (string): Blog post image URL.
-  - \`linkBlog\` (object):
-    - \`href\` (string): URL.
-    - \`title\` (string): Link text.
-
-**Versions and Layouts:**
-
-- Versions 1 and 3: Centered heading and description.
-- Version 2: Left-aligned text with an additional link.
-
-**Example:**
-
-\`\`\`jsx
-const data = {{
-  version: 1,
-  heading: 'Latest Posts',
-  tagline: 'Updates',
-  description: 'Our recent articles.',
-  blogPosts: [
-    {{ title: 'Post 1', excerpt: 'Summary 1', image: '/placeholder-image.svg' }},
-    {{ title: 'Post 2', excerpt: 'Summary 2', image: '/placeholder-image.svg' }},
-  ],
-  linkBlog: {{ href: '/blog', title: 'See All Posts' }},
-}};
-
-\`\`\`
-
----
-
-### BlogHeader Component
-
-Renders a blog header with various layouts based on the version.
-
-**Props:**
-
-- \`data\` (object)
-  - \`version\` (number): Determines the layout (versions 1-2).
-  - \`tagline\` (string, optional): Optional tagline.
-  - \`heading\` (string, optional): Main heading text.
-  - \`description\` (string, optional): Description text.
-  - \`contentCardHeader\` (object, optional): Content for the card header.
-  - \`blogPost\` (object, optional): Featured blog post.
-  - \`listCardleft\` (array of objects, optional): Posts displayed on the left.
-  - \`titleBlogPost\` (string, optional): Title for the featured post section.
-  - \`blogPosts\` (array of objects, optional): Main blog posts.
-  - \`titleBlogPosts\` (string, optional): Title for the main posts section.
-  - \`buttons\` (array of objects, optional):
-    - Each button has:
-      - \`title\` (string): Button text.
-      - \`variant\` (string): Button style variant.
-      - \`size\` (string): Button size.
-
-**Versions and Layouts:**
-
-- Version 1: Includes content card header, featured post, and buttons.
-- Version 2: Includes categories as buttons and a featured post.
-
-**Example:**
-
-\`\`\`jsx
-const data = {{
-  version: 1,
-  tagline: 'News',
-  heading: 'Our Blog',
-  description: 'Latest updates.',
-  contentCardHeader: {{ /* CardHeader data */ }},
-  blogPost: {{ /* Featured post data */ }},
-  buttons: [{{ title: 'Tech', variant: 'primary', size: 'medium' }}],
-}};
-
-\`\`\`
-
----
-
-### BlogPost Component
-
-Renders a blog post with various layouts based on the version.
-
-**Props:**
-
-- \`data\` (object)
-  - \`version\` (number): Determines the layout (versions 1-5).
-  - \`heading\` (string): Blog post heading.
-  - \`By\` (string, optional): Text indicating the author.
-  - \`blog\` (object, optional):
-    - \`href\` (string): Blog URL.
-    - \`text\` (string): Blog link text.
-  - \`category\` (object):
-    - \`href\` (string): Category URL.
-    - \`text\` (string): Category link text.
-  - \`indicationPost\` (object, optional):
-    - \`href\` (string): Previous post URL.
-    - \`text\` (string): Previous post text.
-  - \`avatar\` (object):
-    - \`src\` (string): Avatar image URL.
-    - \`alt\` (string): Avatar alt text.
-  - \`socialMedias\` (array of objects):
-    - Each includes:
-      - \`href\` (string): Social media URL.
-      - \`logo\` (JSX.Element): Social media icon.
-  - \`image\` (object):
-    - \`src\` (string): Main image URL.
-    - \`alt\` (string): Image alt text.
-  - \`fullName\` (string): Author's full name.
-  - \`date\` (string): Publication date.
-  - \`readTime\` (string): Estimated read time.
-  - \`footer\` (object, optional):
-    - \`indicationPublished\` (string): Published text.
-    - \`date\` (string): Publication date in footer.
-    - \`indicationName\` (string): Author's name indication.
-    - \`fullName\` (string): Author's full name in footer.
-
-**Versions and Layouts:**
-
-- Version 1: Standard layout with breadcrumbs and author info.
-- Version 2: Includes navigation to the previous post and footer info.
-- Version 3: Larger heading, different author info display.
-- Version 4: Grid layout with category and read time info.
-- Version 5: Full-width background image with overlaid text.
-
-**Example:**
-
-\`\`\`jsx
-
-const data = {{
-  version: 1,
-  heading: 'Understanding Components',
-  By: 'By',
-  blog: {{ href: '/blog', text: 'Blog' }},
-  category: {{ href: '/react', text: 'React' }},
-  avatar: {{ src: '/avatar.jpg', alt: 'Author' }},
-  socialMedias: [{{ href: 'https://twitter.com', logo: "..." }}],
-  image: {{ src: '/placeholder-image.svg', alt: 'Post Image' }},
-  fullName: 'Jane Doe',
-  date: 'Oct 1, 2023',
-  readTime: '5 min read',
-}};
-
-\`\`\`
-
----
 
 ### CTA Component
 
@@ -292,14 +130,14 @@ const data = {{
 
 ---
 
-### Section Component (Header and Feature)
+### Header
 
-Renders a feature or header section with various layouts based on the version.
+Renders a header section with various layouts based on the version.
 
 **Props:**
 
 - \`data\` (object)
-  - \`version\` (number): Version of the navbar (1-8), determines style and layout.
+  - \`version\` (number): Version of the header (1-44), determines style and layout.
   - \`tag\` (string): Text label or tag for the section.
   - \`title\` (string): The main title of the header block.
   - \`description\` (string): A brief description or introduction for the section.
@@ -308,8 +146,67 @@ Renders a feature or header section with various layouts based on the version.
       - \`title\` (string): The text displayed on the button.
       - \`variant\` (string): The style variant for the button (e.g., 'primary', 'secondary').
       - \`size\` (string): The size of the button (e.g., 'small', 'medium', 'large').
-  - \`images\` (array, optional): Contains image data for the section.
+  - \`images\` (array, at least 5): Contains image data for the section.
     - Each image has:
+      - \`src\` (string): URL of the main image.
+      - \`alt\` (string): Alt text for the image.
+  - \`form\` (object, optional): Contains form-related data.
+    - \`description\` (string, optional): Description text for the form.
+    - \`placeholder\` (string, optional): Placeholder text for the input field.
+
+**Versions and Layouts:**
+feature has 44 versions (from 1 to 44)
+
+
+
+**Example:**
+
+\`\`\`jsx
+const data = {{
+  version: 1,
+  tag: 'Feature',
+  title: 'Our Latest Update',
+  description: 'New features included.',
+
+  buttons: [
+    {{ title: "Get started", variant: "default", size: "default" }},
+    {{ title: "Read more", variant: "secondary", size: "default" }},
+  ],
+  image: [{{ image: '/1.jpg', alt: 'Feature Image' }},
+  {{ image: '/1.jpg', alt: 'Feature Image' }},
+  {{ image: '/2.jpg', alt: 'Feature Image' }},
+  {{ image: '/3.jpg', alt: 'Feature Image' }},
+  {{ image: '/4.jpg', alt: 'Feature Image' }},
+  {{ image: '/5.jpg', alt: 'Feature Image' }},
+  ],
+}};
+
+\`\`\`
+
+
+### Feature
+
+Renders a feature section with various layouts based on the version.
+
+**Props:**
+
+- \`data\` (object)
+  - \`version\` (number): Version of the feature (1-22), determines style and layout.
+  - \`tag\` (string): Text label or tag for the section.
+  - \`title\` (string): The main title of the header block.
+  - \`description\` (string): A brief description or introduction for the section.
+  - \`buttons\` (array of objects): List of buttons for actions within the section.
+    - Each button has:
+      - \`title\` (string): The text displayed on the button.
+      - \`variant\` (string): The style variant for the button (e.g., 'primary', 'secondary').
+      - \`size\` (string): The size of the button (e.g., 'small', 'medium', 'large').
+
+  - \`feature_items\` (array of objects, at least 5): Splitting the single feature into multiple usecases
+    - Each feature_items has:
+      - \`title\` (string): The title of the subheading.
+      - \`image\` (string): The image of the subheading.
+      - \`description\` (string): The description of the subheading.
+  - \`images\` (object): Contains image data for the section.
       - \`src\` (string): URL of the main image.
       - \`alt\` (string): Alt text for the image.
   - \`form\` (object, optional): Contains form-related data.
@@ -318,12 +215,45 @@ Renders a feature or header section with various layouts based on the version.
 
 
 **Versions and Layouts:**
+feature has 23 versions (from 1 to 23)
 
-- Version 1: Two-column layout with text and image.
-- Version 2: Reverse layout with image below text.
-- Versions 5-7: Various grid layouts.
 
-feature has 7 versions and header has 44 versions.
+
+**Example:**
+
+\`\`\`jsx
+const data = {{
+  version: 1,
+  tag: 'Feature',
+  title: 'Our Latest Update',
+  description: 'New features included.',
+
+  buttons: [
+    {{ title: "Get started", variant: "default", size: "default" }},
+    {{ title: "Read more", variant: "secondary", size: "default" }},
+  ],
+  image: {{ image: '/placeholder-image.svg', alt: 'Feature Image' }},
+  feature_items: [
+  {{
+    title: 'De-risking your project',
+    description: 'Identify and mitigate potential risks early in your project lifecycle.',
+    image: '/1.jpg'
+  }},
+  {{
+    title: 'Planning strategies',
+    description: 'Develop comprehensive strategies to ensure project success.',
+    image: '/5.jpg'
+  }},
+  {{
+    title: 'Return on investment',
+    description: 'Maximize your ROI through careful planning and execution.',
+    image: '/2.jpg'
+  }}
+]
+}};
+
+\`\`\`
+
 
 
 
@@ -445,8 +375,8 @@ Renders testimonials in various layouts based on the provided version.
 
 - \`data\` (object)
   - \`version\` (number): Version number, determines style and layout.
-  - \`title\` (string, optional): Main title of the testimonial section.
-  - \`description\` (string, optional): Description text below the title.
+  - \`title\` (string): Main title of the testimonial section.
+  - \`description\` (string): Description text below the title.
   - \`testimonials\` (array of objects):
     - Each testimonial includes:
       - \`image\` (object, optional):

@@ -66,7 +66,7 @@ export default function HeroHeaderBlock({
                 {title}
               </Text>
             <Text
-            as="p"
+            as="h6"
               className="text-base py-2"
             >
               {description}
@@ -106,7 +106,7 @@ export default function HeroHeaderBlock({
         </div>
       </div>
 
-      <div className="sticky top-0 flex h-screen w-full items-center overflow-hidden">
+      <div className="sticky top-0 mt-[-10rem] flex h-screen w-full items-center overflow-hidden">
         <motion.div
           className="z-10 grid w-full grid-flow-col grid-cols-[25%_50%_25%] justify-center md:grid-cols-[50%_30%_20%]"
           style={containerHeight}

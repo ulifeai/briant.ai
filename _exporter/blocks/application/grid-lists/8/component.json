@@ -1,486 +1,549 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "flex flex-col"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col justify-between items-start mb-4"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "h1",
-              "props": {
-                "className": "text-2xl font-semibold"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "title"
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "p",
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "description"
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/popover",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Popover",
+          "local": "Popover"
         },
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-row lg:items-center items-center justify-between lg:w-fit w-full"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-row gap-x-4 mr-3"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "buttons",
-                    "iterator": "button"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "key": "{index}",
-                        "variant": "{button.variant}",
-                        "size": "{button.size}",
-                        "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                        "asChild": true,
-                        "className": "whitespace-nowrap px-4 py-2"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "a",
-                          "props": {
-                            "href": "{button.href}"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.name"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "Popover",
-              "package": "@/components/ui/popover",
-              "children": [
-                {
-                  "type": "component",
-                  "component": "PopoverTrigger",
-                  "package": "@/components/ui/popover",
-                  "props": {
-                    "asChild": true
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "{\"none\"}"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-row items-center justify-center gap-x-1 cursor-pointer w-8 h-8 my-auto"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "w-1 h-1 rounded-[0.25rem] bg-black"
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "PopoverContent",
-                  "package": "@/components/ui/popover",
-                  "props": {
-                    "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "floatingBoxMenu",
-                        "iterator": "box"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "a",
-                          "props": {
-                            "key": "{index}",
-                            "href": "{box.href}",
-                            "tabIndex": "{0}",
-                            "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "box.name"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "grid lg:grid-cols-2 grid-cols-1 auto-rows-auto gap-6"
-      },
-      "children": [
+          "type": "named",
+          "imported": "PopoverContent",
+          "local": "PopoverContent"
+        },
         {
-          "type": "loop",
-          "loop": {
-            "array": "cards",
-            "iterator": "card"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "a",
-              "props": {
-                "key": "{index}",
-                "href": "{card.href}",
-                "className": "lg:grid lg:grid-cols-[max-content_1fr] flex flex-col items-start justify-start text-start border-[1px] border-black p-6  gap-x-7 gap-y-5"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row items-start justify-between w-full h-full"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Image",
-                      "package": "next/image",
-                      "props": {
-                        "src": "{card.image.src}",
-                        "width": "{32}",
-                        "height": "{32}",
-                        "alt": "{card.image.alt}",
-                        "className": "h-20 w-20 object-cover"
-                      }
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "flex flex-row justify-center items-start gap-x-3 lg:hidden"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col items-center justify-center w-6 h-6"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "svg",
-                              "props": {
-                                "width": " 100%",
-                                "height": " 100%",
-                                "viewBox": "0 0 24 24",
-                                "fill": "none",
-                                "xmlns": "http://www.w3.org/2000/svg"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "path",
-                                  "props": {
-                                    "fill-rule": "evenodd",
-                                    "clip-rule": "evenodd",
-                                    "fill": "currentColor",
-                                    "d": "M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 14.1217 19.1571 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM12.88 6.5V11.64L16.51 15.27C16.7018 15.4678 16.7018 15.7822 16.51 15.98L15.98 16.51C15.7822 16.7018 15.4678 16.7018 15.27 16.51L11.27 12.51C11.1784 12.4159 11.1249 12.2912 11.12 12.16V6.5C11.12 6.22386 11.3439 6 11.62 6H12.38C12.6561 6 12.88 6.22386 12.88 6.5Z"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "text-base whitespace-nowrap"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.hours"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row items-start justify-center"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "flex flex-col"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col items-start justify-start w-full mb-4"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "text-lg font-semibold"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "card.title"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "flex flex-row items-center justify-start"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "text-sm"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "card.Location"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "mx-2"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "text": "•"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "text-sm"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "card.fullTime"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "mx-2"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "text": "•"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "text-sm"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "card.remote"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "p",
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.text"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "lg:flex flex-row justify-center items-start gap-x-3 hidden"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col items-center justify-center w-6 h-6"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "svg",
-                              "props": {
-                                "width": " 100%",
-                                "height": " 100%",
-                                "viewBox": "0 0 24 24",
-                                "fill": "none",
-                                "xmlns": "http://www.w3.org/2000/svg"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "path",
-                                  "props": {
-                                    "fill-rule": "evenodd",
-                                    "clip-rule": "evenodd",
-                                    "fill": "currentColor",
-                                    "d": "M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 14.1217 19.1571 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM12.88 6.5V11.64L16.51 15.27C16.7018 15.4678 16.7018 15.7822 16.51 15.98L15.98 16.51C15.7822 16.7018 15.4678 16.7018 15.27 16.51L11.27 12.51C11.1784 12.4159 11.1249 12.2912 11.12 12.16V6.5C11.12 6.22386 11.3439 6 11.62 6H12.38C12.6561 6 12.88 6.22386 12.88 6.5Z"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "text-base whitespace-nowrap"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.hours"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "PopoverTrigger",
+          "local": "PopoverTrigger"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "onClick": "{handleClick}",
-        "className": "{`absolute inset-0 z-0 ${toggle ? \"\" : \"hidden\"}`}"
+      "source": "next/image",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Image"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "GridListBlock",
+      "preReturnCode": "const [toggle, setToggle] = useState(false);\nconst handleClick = () => setToggle(toggle => !toggle);",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "flex flex-col"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-col justify-between items-start mb-4"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "h1",
+                    "props": {
+                      "className": "text-2xl font-semibold"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "description"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-row lg:items-center items-center justify-between lg:w-fit w-full"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-row gap-x-4 mr-3"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "buttons",
+                          "iterator": "button"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "key": "{index}",
+                              "variant": "{button.variant}",
+                              "size": "{button.size}",
+                              "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                              "asChild": true,
+                              "className": "whitespace-nowrap px-4 py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "{button.href}"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "Popover",
+                    "package": "@/components/ui/popover",
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "PopoverTrigger",
+                        "package": "@/components/ui/popover",
+                        "props": {
+                          "asChild": true
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "{\"none\"}"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-row items-center justify-center gap-x-1 cursor-pointer w-8 h-8 my-auto"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "w-1 h-1 rounded-[0.25rem] bg-black"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "PopoverContent",
+                        "package": "@/components/ui/popover",
+                        "props": {
+                          "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "floatingBoxMenu",
+                              "iterator": "box"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "key": "{index}",
+                                  "href": "{box.href}",
+                                  "tabIndex": "{0}",
+                                  "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "box.name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "grid lg:grid-cols-2 grid-cols-1 auto-rows-auto gap-6"
+            },
+            "children": [
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "cards",
+                  "iterator": "card"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "props": {
+                      "key": "{index}",
+                      "href": "{card.href}",
+                      "className": "lg:grid lg:grid-cols-[max-content_1fr] flex flex-col items-start justify-start text-start border-[1px] border-black p-6  gap-x-7 gap-y-5"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row items-start justify-between w-full h-full"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Image",
+                            "package": "next/image",
+                            "props": {
+                              "src": "{card.image.src}",
+                              "width": "{32}",
+                              "height": "{32}",
+                              "alt": "{card.image.alt}",
+                              "className": "h-20 w-20 object-cover"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-row justify-center items-start gap-x-3 lg:hidden"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col items-center justify-center w-6 h-6"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "svg",
+                                    "props": {
+                                      "width": " 100%",
+                                      "height": " 100%",
+                                      "viewBox": "0 0 24 24",
+                                      "fill": "none",
+                                      "xmlns": "http://www.w3.org/2000/svg"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "path",
+                                        "props": {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          "fill": "currentColor",
+                                          "d": "M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 14.1217 19.1571 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM12.88 6.5V11.64L16.51 15.27C16.7018 15.4678 16.7018 15.7822 16.51 15.98L15.98 16.51C15.7822 16.7018 15.4678 16.7018 15.27 16.51L11.27 12.51C11.1784 12.4159 11.1249 12.2912 11.12 12.16V6.5C11.12 6.22386 11.3439 6 11.62 6H12.38C12.6561 6 12.88 6.22386 12.88 6.5Z"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "text-base whitespace-nowrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.hours"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row items-start justify-center"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-col"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col items-start justify-start w-full mb-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "text-lg font-semibold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "card.title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-row items-center justify-start"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "text-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "card.Location"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "mx-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "•"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "text-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "card.fullTime"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "mx-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "•"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "text-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "card.remote"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "p",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.text"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "lg:flex flex-row justify-center items-start gap-x-3 hidden"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col items-center justify-center w-6 h-6"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "svg",
+                                    "props": {
+                                      "width": " 100%",
+                                      "height": " 100%",
+                                      "viewBox": "0 0 24 24",
+                                      "fill": "none",
+                                      "xmlns": "http://www.w3.org/2000/svg"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "path",
+                                        "props": {
+                                          "fill-rule": "evenodd",
+                                          "clip-rule": "evenodd",
+                                          "fill": "currentColor",
+                                          "d": "M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 14.1217 19.1571 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM12.88 6.5V11.64L16.51 15.27C16.7018 15.4678 16.7018 15.7822 16.51 15.98L15.98 16.51C15.7822 16.7018 15.4678 16.7018 15.27 16.51L11.27 12.51C11.1784 12.4159 11.1249 12.2912 11.12 12.16V6.5C11.12 6.22386 11.3439 6 11.62 6H12.38C12.6561 6 12.88 6.22386 12.88 6.5Z"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "text-base whitespace-nowrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.hours"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "onClick": "{handleClick}",
+              "className": "{`absolute inset-0 z-0 ${toggle ? \"\" : \"hidden\"}`}"
+            }
+          }
+        ]
       }
     }
   ]

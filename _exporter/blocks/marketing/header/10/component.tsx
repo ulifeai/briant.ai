@@ -55,7 +55,7 @@ export default function HeaderBlock({
               {title}
             </Text>
             <Text
-            as="p"
+            as="h6"
               className="text-base py-2"
             >
               {description}

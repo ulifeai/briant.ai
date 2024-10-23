@@ -1,262 +1,371 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "mt-10 mb-10"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "h1",
-      "props": {
-        "className": "text-2xl"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "text",
-          "text": "Stacked List Block Presentation"
+          "type": "default",
+          "local": "React"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./1/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 1"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent1",
-          "package": "./1/component"
+          "type": "default",
+          "local": "BlockComponent1"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./2/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 2"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent2",
-          "package": "./2/component"
+          "type": "default",
+          "local": "BlockComponent2"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./3/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 3"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent3",
-          "package": "./3/component"
+          "type": "default",
+          "local": "BlockComponent3"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./4/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 4"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent4",
-          "package": "./4/component"
+          "type": "default",
+          "local": "BlockComponent4"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./5/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 5"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent5",
-          "package": "./5/component"
+          "type": "default",
+          "local": "BlockComponent5"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./6/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 6"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent6",
-          "package": "./6/component"
+          "type": "default",
+          "local": "BlockComponent6"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./7/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 7"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent7",
-          "package": "./7/component"
+          "type": "default",
+          "local": "BlockComponent7"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./8/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 8"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent8",
-          "package": "./8/component"
+          "type": "default",
+          "local": "BlockComponent8"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./9/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 9"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent9",
-          "package": "./9/component"
+          "type": "default",
+          "local": "BlockComponent9"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "mt-20 mb-20"
-      },
-      "children": [
+      "source": "./10/component",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "h1",
-          "children": [
-            {
-              "type": "text",
-              "text": "Stacked List 10"
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "BlockComponent10",
-          "package": "./10/component"
+          "type": "default",
+          "local": "BlockComponent10"
         }
       ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Sample",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "mt-10 mb-10"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "h1",
+            "props": {
+              "className": "text-2xl"
+            },
+            "children": [
+              {
+                "type": "text",
+                "text": "Stacked List Block Presentation"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 1"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent1",
+                "package": "./1/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 2"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent2",
+                "package": "./2/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 3"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent3",
+                "package": "./3/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 4"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent4",
+                "package": "./4/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 5"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent5",
+                "package": "./5/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 6"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent6",
+                "package": "./6/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 7"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent7",
+                "package": "./7/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 8"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent8",
+                "package": "./8/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 9"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent9",
+                "package": "./9/component"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "mt-20 mb-20"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h1",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Stacked List 10"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "BlockComponent10",
+                "package": "./10/component"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

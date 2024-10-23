@@ -1,245 +1,304 @@
 {
-  "type": "element",
-  "tag": "header",
-  "props": {
-    "className": "bg-white shadow-sm"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container mx-auto px-4"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex items-center justify-between h-16"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "a",
-              "props": {
-                "href": "/",
-                "className": "flex items-center"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{logo}",
-                    "alt": "Logo",
-                    "className": "h-8 w-auto"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "nav",
-              "props": {
-                "className": "hidden md:flex space-x-8"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "navItems",
-                    "iterator": "item"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "key": "{index}",
-                        "href": "{item.url}",
-                        "className": "text-gray-600 hover:text-gray-900 transition-colors"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.title"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "hidden md:block"
-              },
-              "children": [
-                {
-                  "type": "fragment",
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "key": "{index}",
-                            "variant": "{button.variant}",
-                            "size": "{button.size}",
-                            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                            "className": "whitespace-nowrap h-10 mx-2 px-4 py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.title"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "Sheet",
-              "package": "@/components/ui/sheet",
-              "children": [
-                {
-                  "type": "component",
-                  "component": "SheetTrigger",
-                  "package": "@/components/ui/sheet",
-                  "props": {
-                    "asChild": true
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "ghost",
-                        "size": "icon",
-                        "className": "md:hidden"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Menu",
-                          "package": "lucide-react",
-                          "props": {
-                            "className": "h-6 w-6"
-                          }
-                        },
-                        {
-                          "type": "element",
-                          "tag": "span",
-                          "props": {
-                            "className": "sr-only"
-                          },
-                          "children": [
-                            {
-                              "type": "text",
-                              "text": "Toggle menu"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "SheetContent",
-                  "package": "@/components/ui/sheet",
-                  "props": {
-                    "side": "right"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "nav",
-                      "props": {
-                        "className": "flex flex-col space-y-4"
-                      },
-                      "children": [
-                        {
-                          "type": "loop",
-                          "loop": {
-                            "array": "navItems",
-                            "iterator": "item"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "a",
-                              "props": {
-                                "key": "{index}",
-                                "href": "{item.url}",
-                                "className": "text-gray-600 hover:text-gray-900 transition-colors"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "item.title"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "fragment",
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "buttons",
-                                "iterator": "button"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Button",
-                                  "package": "@/components/ui/button",
-                                  "props": {
-                                    "key": "{index}",
-                                    "variant": "{button.variant}",
-                                    "size": "{button.size}",
-                                    "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                                    "className": "whitespace-nowrap h-10 mx-2 px-4 py-2"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "button.title"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "default",
+          "local": "React"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/sheet",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Sheet",
+          "local": "Sheet"
+        },
+        {
+          "type": "named",
+          "imported": "SheetContent",
+          "local": "SheetContent"
+        },
+        {
+          "type": "named",
+          "imported": "SheetTrigger",
+          "local": "SheetTrigger"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Menu",
+          "local": "Menu"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Header",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "header",
+        "props": {
+          "className": "bg-white shadow-sm"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container mx-auto px-4"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex items-center justify-between h-16"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "props": {
+                      "href": "/",
+                      "className": "flex items-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{logo}",
+                          "alt": "Logo",
+                          "className": "h-8 w-auto"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "nav",
+                    "props": {
+                      "className": "hidden md:flex space-x-8"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "navItems",
+                          "iterator": "item"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "key": "{index}",
+                              "href": "{item.url}",
+                              "className": "text-gray-600 hover:text-gray-900 transition-colors"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.title"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "hidden md:block"
+                    },
+                    "children": [
+                      {
+                        "type": "fragment",
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "key": "{index}",
+                                  "variant": "{button.variant}",
+                                  "size": "{button.size}",
+                                  "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                                  "className": "whitespace-nowrap h-10 mx-2 px-4 py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "Sheet",
+                    "package": "@/components/ui/sheet",
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "SheetTrigger",
+                        "package": "@/components/ui/sheet",
+                        "props": {
+                          "asChild": true
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "ghost",
+                              "size": "icon",
+                              "className": "md:hidden"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Menu",
+                                "package": "lucide-react",
+                                "props": {
+                                  "className": "h-6 w-6"
+                                }
+                              },
+                              {
+                                "type": "element",
+                                "tag": "span",
+                                "props": {
+                                  "className": "sr-only"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Toggle menu"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "SheetContent",
+                        "package": "@/components/ui/sheet",
+                        "props": {
+                          "side": "right"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "nav",
+                            "props": {
+                              "className": "flex flex-col space-y-4"
+                            },
+                            "children": [
+                              {
+                                "type": "loop",
+                                "loop": {
+                                  "array": "navItems",
+                                  "iterator": "item"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "a",
+                                    "props": {
+                                      "key": "{index}",
+                                      "href": "{item.url}",
+                                      "className": "text-gray-600 hover:text-gray-900 transition-colors"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "item.title"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "fragment",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "buttons",
+                                      "iterator": "button"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Button",
+                                        "package": "@/components/ui/button",
+                                        "props": {
+                                          "key": "{index}",
+                                          "variant": "{button.variant}",
+                                          "size": "{button.size}",
+                                          "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                                          "className": "whitespace-nowrap h-10 mx-2 px-4 py-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "button.title"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

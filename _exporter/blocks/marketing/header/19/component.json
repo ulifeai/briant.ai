@@ -1,207 +1,336 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "ref": "{transformRef}",
-    "className": "relative flex h-[300vh] flex-col items-center"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "px-[5%]"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "sticky top-0 z-0 mx-auto flex min-h-[80vh] max-w-2xl items-center justify-center py-16 text-center md:py-24 lg:py-28"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "motion.div",
-              "props": {
-                "style": "{{\n  opacity: fadeOut,\n  scale: scaleDown\n}}"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Text",
-                  "package": "@/components/ui/base/text",
-                  "props": {
-                    "as": "hero",
-                    "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Text",
-                  "package": "@/components/ui/base/text",
-                  "props": {
-                    "as": "p",
-                    "className": "text-base py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "variant": "{button.variant}",
-                            "size": "{button.size}",
-                            "key": "{index}",
-                            "className": "whitespace-nowrap px-4 py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.title"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        },
+        {
+          "type": "named",
+          "imported": "useRef",
+          "local": "useRef"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "motion.div",
-      "props": {
-        "style": "{{\n  width,\n  height,\n  y\n}}",
-        "className": "sticky top-[10vh] z-10 mb-[-10vh] flex flex-col justify-start"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "component",
-          "component": "Dialog",
-          "package": "@/components/ui/dialog",
-          "children": [
-            {
-              "type": "component",
-              "component": "DialogTrigger",
-              "package": "@/components/ui/dialog",
-              "props": {
-                "className": "relative flex size-full items-center justify-center"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.0.src}",
-                    "alt": "{images.0.alt}",
-                    "className": "size-full object-cover"
-                  }
-                },
-                {
-                  "type": "component",
-                  "component": "FaCirclePlay",
-                  "package": "react-icons/fa6",
-                  "props": {
-                    "className": "absolute z-20 size-16 text-white"
-                  }
-                },
-                {
-                  "type": "element",
-                  "tag": "span",
-                  "props": {
-                    "className": "absolute inset-0 z-10 bg-black/50"
-                  }
-                }
-              ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "framer-motion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "motion",
+          "local": "motion"
+        },
+        {
+          "type": "named",
+          "imported": "useScroll",
+          "local": "useScroll"
+        },
+        {
+          "type": "named",
+          "imported": "useSpring",
+          "local": "useSpring"
+        },
+        {
+          "type": "named",
+          "imported": "useTransform",
+          "local": "useTransform"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "react-icons/fa6",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "FaCirclePlay",
+          "local": "FaCirclePlay"
+        }
+      ]
+    },
+    {
+      "source": "react-icons/cg",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "CgSpinner",
+          "local": "CgSpinner"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/dialog",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Dialog",
+          "local": "Dialog"
+        },
+        {
+          "type": "named",
+          "imported": "DialogContent",
+          "local": "DialogContent"
+        },
+        {
+          "type": "named",
+          "imported": "DialogOverlay",
+          "local": "DialogOverlay"
+        },
+        {
+          "type": "named",
+          "imported": "DialogPortal",
+          "local": "DialogPortal"
+        },
+        {
+          "type": "named",
+          "imported": "DialogTrigger",
+          "local": "DialogTrigger"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "const [isIframeLoaded, setIsIframeLoaded] = useState(false);\nconst transformRef = useRef(null);\nconst {\n  scrollY,\n  scrollYProgress\n} = useScroll({\n  target: transformRef\n});\nconst animatedScrollYProgress = useSpring(scrollYProgress, {\n  bounce: 0\n});\nconst halfViewportHeight = typeof window !== \"undefined\" ? window.innerHeight * 0.5 : 100;\nconst fadeOut = useTransform(scrollY, [0, halfViewportHeight], [1, 0]);\nconst scaleDown = useTransform(scrollY, [0, halfViewportHeight], [1, 0.95]);\nconst width = useTransform(animatedScrollYProgress, [0.3, 1], [\"90%\", \"100%\"]);\nconst height = useTransform(animatedScrollYProgress, [0.3, 1], [\"80vh\", \"100vh\"]);\nconst y = useTransform(animatedScrollYProgress, [0, 1], [\"0vh\", \"-10vh\"]);",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "ref": "{transformRef}",
+          "className": "relative flex h-[300vh] flex-col items-center"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "px-[5%]"
             },
-            {
-              "type": "component",
-              "component": "DialogPortal",
-              "package": "@/components/ui/dialog",
-              "children": [
-                {
-                  "type": "component",
-                  "component": "DialogOverlay",
-                  "package": "@/components/ui/dialog",
-                  "props": {
-                    "className": "bg-black/90"
-                  }
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "sticky top-0 z-0 mx-auto flex min-h-[80vh] max-w-2xl items-center justify-center py-16 text-center md:py-24 lg:py-28"
                 },
-                {
-                  "type": "component",
-                  "component": "DialogContent",
-                  "package": "@/components/ui/dialog",
-                  "children": [
-                    {
-                      "type": "logical",
-                      "operator": "&&",
-                      "condition": "!isIframeLoaded",
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "CgSpinner",
-                          "package": "react-icons/cg",
-                          "props": {
-                            "className": "mx-auto size-16 animate-spin text-white"
-                          }
-                        }
-                      ]
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "style": "{{\n  opacity: fadeOut,\n  scale: scaleDown\n}}"
                     },
-                    {
-                      "type": "element",
-                      "tag": "iframe",
-                      "props": {
-                        "src": "{video}",
-                        "allow": "autoplay; encrypted-media; picture-in-picture",
-                        "allowFullScreen": true,
-                        "onLoad": "{() => setIsIframeLoaded(true)}",
-                        "className": "{clsx(\"z-0 mx-auto aspect-video h-full w-full md:w-[738px] lg:w-[940px]\", {\n  visible: isIframeLoaded,\n  hidden: !isIframeLoaded\n})}"
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "hero",
+                          "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h6",
+                          "className": "text-base py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "variant": "{button.variant}",
+                                  "size": "{button.size}",
+                                  "key": "{index}",
+                                  "className": "whitespace-nowrap px-4 py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
                       }
-                    }
-                  ]
-                }
-              ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "motion.div",
+            "props": {
+              "style": "{{\n  width,\n  height,\n  y\n}}",
+              "className": "sticky top-[10vh] z-10 mb-[-10vh] flex flex-col justify-start"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Dialog",
+                "package": "@/components/ui/dialog",
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "DialogTrigger",
+                    "package": "@/components/ui/dialog",
+                    "props": {
+                      "className": "relative flex size-full items-center justify-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.0.src}",
+                          "alt": "{images.0.alt}",
+                          "className": "size-full object-cover"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "FaCirclePlay",
+                        "package": "react-icons/fa6",
+                        "props": {
+                          "className": "absolute z-20 size-16 text-white"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "props": {
+                          "className": "absolute inset-0 z-10 bg-black/50"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "DialogPortal",
+                    "package": "@/components/ui/dialog",
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "DialogOverlay",
+                        "package": "@/components/ui/dialog",
+                        "props": {
+                          "className": "bg-black/90"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "DialogContent",
+                        "package": "@/components/ui/dialog",
+                        "children": [
+                          {
+                            "type": "logical",
+                            "operator": "&&",
+                            "condition": "!isIframeLoaded",
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "CgSpinner",
+                                "package": "react-icons/cg",
+                                "props": {
+                                  "className": "mx-auto size-16 animate-spin text-white"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "iframe",
+                            "props": {
+                              "src": "{video}",
+                              "allow": "autoplay; encrypted-media; picture-in-picture",
+                              "allowFullScreen": true,
+                              "onLoad": "{() => setIsIframeLoaded(true)}",
+                              "className": "{clsx(\"z-0 mx-auto aspect-video h-full w-full md:w-[738px] lg:w-[940px]\", {\n  visible: isIframeLoaded,\n  hidden: !isIframeLoaded\n})}"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "absolute inset-0 -z-10 mt-[100vh]"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "absolute inset-0 -z-10 mt-[100vh]"
+          }
+        ]
       }
     }
   ]

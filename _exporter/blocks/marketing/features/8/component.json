@@ -1,0 +1,348 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "relative py-12 overflow-hidden block"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/star-left.png",
+                  "alt": "",
+                  "className": "absolute start-0 left-0 bottom-0 box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/blue-light-right.png",
+                  "alt": "",
+                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-3"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mx-auto max-w-[32rem] box-border lg:max-w-[1280px]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mb-24 items-center box-border mx-3 lg:flex lg:flex-row"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mb-12 box-border lg:w-1/2 leading-relaxed"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "max-w-md"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h2",
+                                      "className": "mb-8 font-bold text-5xl lg:text-6xl"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "className": "text-2xl font-semibold text-[#768b8d] mb-10"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "description"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "shadow-xl pe-6 ps-5 py-5 bg-white rounded-3xl inline-block lg:inline-flex"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "me-6"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "flex -space-x-6"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "/images/image.svg",
+                                                  "alt": "",
+                                                  "className": "inline-block w-16 rounded-full border-4 border-white transition duration-300 hover:translate-y-2"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "/images/image.svg",
+                                                  "alt": "",
+                                                  "className": "inline-block w-16 rounded-full border-4 border-white transition duration-300 hover:translate-y-2"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "/images/image.svg",
+                                                  "alt": "",
+                                                  "className": "inline-block w-16 rounded-full border-4 border-white transition duration-300 hover:translate-y-2"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "ms-2 flex flex-col"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-2xl"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "1.289"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-[#768b8d] text-xm"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Our Remote Team"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "border-box lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "w-full h-full relative"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/images/image.svg",
+                                      "alt": "feature 4",
+                                      "className": "w-full block align-middle lg:ms-40 lg:w-[28rem] rounded-3xl"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-4 absolute left-0 bottom-0 lg:left-40"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-5 bg-white rounded-lg inline-block"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "font-semibold text-2xl block mb-5"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "$60,0000"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "text-grey-500 text-xs block mb-2"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Transaction per month"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "bg-green-100 p-1 rounded-md items-center inline-flex"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "ArrowUp",
+                                                "package": "lucide-react",
+                                                "props": {
+                                                  "color": "green"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "text-green-900 ms-1 font-semibold text-xs"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "2.5%"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

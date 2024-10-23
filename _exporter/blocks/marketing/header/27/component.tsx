@@ -40,7 +40,7 @@ export default function HeroHeaderBlock({
           
           <div className="ml-[7.5%]">
             <Text
-            as="p"
+            as="h6"
               className="text-base py-2"
             >
               {description}

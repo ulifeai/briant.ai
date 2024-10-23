@@ -1,0 +1,422 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowUpRight",
+          "local": "ArrowUpRight"
+        },
+        {
+          "type": "named",
+          "imported": "MoveUpRight",
+          "local": "MoveUpRight"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "py-12"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "relative py-20 overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/star-left.png",
+                  "alt": "",
+                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto relative"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "max-w-7xl mx-auto"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap items-center mb-16 max-w-xl"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "px-4 w-full mb-12"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mb-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "text-orange-900 font-semibold text-xs py-1 px-3 bg-orange-50 inline-block"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "FEATURES"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h1",
+                                      "className": "text-gray-900 text-5xl font-bold mt-4 lg:text-7xl"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Delivering Tech Solution"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "max-w-sm"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-500 text-lg"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "We are a team of 20+ who are passionate about making the world a better place."
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap lg:flex-nowrap"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "px-4 w-full mb-8"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative h-[25rem]"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/images/image.svg",
+                                      "alt": "image",
+                                      "className": "rounded-3xl object-cover w-full h-full"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "px-4 w-full flex flex-wrap h-full md:flex-nowrap"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "px-4 w-full mb-8"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-col h-full"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "a",
+                                        "props": {
+                                          "href": "#",
+                                          "className": "pt-8 pb-5 px-8 bg-green-50 h-full block mb-7 relative rounded-3xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pe-4 flex flex-col justify-between max-w-sm h-full"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 text-sm mb-10"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "We have share our journey and some story"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "text-gray-900 font-semibold text-3xl"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Read our blog"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/arrow.svg",
+                                              "alt": "",
+                                              "className": "absolute m-5 bottom-0 right-0"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "a",
+                                        "props": {
+                                          "href": "#",
+                                          "className": "pt-8 pb-5 px-8 bg-red-50 h-full block mb-7 relative rounded-3xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pe-4 flex flex-col justify-between max-w-sm h-full"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 text-sm mb-10"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "We have share our journey and some story"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "text-gray-900 font-semibold text-3xl"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Read our blog"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/arrow.svg",
+                                              "alt": "",
+                                              "className": "absolute m-5 bottom-0 right-0"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "px-4 w-full mb-8"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-col h-full"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "a",
+                                        "props": {
+                                          "href": "#",
+                                          "className": "pt-8 pb-5 px-8 bg-orange-50 h-full block mb-7 relative rounded-3xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pe-4 flex flex-col justify-between max-w-sm h-full"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 text-sm mb-10"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "We have share our journey and some story"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "text-gray-900 font-semibold text-3xl"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Read our blog"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/arrow.svg",
+                                              "alt": "",
+                                              "className": "absolute m-5 bottom-0 right-0"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

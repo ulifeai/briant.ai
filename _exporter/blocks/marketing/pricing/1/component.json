@@ -1,251 +1,305 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "container mx-auto px-4 py-16"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "h2",
-      "props": {
-        "className": "text-4xl font-bold text-center mb-2"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "dynamicText",
-          "text": "title"
-        }
-      ]
-    },
-    {
-      "type": "element",
-      "tag": "p",
-      "props": {
-        "className": "text-xl text-center mb-8"
-      },
-      "children": [
-        {
-          "type": "dynamicText",
-          "text": "subtitle"
-        }
-      ]
-    },
-    {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex items-center justify-center mb-8"
-      },
-      "children": [
-        {
-          "type": "element",
-          "tag": "span",
-          "props": {
-            "className": "{`mr-2 ${isYearly ? 'text-gray-500' : 'font-semibold'}`}"
-          },
-          "children": [
-            {
-              "type": "text",
-              "text": "Monthly"
-            }
-          ]
+          "type": "default",
+          "local": "React"
         },
         {
-          "type": "component",
-          "component": "Switch",
-          "package": "@/components/ui/switch",
-          "props": {
-            "checked": "{isYearly}",
-            "onCheckedChange": "{() => setIsYearly(!isYearly)}"
-          }
-        },
-        {
-          "type": "element",
-          "tag": "span",
-          "props": {
-            "className": "{`ml-2 ${isYearly ? 'font-semibold' : 'text-gray-500'}`}"
-          },
-          "children": [
-            {
-              "type": "text",
-              "text": "Yearly"
-            }
-          ]
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "grid grid-cols-1 md:grid-cols-3 gap-8"
-      },
-      "children": [
+      "source": "lucide-react",
+      "specifiers": [
         {
-          "type": "loop",
-          "loop": {
-            "array": "plans",
-            "iterator": "plan"
+          "type": "named",
+          "imported": "Check",
+          "local": "Check"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/switch",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Switch",
+          "local": "Switch"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Pricing",
+      "preReturnCode": "const [isYearly, setIsYearly] = useState(false);",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "container mx-auto px-4 py-16"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "h2",
+            "props": {
+              "className": "text-4xl font-bold text-center mb-2"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "title"
+              }
+            ]
           },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "key": "{index}",
-                "className": "border rounded-lg p-6 flex flex-col"
+          {
+            "type": "element",
+            "tag": "p",
+            "props": {
+              "className": "text-xl text-center mb-8"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "subtitle"
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex items-center justify-center mb-8"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "props": {
+                  "className": "{`mr-2 ${isYearly ? 'text-gray-500' : 'font-semibold'}`}"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Monthly"
+                  }
+                ]
               },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h3",
-                  "props": {
-                    "className": "text-2xl font-bold mb-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "plan.name"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "mb-4"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "plan.description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "text-4xl font-bold mb-4"
-                  },
-                  "children": [
-                    {
-                      "type": "text",
-                      "text": "$"
-                    },
-                    {
-                      "type": "conditional",
-                      "condition": "isYearly",
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "plan.yearlyPrice"
-                        }
-                      ],
-                      "else": [
-                        {
-                          "type": "dynamicText",
-                          "text": "plan.monthlyPrice"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "span",
-                      "props": {
-                        "className": "text-lg font-normal text-gray-500"
-                      },
-                      "children": [
-                        {
-                          "type": "text",
-                          "text": "/"
-                        },
-                        {
-                          "type": "conditional",
-                          "condition": "isYearly",
-                          "children": [
-                            {
-                              "type": "text",
-                              "text": "yr"
-                            }
-                          ],
-                          "else": [
-                            {
-                              "type": "text",
-                              "text": "mo"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Button",
-                  "package": "@/components/ui/base/button",
-                  "props": {
-                    "className": "mb-6"
-                  },
-                  "children": [
-                    {
-                      "type": "text",
-                      "text": "Get started"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "ul",
-                  "props": {
-                    "className": "space-y-2 mt-auto"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "plan.features",
-                        "iterator": "feature"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "li",
-                          "props": {
-                            "key": "{featureIndex}",
-                            "className": "flex items-center"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Check",
-                              "package": "lucide-react",
-                              "props": {
-                                "className": "w-5 h-5 mr-2"
-                              }
-                            },
-                            {
-                              "type": "element",
-                              "tag": "span",
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "feature.text"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
+              {
+                "type": "component",
+                "component": "Switch",
+                "package": "@/components/ui/switch",
+                "props": {
+                  "checked": "{isYearly}",
+                  "onCheckedChange": "{() => setIsYearly(!isYearly)}"
                 }
-              ]
-            }
-          ]
-        }
-      ]
+              },
+              {
+                "type": "element",
+                "tag": "span",
+                "props": {
+                  "className": "{`ml-2 ${isYearly ? 'font-semibold' : 'text-gray-500'}`}"
+                },
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Yearly"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "grid grid-cols-1 md:grid-cols-3 gap-8"
+            },
+            "children": [
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "plans",
+                  "iterator": "plan"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "key": "{index}",
+                      "className": "border rounded-lg p-6 flex flex-col"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h3",
+                        "props": {
+                          "className": "text-2xl font-bold mb-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "plan.name"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "mb-4"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "plan.description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "text-4xl font-bold mb-4"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "$"
+                          },
+                          {
+                            "type": "conditional",
+                            "condition": "isYearly",
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "plan.yearlyPrice"
+                              }
+                            ],
+                            "else": [
+                              {
+                                "type": "dynamicText",
+                                "text": "plan.monthlyPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "props": {
+                              "className": "text-lg font-normal text-gray-500"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "/"
+                              },
+                              {
+                                "type": "conditional",
+                                "condition": "isYearly",
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "yr"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": "mo"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Button",
+                        "package": "@/components/ui/base/button",
+                        "props": {
+                          "className": "mb-6"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "Get started"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "ul",
+                        "props": {
+                          "className": "space-y-2 mt-auto"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "plan.features",
+                              "iterator": "feature"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "li",
+                                "props": {
+                                  "key": "{featureIndex}",
+                                  "className": "flex items-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Check",
+                                    "package": "lucide-react",
+                                    "props": {
+                                      "className": "w-5 h-5 mr-2"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "feature.text"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

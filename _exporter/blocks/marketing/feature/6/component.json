@@ -1,169 +1,235 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "container px-[5%] mx-auto bg-gray-50 px-4 py-8"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "logical",
-      "operator": "&&",
-      "condition": "tag",
-      "children": [
+      "source": "lucide-react",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "span",
-          "props": {
-            "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "tag"
-            }
-          ]
+          "type": "named",
+          "imported": "ArrowUpRight",
+          "local": "ArrowUpRight"
         }
       ]
     },
     {
-      "type": "component",
-      "component": "Text",
-      "package": "@/components/ui/base/text",
-      "props": {
-        "as": "h1",
-        "className": "mb-4"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "dynamicText",
-          "text": "title"
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
     },
     {
-      "type": "component",
-      "component": "Text",
-      "package": "@/components/ui/base/text",
-      "props": {
-        "as": "p",
-        "className": "text-base py-2 max-w-4xl"
-      },
-      "children": [
+      "source": "@/components/ui/card",
+      "specifiers": [
         {
-          "type": "dynamicText",
-          "text": "description"
+          "type": "named",
+          "imported": "Card",
+          "local": "Card"
+        },
+        {
+          "type": "named",
+          "imported": "CardContent",
+          "local": "CardContent"
         }
       ]
     },
     {
-      "type": "loop",
-      "loop": {
-        "array": "feature_items",
-        "iterator": "item"
-      },
-      "children": [
+      "source": "next/image",
+      "specifiers": [
         {
-          "type": "component",
-          "component": "Card",
-          "package": "@/components/ui/card",
-          "props": {
-            "className": "mb-8 mt-12 bg-white"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "CardContent",
-              "package": "@/components/ui/card",
-              "props": {
-                "className": "{`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 p-8`}"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "w-full md:w-1/2 space-y-6"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Text",
-                      "package": "@/components/ui/base/text",
-                      "props": {
-                        "as": "h1",
-                        "className": "text-4xl font-normal"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.title"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "p",
-                      "props": {
-                        "className": "text-gray-600 mb-8"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "item.description"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "outline",
-                        "className": "rounded-full border-secondary mt-8"
-                      },
-                      "children": [
-                        {
-                          "type": "text",
-                          "text": "Take action"
-                        },
-                        {
-                          "type": "component",
-                          "component": "ArrowUpRight",
-                          "package": "lucide-react",
-                          "props": {
-                            "className": "ml-2 h-4 w-4"
-                          }
-                        }
-                      ]
-                    }
-                  ]
+          "type": "default",
+          "local": "Image"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeatureBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "container px-[5%] mx-auto px-4 py-8"
+        },
+        "children": [
+          {
+            "type": "logical",
+            "operator": "&&",
+            "condition": "tag",
+            "children": [
+              {
+                "type": "element",
+                "tag": "span",
+                "props": {
+                  "className": "text-sm font-semibold uppercase tracking-wider  mb-2"
                 },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "w-full md:w-1/2"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Image",
-                      "package": "next/image",
-                      "props": {
-                        "src": "{\"/placeholder-image.svg\"}",
-                        "alt": "{\"\"}",
-                        "width": "{500}",
-                        "height": "{200}",
-                        "className": "rounded-xl h-[18rem] object-cover shadow-lg"
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "tag"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "component",
+            "component": "Text",
+            "package": "@/components/ui/base/text",
+            "props": {
+              "as": "h1",
+              "className": "mb-4"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "title"
+              }
+            ]
+          },
+          {
+            "type": "component",
+            "component": "Text",
+            "package": "@/components/ui/base/text",
+            "props": {
+              "as": "h6",
+              "className": "text-base py-2 max-w-4xl"
+            },
+            "children": [
+              {
+                "type": "dynamicText",
+                "text": "description"
+              }
+            ]
+          },
+          {
+            "type": "loop",
+            "loop": {
+              "array": "feature_items",
+              "iterator": "item"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Card",
+                "package": "@/components/ui/card",
+                "props": {
+                  "className": "mb-8 mt-12 bg-white"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "CardContent",
+                    "package": "@/components/ui/card",
+                    "props": {
+                      "className": "{`flex flex-col ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 p-8`}"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full md:w-1/2 space-y-6"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h1",
+                              "className": "text-4xl font-semibold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.title"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h6",
+                              "className": "mb-8"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "item.description"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "outline",
+                              "className": "rounded-full border-secondary mt-8"
+                            },
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Take action"
+                              },
+                              {
+                                "type": "component",
+                                "component": "ArrowUpRight",
+                                "package": "lucide-react",
+                                "props": {
+                                  "className": "ml-2 h-4 w-4"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Image",
+                            "package": "next/image",
+                            "props": {
+                              "src": "{\"/placeholder-image.svg\"}",
+                              "alt": "{\"\"}",
+                              "width": "{500}",
+                              "height": "{200}",
+                              "className": "rounded-xl h-[18rem] object-cover shadow-lg"
+                            }
+                          }
+                        ]
                       }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

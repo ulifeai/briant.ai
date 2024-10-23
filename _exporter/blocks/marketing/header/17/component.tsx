@@ -46,7 +46,7 @@ export default function HeroHeaderBlock({
               {title}
             </Text>
             <Text
-            as="p"
+            as="h6"
               className="text-white py-2"
             >
               {description}

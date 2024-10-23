@@ -38,7 +38,7 @@ export default function HeroHeaderBlock({
             </Text>
           <div className="flex flex-col justify-end ">
             <Text
-            as="p"
+            as="h6"
               className="text-base py-2"
             >
               {description}

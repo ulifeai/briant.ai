@@ -1,153 +1,192 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "relative"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "px-[5%]"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "container flex max-h-[60rem] min-h-svh"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "py-16 md:py-24 lg:py-28"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "grid h-full auto-cols-fr grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 text-white"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "flex flex-col"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Text",
-                          "package": "@/components/ui/base/text",
-                          "props": {
-                            "as": "hero",
-                            "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "title"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "mx-[7.5%] flex flex-col justify-end"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Text",
-                          "package": "@/components/ui/base/text",
-                          "props": {
-                            "as": "p",
-                            "className": "text-white py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "description"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "mt-6 flex gap-x-4 md:mt-8"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "buttons",
-                                "iterator": "button"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Button",
-                                  "package": "@/components/ui/button",
-                                  "props": {
-                                    "variant": "{button.variant}",
-                                    "size": "{button.size}",
-                                    "key": "{index}",
-                                    "className": "whitespace-nowrap px-4 py-2"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "button.title"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "absolute inset-0 -z-10 bg-gradient-to-b from-black/50 to-black/50"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "absolute inset-0 z-10 bg-black/50"
-          }
-        },
-        {
-          "type": "element",
-          "tag": "img",
-          "props": {
-            "src": "{images.0.src}",
-            "alt": "{images.0.alt}",
-            "className": "absolute inset-0 size-full object-cover"
-          }
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "relative"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "px-[5%]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "container flex max-h-[60rem] min-h-svh"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "py-16 md:py-24 lg:py-28"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "grid h-full auto-cols-fr grid-cols-1 gap-12 md:grid-cols-2 md:gap-20 text-white"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-col"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "hero",
+                                  "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "title"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mx-[7.5%] flex flex-col justify-end"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "h6",
+                                  "className": "text-white py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "description"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mt-6 flex gap-x-4 md:mt-8"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "buttons",
+                                      "iterator": "button"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Button",
+                                        "package": "@/components/ui/button",
+                                        "props": {
+                                          "variant": "{button.variant}",
+                                          "size": "{button.size}",
+                                          "key": "{index}",
+                                          "className": "whitespace-nowrap px-4 py-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "button.title"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "absolute inset-0 -z-10 bg-gradient-to-b from-black/50 to-black/50"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "absolute inset-0 z-10 bg-black/50"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "{images.0.src}",
+                  "alt": "{images.0.alt}",
+                  "className": "absolute inset-0 size-full object-cover"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

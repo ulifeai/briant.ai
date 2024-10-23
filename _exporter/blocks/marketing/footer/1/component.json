@@ -1,319 +1,379 @@
 {
-  "type": "element",
-  "tag": "footer",
-  "props": {
-    "className": "container max-w-7xl mx-auto w-full border-t border-gray-200 py-8"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container mx-auto px-4"
-      },
-      "children": [
+      "source": "@/components/ui/input",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "text-2xl font-bold mb-8"
-          },
-          "children": [
-            {
-              "type": "dynamicText",
-              "text": "logo?.image"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex items-center flex-col space-y-5 md:flex-row justify-between space-x-8"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "nav",
-              "props": {
-                "className": "flex flex-wrap flex-col md:flex-row justify-center gap-6"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "navLinks",
-                    "iterator": "link"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "text-sm  hover:text-gray-900"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "link.label"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "logical",
-              "operator": "&&",
-              "condition": "variant === 'subscribe'",
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "w-full max-w-md space-y-2"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "h3",
-                      "props": {
-                        "className": "text-lg font-semibold text-center"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "subscribeText"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "form",
-                      "props": {
-                        "className": "flex space-x-2"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Input",
-                          "package": "@/components/ui/input",
-                          "props": {
-                            "type": "email",
-                            "placeholder": "Enter your email",
-                            "className": "flex-grow"
-                          }
-                        },
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "type": "submit"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "subscribeButtonText"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "p",
-                      "props": {
-                        "className": "text-xs text-center"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "subscribePrivacyText"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "logical",
-              "operator": "&&",
-              "condition": "variant === 'social' && socialLinks",
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex space-x-4"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "socialLinks",
-                        "iterator": "link"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "hover:text-gray-900"
-                          },
-                          "children": [
-                            {
-                              "type": "text",
-                              "text": "}"
-                            },
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "link.platform == 'facebook'",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Facebook",
-                                  "package": "lucide-react",
-                                  "props": {
-                                    "className": "h-5 w-5"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "link.platform == 'instagram'",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Instagram",
-                                  "package": "lucide-react",
-                                  "props": {
-                                    "className": "h-5 w-5"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "link.platform == 'twitter'",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Twitter",
-                                  "package": "lucide-react",
-                                  "props": {
-                                    "className": "h-5 w-5"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "link.platform == 'linkedin'",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Linkedin",
-                                  "package": "lucide-react",
-                                  "props": {
-                                    "className": "h-5 w-5"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "logical",
-                              "operator": "&&",
-                              "condition": "link.platform == 'youtube'",
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Youtube",
-                                  "package": "lucide-react",
-                                  "props": {
-                                    "className": "h-5 w-5"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "hr",
-          "props": {
-            "className": "mt-8"
-          }
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col items-center space-y-8 mt-8"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-wrap justify-center gap-4 text-sm"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "legalLinks",
-                    "iterator": "link"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "hover:text-gray-900"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "link.label"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "text-sm"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "copyrightText"
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Input",
+          "local": "Input"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Facebook",
+          "local": "Facebook"
+        },
+        {
+          "type": "named",
+          "imported": "Instagram",
+          "local": "Instagram"
+        },
+        {
+          "type": "named",
+          "imported": "Linkedin",
+          "local": "Linkedin"
+        },
+        {
+          "type": "named",
+          "imported": "Twitter",
+          "local": "Twitter"
+        },
+        {
+          "type": "named",
+          "imported": "Youtube",
+          "local": "Youtube"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Footer",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "footer",
+        "props": {
+          "className": "container max-w-7xl mx-auto w-full border-t border-gray-200 py-8"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container mx-auto px-4"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "text-2xl font-bold mb-8"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "logo?.image"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex items-center flex-col space-y-5 md:flex-row justify-between space-x-8"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "nav",
+                    "props": {
+                      "className": "flex flex-wrap flex-col md:flex-row justify-center gap-6"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "navLinks",
+                          "iterator": "link"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "text-sm  hover:text-gray-900"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "link.label"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "logical",
+                    "operator": "&&",
+                    "condition": "variant === 'subscribe'",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full max-w-md space-y-2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "h3",
+                            "props": {
+                              "className": "text-lg font-semibold text-center"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "subscribeText"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "form",
+                            "props": {
+                              "className": "flex space-x-2"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Input",
+                                "package": "@/components/ui/input",
+                                "props": {
+                                  "type": "email",
+                                  "placeholder": "Enter your email",
+                                  "className": "flex-grow"
+                                }
+                              },
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "type": "submit"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "subscribeButtonText"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "props": {
+                              "className": "text-xs text-center"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "subscribePrivacyText"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "logical",
+                    "operator": "&&",
+                    "condition": "variant === 'social' && socialLinks",
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex space-x-4"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "socialLinks",
+                              "iterator": "link"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "hover:text-gray-900"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "}"
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == 'facebook'",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Facebook",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == 'instagram'",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Instagram",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == 'twitter'",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Twitter",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == 'linkedin'",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Linkedin",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == 'youtube'",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Youtube",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "hr",
+                "props": {
+                  "className": "mt-8"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-col items-center space-y-8 mt-8"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap justify-center gap-4 text-sm"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "legalLinks",
+                          "iterator": "link"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "hover:text-gray-900"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "link.label"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "text-sm"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "copyrightText"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

@@ -35,7 +35,7 @@ export default function HeroHeaderBlock({
             <div className="grid h-full auto-cols-fr grid-cols-1 gap-12 md:grid-cols-2 md:gap-20">
               <div className="mx-[7.5%] flex flex-col justify-end">
               <Text
-                  as="p"
+                  as="h6"
                   className="text-white py-2"
                 >
                   {description}

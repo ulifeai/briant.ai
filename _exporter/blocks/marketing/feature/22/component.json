@@ -1,0 +1,359 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "pt-28 pb-36 bg-white overflow-hidden relative"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap items-end mb-20"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h2",
+                              "className": "leading-tight font-bold text-5xl"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "text-gray-900 leading-relaxed text-lg"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3 md:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "#",
+                              "className": "flex justify-center h-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "rounded-3xl overflow-hidden h-full relative"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/7.jpg",
+                                      "alt": "image",
+                                      "className": "rounded-3xl object-cover"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "pb-10 px-11 w-full absolute left-0 bottom-0"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "py-4 px-8 bg-[#fff] rounded-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "A complete toolkit for your business"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3 md:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "#",
+                              "className": "flex justify-center h-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "rounded-3xl overflow-hidden h-full relative"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/7.jpg",
+                                      "alt": "image",
+                                      "className": "rounded-3xl object-cover"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "pb-10 px-11 w-full absolute left-0 bottom-0"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "py-4 px-8 bg-[#fff] rounded-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "A complete toolkit for your business"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3 md:w-1/3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "#",
+                              "className": "flex justify-center h-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "rounded-3xl overflow-hidden h-full relative"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "/7.jpg",
+                                      "alt": "image",
+                                      "className": "rounded-3xl object-cover"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "pb-10 px-11 w-full absolute left-0 bottom-0"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "py-4 px-8 bg-[#fff] rounded-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "A complete toolkit for your business"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

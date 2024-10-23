@@ -1,0 +1,299 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "pt-32 pb-36 bg-indigo-600 overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "max-w-[672px]"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h2",
+                          "className": "text-white leading-none text-5xl mb-9 font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "p",
+                          "className": "text-opacity-70 text-white mb-36"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3  md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "p-7 bg-white border border-gray-900 rounded-3xl"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-4 w-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Mouse",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "align-middle"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex-1 p-4"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-semibold text-lg mb-3"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Unlimited resources"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-600 font-medium"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. \n                                        Velit officia consequat duis enim velit mollit. Exercit ation veniam consequat."
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-3 md:w-1/2"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "p-7 bg-white border border-gray-900 rounded-3xl"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-4 w-auto"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Mouse",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "align-middle"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex-1 p-4"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-semibold text-lg mb-3"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Unlimited resources"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "p",
+                                          "className": "text-gray-600 font-medium"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. \n                                        Velit officia consequat duis enim velit mollit. Exercit ation veniam consequat."
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

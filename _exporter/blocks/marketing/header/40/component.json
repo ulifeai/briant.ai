@@ -1,146 +1,176 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "px-[5%] py-16 md:py-24 lg:py-28"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "ml-[5%] max-w-3xl grid grid-cols-1 items-start gap-2 md:gap-6 lg:mb-20 lg:gap-5 mb-16"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "Text",
-              "package": "@/components/ui/base/text",
-              "props": {
-                "as": "hero",
-                "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "title"
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col justify-end"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Text",
-                  "package": "@/components/ui/base/text",
-                  "props": {
-                    "as": "p",
-                    "className": "text-base py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-6 flex gap-x-4 md:mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "variant": "{button.variant}",
-                            "size": "{button.size}",
-                            "key": "{index}",
-                            "className": "whitespace-nowrap px-4 py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.title"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col lg:grid lg:grid-cols-2 items-start gap-6 sm:gap-8 md:gap-16"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "w-full"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.0.src}",
-                    "alt": "{images.0.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "lg:mt-[15%] w-full"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.1.src}",
-                    "alt": "{images.1.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "px-[5%] py-16 md:py-24 lg:py-28"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "ml-[5%] max-w-3xl grid grid-cols-1 items-start gap-2 md:gap-6 lg:mb-20 lg:gap-5 mb-16"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Text",
+                    "package": "@/components/ui/base/text",
+                    "props": {
+                      "as": "hero",
+                      "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col justify-end"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h6",
+                          "className": "text-base py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mt-6 flex gap-x-4 md:mt-8"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "variant": "{button.variant}",
+                                  "size": "{button.size}",
+                                  "key": "{index}",
+                                  "className": "whitespace-nowrap px-4 py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-col lg:grid lg:grid-cols-2 items-start gap-6 sm:gap-8 md:gap-16"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-full"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.0.src}",
+                          "alt": "{images.0.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "lg:mt-[15%] w-full"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.1.src}",
+                          "alt": "{images.1.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

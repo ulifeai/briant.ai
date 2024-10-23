@@ -1,0 +1,337 @@
+{
+  "imports": [
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowUpRight",
+          "local": "ArrowUpRight"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "py-12"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "max-w-[28rem] mx-auto lg:max-w-[1280px]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "mb-[4rem] flex flex-wrap lg:flex-nowrap flex-col lg:flex-row lg:justify-between lg:items-center"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mb-[2rem] px-2"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "max-w-lg block"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "props": {
+                              "className": "bg-[#fbe7e7] py-2 px-4  text-[#ee4b4b] rounded-full"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "tag"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h2",
+                              "className": "text-5xl font-bold mt-8 leading-relaxed md:text-7xl"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "title"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "shrink px-3"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "max-w-[28rem] box-border"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "text-lg"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "description"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "max-w-[28rem] mx-auto lg:max-w-[1280px]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "mb-12 w-full box-border px-3 flex flex-col sm:flex-row gap-4"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "box-border mb-12"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "/1.jpg",
+                          "alt": "feature1",
+                          "className": "mb-6 w-full block align-middle box-border"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h3",
+                          "className": "text-2xl mb-6 box-border font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The heart of what makes we valuable"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "props": {
+                          "href": "",
+                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Learn more"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "ArrowUpRight",
+                            "package": "lucide-react"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "box-border mb-12"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "/1.jpg",
+                          "alt": "feature1",
+                          "className": "mb-6 w-full block align-middle box-border"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h3",
+                          "className": "text-2xl mb-6 box-border font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The heart of what makes we valuable"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "props": {
+                          "href": "",
+                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Learn more"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "ArrowUpRight",
+                            "package": "lucide-react"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "box-border mb-12"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "/1.jpg",
+                          "alt": "feature1",
+                          "className": "mb-6 w-full block align-middle box-border"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
+                        "props": {
+                          "as": "h3",
+                          "className": "text-2xl mb-6 box-border font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "text",
+                            "text": "The heart of what makes we valuable"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "props": {
+                          "href": "",
+                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "span",
+                            "children": [
+                              {
+                                "type": "text",
+                                "text": "Learn more"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "ArrowUpRight",
+                            "package": "lucide-react"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

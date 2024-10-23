@@ -1,162 +1,221 @@
 {
-  "type": "element",
-  "tag": "section",
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "relative h-[110vh] md:h-[500vh]"
-      },
-      "children": [
+      "source": "@/components/ui/base/text",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "sticky top-0 min-h-screen overflow-hidden"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "px-[5%] py-16 md:py-24 lg:py-28"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "container mx-auto max-w-3xl"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "relative z-20 text-center"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Text",
-                          "package": "@/components/ui/base/text",
-                          "props": {
-                            "as": "hero",
-                            "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "title"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "component",
-                          "component": "Text",
-                          "package": "@/components/ui/base/text",
-                          "props": {
-                            "as": "p",
-                            "className": "text-base py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "description"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "buttons",
-                                "iterator": "button"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Button",
-                                  "package": "@/components/ui/button",
-                                  "props": {
-                                    "variant": "{button.variant}",
-                                    "size": "{button.size}",
-                                    "key": "{index}",
-                                    "className": "whitespace-nowrap px-4 py-2"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "dynamicText",
-                                      "text": "button.title"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "motion.div",
-              "props": {
-                "style": "{containerMotion}",
-                "className": "absolute inset-0 z-10 flex origin-bottom items-end justify-center"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "images",
-                    "iterator": "image"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "motion.div",
-                      "props": {
-                        "key": "{index}",
-                        "style": "{imageMotions.index}",
-                        "className": "{clsx(\"absolute w-full max-w-[9rem] sm:max-w-[15rem] lg:max-w-xs\", {\n  \"left-[-25%] top-[65%] sm:top-[45%] md:left-[-20%] lg:left-[-10%] lg:top-[12%] \": index === 0,\n  \"bottom-[5%] left-[-8%] md:left-[5%] lg:bottom-[10%]\": index === 1,\n  \"bottom-[0%]\": index === 2,\n  \"bottom-[4%] right-[-5%] sm:bottom-[7%] md:right-[8%] lg:bottom-[15%] lg:right-[10%]\": index === 3,\n  \"right-[-30%] top-[65%] sm:right-[-15%] sm:top-[45%] lg:right-[-8%] lg:top-[5%]\": index === 4\n})}"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "img",
-                          "props": {
-                            "src": "{image.src}",
-                            "alt": "{image.alt}",
-                            "className": "size-full"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "absolute inset-0 -z-10 mt-[100vh]"
-          }
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "framer-motion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "motion",
+          "local": "motion"
+        },
+        {
+          "type": "named",
+          "imported": "useScroll",
+          "local": "useScroll"
+        },
+        {
+          "type": "named",
+          "imported": "useTransform",
+          "local": "useTransform"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "const {\n  scrollYProgress\n} = useScroll();\nconst containerMotion = {\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"5%\"]),\n  scale: useTransform(scrollYProgress, [0, 1], [1, 0]),\n  opacity: useTransform(scrollYProgress, [0, 1], [1, 0])\n};\nconst imageMotions = [{\n  x: useTransform(scrollYProgress, [0, 1], [\"0vw\", \"45vw\"]),\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"110%\"])\n}, {\n  x: useTransform(scrollYProgress, [0, 1], [\"0vw\", \"30vw\"]),\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"80%\"])\n}, {\n  x: undefined,\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"70%\"])\n}, {\n  x: useTransform(scrollYProgress, [0, 1], [\"0vw\", \"-30vw\"]),\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"90%\"])\n}, {\n  x: useTransform(scrollYProgress, [0, 1], [\"0vw\", \"-45vw\"]),\n  y: useTransform(scrollYProgress, [0, 1], [\"0%\", \"120%\"])\n}];",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "relative h-[110vh] md:h-[500vh]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "sticky top-0 min-h-screen overflow-hidden"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "px-[5%] py-16 md:py-24 lg:py-28"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "container mx-auto max-w-3xl"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "relative z-20 text-center"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "hero",
+                                  "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "title"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "h6",
+                                  "className": "text-base py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "description"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mt-6 flex items-center justify-center gap-x-4 md:mt-8"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "buttons",
+                                      "iterator": "button"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Button",
+                                        "package": "@/components/ui/button",
+                                        "props": {
+                                          "variant": "{button.variant}",
+                                          "size": "{button.size}",
+                                          "key": "{index}",
+                                          "className": "whitespace-nowrap px-4 py-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "button.title"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "style": "{containerMotion}",
+                      "className": "absolute inset-0 z-10 flex origin-bottom items-end justify-center"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "images",
+                          "iterator": "image"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "motion.div",
+                            "props": {
+                              "key": "{index}",
+                              "style": "{imageMotions.index}",
+                              "className": "{clsx(\"absolute w-full max-w-[9rem] sm:max-w-[15rem] lg:max-w-xs\", {\n  \"left-[-25%] top-[65%] sm:top-[45%] md:left-[-20%] lg:left-[-10%] lg:top-[12%] \": index === 0,\n  \"bottom-[5%] left-[-8%] md:left-[5%] lg:bottom-[10%]\": index === 1,\n  \"bottom-[0%]\": index === 2,\n  \"bottom-[4%] right-[-5%] sm:bottom-[7%] md:right-[8%] lg:bottom-[15%] lg:right-[10%]\": index === 3,\n  \"right-[-30%] top-[65%] sm:right-[-15%] sm:top-[45%] lg:right-[-8%] lg:top-[5%]\": index === 4\n})}"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "props": {
+                                  "src": "{image.src}",
+                                  "alt": "{image.alt}",
+                                  "className": "size-full"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "absolute inset-0 -z-10 mt-[100vh]"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

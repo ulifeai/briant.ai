@@ -1,0 +1,499 @@
+[
+   {
+      "page":"Generate_Sitemaps",
+      "path":"/generate-sitemaps",
+      "type":"static",
+      "data":[
+         {
+            "type":"navbar",
+            "data":{
+               "version":2,
+               "logo":"/logo.png",
+               "navItems":[
+                  {
+                     "title":"Home",
+                     "url":"/"
+                  },
+                  {
+                     "title":"Features",
+                     "url":"/features"
+                  },
+                  {
+                     "title":"Pricing",
+                     "url":"/pricing"
+                  },
+                  {
+                     "title":"About",
+                     "url":"/about"
+                  }
+               ],
+               "buttons":[
+                  {
+                     "title":"Get Started",
+                     "variant":"primary",
+                     "size":"medium"
+                  },
+                  {
+                     "title":"Contact Us",
+                     "variant":"secondary",
+                     "size":"medium"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"header",
+            "data":{
+               "version":2,
+               "tag":"Website Design",
+               "title":"Your best chance to make a million",
+               "description":"Martha.ai is your ultimate AI-driven tool for designing and building websites quicker and smarter. Shift from viewing AI as a replacement to embracing it as a powerful design ally in your creative process.",
+               "buttons":[
+                  {
+                     "title":"Learn More",
+                     "variant":"secondary",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Start Free Trial",
+                     "variant":"primary",
+                     "size":"large"
+                  }
+               ],
+               "image":{
+                  "image":"/placeholder-image.svg",
+                  "alt":"AI tool for web design"
+               }
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":3,
+               "tag":"Feature 1",
+               "title":"Effortless Sitemap Generation",
+               "description":"Transform simple descriptions into comprehensive sitemaps effortlessly with Martha.ai. Visualize and organize your site structure seamlessly to ensure a coherent user journey.",
+               "image":{
+                  "image":"/placeholder-image.svg",
+                  "alt":"Sitemap generation feature"
+               },
+               "buttons":[
+                  {
+                     "title":"Explore Feature",
+                     "variant":"default",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Get Started",
+                     "variant":"primary",
+                     "size":"large"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":2,
+               "tag":"Feature 2",
+               "title":"Instant UX Wireframes",
+               "description":"Convert your sitemaps into detailed wireframes with real components in just one click. Ready your projects for user feedback faster than ever before with Martha.ai's innovative capabilities.",
+               "image":{
+                  "image":"/placeholder-image.svg",
+                  "alt":"UX Wireframes feature"
+               },
+               "buttons":[
+                  {
+                     "title":"Discover More",
+                     "variant":"default",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Try Now",
+                     "variant":"primary",
+                     "size":"large"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":7,
+               "tag":"Feature 3",
+               "title":"Advanced UI Styleguide",
+               "description":"Transform wireframes into polished UI designs with Martha.ai's advanced design system for developers. Streamline your development process and achieve design consistency across all your projects.",
+               "image":{
+                  "image":"/placeholder-image.svg",
+                  "alt":"UI styleguide feature"
+               },
+               "buttons":[
+                  {
+                     "title":"View Styleguide",
+                     "variant":"default",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Start Designing",
+                     "variant":"primary",
+                     "size":"large"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"testimonial",
+            "data":{
+               "version":2,
+               "title":"Real User Stories",
+               "description":"Here's what our users have to say about Martha.ai. Discover how their workflow was expedited and project results were enhanced, leading to greater satisfaction and productivity.",
+               "testimonials":[
+                  {
+                     "image":{
+                        "src":"/placeholder-image.svg",
+                        "alt":"User story"
+                     },
+                     "quote":"Martha.ai has revolutionized the way I design websites. It's a real game-changer!",
+                     "avatar":{
+                        "src":"/placeholder-image.svg",
+                        "alt":"User avatar"
+                     },
+                     "name":"John Doe",
+                     "position":"Web Designer",
+                     "companyName":"Creative Studio",
+                     "location":"New York, USA"
+                  },
+                  {
+                     "image":{
+                        "src":"/placeholder-image.svg",
+                        "alt":"User story"
+                     },
+                     "quote":"With Martha.ai, we cut down our design time by 50%. The features are intuitive and powerful.",
+                     "avatar":{
+                        "src":"/placeholder-image.svg",
+                        "alt":"User avatar"
+                     },
+                     "name":"Emily Smith",
+                     "position":"Product Manager",
+                     "companyName":"Innovatech",
+                     "location":"San Francisco, USA"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"cta",
+            "data":{
+               "version":1,
+               "tag":"Sign Up",
+               "title":"Experience the Future of Web Design",
+               "description":"Join Martha.ai today and unlock the potential of AI-powered website design. Sign up now for a free trial to experience how we can accelerate your design process.",
+               "buttons":[
+                  {
+                     "title":"Start Your Free Trial",
+                     "variant":"primary",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Learn More",
+                     "variant":"secondary",
+                     "size":"large"
+                  }
+               ],
+               "colorText":"black",
+               "image":{
+                  "image":"/placeholder-image.svg",
+                  "alt":"Call to action"
+               }
+            }
+         },
+         {
+            "type":"FAQSection",
+            "data":{
+               "version":3,
+               "title":"Frequently Asked Questions",
+               "description":"Have questions about using AI in your web design workflow? We've got answers that highlight how easy and beneficial Martha.ai is to use.",
+               "questions":[
+                  {
+                     "title":"What is Martha.ai?",
+                     "answer":"Martha.ai is an AI-powered tool that assists you in designing and building websites more efficiently."
+                  },
+                  {
+                     "title":"How does AI help in web design?",
+                     "answer":"AI aids by automating repetitive tasks, providing design suggestions, and ensuring consistency across projects."
+                  },
+                  {
+                     "title":"Is there a free trial available?",
+                     "answer":"Yes, Martha.ai offers a free trial so you can explore its features before committing."
+                  },
+                  {
+                     "title":"Can I use Martha.ai for all types of websites?",
+                     "answer":"Absolutely! Whether it's a personal blog or a corporate site, Martha.ai adapts to your needs."
+                  }
+               ]
+            }
+         }
+      ]
+   },
+   {
+      "page":"AI_Wireframes",
+      "path":"/ai-wireframes",
+      "type":"static",
+      "data":[
+         {
+            "type":"navbar",
+            "data":{
+               "version":1,
+               "logo":"/static/logo.svg",
+               "navItems":[
+                  {
+                     "title":"Home",
+                     "url":"/"
+                  },
+                  {
+                     "title":"Features",
+                     "url":"/features"
+                  },
+                  {
+                     "title":"Pricing",
+                     "url":"/pricing"
+                  },
+                  {
+                     "title":"About Us",
+                     "url":"/about"
+                  }
+               ],
+               "buttons":[
+                  {
+                     "title":"Get Started",
+                     "variant":"primary",
+                     "size":"medium"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"header",
+            "data":{
+               "version":5,
+               "tag":"Fast & Efficient",
+               "title":"Build Websites in Minutes with AI Power",
+               "description":"Experience the future of web development. Our AI-driven solution speeds up your design process, transforming your ideas into reality seamlessly. Discover how easy it is to create a stunning website without coding skills."
+            }
+         },
+         {
+            "type":"logo",
+            "data":{
+               "logos":[
+                  {
+                     "src":"/static/company1-logo.svg",
+                     "alt":"Company 1"
+                  },
+                  {
+                     "src":"/static/company2-logo.svg",
+                     "alt":"Company 2"
+                  },
+                  {
+                     "src":"/static/company3-logo.svg",
+                     "alt":"Company 3"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":2,
+               "tag":"Sitemap Generation",
+               "title":"Automatic Sitemap Creation",
+               "description":"Input a brief description, and our AI meticulously handles the rest. Witness the marvel of designing end-to-end sitemaps efficiently and accurately."
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":3,
+               "tag":"Wireframe Conversion",
+               "title":"From Sitemap to Wireframe",
+               "description":"Transform initial sitemaps into functional wireframes in moments. Our AI delivers instant feedback opportunities with clean, preliminary layouts."
+            }
+         },
+         {
+            "type":"feature",
+            "data":{
+               "version":1,
+               "tag":"Design Systems",
+               "title":"Wireframes to Design Systems",
+               "description":"Convert wireframes into complete design systems effortlessly. Witness the evolution from basic elements to cohesive, stylish designs."
+            }
+         },
+         {
+            "type":"testimonial",
+            "data":{
+               "version":1,
+               "title":"Trusted by Innovators",
+               "description":"Explore testimonials from satisfied users who have successfully integrated martha.ai into their workflow. See how our AI platform has facilitated efficient design creation.",
+               "testimonials":[
+                  {
+                     "quote":"Martha.ai has revolutionized our design process, enabling us to execute projects at an unprecedented speed.",
+                     "name":"John Smith",
+                     "position":"UX Designer",
+                     "companyName":"Tech Solutions"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"cta",
+            "data":{
+               "version":1,
+               "tag":"Get Started Today",
+               "title":"Join Thousands of Innovators",
+               "description":"Embark on your design journey with martha.ai. Enjoy a limitless creativity boost and unmatched efficiency. Get started today!",
+               "buttons":[
+                  {
+                     "title":"Sign Up",
+                     "variant":"primary",
+                     "size":"large"
+                  },
+                  {
+                     "title":"Request a Demo",
+                     "variant":"link",
+                     "size":"medium"
+                  }
+               ]
+            }
+         },
+         {
+            "type":"FAQSection",
+            "data":{
+               "version":1,
+               "title":"FAQs",
+               "description":"Find answers to common questions about martha.ai's capabilities and functionalities.",
+               "questions":[
+                  {
+                     "title":"What makes martha.ai unique?",
+                     "answer":"Martha.ai leverages cutting-edge AI technology to streamline web design workflows, setting it apart."
+                  },
+                  {
+                     "title":"Can I use martha.ai without design experience?",
+                     "answer":"Absolutely! Our intuitive platform is crafted for users of all skill levels, ensuring accessibility."
+                  }
+               ]
+            }
+         },
+         {
+            "type":"footer",
+            "data":{
+               "version":1,
+               "variant":"subscribe",
+               "logo":{
+                  "image":"/static/logo-footer.svg",
+                  "alt":"Martha.ai Footer Logo"
+               },
+               "navLinks":[
+                  {
+                     "label":"Privacy Policy",
+                     "href":"/privacy"
+                  },
+                  {
+                     "label":"Terms of Service",
+                     "href":"/terms"
+                  }
+               ],
+               "socialLinks":[
+                  {
+                     "platform":"Twitter",
+                     "href":"https://twitter.com/martha_ai"
+                  },
+                  {
+                     "platform":"LinkedIn",
+                     "href":"https://linkedin.com/company/martha"
+                  }
+               ],
+               "copyrightText":"© 2023 Martha.ai. All rights reserved."
+            }
+         }
+      ]
+   },
+   {
+      "page":"Design_System",
+      "path":"/design-system",
+      "type":"static",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Success_Stories",
+      "path":"/success-stories",
+      "type":"static",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"AI_Design_Blog",
+      "path":"/ai-design-blog",
+      "type":"static",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Login",
+      "path":"/login",
+      "type":"auth",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Register",
+      "path":"/register",
+      "type":"auth",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Forgot_Password",
+      "path":"/forgot-password",
+      "type":"auth",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Dashboard",
+      "path":"/admin/dashboard",
+      "type":"admin",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"User_Management",
+      "path":"/admin/user-management",
+      "type":"admin",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"AI_Performance_Logs",
+      "path":"/admin/ai-performance-logs",
+      "type":"admin",
+      "data":[
+         
+      ]
+   },
+   {
+      "page":"Feedback_&_Support",
+      "path":"/admin/feedback-support",
+      "type":"admin",
+      "data":[
+         
+      ]
+   }
+]

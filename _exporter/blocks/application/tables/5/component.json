@@ -1,542 +1,595 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "mx-auto lg:max-w-7xl max-w-80"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex flex-col border-t-[1px] border-l-[1px] border-r-[1px] border-black mb-14"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex lg:flex-row flex-col p-6 justify-between lg:items-center items-start border-b-[1px] border-black"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col mb-4"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h1",
-                  "props": {
-                    "className": "font-bold text-xl"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-row gap-3"
-              },
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "buttons",
-                    "iterator": "button"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "key": "{index}",
-                        "variant": "{button.variant}",
-                        "size": "{button.size}",
-                        "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                        "className": "whitespace-nowrap px-4 py-2"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "a",
-                          "props": {
-                            "href": "{button.href}"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.name"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col overflow-x-auto w-full"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "style": "{{\n  gridTemplateColumns: \"1fr 1fr 1fr 1fr 1fr 0.5fr\"\n}}",
-                "className": "grid justify-between border-b-[1px] border-black min-w-[72rem]"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col justify-center items-start px-6 py-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{firstColHeader.href}",
-                        "className": "underline font-bold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "firstColHeader.name"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col justify-center items-start px-6 py-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{secondColHeader.href}",
-                        "className": "underline font-bold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "secondColHeader.name"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col justify-center items-start px-6 py-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{thirdColHeader.href}",
-                        "className": "underline font-bold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "thirdColHeader.name"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col justify-center items-start px-6 py-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{fourthColHeader.href}",
-                        "className": "underline font-bold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "fourthColHeader.name"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col justify-center items-start px-6 py-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{fifthColHeader.href}",
-                        "className": "underline font-bold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "fifthColHeader.name"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "children": [
-                {
-                  "type": "loop",
-                  "loop": {
-                    "array": "bodyRowContent",
-                    "iterator": "bodyColContent"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "key": "{index}",
-                        "style": "{{\n  gridTemplateColumns: \"1fr 1fr 1fr 1fr 1fr 0.5fr\"\n}}",
-                        "className": "grid justify-between items-start border-b-[1px] border-black min-w-[72rem]"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-start px-6 py-4 font-bold"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "props": {
-                                "className": "flex flex-row justify-center items-center gap-3"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Image",
-                                  "package": "next/image",
-                                  "props": {
-                                    "src": "{bodyColContent.firstCol.srcProfil}",
-                                    "width": "{200}",
-                                    "height": "{200}",
-                                    "alt": "{bodyColContent.firstCol.altProfil}",
-                                    "className": "h-12 w-12 rounded-full object-cover"
-                                  }
-                                },
-                                {
-                                  "type": "element",
-                                  "tag": "div",
-                                  "props": {
-                                    "className": "flex flex-col justify-between items-start"
-                                  },
-                                  "children": [
-                                    {
-                                      "type": "element",
-                                      "tag": "p",
-                                      "props": {
-                                        "className": "font-medium"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "dynamicText",
-                                          "text": "bodyColContent.firstCol.nameProfil"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "type": "element",
-                                      "tag": "a",
-                                      "props": {
-                                        "href": "{bodyColContent.firstCol.hrefProfil}",
-                                        "className": "font-normal text-xs underline"
-                                      },
-                                      "children": [
-                                        {
-                                          "type": "dynamicText",
-                                          "text": "bodyColContent.firstCol.nameLinkProfil"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-start px-6 py-4"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "bodyColContent.secondCol"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-row justify-start items-center px-6 py-4"
-                          },
-                          "children": [
-                            {
-                              "type": "loop",
-                              "loop": {
-                                "array": "bodyColContent.thirdCol",
-                                "iterator": "image"
-                              },
-                              "children": [
-                                {
-                                  "type": "component",
-                                  "component": "Image",
-                                  "package": "next/image",
-                                  "props": {
-                                    "key": "{index}",
-                                    "src": "{image.srcMemberTeam}",
-                                    "width": "{24}",
-                                    "height": "{24}",
-                                    "alt": "{image.srcMemberTeam}",
-                                    "className": "h-8 w-8 rounded-full object-cover -ml-2 border-2 border-white"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-start px-6 py-4"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "bodyColContent.fourthCol"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-start px-6 py-4"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "bodyColContent.fifthCol"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-start px-6 py-4"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "a",
-                              "props": {
-                                "href": "{bodyColContent.linkCol.href}",
-                                "className": "font-bold"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "bodyColContent.linkCol.name"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex flex-row justify-between items-center"
-      },
-      "children": [
+      "source": "lucide-react",
+      "specifiers": [
         {
-          "type": "component",
-          "component": "Button",
-          "package": "@/components/ui/button",
-          "props": {
-            "variant": "{buttonPrevFooter.variant}",
-            "size": "{buttonPrevFooter.size}",
-            "className": "flex flex-row gap-1 whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
-          },
-          "children": [
-            {
-              "type": "component",
-              "component": "ChevronLeft",
-              "package": "lucide-react",
-              "props": {
-                "size": "{16}"
-              }
-            },
-            {
-              "type": "element",
-              "tag": "a",
-              "props": {
-                "href": "{buttonPrevFooter.href}",
-                "className": "underline"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "buttonPrevFooter.name"
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "ChevronLeft",
+          "local": "ChevronLeft"
         },
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "lg:flex lg:flex-row gap-6 items-center hidden"
-          },
-          "children": [
-            {
-              "type": "loop",
-              "loop": {
-                "array": "linkPageFooter",
-                "iterator": "link"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "key": "{index}"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "{link.href}",
-                        "className": "underline"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "link.numero"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "component",
-          "component": "Button",
-          "package": "@/components/ui/button",
-          "props": {
-            "variant": "{buttonNextFooter.variant}",
-            "size": "{buttonNextFooter.size}",
-            "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-            "className": "flex flex-row gap-1 whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "a",
-              "props": {
-                "href": "{buttonNextFooter.href}",
-                "className": "underline"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "buttonNextFooter.name"
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "ChevronRight",
-              "package": "lucide-react",
-              "props": {
-                "size": "{16}"
-              }
-            }
-          ]
+          "type": "named",
+          "imported": "ChevronRight",
+          "local": "ChevronRight"
         }
       ]
+    },
+    {
+      "source": "next/image",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Image"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "TableBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "mx-auto lg:max-w-7xl max-w-80"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex flex-col border-t-[1px] border-l-[1px] border-r-[1px] border-black mb-14"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex lg:flex-row flex-col p-6 justify-between lg:items-center items-start border-b-[1px] border-black"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col mb-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h1",
+                        "props": {
+                          "className": "font-bold text-xl"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-row gap-3"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "buttons",
+                          "iterator": "button"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "key": "{index}",
+                              "variant": "{button.variant}",
+                              "size": "{button.size}",
+                              "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                              "className": "whitespace-nowrap px-4 py-2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "{button.href}"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-col overflow-x-auto w-full"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "style": "{{\n  gridTemplateColumns: \"1fr 1fr 1fr 1fr 1fr 0.5fr\"\n}}",
+                      "className": "grid justify-between border-b-[1px] border-black min-w-[72rem]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col justify-center items-start px-6 py-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{firstColHeader.href}",
+                              "className": "underline font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "firstColHeader.name"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col justify-center items-start px-6 py-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{secondColHeader.href}",
+                              "className": "underline font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "secondColHeader.name"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col justify-center items-start px-6 py-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{thirdColHeader.href}",
+                              "className": "underline font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "thirdColHeader.name"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col justify-center items-start px-6 py-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{fourthColHeader.href}",
+                              "className": "underline font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "fourthColHeader.name"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col justify-center items-start px-6 py-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{fifthColHeader.href}",
+                              "className": "underline font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "fifthColHeader.name"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "bodyRowContent",
+                          "iterator": "bodyColContent"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "key": "{index}",
+                              "style": "{{\n  gridTemplateColumns: \"1fr 1fr 1fr 1fr 1fr 0.5fr\"\n}}",
+                              "className": "grid justify-between items-start border-b-[1px] border-black min-w-[72rem]"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-start px-6 py-4 font-bold"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-row justify-center items-center gap-3"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Image",
+                                        "package": "next/image",
+                                        "props": {
+                                          "src": "{bodyColContent.firstCol.srcProfil}",
+                                          "width": "{200}",
+                                          "height": "{200}",
+                                          "alt": "{bodyColContent.firstCol.altProfil}",
+                                          "className": "h-12 w-12 rounded-full object-cover"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "flex flex-col justify-between items-start"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "p",
+                                            "props": {
+                                              "className": "font-medium"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "bodyColContent.firstCol.nameProfil"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{bodyColContent.firstCol.hrefProfil}",
+                                              "className": "font-normal text-xs underline"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "bodyColContent.firstCol.nameLinkProfil"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-start px-6 py-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "bodyColContent.secondCol"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-row justify-start items-center px-6 py-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "bodyColContent.thirdCol",
+                                      "iterator": "image"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Image",
+                                        "package": "next/image",
+                                        "props": {
+                                          "key": "{index}",
+                                          "src": "{image.srcMemberTeam}",
+                                          "width": "{24}",
+                                          "height": "{24}",
+                                          "alt": "{image.srcMemberTeam}",
+                                          "className": "h-8 w-8 rounded-full object-cover -ml-2 border-2 border-white"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-start px-6 py-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "bodyColContent.fourthCol"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-start px-6 py-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "bodyColContent.fifthCol"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-start px-6 py-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "a",
+                                    "props": {
+                                      "href": "{bodyColContent.linkCol.href}",
+                                      "className": "font-bold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "bodyColContent.linkCol.name"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex flex-row justify-between items-center"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Button",
+                "package": "@/components/ui/button",
+                "props": {
+                  "variant": "{buttonPrevFooter.variant}",
+                  "size": "{buttonPrevFooter.size}",
+                  "className": "flex flex-row gap-1 whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "ChevronLeft",
+                    "package": "lucide-react",
+                    "props": {
+                      "size": "{16}"
+                    }
+                  },
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "props": {
+                      "href": "{buttonPrevFooter.href}",
+                      "className": "underline"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "buttonPrevFooter.name"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "lg:flex lg:flex-row gap-6 items-center hidden"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "linkPageFooter",
+                      "iterator": "link"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "key": "{index}"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{link.href}",
+                              "className": "underline"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "link.numero"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "Button",
+                "package": "@/components/ui/button",
+                "props": {
+                  "variant": "{buttonNextFooter.variant}",
+                  "size": "{buttonNextFooter.size}",
+                  "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                  "className": "flex flex-row gap-1 whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "props": {
+                      "href": "{buttonNextFooter.href}",
+                      "className": "underline"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "buttonNextFooter.name"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "ChevronRight",
+                    "package": "lucide-react",
+                    "props": {
+                      "size": "{16}"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

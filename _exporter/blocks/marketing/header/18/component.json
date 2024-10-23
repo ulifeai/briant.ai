@@ -1,0 +1,359 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/carousel",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Carousel",
+          "local": "Carousel"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselContent",
+          "local": "CarouselContent"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselItem",
+          "local": "CarouselItem"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselNext",
+          "local": "CarouselNext"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselPrevious",
+          "local": "CarouselPrevious"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselApi",
+          "local": "CarouselApi"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "embla-carousel-autoplay",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Autoplay"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "useEffect",
+          "local": "useEffect"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "const [api, setApi] = useState<CarouselApi>();\nconst [current, setCurrent] = useState(0);\nuseEffect(() => {\n  if (!api) {\n    return;\n  }\n  setCurrent(api.selectedScrollSnap() + 1);\n  api.on(\"select\", () => {\n    setCurrent(api.selectedScrollSnap() + 1);\n  });\n}, [api]);",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "grid grid-cols-1 items-center gap-y-16 overflow-hidden pt-16 sm:overflow-auto md:pt-24 lg:grid-cols-[50%_50%] lg:gap-y-0 lg:pt-0"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "max-w-2xl justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "as": "hero",
+                  "className": "mb-4 text-8xl text-lowercase first-letter-uppercase"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "as": "h6",
+                  "className": "text-base py-2"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "description"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "mt-6 flex gap-x-4 md:mt-8"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "buttons",
+                      "iterator": "button"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Button",
+                        "package": "@/components/ui/button",
+                        "props": {
+                          "variant": "{button.variant}",
+                          "size": "{button.size}",
+                          "key": "{index}",
+                          "className": "whitespace-nowrap px-4 py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "button.title"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "relative clear-both h-[300px] max-h-[60rem] min-h-screen w-full bg-[#eee] text-center"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Carousel",
+                "package": "@/components/ui/carousel",
+                "props": {
+                  "opts": "{options}",
+                  "plugins": "{plugins}",
+                  "setApi": "{setApi}",
+                  "className": "relative left-0 right-0 z-10 block h-full overflow-hidden whitespace-nowrap"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "CarouselContent",
+                    "package": "@/components/ui/carousel",
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "images",
+                          "iterator": "image"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "CarouselItem",
+                            "package": "@/components/ui/carousel",
+                            "props": {
+                              "key": "{index}",
+                              "className": "pl-0"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "relative inline-block size-full whitespace-normal text-left align-top"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex h-screen flex-col"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "relative flex-1"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "{image.src}",
+                                              "alt": "{image.alt}",
+                                              "className": "absolute size-full object-cover"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "relative bg-background-secondary px-6 pb-32 pt-6 sm:px-8 sm:pt-8"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "w-full max-w-lg"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "h6",
+                                                "props": {
+                                                  "className": "mb-1 text-md font-bold leading-[1.4] md:text-xl"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "carouselHeading"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "p",
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "carouselDescription"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex items-center justify-between pl-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "absolute bottom-[52px] left-8 right-auto top-auto flex w-full items-start justify-start"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "images",
+                              "iterator": "_"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "button",
+                                "props": {
+                                  "key": "{index}",
+                                  "onClick": "{() => api?.scrollTo(index)}",
+                                  "className": "{clsx(\"mx-[3px] inline-block size-2 rounded-full\", {\n  \"bg-black\": current === index + 1,\n  \"bg-[#ddd]\": current !== index + 1\n})}"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "CarouselPrevious",
+                        "package": "@/components/ui/carousel",
+                        "props": {
+                          "className": "bottom-2 left-auto right-[5.5rem] top-auto size-12 bg-transparent md:right-24 border-black"
+                        }
+                      },
+                      {
+                        "type": "component",
+                        "component": "CarouselNext",
+                        "package": "@/components/ui/carousel",
+                        "props": {
+                          "className": "bottom-2 left-auto right-8 top-auto size-12 bg-transparent border-black"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

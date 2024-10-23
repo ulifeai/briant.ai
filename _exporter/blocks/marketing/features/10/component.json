@@ -1,0 +1,279 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "py-20 bg-white overflow-hidden"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-4 mx-auto w-full"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap m-[-2rem] items-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "p-8 w-full"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "sm:flex"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap items-center p-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "bg-indigo-100 rounded-full w-20 h-20 flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/chat.svg",
+                                              "alt": ""
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3 flex-1"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "title"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap items-center p-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "bg-indigo-100 rounded-full w-20 h-20 flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/layers.svg",
+                                              "alt": ""
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3 flex-1"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "description"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-wrap items-center p-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "bg-indigo-100 rounded-full w-20 h-20 flex items-center justify-center"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/images/replace.svg",
+                                              "alt": ""
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "p-3 flex-1"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Text",
+                                        "package": "@/components/ui/base/text",
+                                        "props": {
+                                          "as": "h3",
+                                          "className": "font-semibold text-xl"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "text",
+                                            "text": "Unlimited support from the expert members"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

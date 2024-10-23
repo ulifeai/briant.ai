@@ -1,10 +1,29 @@
 import { VM } from 'vm2';
-import { Node, Props } from '../../types/converter';
+import {
+    Node,
+    Props,
+    ImportEntry,
+    ConvertedFile,
+    ComponentNode,
+    ImportSpecifierEntry,
+} from '../../types/converter';
+import { parse } from '@babel/parser';
 
 export class Json2React {
+
+    // Add a property to store local variables
+    localVariables: Set<string> = new Set();
+
+    constructor() {
+        // Initialize the local variables set
+    }
+
     indent(level: number): string {
         return '  '.repeat(level);
     }
+
+
+
 
     /**
      * Evaluates a JavaScript expression within a sandboxed environment.
@@ -30,162 +49,133 @@ export class Json2React {
             return vm.run(evalExpression) ?? "";
         } catch (error: any) {
             console.warn(`Failed to evaluate expression "${expression}": ${error.message}`);
-            return '';
+            return null;
         }
     }
 
-    /**
-     * Transforms a JSON node into React code, including import statements and exporting a component.
-     * @param {string} componentName - The name of the React component to export.
-     * @param {Node} jsonNode - The JSON representation of the React component.
-     * @param {any} props - The props for the component.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The initial indentation level.
-     * @returns {string} - The complete React component code as a string.
-     */
     transform(
-        componentName: string,
-        jsonNode: Node,
+        jsonFile: ConvertedFile,
         props: any = {},
         context: any = {},
         indentLevel: number = 0
     ): string {
-        // **1. Collect Import Statements**
-        const imports = this.collectImports(jsonNode);
-
-        // **2. Generate Import Statements Code**
-        const importCode = this.generateImportCode(imports, indentLevel);
-
-        // **3. Generate JSX Code**
-        const jsxCode = this.jsonToReactCode(jsonNode, props, context, indentLevel + 1);
-
-        // **4. Wrap JSX in React Component**
-        const componentCode = this.wrapInComponent(componentName, jsxCode, indentLevel);
-
-        // **5. Combine Import Statements and Component Code**
-        return `${importCode}\n\n${componentCode}\n`;
-    }
-
-    /**
-     * Recursively traverses the JSON node to collect all unique import statements.
-     * @param {Node} node - The JSON node to traverse.
-     * @param {Map<string, Set<string>>} imports - The map to store package imports and their components.
-     * @returns {Map<string, Set<string>>} - The collected import statements.
-     */
-    private collectImports(node: Node, imports: Map<string, Set<string>> = new Map()): Map<string, Set<string>> {
-        if (!node) return imports;
-
-        switch (node.type) {
-            case 'element':
-            case 'component':
-                if ((node as any).package && (node as any).component) {
-                    const componentName = (node as any).component;
-                    const packageName = (node as any).package;
-
-                    if (!imports.has(packageName)) {
-                        imports.set(packageName, new Set());
-                    }
-                    imports.get(packageName)!.add(componentName);
-                }
-
-                if (node.children && node.children.length > 0) {
-                    node.children.forEach(child => this.collectImports(child, imports));
-                }
-                break;
-
-            case 'loop':
-                if (node.children && node.children.length > 0) {
-                    node.children.forEach(child => this.collectImports(child, imports));
-                }
-                break;
-
-            case 'conditional':
-                if (node.children && node.children.length > 0) {
-                    node.children.forEach(child => this.collectImports(child, imports));
-                }
-                if (node.else && node.else.length > 0) {
-                    node.else.forEach(child => this.collectImports(child, imports));
-                }
-                break;
-
-            case 'logical':
-                if (node.children && node.children.length > 0) {
-                    node.children.forEach(child => this.collectImports(child, imports));
-                }
-                break;
-
-            case 'fragment':
-                if (node.children && node.children.length > 0) {
-                    node.children.forEach(child => this.collectImports(child, imports));
-                }
-                break;
-
-            // Handle other node types if necessary
-            default:
-                break;
-        }
-
-        return imports;
-    }
-
-    /**
-     * Generates import statements code from the collected imports.
-     * @param {Map<string, Set<string>>} imports - The map of package imports and their components.
-     * @param {number} indentLevel - The indentation level for import statements.
-     * @returns {string} - The generated import statements.
-     */
-    private generateImportCode(imports: Map<string, Set<string>>, indentLevel: number): string {
-        let importLines: string[] = [];
-
-        imports.forEach((components, packageName) => {
-            if (packageName.startsWith('.')) {
-                // Assume default import for local packages
-                // If multiple components are from the same local package, you may need to adjust this
-                components.forEach(component => {
-                    importLines.push(`${this.indent(indentLevel)}import ${component} from '${packageName}';`);
-                });
-            } else {
-                // Assume named imports for external packages
-                const componentsArray = Array.from(components);
-                importLines.push(`${this.indent(indentLevel)}import { ${componentsArray.join(', ')} } from '${packageName}';`);
+        // Extract local variables from preReturnCode
+        jsonFile.components.forEach((component: ComponentNode) => {
+            if (component.preReturnCode) {
+                this.extractLocalVariables(component.preReturnCode);
             }
         });
 
-        // Optionally, add React import if not already included
-        if (!imports.has('react')) {
+        const importCode = this.generateImportCodeFromEntries(jsonFile.imports, indentLevel);
+
+        const componentCodes = jsonFile.components.map((component: ComponentNode) => {
+            const jsxCode = this.jsonToReactCode(component.jsx, props, context, indentLevel + 1);
+
+            const componentCode = this.wrapInComponent(
+                component.name,
+                component.preReturnCode,
+                jsxCode,
+                indentLevel
+            );
+
+            return componentCode;
+        });
+
+        return `"use client";\n${importCode}\n\n${componentCodes.join('\n\n')}\n`;
+    }
+
+    private extractLocalVariables(preReturnCode: string) {
+        try {
+            const ast = parse(preReturnCode, { sourceType: 'module', plugins: ['typescript'] });
+            ast.program.body.forEach(node => {
+                if (node.type === 'VariableDeclaration') {
+                    node.declarations.forEach(declaration => {
+                        if (declaration.id.type === 'Identifier') {
+                            this.localVariables.add(declaration.id.name);
+                        }
+                    });
+                } else if (node.type === 'FunctionDeclaration' && node.id) {
+                    this.localVariables.add(node.id.name);
+                }
+            });
+        } catch (error: any) {
+            console.warn(`Failed to parse preReturnCode: ${error.message}`);
+        }
+    }
+
+    private generateImportCodeFromEntries(importEntries: ImportEntry[], indentLevel: number): string {
+        let importLines: string[] = [];
+
+        const reactImported = importEntries.some((entry: ImportEntry) => entry.source === 'react');
+
+        importEntries.forEach((importEntry: ImportEntry) => {
+            const { source, specifiers } = importEntry;
+
+            const defaultImports = specifiers
+                .filter((spec: ImportSpecifierEntry) => spec.type === 'default')
+                .map((spec: ImportSpecifierEntry) => spec.local);
+
+            const namedImports = specifiers
+                .filter((spec: ImportSpecifierEntry) => spec.type === 'named')
+                .map((spec: ImportSpecifierEntry) => {
+                    if (spec.imported && spec.imported !== spec.local) {
+                        return `${spec.imported} as ${spec.local}`;
+                    } else {
+                        return spec.local;
+                    }
+                });
+
+            const namespaceImports = specifiers
+                .filter((spec: ImportSpecifierEntry) => spec.type === 'namespace')
+                .map((spec: ImportSpecifierEntry) => `* as ${spec.local}`);
+
+            const imports = [];
+
+            if (defaultImports.length > 0) {
+                imports.push(defaultImports.join(', '));
+            }
+
+            if (namedImports.length > 0) {
+                imports.push(`{ ${namedImports.join(', ')} }`);
+            }
+
+            if (namespaceImports.length > 0) {
+                imports.push(namespaceImports.join(', '));
+            }
+
+            importLines.push(`${this.indent(indentLevel)}import ${imports.join(', ')} from '${source}';`);
+        });
+
+        if (!reactImported) {
             importLines.unshift(`${this.indent(indentLevel)}import React from 'react';`);
         }
 
         return importLines.join('\n');
     }
 
-    /**
-     * Wraps the generated JSX code within a React component and exports it.
-     * @param {string} componentName - The name of the React component.
-     * @param {string} jsxCode - The JSX code string.
-     * @param {number} indentLevel - The indentation level.
-     * @returns {string} - The complete React component code.
-     */
-    private wrapInComponent(componentName: string, jsxCode: string, indentLevel: number): string {
-        return `${this.indent(indentLevel)} const ${componentName} = () => {
-${this.indent(indentLevel + 1)}return (
+    private wrapInComponent(
+        componentName: string,
+        preReturnCode: string | undefined,
+        jsxCode: string,
+        indentLevel: number
+    ): string {
+        let preReturnCodeIndented = '';
+        if (preReturnCode) {
+            preReturnCodeIndented = preReturnCode
+                .split('\n')
+                .map(line => this.indent(indentLevel + 1) + line)
+                .join('\n');
+        }
+
+        return `${this.indent(indentLevel)}function ${componentName}() {
+${preReturnCodeIndented ? preReturnCodeIndented + '\n' : ''}${this.indent(indentLevel + 1)}return (
 ${jsxCode}
 ${this.indent(indentLevel + 1)});
-${this.indent(indentLevel)}};
+${this.indent(indentLevel)}}
 
-${this.indent(indentLevel)}\nexport default ${componentName};`;
+${this.indent(indentLevel)}export default ${componentName};`;
     }
 
-
-
-    /**
-     * Converts a JSON node to React JSX code.
-     * @param {Node} jsonNode - The JSON node to convert.
-     * @param {Props} props - The props for the component.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code.
-     */
     jsonToReactCode(jsonNode: Node, props: Props = {}, context: any = {}, indentLevel: number = 0): string {
         if (!jsonNode) {
             return '';
@@ -214,14 +204,6 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
         }
     }
 
-    /**
-     * Converts an element or component node to JSX code.
-     * @param {Node} node - The node to convert.
-     * @param {Props} propsData - The props data.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code for the element or component.
-     */
     private elementToCode(node: Node, propsData: Props, context: any, indentLevel: number): string {
         const tagName = node.type === 'element' ? node.tag : node.component;
         const props = node.props ? this.propsToCode(node.props, propsData, context) : '';
@@ -237,7 +219,11 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
             }
         }
 
-        return `${this.indent(indentLevel)}<${tagName}${props}>${children}</${tagName}>`;
+        if (children) {
+            return `${this.indent(indentLevel)}<${tagName}${props}>${children}</${tagName}>`;
+        } else {
+            return `${this.indent(indentLevel)}<${tagName}${props} />`;
+        }
     }
 
     /**
@@ -253,33 +239,49 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
                 if (typeof value === 'string') {
                     if (value.startsWith('{') && value.endsWith('}')) {
                         // Expression prop
-                        const expression = value.slice(1, -1);
+                        const expression = value.slice(1, -1).trim();
                         const evaluatedValue = this.evaluateExpression(expression, propsData, context);
 
-                        if (typeof evaluatedValue === 'object') {
-                            // For object expressions (e.g., style), stringify without quotes on keys
-                            const valueStr = JSON.stringify(evaluatedValue, null, 2)
-                                .replace(/"([^"]+)":/g, '$1:'); // Remove quotes from keys
-                            return ` ${key}={${valueStr}}`;
-                        } else if (typeof evaluatedValue === 'string') {
-                            // For string expressions
-                            return ` ${key}="${evaluatedValue}"`;
+                        if (evaluatedValue !== null) {
+                        // Successfully evaluated
+                            if (typeof evaluatedValue === 'object') {
+                                const valueStr = JSON.stringify(evaluatedValue, null, 2)
+                                    .replace(/"([^"]+)":/g, '$1:');
+                                return ` ${key}={${valueStr}}`;
+                            } else if (typeof evaluatedValue === 'string') {
+                                return ` ${key}="${evaluatedValue}"`;
+                            } else {
+                                return ` ${key}={${JSON.stringify(evaluatedValue)}}`;
+                            }
                         } else {
-                            // For other types (number, boolean)
-                            return ` ${key}={${JSON.stringify(evaluatedValue)}}`;
+                            // Evaluation failed, check if expression is a local variable
+                            const variableName = expression.split(/[.\[]/)[0];
+                            if (this.localVariables.has(variableName)) {
+                                // Keep the expression as is
+                                return ` ${key}={${expression}}`;
+                            } else {
+                                // Not a local variable, set property value to empty string
+                                return ` ${key}=""`;
+                            }
                         }
                     } else if (value.startsWith('{{') && value.endsWith('}}')) {
                         // Object expression (e.g., style={{...}})
-                        const expression = value.slice(2, -2);
+                        const expression = value.slice(2, -2).trim();
                         const evaluatedValue = this.evaluateExpression(expression, propsData, context);
 
-                        if (typeof evaluatedValue === 'object') {
+                        if (evaluatedValue !== null) {
                             const valueStr = JSON.stringify(evaluatedValue, null, 2)
-                                .replace(/"([^"]+)":/g, '$1:'); // Remove quotes from keys
+                                .replace(/"([^"]+)":/g, '$1:');
                             return ` ${key}={${valueStr}}`;
                         } else {
-                            // Fallback to string if evaluation doesn't return an object
-                            return ` ${key}={${JSON.stringify(evaluatedValue)}}`;
+                            const variableName = expression.split(/[.\[]/)[0];
+                            if (this.localVariables.has(variableName)) {
+                                // Keep the expression as is
+                                return ` ${key}={{${expression}}}`;
+                            } else {
+                                // Not a local variable, set property value to empty string
+                                return ` ${key}=""`;
+                            }
                         }
                     } else {
                         // String literal prop
@@ -291,7 +293,7 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
                 } else if (typeof value === 'object' && value !== null) {
                     // Object prop
                     const valueStr = JSON.stringify(value, null, 2)
-                        .replace(/"([^"]+)":/g, '$1:'); // Remove quotes from keys
+                        .replace(/"([^"]+)":/g, '$1:');
                     return ` ${key}={${valueStr}}`;
                 } else {
                     // Other types
@@ -299,23 +301,18 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
                 }
             })
             .join('');
-    }
+    }    
 
-    /**
-     * Converts a loop node to JSX code.
-     * @param {Node} node - The loop node.
-     * @param {Props} props - The props data.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code for the loop.
-     */
+
     private loopToCode(node: Node, props: Props, context: any, indentLevel: number) {
         const arrayName = node.loop?.array;
-        const iterator = node.loop?.iterator ?? "key";
+        const iterator = node.loop?.iterator ?? 'key';
 
-        const arrayData = this.evaluateExpression(arrayName ?? "", props, context);
+        // Evaluate the array expression
+        const arrayData = this.evaluateExpression(arrayName ?? '', props, context);
 
         if (!Array.isArray(arrayData)) {
+            console.warn(`The loop array "${arrayName}" is not an array.`);
             return '';
         }
 
@@ -329,16 +326,8 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
             .join('\n');
     }
 
-    /**
-     * Converts a conditional node to JSX code.
-     * @param {Node} node - The conditional node.
-     * @param {Props} props - The props data.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code for the conditional.
-     */
     private conditionalToCode(node: Node, props: Props, context: any, indentLevel: number) {
-        const conditionResult = this.evaluateExpression(node.condition ?? "", props, context);
+        const conditionResult = this.evaluateExpression(node.condition ?? '', props, context);
 
         if (conditionResult) {
             return (node.children ?? [])
@@ -353,18 +342,11 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
         }
     }
 
-    /**
-     * Converts a logical node to JSX code.
-     * @param {Node} node - The logical node.
-     * @param {Props} props - The props data.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code for the logical operation.
-     */
     private logicalToCode(node: Node, props: Props, context: any, indentLevel: number) {
-        const conditionResult = this.evaluateExpression(node.condition ?? "", props, context);
-        console.log("CONDITIONAL ", conditionResult)
-        if ((node.operator === '&&' && conditionResult) || (node.operator === '||' && !conditionResult)) {
+        const conditionResult = this.evaluateExpression(node.condition ?? '', props, context);
+        const operator = node.operator ?? '&&';
+
+        if ((operator === '&&' && conditionResult) || (operator === '||' && !conditionResult)) {
             return (node.children ?? [])
                 .map(child => this.jsonToReactCode(child, props, context, indentLevel))
                 .join('\n');
@@ -373,14 +355,6 @@ ${this.indent(indentLevel)}\nexport default ${componentName};`;
         }
     }
 
-    /**
-     * Converts a fragment node to JSX code.
-     * @param {Node} node - The fragment node.
-     * @param {Props} props - The props data.
-     * @param {any} context - The context for expression evaluation.
-     * @param {number} indentLevel - The current indentation level.
-     * @returns {string} - The generated JSX code for the fragment.
-     */
     private fragmentToCode(node: Node, props: Props, context: any, indentLevel: number): string {
         return (node.children ?? [])
             .map(child => this.jsonToReactCode(child, props, context, indentLevel))

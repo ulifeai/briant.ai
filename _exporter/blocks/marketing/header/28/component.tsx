@@ -44,7 +44,7 @@ export default function HeroHeaderBlock({
               </div>
               <div className="mx-[7.5%] flex flex-col justify-end">
                 <Text
-                  as="p"
+                  as="h6"
                     className="text-white py-2"
                   >
                     {description}

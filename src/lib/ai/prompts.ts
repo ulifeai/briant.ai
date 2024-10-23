@@ -10,15 +10,56 @@ Here is the website specification:
 
 
 export const GENERATE_PAGE_SECTIONS_PROMPT = `
+You are an expert in layout design and website page creation. For each given website page creation use case, follow these steps:
+
+Brainstorm Relevant Features and Layout:
+
+Analyze the specific use case thoroughly.
+Identify the most relevant features, benefits, and user expectations.
+Consider similar websites and how they structure their pages.
+Select Appropriate Sections:
+
+Carefully choose sections from the provided list that fit the use case.
+Remember that different versions are available for each section (e.g., multiple header styles).
+Assemble a Coherent Page Layout:
+
+Arrange the selected sections in a logical and standard order (e.g., 'navbar' should come before 'header').
+Ensure the flow of the page is coherent and provides a good user experience.
+Be creative and only use sections when necessary; you are not forced to use all the sections.
+Provide Detailed Descriptions:
+
+For each section, create a 'title' and a 'description' with functional details specific to the use case.
+Avoid generic descriptions; make features clear, explicit, and diverse across different pages.
+If certain features are not provided, brainstorm and create them to fit the context.
+Output Requirements:
+
+Respond with a valid JSON array of objects, each containing two fields: 'title' and 'description'.
+Do not include any explanations or additional text outside of the JSON output.
+Verify your response to ensure the JSON is correctly formatted.
+Example Sections Available:
+
+navbar: The website navigation section, containing links to main pages.
+header: An above-the-fold section introducing the website without the menu.
+cta: A call-to-action section encouraging user engagement.
+feature: Single feature sections for detailed explanations (multiple can be used).
+testimonial: A section showcasing customer testimonials.
+pricing: A section outlining pricing options.
+FAQSection: A frequently asked questions section.
+logo: A display of logos for social proof.
+footer: The footer section containing additional navigation and information.
+banners: A header banner for simple announcements.
+`
+
+
+export const GENERATE_PAGE_SECTIONS_PROMPT2 = `
 Here is a list of possible sections of a website page:
 ${generateComponentsOverview()}
 You are an expert in layout design and website page creation. For each usecase yoou should first brainstorm about the most relevant features and benefits as well as an appropriate layout. Given a website page creation usecase, you should carefully pick from these section the sections
 relevant for the given usecase and assemble them to form a complete page layout. for each section you should add a description. The order of the element represent the website layout in the same order. each description should be without visual details but functional details. Your features should be clear and explicit, no generic section. If you don't have features you should brainstorm and create them. It should be explicit enough for another AI generate the copyright of this component without other informations.
 Be creative and only use sections when necessary. Think about similar websites and how they are structure before choosing your section. You are not forced to use all the sections.
-Respond with a valid array of JSON object, containing two fields: 'title' and 'description'.
+For each page Respond with a valid array of JSON object, containing two fields: 'title' and 'description'.
 Don't add any explanations, just answer with the json output. You should add nothing else but the JSON output.
 Make sure the json output is correct, verify your response and make sure the json is correct. 
-I want to generate a landing page for this usecase:
 `
 
 export const PAGE_CUSTOMIZER_PROMPT = `
@@ -58,7 +99,9 @@ Your task is to generate a JSON array where each element has two properties:
 
 - **Customized Calls to Action**: Use action-oriented and specific language in buttons and CTAs to encourage user engagement (e.g., "Schedule an Appointment," "Shop Now," "Download Free eBook"). Ensure consistency in button styles and variants.
 
-- **Meaningful Imagery and Alt Text**: Even though all image paths are 'placeholder-image.svg', provide meaningful and descriptive 'alt' texts that match the content and context of the images.
+- **Image sources**: all the images source should be a preloaded image with names 1 to 7 with the extension .jpg, like 1.jpg, ... Use nothing else as image source.
+
+- **Meaningful Imagery and Alt Text**: Even though all image paths are one of the chosen images between 1 to 7 with the extension .jpg, provide meaningful and descriptive 'alt' texts that match the content and context of the images.
 
 - **Visual Consistency and Accessibility**: Maintain a cohesive visual theme throughout the website. Ensure high contrast between text and background colors, use readable font sizes, and follow accessibility best practices, including providing alt text for all images.
 

@@ -211,23 +211,90 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@langchain/core@*", "@langchain/core@>=0.2.5 <0.3.0", "@langchain/core@>0.2.0 <0.3.0", "@langchain/core@~0.2.0":
-  version "0.2.6"
-  resolved "https://registry.npmjs.org/@langchain/core/-/core-0.2.6.tgz"
-  integrity sha512-YB9F0vdi/PcgBLSKtDwQ3gV6w4xVfk4ph0U43Okz2dAapKfBkVVB0rzr/afYUt/WHs864MuaO8uLN64egSDtIA==
+"@langchain/core@>=0.2.31 <0.4.0", "@langchain/core@>=0.2.36 <0.3.0 || >=0.3.9 < 0.4.0":
+  version "0.3.13"
+  resolved "https://registry.npmjs.org/@langchain/core/-/core-0.3.13.tgz"
+  integrity sha512-sHDlwyHhgeaYC+wfORrWO7sXxD6/GDtZZ5mqjY48YMwB58cVv8hTs8goR/9EwXapYt8fQi2uXTGUV87bHzvdZQ==
   dependencies:
     ansi-styles "^5.0.0"
     camelcase "6"
     decamelize "1.2.0"
     js-tiktoken "^1.0.12"
-    langsmith "~0.1.30"
-    ml-distance "^4.0.0"
+    langsmith "^0.1.65"
     mustache "^4.2.0"
     p-queue "^6.6.2"
     p-retry "4"
-    uuid "^9.0.0"
+    uuid "^10.0.0"
     zod "^3.22.4"
     zod-to-json-schema "^3.22.3"
+
+"@langchain/core@>=0.2.5 <0.3.0":
+  version "0.2.36"
+  resolved "https://registry.npmjs.org/@langchain/core/-/core-0.2.36.tgz"
+  integrity sha512-qHLvScqERDeH7y2cLuJaSAlMwg3f/3Oc9nayRSXRU2UuaK/SOhI42cxiPLj1FnuHJSmN0rBQFkrLx02gI4mcVg==
+  dependencies:
+    ansi-styles "^5.0.0"
+    camelcase "6"
+    decamelize "1.2.0"
+    js-tiktoken "^1.0.12"
+    langsmith "^0.1.56-rc.1"
+    mustache "^4.2.0"
+    p-queue "^6.6.2"
+    p-retry "4"
+    uuid "^10.0.0"
+    zod "^3.22.4"
+    zod-to-json-schema "^3.22.3"
+
+"@langchain/core@>0.2.0 <0.3.0":
+  version "0.2.36"
+  resolved "https://registry.npmjs.org/@langchain/core/-/core-0.2.36.tgz"
+  integrity sha512-qHLvScqERDeH7y2cLuJaSAlMwg3f/3Oc9nayRSXRU2UuaK/SOhI42cxiPLj1FnuHJSmN0rBQFkrLx02gI4mcVg==
+  dependencies:
+    ansi-styles "^5.0.0"
+    camelcase "6"
+    decamelize "1.2.0"
+    js-tiktoken "^1.0.12"
+    langsmith "^0.1.56-rc.1"
+    mustache "^4.2.0"
+    p-queue "^6.6.2"
+    p-retry "4"
+    uuid "^10.0.0"
+    zod "^3.22.4"
+    zod-to-json-schema "^3.22.3"
+
+"@langchain/core@~0.2.0":
+  version "0.2.36"
+  resolved "https://registry.npmjs.org/@langchain/core/-/core-0.2.36.tgz"
+  integrity sha512-qHLvScqERDeH7y2cLuJaSAlMwg3f/3Oc9nayRSXRU2UuaK/SOhI42cxiPLj1FnuHJSmN0rBQFkrLx02gI4mcVg==
+  dependencies:
+    ansi-styles "^5.0.0"
+    camelcase "6"
+    decamelize "1.2.0"
+    js-tiktoken "^1.0.12"
+    langsmith "^0.1.56-rc.1"
+    mustache "^4.2.0"
+    p-queue "^6.6.2"
+    p-retry "4"
+    uuid "^10.0.0"
+    zod "^3.22.4"
+    zod-to-json-schema "^3.22.3"
+
+"@langchain/langgraph-checkpoint@~0.0.10":
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/@langchain/langgraph-checkpoint/-/langgraph-checkpoint-0.0.11.tgz"
+  integrity sha512-nroHHkAi/UPn9LqqZcgOydfB8qZw5TXuXDFc43MIydnW4lb8m9hVHnQ3lgb2WGSgtbZJnsIx0TzL19oemJBRKg==
+  dependencies:
+    uuid "^10.0.0"
+
+"@langchain/langgraph@^0.2.16":
+  version "0.2.16"
+  resolved "https://registry.npmjs.org/@langchain/langgraph/-/langgraph-0.2.16.tgz"
+  integrity sha512-7QipO2o+F1d5ccpai+Yip77cmS+Etvj6Zee47E+Ll2TkQQBP1acl0UnAbYoN11xIQoJwhezySOIx8jkqwLEKfw==
+  dependencies:
+    "@langchain/langgraph-checkpoint" "~0.0.10"
+    double-ended-queue "^2.1.0-0"
+    uuid "^10.0.0"
+    zod "^3.23.8"
 
 "@langchain/openai@^0.1.3", "@langchain/openai@~0.1.0":
   version "0.1.3"
@@ -1305,10 +1372,10 @@
   resolved "https://registry.npmjs.org/@types/triple-beam/-/triple-beam-1.3.5.tgz"
   integrity sha512-6WaYesThRMCl19iryMYP7/x2OVgCtbIVflDGFpWnb9irXI3UjYE4AzmYuiUKY1AJstGijoY+MgUszMgRxIYTYw==
 
-"@types/uuid@^9.0.1":
-  version "9.0.8"
-  resolved "https://registry.npmjs.org/@types/uuid/-/uuid-9.0.8.tgz"
-  integrity sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==
+"@types/uuid@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.npmjs.org/@types/uuid/-/uuid-10.0.0.tgz"
+  integrity sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==
 
 "@types/webidl-conversions@*":
   version "7.0.3"
@@ -2152,6 +2219,11 @@ dot-case@^3.0.4:
   dependencies:
     no-case "^3.0.4"
     tslib "^2.0.3"
+
+double-ended-queue@^2.1.0-0:
+  version "2.1.0-0"
+  resolved "https://registry.npmjs.org/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz"
+  integrity sha512-+BNfZ+deCo8hMNpDqDnvT+c0XpJ5cUa6mqYq89bho2Ifze4URTqRkcwR399hWoTrTkbZ/XJYDgP6rc7pRgffEQ==
 
 eastasianwidth@^0.2.0:
   version "0.2.0"
@@ -3054,7 +3126,7 @@ kuler@^2.0.0:
   resolved "https://registry.npmjs.org/kuler/-/kuler-2.0.0.tgz"
   integrity sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==
 
-langchain@*, langchain@^0.2.5:
+langchain@^0.2.5:
   version "0.2.5"
   resolved "https://registry.npmjs.org/langchain/-/langchain-0.2.5.tgz"
   integrity sha512-H5WL0NanCdQ+tzoeEt7Fyz9YGdR3wbfDvfQrJvxAO95istKo5JraRh24dzyvqxM9439xwRMNaMIpMwsyqtWDtQ==
@@ -3081,16 +3153,17 @@ langchainhub@~0.0.8:
   resolved "https://registry.npmjs.org/langchainhub/-/langchainhub-0.0.11.tgz"
   integrity sha512-WnKI4g9kU2bHQP136orXr2bcRdgz9iiTBpTN0jWt9IlScUKnJBoD0aa2HOzHURQKeQDnt2JwqVmQ6Depf5uDLQ==
 
-langsmith@~0.1.30:
-  version "0.1.31"
-  resolved "https://registry.npmjs.org/langsmith/-/langsmith-0.1.31.tgz"
-  integrity sha512-G9zi+84RvUZ7UP/ZC0dx/9SYHk8Bhe9GywUeVBzEyt8M4QeU6FPWT7TEjDSqp/XuPJf5o59Z2QlmNJgMnpUd8Q==
+langsmith@^0.1.56-rc.1, langsmith@^0.1.65, langsmith@~0.1.30:
+  version "0.1.66"
+  resolved "https://registry.npmjs.org/langsmith/-/langsmith-0.1.66.tgz"
+  integrity sha512-ZhZ9g8t/qjj0oUWpvKLtUe3qxDL/N0wG0m+Ctkxf0keopYJkcMJg4/71jl6ZYyiSU8xlC27aixXOT0uvLhqcFA==
   dependencies:
-    "@types/uuid" "^9.0.1"
+    "@types/uuid" "^10.0.0"
     commander "^10.0.1"
     p-queue "^6.6.2"
     p-retry "4"
-    uuid "^9.0.0"
+    semver "^7.6.3"
+    uuid "^10.0.0"
 
 levn@^0.4.1:
   version "0.4.1"
@@ -4380,10 +4453,10 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-semver@^7.3.5, semver@^7.6.0:
-  version "7.6.2"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.6.2.tgz"
-  integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
+semver@^7.3.5, semver@^7.6.0, semver@^7.6.3:
+  version "7.6.3"
+  resolved "https://registry.npmjs.org/semver/-/semver-7.6.3.tgz"
+  integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
 
 send@0.19.0:
   version "0.19.0"
@@ -4994,6 +5067,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+
+uuid@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-10.0.0.tgz"
+  integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
 
 uuid@^9.0.0:
   version "9.0.1"

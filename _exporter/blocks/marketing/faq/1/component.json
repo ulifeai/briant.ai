@@ -1,186 +1,240 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "flex flex-row justify-center container items-center hover:border border-primary"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "px-5 py-5 w-full"
-      },
-      "children": [
+      "source": "react",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "py-16 sm:py-28 px-[10%] flex flex-col gap-12 mx-auto"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col gap-4"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h1",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
-                    "className": "text-4xl font-bold sm:text-5xl text-start py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                    "className": "text-lg text-start py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "border-t border-black"
-              },
-              "children": [
-                {
-                  "type": "component",
-                  "component": "Accordion",
-                  "package": "@/components/ui/accordion",
-                  "props": {
-                    "type": "single",
-                    "collapsible": true
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "questions",
-                        "iterator": "question"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "AccordionItem",
-                          "package": "@/components/ui/accordion",
-                          "props": {
-                            "key": "{index}",
-                            "value": "{`item-${index}`}",
-                            "className": "w-full border-b border-black py-2 sm:py-3"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "AccordionTrigger",
-                              "package": "@/components/ui/accordion",
-                              "props": {
-                                "className": "flex items-center justify-between gap-2 py-4 text-lg font-bold"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "question.title"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "component",
-                              "component": "AccordionContent",
-                              "package": "@/components/ui/accordion",
-                              "props": {
-                                "className": "overflow-hidden text-sm"
-                              },
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "question.answer"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col gap-4"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "h4",
-                  "props": {
-                    "className": "text-2xl sm:text-3xl text-start font-semibold py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "cta_title"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
-                    "className": "text-lg text-start py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "cta_description"
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "Button",
-                  "package": "@/components/ui/button",
-                  "props": {
-                    "variant": "{button.variant}",
-                    "size": "{button.size}",
-                    "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                    "className": "whitespace-nowrap h-10 mx-2 w-32 px-4 py-2"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "button.title"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "default",
+          "local": "React"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/accordion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Accordion",
+          "local": "Accordion"
+        },
+        {
+          "type": "named",
+          "imported": "AccordionContent",
+          "local": "AccordionContent"
+        },
+        {
+          "type": "named",
+          "imported": "AccordionItem",
+          "local": "AccordionItem"
+        },
+        {
+          "type": "named",
+          "imported": "AccordionTrigger",
+          "local": "AccordionTrigger"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FAQBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "flex flex-row justify-center container items-center hover:border border-primary"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "px-5 py-5 w-full"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "py-16 sm:py-28 px-[10%] flex flex-col gap-12 mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col gap-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h1",
+                        "props": {
+                          "style": "{{\n  fontFamily: \"var(--header-font)\"\n}}",
+                          "className": "text-4xl font-bold sm:text-5xl text-start py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                          "className": "text-lg text-start py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "border-t border-black"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Accordion",
+                        "package": "@/components/ui/accordion",
+                        "props": {
+                          "type": "single",
+                          "collapsible": true
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "questions",
+                              "iterator": "question"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "AccordionItem",
+                                "package": "@/components/ui/accordion",
+                                "props": {
+                                  "key": "{index}",
+                                  "value": "{`item-${index}`}",
+                                  "className": "w-full border-b border-black py-2 sm:py-3"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "AccordionTrigger",
+                                    "package": "@/components/ui/accordion",
+                                    "props": {
+                                      "className": "flex items-center justify-between gap-2 py-4 text-lg font-bold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "question.title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "AccordionContent",
+                                    "package": "@/components/ui/accordion",
+                                    "props": {
+                                      "className": "overflow-hidden text-sm"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "question.answer"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col gap-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "h4",
+                        "props": {
+                          "className": "text-2xl sm:text-3xl text-start font-semibold py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "cta_title"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "style": "{{\n  fontFamily: \"var(--page-font)\"\n}}",
+                          "className": "text-lg text-start py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "cta_description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "Button",
+                        "package": "@/components/ui/button",
+                        "props": {
+                          "variant": "{button.variant}",
+                          "size": "{button.size}",
+                          "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                          "className": "whitespace-nowrap h-10 mx-2 w-32 px-4 py-2"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "button.title"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

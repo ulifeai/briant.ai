@@ -1,142 +1,162 @@
 {
-  "type": "element",
-  "tag": "section",
-  "props": {
-    "className": "px-[5%] py-16 md:py-24 lg:py-28"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "container flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-8"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "my-auto max-w-3xl flex flex-col gap-2 md:gap-6 lg:gap-5"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "h1",
-              "props": {
-                "className": "text-3xl font-bold md:text-6xl lg:text-7xl"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "title"
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "flex flex-col justify-end"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "props": {
-                    "className": "md:text-md"
-                  },
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "description"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "mt-6 flex gap-x-4 md:mt-8"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "buttons",
-                        "iterator": "button"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Button",
-                          "package": "@/components/ui/button",
-                          "props": {
-                            "variant": "{button.variant}",
-                            "size": "{button.size}",
-                            "key": "{index}",
-                            "className": "whitespace-nowrap px-4 py-2"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "button.title"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "relative flex w-full"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "w-[60%] absolute top-auto bottom-0 left-0 right-auto"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.0.src}",
-                    "alt": "{images.0.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "className": "w-full mb-[15%] ml-[15%]"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "img",
-                  "props": {
-                    "src": "{images.1.src}",
-                    "alt": "{images.1.alt}",
-                    "className": "aspect-square size-full object-cover"
-                  }
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
+    }
+  ],
+  "components": [
+    {
+      "name": "HeroHeaderBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "px-[5%] py-16 md:py-24 lg:py-28"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-8"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "my-auto max-w-3xl flex flex-col gap-2 md:gap-6 lg:gap-5"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "h1",
+                    "props": {
+                      "className": "text-3xl font-bold md:text-6xl lg:text-7xl"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-col justify-end"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "md:text-md"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "description"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mt-6 flex gap-x-4 md:mt-8"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "buttons",
+                              "iterator": "button"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Button",
+                                "package": "@/components/ui/button",
+                                "props": {
+                                  "variant": "{button.variant}",
+                                  "size": "{button.size}",
+                                  "key": "{index}",
+                                  "className": "whitespace-nowrap px-4 py-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "button.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "relative flex w-full"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-[60%] absolute top-auto bottom-0 left-0 right-auto"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.0.src}",
+                          "alt": "{images.0.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-full mb-[15%] ml-[15%]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{images.1.src}",
+                          "alt": "{images.1.alt}",
+                          "className": "aspect-square size-full object-cover"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

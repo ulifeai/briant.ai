@@ -23,7 +23,7 @@ const items = [
 ]
 
 
-interface HeaderBlockProps {
+interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
@@ -48,17 +48,17 @@ interface HeaderBlockProps {
   }[]
 }
 
-export default function HeaderBlock({
+export default function FeatureBlock({
   tag,
   title,
   description,
   buttons,
   form,
   image,
-  feature_items = items
-}: HeaderBlockProps) {
+  feature_items
+}: FeatureBlockProps) {
   return (
-    <div className="bg-white p-8 px-[5%] font-sans">
+    <div className="bg-white p-8 px-[5%] font-sans container">
       
       {tag && (
         <Text className="text-sm font-semibold uppercase tracking-wider  mb-2">
@@ -72,13 +72,13 @@ export default function HeaderBlock({
         {title}
       </Text>
       <Text
-      as="p"
+      as="h6"
         className="text-base py-2"
       >
         {description}
       </Text>
       <div className="grid mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {items.map((item, index) => (
+        {feature_items?.map((item, index) => (
           <Card className="w-full max-w-md" key={index}>
             <CardHeader>
               <div className="text-md mb-2">Apartment</div>
@@ -87,7 +87,12 @@ export default function HeaderBlock({
               }}>{item.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-md mb-4">{item.description}</p>
+            <Text
+              as="p"
+                className="text-md mb-8 py-2"
+              >
+                {item.description}
+              </Text>
               <Button variant="outline" className="rounded-full">
                 Get consulation <ArrowUpRight className="ml-2 h-4 w-4" />
               </Button>
@@ -95,11 +100,11 @@ export default function HeaderBlock({
             <CardFooter>
               <div className="w-full">
                 <Image
-                  src={"/placeholder.png?"}
+                  src={item.image ?? "/placeholder.png?"}
                   alt={item.title}
                   width={300}
                   height={150}
-                  className="w-full rounded-lg"
+                  className="w-full rounded-lg h-[150]"
                 />
               </div>
             </CardFooter>

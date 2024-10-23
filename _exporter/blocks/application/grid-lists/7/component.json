@@ -1,437 +1,515 @@
 {
-  "type": "element",
-  "tag": "div",
-  "props": {
-    "className": "flex flex-col"
-  },
-  "children": [
+  "imports": [
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
-      },
-      "children": [
+      "source": "@/components/ui/button",
+      "specifiers": [
         {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-col justify-between items-start"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "h1",
-              "props": {
-                "className": "text-2xl font-semibold"
-              },
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "title"
-                }
-              ]
-            },
-            {
-              "type": "element",
-              "tag": "p",
-              "children": [
-                {
-                  "type": "dynamicText",
-                  "text": "description"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "tag": "div",
-          "props": {
-            "className": "flex flex-row lg:justify-between lg:items-center gap-4"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "form",
-              "props": {
-                "action": ""
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex items-center relative"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "input",
-                      "props": {
-                        "type": "text",
-                        "placeholder": "{placeholder}",
-                        "className": "border-[1px] border-black rounded-none text-black bg-white h-auto min-h-10 px-3 py-2 text-base pl-11 lg:w-72 w-56"
-                      }
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "absolute top-auto bottom-auto left-3 right-auto"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col justify-center items-center w-6 h-6"
-                          },
-                          "children": [
-                            {
-                              "type": "component",
-                              "component": "Search",
-                              "package": "lucide-react"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "component",
-              "component": "Popover",
-              "package": "@/components/ui/popover",
-              "children": [
-                {
-                  "type": "component",
-                  "component": "PopoverTrigger",
-                  "package": "@/components/ui/popover",
-                  "props": {
-                    "asChild": true
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "variant": "{\"none\"}",
-                        "size": "{\"none\"}"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-row items-center justify-center px-4 py-2 gap-1 border-[1px] border-black rounded-none cursor-pointer"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "div",
-                              "children": [
-                                {
-                                  "type": "dynamicText",
-                                  "text": "SortByName"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "component",
-                              "component": "ChevronDown",
-                              "package": "lucide-react"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "component",
-                  "component": "PopoverContent",
-                  "package": "@/components/ui/popover",
-                  "props": {
-                    "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
-                  },
-                  "children": [
-                    {
-                      "type": "loop",
-                      "loop": {
-                        "array": "floatingBoxMenu",
-                        "iterator": "box"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "a",
-                          "props": {
-                            "key": "{index}",
-                            "href": "{box.href}",
-                            "tabIndex": "{0}",
-                            "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "box.name"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
         }
       ]
     },
     {
-      "type": "element",
-      "tag": "div",
-      "props": {
-        "className": "grid lg:grid-cols-3 grid-cols-1 auto-rows-auto gap-6"
-      },
-      "children": [
+      "source": "@/components/ui/popover",
+      "specifiers": [
         {
-          "type": "loop",
-          "loop": {
-            "array": "cards",
-            "iterator": "card"
-          },
-          "children": [
-            {
-              "type": "element",
-              "tag": "div",
-              "props": {
-                "key": "{index}",
-                "className": "flex flex-col items-center justify-center text-start border-[1px] border-black p-6"
-              },
-              "children": [
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-row items-center justify-between mb-6 w-full"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "flex flex-row items-center justify-between"
-                      },
-                      "children": [
-                        {
-                          "type": "component",
-                          "component": "Image",
-                          "package": "next/image",
-                          "props": {
-                            "src": "{card.image.src}",
-                            "width": "{32}",
-                            "height": "{32}",
-                            "alt": "{card.image.alt}",
-                            "className": "h-20 w-20 object-cover"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "a",
-                      "props": {
-                        "href": "#",
-                        "className": "flex flex-col items-center justify-start h-full"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "flex flex-col items-center justify-center w-6 h-6"
-                          },
-                          "children": [
-                            {
-                              "type": "element",
-                              "tag": "svg",
-                              "props": {
-                                "width": "100%",
-                                "height": "100%",
-                                "viewBox": "0 0 24 24",
-                                "fill": "none",
-                                "xmlns": "http://www.w3.org/2000/svg"
-                              },
-                              "children": [
-                                {
-                                  "type": "element",
-                                  "tag": "path",
-                                  "props": {
-                                    "d": "M18 2H6C4.897 2 4 2.897 4 4V22L12 17.428L20 22V4C20 2.897 19.103 2 18 2ZM18 18.553L12 15.125L6 18.553V4H18V18.553Z",
-                                    "fill": "currentColor"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col items-start justify-start w-full mb-4"
-                  },
-                  "children": [
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "text-lg font-semibold"
-                      },
-                      "children": [
-                        {
-                          "type": "dynamicText",
-                          "text": "card.title"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "element",
-                      "tag": "div",
-                      "props": {
-                        "className": "flex flex-row items-center justify-start"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "text-sm"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.Location"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "mx-2"
-                          },
-                          "children": [
-                            {
-                              "type": "text",
-                              "text": "•"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "text-sm"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.fullTime"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "mx-2"
-                          },
-                          "children": [
-                            {
-                              "type": "text",
-                              "text": "•"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "element",
-                          "tag": "div",
-                          "props": {
-                            "className": "text-sm"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.remote"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "p",
-                  "children": [
-                    {
-                      "type": "dynamicText",
-                      "text": "card.text"
-                    }
-                  ]
-                },
-                {
-                  "type": "element",
-                  "tag": "div",
-                  "props": {
-                    "className": "flex flex-col gap-y-2 mt-8 w-full"
-                  },
-                  "children": [
-                    {
-                      "type": "component",
-                      "component": "Button",
-                      "package": "@/components/ui/button",
-                      "props": {
-                        "key": "{index}",
-                        "variant": "{card.button.variant}",
-                        "size": "{card.button.size}",
-                        "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
-                        "asChild": true,
-                        "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none w-full"
-                      },
-                      "children": [
-                        {
-                          "type": "element",
-                          "tag": "a",
-                          "props": {
-                            "href": "{card.button.href}"
-                          },
-                          "children": [
-                            {
-                              "type": "dynamicText",
-                              "text": "card.button.name"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "type": "named",
+          "imported": "Popover",
+          "local": "Popover"
+        },
+        {
+          "type": "named",
+          "imported": "PopoverContent",
+          "local": "PopoverContent"
+        },
+        {
+          "type": "named",
+          "imported": "PopoverTrigger",
+          "local": "PopoverTrigger"
         }
       ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ChevronDown",
+          "local": "ChevronDown"
+        },
+        {
+          "type": "named",
+          "imported": "Search",
+          "local": "Search"
+        }
+      ]
+    },
+    {
+      "source": "next/image",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Image"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "GridListBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "flex flex-col"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex lg:flex-row flex-col justify-between items-center gap-y-2 pb-6"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-col justify-between items-start"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "h1",
+                    "props": {
+                      "className": "text-2xl font-semibold"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "description"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-row lg:justify-between lg:items-center gap-4"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "form",
+                    "props": {
+                      "action": ""
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex items-center relative"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "input",
+                            "props": {
+                              "type": "text",
+                              "placeholder": "{placeholder}",
+                              "className": "border-[1px] border-black rounded-none text-black bg-white h-auto min-h-10 px-3 py-2 text-base pl-11 lg:w-72 w-56"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "absolute top-auto bottom-auto left-3 right-auto"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col justify-center items-center w-6 h-6"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Search",
+                                    "package": "lucide-react"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "Popover",
+                    "package": "@/components/ui/popover",
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "PopoverTrigger",
+                        "package": "@/components/ui/popover",
+                        "props": {
+                          "asChild": true
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "variant": "{\"none\"}",
+                              "size": "{\"none\"}"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-row items-center justify-center px-4 py-2 gap-1 border-[1px] border-black rounded-none cursor-pointer"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "SortByName"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "ChevronDown",
+                                    "package": "lucide-react"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "component",
+                        "component": "PopoverContent",
+                        "package": "@/components/ui/popover",
+                        "props": {
+                          "className": "w-fit bg-[#fff] text-left border-[1px] border-black rounded-none"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "floatingBoxMenu",
+                              "iterator": "box"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "key": "{index}",
+                                  "href": "{box.href}",
+                                  "tabIndex": "{0}",
+                                  "className": "px-4 py-2 block text-[#222222] text-left mx-auto relative whitespace-nowrap"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "box.name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "grid lg:grid-cols-3 grid-cols-1 auto-rows-auto gap-6"
+            },
+            "children": [
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "cards",
+                  "iterator": "card"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "key": "{index}",
+                      "className": "flex flex-col items-center justify-center text-start border-[1px] border-black p-6"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-row items-center justify-between mb-6 w-full"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-row items-center justify-between"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Image",
+                                "package": "next/image",
+                                "props": {
+                                  "src": "{card.image.src}",
+                                  "width": "{32}",
+                                  "height": "{32}",
+                                  "alt": "{card.image.alt}",
+                                  "className": "h-20 w-20 object-cover"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "#",
+                              "className": "flex flex-col items-center justify-start h-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex flex-col items-center justify-center w-6 h-6"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "svg",
+                                    "props": {
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "viewBox": "0 0 24 24",
+                                      "fill": "none",
+                                      "xmlns": "http://www.w3.org/2000/svg"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "path",
+                                        "props": {
+                                          "d": "M18 2H6C4.897 2 4 2.897 4 4V22L12 17.428L20 22V4C20 2.897 19.103 2 18 2ZM18 18.553L12 15.125L6 18.553V4H18V18.553Z",
+                                          "fill": "currentColor"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col items-start justify-start w-full mb-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "text-lg font-semibold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "card.title"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-row items-center justify-start"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "text-sm"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.Location"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mx-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "•"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "text-sm"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.fullTime"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mx-2"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "•"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "text-sm"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.remote"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "card.text"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-col gap-y-2 mt-8 w-full"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Button",
+                            "package": "@/components/ui/button",
+                            "props": {
+                              "key": "{index}",
+                              "variant": "{card.button.variant}",
+                              "size": "{card.button.size}",
+                              "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
+                              "asChild": true,
+                              "className": "whitespace-nowrap px-4 py-2 border-[1px] border-black rounded-none w-full"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "{card.button.href}"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "card.button.name"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

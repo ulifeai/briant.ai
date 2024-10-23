@@ -1,0 +1,395 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowBigUp",
+          "local": "ArrowBigUp"
+        },
+        {
+          "type": "named",
+          "imported": "ArrowUp",
+          "local": "ArrowUp"
+        },
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "pt-28 pb-36 bg-white overflow-hidden relative"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-wrap"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "p-8 w-full  md:w-1/2"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "/7.jpg",
+                          "alt": "image",
+                          "className": "w-full h-auto"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "p-8 md:w-1/2"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "flex flex-wrap"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "p-4 w-auto"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-wrap"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 flex-1"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Unlimited Team Members"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 w-full"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pb-8 border-b"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 leading-relaxed font-medium"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. \n                                                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat."
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "p-4 w-auto"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-wrap"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 flex-1"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 w-full"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pb-8 border-b"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 leading-relaxed font-medium"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "description"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "p-4 w-auto"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-wrap"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Mouse",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 flex-1"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "Unlimited Team Members"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "p-2 w-full"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pb-8 border-b"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-900 leading-relaxed font-medium"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. \n                                                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat."
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

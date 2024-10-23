@@ -60,7 +60,7 @@ export default function Component({
               {title}
             </Text>
             <Text
-            as="p"
+            as="h6"
               className="text-base text-white py-2"
             >
               {description}

@@ -1,0 +1,241 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Mouse",
+          "local": "Mouse"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FeaturesBlock",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "props": {
+          "className": "box-border"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "section",
+            "props": {
+              "className": "relative py-12 overflow-hidden block"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/star-left.png",
+                  "alt": "",
+                  "className": "absolute start-0 left-0 bottom-0 box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "/images/blue-light-right.png",
+                  "alt": "",
+                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
+                }
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-3"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mx-auto max-w-[32rem] box-border lg:max-w-[1280px]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "mb-24 items-center box-border mx-3 lg:flex lg:flex-row-reverse"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "mb-12 box-border lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "h2",
+                                      "className": "mb-8 font-bold text-5xl lg:text-6xl"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "title"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "as": "p",
+                                      "className": "text-lg font-normal text-[#768b8d] mb-20"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "description"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "component",
+                                    "component": "Text",
+                                    "package": "@/components/ui/base/text",
+                                    "props": {
+                                      "className": "text-lg font-semibold"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "Our platform offers the modern enterprise full control of how date can\n                                    be access and used with industry leading software solutions for identity,\n                                    activation, and date collaboration"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "rounded-xl bg-white p-4 mt-10  shadow-sm"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "flex items-center gap-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "/7.jpg",
+                                              "alt": "",
+                                              "className": "w-[40px] align-middle overflow-clip rounded-full"
+                                            }
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "ms-2 flex flex-col"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "font-semibold text-base"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "Jovanca Nirmala"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "span",
+                                                "props": {
+                                                  "className": "text-[#768b8d] text-xm"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": "CTO at Saturn"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "border-box lg:w-1/2"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "img",
+                                "props": {
+                                  "src": "/7.jpg",
+                                  "alt": "feature 4",
+                                  "className": "w-full block align-middle lg:me-40 lg:w-[28rem]"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
