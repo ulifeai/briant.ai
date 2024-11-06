@@ -1,12 +1,13 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Text } from "@/components/ui/base/text";
 
 interface Testimonial {
   id: string;
   quote: string;
   author: string;
-  position: string; 
+  position: string;
   company: string;
   rating: number;
   logo: string;
@@ -72,14 +73,17 @@ export default function CustomerTestimonials({
 }: CustomerTestimonialsProps) {
   return (
     <div className="container mx-auto px-4 py-16 md:px-6 lg:px-8">
-      <h2 className="text-4xl font-bold text-center mb-4">{title}</h2>
-      <p className="text-xl text-center text-gray-600 mb-12">{description}</p>
+      <Text as="hero" className="text-4xl font-bold text-center mb-4">
+        {title}
+      </Text>
+      <Text as="h6" className="text-xl text-center text-gray-600 mb-12">
+        {description}
+      </Text>
 
       <Tabs
         defaultValue={testimonials[0].id}
         className="max-w-4xl mx-auto border border-gray-200"
       >
-        
         {testimonials.map((testimonial) => (
           <TabsContent key={testimonial.id} value={testimonial.id}>
             <div className="rounded-lg p-8 mb-8">
@@ -92,7 +96,7 @@ export default function CustomerTestimonials({
                 ))}
               </div>
               <blockquote className="text-xl text-center mb-8">
-              &quot;{testimonial.quote}&quot;
+                &quot;{testimonial.quote}&quot;
               </blockquote>
               <div className="flex flex-col items-center">
                 <div className="w-12 h-12 bg-gray-200 rounded-full mb-4"></div>
@@ -122,7 +126,6 @@ export default function CustomerTestimonials({
             </TabsTrigger>
           ))}
         </TabsList>
-
       </Tabs>
     </div>
   );

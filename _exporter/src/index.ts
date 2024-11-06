@@ -13,7 +13,7 @@ import ejs from "ejs";
 const sample = [
     {
         page: "home",
-        type: "static",
+        type: "public",
         data: [
             {
                 "id": 1,
@@ -217,7 +217,7 @@ const sample = [
     },
     {
         page: "about",
-        type: "static",
+        type: "public",
         data: [
             {
                 "id": 1,
@@ -492,7 +492,7 @@ app.post("/generate/project", async (req: Request, res: Response) => {
     await Structure.zipFolder(tmp_folder, projectName + ".zip")
 
     try {
-        res.download(projectName + ".zip", `dxter-export - ${projectName}.zip`, (err) => {
+        res.download(projectName + ".zip", `Briant-export - ${projectName}.zip`, (err) => {
             if (err) {
                 console.error('Error sending ZIP file:', err);
                 res.status(500).send('Error downloading the ZIP file.');

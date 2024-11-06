@@ -14,6 +14,7 @@ import { ThemeOptions } from "@/types/themeConfig";
 import { useConfig } from "@/hooks/useConfig";
 import { deepEqual } from "@/lib/utils/object";
 import { defaultCustomization } from "@/lib/utils/ui";
+import ComingSoonModal from "@/components/blocks/dashboard/CommingSoonModal";
 
 
 export default function Component() {
@@ -25,6 +26,7 @@ export default function Component() {
   const params = useParams<{ id: string }>()
   const [sitemap, setSitemap] = useState<Sitemap | undefined>()
   const [project, setProject] = useState<IProject>()
+  const [commingSoonModalOpen, setCommingSoonModalOpen] = useState<boolean>(false)
   
   
   useEffect(()=>{
@@ -32,9 +34,9 @@ export default function Component() {
       axios.get("/api/app/page", {params: {project_id: params.id}}).then((response)=>{
         const data = response.data.data;
         let pages: any = {
-          static: [],
+          public: [],
           auth: [],
-          admin: [],
+          authenticated: [],
         }
         data.pages.forEach((element: any) => {
           pages[element.category as Category].push(element);
@@ -49,20 +51,19 @@ export default function Component() {
   useEffect(()=>{
     if(project?.customizations){
       setWebsiteConfig(project?.customizations as ThemeOptions)
-      console.log("SOME THINGS HAPPENS")
     }
-    console.log(project?.customizations, "FILTER")
   }, [project])
 
-  useEffect(()=>{
-    console.log(websiteConfig, "FILTER")
-  }, [websiteConfig])
 
 
   const handleMenuClick = async (page: any, page_section: string) =>{
+    if(page_section == "__disabled__"){
+      setCommingSoonModalOpen(true)
+      return;
+    }
     setLoading(true);
     try {
-      const key = page_section + " : "+page.title + " - " + page.description
+      const key = page_section + " : "+page.name + " - " + page.description
       setMenu(page.title)
       const response = await axios.post("/api/app/block/getOrCreate",  {
         app_context: project?.description,
@@ -73,28 +74,45 @@ export default function Component() {
       const completePageCode = response.data.data.map((item: any)=>{
         return {...item.content, id: item.id, _id: item._id}
       })
-
-      console.log("BIMMMMMMMMMM", completePageCode)
       
       setWebsiteContent({pageCode: completePageCode});
-      // if(sitemap && Array.isArray(sitemap.pages))
-      // setSitemap({pages: sitemap?.pages?.map((sitePage)=>{
-      //   if(page._id == sitePage._id){
-      //     sitePage.blocks = response.data.data
-      //   }
-      //   return sitePage;
-      // })})
+      if(sitemap && sitemap?.pages){
+        const old_sitemap = {...sitemap};
+        old_sitemap.pages[page_section].map((sitePage: any)=>{
+          if(page._id == sitePage._id){
+            sitePage.blocks = response.data.data
+          }
+          return sitePage;
+        })
+
+        console.log(old_sitemap, "FILTER")
+        setSitemap(old_sitemap)
+      }
+      
 
       // return response.data;
     } catch (error) {
-      console.log({ error });
+      // console.log({ error });
     }
     setLoading(false)
+  }
+
+  const commingSoonModalOpenNotifyMe = async () => {
+    const response = axios('/api/app/notifications/feature-request', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    setCommingSoonModalOpen(false)
+
+    alert("Thank you! You will be notified when it is released.")
   }
 
   useEffect(()=>{
     window.addEventListener("message", (iframeData)=>{
       if(iframeData.data.operation == "component_clicked"){
+        console.log("I am here after", iframeData.data, websiteContent)
         let side = websiteContent.pageCode.filter((data: any)=> {
             return data.id == iframeData.data.id.toString()
         })
@@ -115,12 +133,13 @@ export default function Component() {
         return data.id == sideContent.id.toString()
     })
     if(newBlock.length > 0){
-      const id = newBlock[0]._id
+      let newData = {...newBlock[0]}
+      const id = newData._id
       setLoading(true)
-      delete newBlock[0].id
-      delete newBlock[0]._id
+      delete newData.id
+      delete newData._id
       const response = await axios.put("/api/app/block/"+id,  {
-        content: newBlock[0],
+        content: newData,
       });
     }
     setLoading(false)
@@ -151,6 +170,12 @@ export default function Component() {
       <SitePreviewContainer windowClick={saveBlockContent} onThemeChange={onThemeChange} website_content={websiteContent} loadingIframe={loading}></SitePreviewContainer>
 
       <RightNav sideContent={sideContent} saveContent={saveBlockContent}></RightNav>
+
+      <ComingSoonModal feature="Auth/Dashboard" 
+      open={commingSoonModalOpen} 
+      submitItend={commingSoonModalOpenNotifyMe}
+      setOpen={setCommingSoonModalOpen}
+      ></ComingSoonModal>
     </div>
   )
 }

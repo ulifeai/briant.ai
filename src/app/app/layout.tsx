@@ -1,21 +1,23 @@
 
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
+import { UserButton } from "@clerk/nextjs";
 import { Menu } from 'lucide-react';
+import Link from "next/link";
 
 
-const Navbar1Component = () => {
+export const NavbarDashboardComponent = () => {
   return (
-  <header className="bg-white shadow-sm">
+  <header className="bg-white shadow-sm max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-12">
-        <a href="/app" className="flex items-center">
-          <img src="/placeholder-image.svg" alt="Logo" className="h-8 w-auto"></img>
-        </a>
+        <Link href="/app" className="flex items-center">
+          <img src="/logo.svg" alt="Logo" className="h-8 w-auto"></img>
+        </Link>
        
         <div className="hidden md:block">
       
-          <Button key={1} variant="default" size="default" style={{
+          {/* <Button key={1} variant="default" size="default" style={{
   borderRadius: "var(--button-radius)"
 }} className="whitespace-nowrap h-10  rounded-lg mx-2 px-4 py-2">
             My account
@@ -33,15 +35,13 @@ const Navbar1Component = () => {
           <SheetContent side="right">
             <nav className="flex flex-col space-y-4">
              
-           
-              <Button key={1} variant="default" size="default" style={{
-  borderRadius: "var(--button-radius)"
-}} className="whitespace-nowrap h-10 mx-2 px-4 py-2">
-                Logout
-              </Button>
+            <UserButton/>
+
             </nav>
           </SheetContent>
-        </Sheet>
+        </Sheet> */}
+              <UserButton/>
+          </div>
       </div>
     </div>
   </header>

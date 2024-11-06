@@ -185,15 +185,15 @@
                                                     "package": "@/components/ui/button",
                                                     "props": {
                                                       "key": "{index}",
-                                                      "variant": "{button.variant}",
-                                                      "size": "{button.size}",
+                                                      "variant": "{button?.variant}",
+                                                      "size": "{button?.size}",
                                                       "style": "{{\n  borderRadius: \"var(--button-radius)\"\n}}",
                                                       "className": "whitespace-nowrap h-10 mx-2 px-4 py-2"
                                                     },
                                                     "children": [
                                                       {
                                                         "type": "dynamicText",
-                                                        "text": "button.title"
+                                                        "text": "button?.title"
                                                       }
                                                     ]
                                                   }

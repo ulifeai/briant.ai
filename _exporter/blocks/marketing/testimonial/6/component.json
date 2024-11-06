@@ -1,0 +1,405 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/carousel",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Carousel",
+          "local": "Carousel"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselContent",
+          "local": "CarouselContent"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselItem",
+          "local": "CarouselItem"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselApi",
+          "local": "CarouselApi"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "embla-carousel-autoplay",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Autoplay"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "useEffect",
+          "local": "useEffect"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "const [api, setApi] = useState<CarouselApi>();\nconst [current, setCurrent] = useState(0);\n\n// Diviser le tableau en groupes de deux éléments\n// Diviser le tableau en groupes de deux éléments\nconst pairedItems = testimonials.reduce((acc, _, index, array) => {\n  if (index % 2 === 0) {\n    acc.push(array.slice(index, index + 2));\n  }\n  return acc;\n}, []);\nconsole.log(pairedItems);\nuseEffect(() => {\n  if (!api) {\n    return;\n  }\n  setCurrent(api.selectedScrollSnap() + 1);\n  api.on(\"select\", () => {\n    setCurrent(api.selectedScrollSnap() + 1);\n  });\n}, [api]);",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "py-28 lg:py-32 overflow-hidden bg-gray-900"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto max-w-lg lg:max-w-7xl"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex lg:flex-row flex-col items-center mb-16 px-3"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "h3",
+                    "props": {
+                      "className": "w-full lg:w-1/2 mb-8 lg:mb-0 max-w-md font-heading text-4xl xs:text-6xl font-bold text-gray-50"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "props": {
+                      "className": "w-full lg:w-1/2 max-w-lg lg:ml-auto text-gray-300"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "subtitle"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "Carousel",
+                "package": "@/components/ui/carousel",
+                "props": {
+                  "opts": "{options}",
+                  "plugins": "{plugins}",
+                  "setApi": "{setApi}",
+                  "className": "overflow-hidden"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "CarouselContent",
+                    "package": "@/components/ui/carousel",
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "pairedItems",
+                          "iterator": "pairedItem"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "CarouselItem",
+                            "package": "@/components/ui/carousel",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex-shrink-0 h-full w-full p-4 flex flex-wrap mb-16 lg:mb-12 items-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "relative w-full lg:w-1/2 pb-16 lg:pb-0 mb-12 lg:mb-0"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "hidden lg:block absolute top-1/2 right-0 transform -translate-y-1/2 w-px h-60 bg-gray-500"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "lg:hidden absolute bottom-0 left-1/2 transform -translate-x-1/2 h-px w-52 bg-gray-500"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "max-w-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "images/quote.svg",
+                                              "alt": "quote",
+                                              "className": "block mb-6"
+                                            }
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "p",
+                                            "props": {
+                                              "className": "text-lg text-gray-300 mb-6"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "pairedItem.0.quote"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "flex items-center"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "{pairedItem.0.imageAuthor}",
+                                                  "alt": "{pairedItem.0.altAuthor}",
+                                                  "className": "block w-12 h-12 rounded-full"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "div",
+                                                "props": {
+                                                  "className": "ml-4"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "span",
+                                                    "props": {
+                                                      "className": "block font-semibold text-white leading-none mb-1"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "pairedItem.0.author"
+                                                      }
+                                                    ]
+                                                  },
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "span",
+                                                    "props": {
+                                                      "className": "block text-sm text-gray-400"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "pairedItem.0.position"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "conditional",
+                                    "condition": "pairedItem.1",
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-full lg:w-1/2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "max-w-sm lg:mx-auto"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "img",
+                                                "props": {
+                                                  "src": "images/quote.svg",
+                                                  "alt": "",
+                                                  "className": "block mb-6"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "p",
+                                                "props": {
+                                                  "className": "text-lg text-gray-300 mb-6"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "pairedItem.1.quote"
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "div",
+                                                "props": {
+                                                  "className": "flex items-center"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "img",
+                                                    "props": {
+                                                      "src": "{pairedItem.1.imageAuthor}",
+                                                      "alt": "{pairedItem.1.altAuthor}",
+                                                      "className": "block w-12 h-12 rounded-full"
+                                                    }
+                                                  },
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "div",
+                                                    "props": {
+                                                      "className": "ml-4"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "element",
+                                                        "tag": "span",
+                                                        "props": {
+                                                          "className": "block font-semibold text-white leading-none mb-1"
+                                                        },
+                                                        "children": [
+                                                          {
+                                                            "type": "dynamicText",
+                                                            "text": "pairedItem.1.author"
+                                                          }
+                                                        ]
+                                                      },
+                                                      {
+                                                        "type": "element",
+                                                        "tag": "span",
+                                                        "props": {
+                                                          "className": "block text-sm text-gray-400"
+                                                        },
+                                                        "children": [
+                                                          {
+                                                            "type": "dynamicText",
+                                                            "text": "pairedItem.1.position"
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "else": [
+                                      {
+                                        "type": "text",
+                                        "text": ""
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex items-center justify-center"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "pairedItems",
+                      "iterator": "_"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "button",
+                        "props": {
+                          "key": "{index}",
+                          "onClick": "{() => api?.scrollTo(index)}",
+                          "className": "{clsx(\"inline-block mr-1 w-7 h-1 cursor-pointer\", {\n  \"bg-orange-900\": current === index + 1,\n  \"bg-[#ddd]\": current !== index + 1\n})}"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

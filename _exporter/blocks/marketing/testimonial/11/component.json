@@ -1,0 +1,128 @@
+{
+  "imports": [
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Star",
+          "local": "Star"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "py-24 bg-white overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-wrap -m-8"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "testimonials",
+                      "iterator": "testimonial"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "key": "{index}",
+                          "className": "w-full md:w-1/3 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "md:max-w-xs mx-auto text-center"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex justify-center mb-6 -m-1"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "[...Array(testimonial.rating)]",
+                                      "iterator": "_"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Star",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "key": "{i}",
+                                          "className": "w-[24px] h-[23px] p-1"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "h3",
+                                "props": {
+                                  "className": "mb-4 text-2xl font-semibold leading-snug"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "testimonial.quote"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "p",
+                                "props": {
+                                  "className": "text-gray-600 font-medium"
+                                },
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "text": "Forbes Magazine"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

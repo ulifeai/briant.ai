@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS InductionMaterial (
 );
 
 -- Insert initial roles
-INSERT INTO Role (name) VALUES ('Admin'), ('Staff'), ('Manager');
+INSERT INTO Role (name) VALUES ('authenticated'), ('Staff'), ('Manager');
 
 -- Sample permissions table structure (optional, to manage role-based actions)
 CREATE TABLE IF NOT EXISTS Permission (
@@ -97,15 +97,15 @@ CREATE TABLE IF NOT EXISTS Permission (
 
 -- Insert permissions based on JSON spec
 INSERT INTO Permission (role_id, action) VALUES
-    ((SELECT id FROM Role WHERE name='Admin'), 'RegisterUser'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'DeleteUser'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'ViewDashboard'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'ManageStaff'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'ManageDocuments'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'CheckCompliance'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'SignContract'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'GenerateInvoice'),
-    ((SELECT id FROM Role WHERE name='Admin'), 'ViewTransactionHistory'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'RegisterUser'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'DeleteUser'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'ViewDashboard'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'ManageStaff'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'ManageDocuments'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'CheckCompliance'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'SignContract'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'GenerateInvoice'),
+    ((SELECT id FROM Role WHERE name='authenticated'), 'ViewTransactionHistory'),
     ((SELECT id FROM Role WHERE name='Manager'), 'ViewDashboard'),
     ((SELECT id FROM Role WHERE name='Manager'), 'ManageDocuments'),
     ((SELECT id FROM Role WHERE name='Manager'), 'CheckCompliance'),

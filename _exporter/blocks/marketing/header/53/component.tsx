@@ -1,5 +1,6 @@
 "use client";
 
+import { Text } from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -29,11 +30,16 @@ export default function HeroHeaderBlock({
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container flex flex-col lg:grid lg:grid-cols-[1fr_1fr] gap-10 sm:gap-8">
         <div className="mx-auto my-auto max-w-xl flex flex-col items-start justify-between">
-          <h1 className="text-2xl font-bold md:text-5xl lg:text-6xl mb-6 md:mb-8">
+          <Text
+            as="hero"
+            className="text-2xl font-bold md:text-5xl lg:text-6xl mb-6 md:mb-8"
+          >
             {title}
-          </h1>
+          </Text>
           <div className="flex flex-col justify-end ">
-            <p className="md:text-md">{description}</p>
+            <Text as="h6" className="md:text-md">
+              {description}
+            </Text>
             <div className="mt-6 flex gap-x-4 md:mt-8">
               {buttons.map((button, index) => (
                 <Button
@@ -58,7 +64,6 @@ export default function HeroHeaderBlock({
                       | undefined
                   }
                   key={index}
-                  
                   className="whitespace-nowrap px-4 py-2 "
                 >
                   {button.title}

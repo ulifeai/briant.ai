@@ -1,5 +1,6 @@
 "use client";
 
+import { Text } from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -44,10 +45,15 @@ export default function HeroHeaderBlock({
       <div className="container">
         <div className="rb-12 mb-12 md:mb-18 lg:mb-20">
           <div className="w-full max-w-lg">
-            <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-4xl lg:text-7xl">
+            <Text
+              as="hero"
+              className="mb-5 text-3xl font-bold md:mb-6 md:text-4xl lg:text-7xl"
+            >
               {title}
-            </h1>
-            <p className="md:text-md">{description}</p>
+            </Text>
+            <Text as="h6" className="md:text-md">
+              {description}
+            </Text>
             <div className="mt-6 flex gap-x-4 md:mt-8">
               {buttons.map((button, index) => (
                 <Button
@@ -72,7 +78,6 @@ export default function HeroHeaderBlock({
                       | undefined
                   }
                   key={index}
-                  
                   className="whitespace-nowrap px-4 py-2 "
                 >
                   {button.title}

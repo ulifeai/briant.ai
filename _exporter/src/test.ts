@@ -319,7 +319,6 @@ const jsonData = {
 
 const data = {
   "version": 1,
-  "title": "Your apps built by AI in minutes",
   "description": "Start building apps quickly with our AI-powered platform, offering fast setup, easy integration, and powerful features to transform your ideas into reality.",
   tag: "Tag",
   "buttons": [

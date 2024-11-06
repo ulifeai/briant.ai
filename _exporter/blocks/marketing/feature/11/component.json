@@ -9,86 +9,124 @@
           "local": "Text"
         }
       ]
-    },
-    {
-      "source": "lucide-react",
-      "specifiers": [
-        {
-          "type": "named",
-          "imported": "Timer",
-          "local": "Timer"
-        }
-      ]
-    },
-    {
-      "source": "react",
-      "specifiers": [
-        {
-          "type": "default",
-          "local": "React"
-        }
-      ]
     }
   ],
   "components": [
     {
-      "name": "FeaturesBlock",
+      "name": "FeatureBlock",
       "preReturnCode": "",
       "jsx": {
         "type": "element",
-        "tag": "div",
+        "tag": "section",
         "props": {
-          "className": "box-border"
+          "className": "pt-24 pb-40 bg-white overflow-hidden"
         },
         "children": [
           {
             "type": "element",
-            "tag": "section",
+            "tag": "div",
             "props": {
-              "className": "py-12 relative overflow-hidden"
+              "className": "container px-4 mx-auto"
             },
             "children": [
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "as": "h2",
+                  "className": "mb-20 text-6xl md:text-8xl xl:text-10xl font-bold font-heading text-center tracking-px-n leading-none"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              },
               {
                 "type": "element",
                 "tag": "div",
                 "props": {
-                  "className": "max-w-[480px] px-3 mx-auto lg:max-w-[1280px]"
+                  "className": "flex flex-wrap -m-16 md:-m-3"
                 },
                 "children": [
                   {
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "max-w-5xl text-center mb-20 mx-auto box-border"
+                      "className": "w-full md:w-1/3 p-16 md:p-3"
                     },
                     "children": [
                       {
-                        "type": "component",
-                        "component": "Text",
-                        "package": "@/components/ui/base/text",
+                        "type": "element",
+                        "tag": "div",
                         "props": {
-                          "as": "h2",
-                          "className": "mb-8 text-5xl lg:text-7xl font-bold text-center"
+                          "className": "px-10 pt-11 text-center bg-gray-100 h-96 rounded-3xl"
                         },
                         "children": [
                           {
-                            "type": "dynamicText",
-                            "text": "title"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "component",
-                        "component": "Text",
-                        "package": "@/components/ui/base/text",
-                        "props": {
-                          "as": "p",
-                          "className": "text-lg  text-[#768b8d] mb-4 max-w-sm mx-auto"
-                        },
-                        "children": [
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-3 text-xl font-bold font-heading leading-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[0] && cardImages[0].title",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "cardImages.0.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
                           {
-                            "type": "dynamicText",
-                            "text": "description"
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "mb-10 text-gray-600 font-medium leading-relaxed"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[0] && cardImages[0].description",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "cardImages.0.description"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "img",
+                            "props": {
+                              "src": "{cardImages && cardImages[0] && cardImages[0].src ? cardImages[0].src : \"\"}",
+                              "alt": "{cardImages && cardImages[0] && cardImages[0].alt ? cardImages[0].alt : \"\"}",
+                              "className": "mx-auto h-72 object-cover rounded-3xl shadow-3xl transform hover:translate-y-3 transition ease-in-out duration-1000"
+                            }
                           }
                         ]
                       }
@@ -98,194 +136,65 @@
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "rounded-lg bg-[#fbe7e7] py-24 px-10 box-border lg:px-10 lg:py-24"
+                      "className": "w-full md:w-1/3 p-16 md:p-3"
                     },
                     "children": [
                       {
                         "type": "element",
                         "tag": "div",
                         "props": {
-                          "className": "flex box-border flex-col-reverse lg:flex-row lg:justify-between"
+                          "className": "px-10 pt-11 text-center bg-gray-100 h-96 rounded-3xl"
                         },
                         "children": [
                           {
-                            "type": "element",
-                            "tag": "div",
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
                             "props": {
-                              "className": "lg:w-1/2 px-3"
+                              "as": "h3",
+                              "className": "mb-3 text-xl font-bold font-heading leading-normal"
                             },
                             "children": [
                               {
-                                "type": "element",
-                                "tag": "div",
-                                "props": {
-                                  "className": "pb-12 mb-12 flex items-center border-b"
-                                },
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[1] && cardImages[1].title",
                                 "children": [
                                   {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#fff9e9]"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "component",
-                                        "component": "Timer",
-                                        "package": "lucide-react"
-                                      }
-                                    ]
-                                  },
+                                    "type": "dynamicText",
+                                    "text": "cardImages.1.title"
+                                  }
+                                ],
+                                "else": [
                                   {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "ms-4 box-border flex flex-col"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "font-semibold text-xl"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "Simple & Unique"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "text-[#768b8d] text-base"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "Created by our talented designer"
-                                          }
-                                        ]
-                                      }
-                                    ]
+                                    "type": "text",
+                                    "text": ""
                                   }
                                 ]
-                              },
+                              }
+                            ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "mb-10 text-gray-600 font-medium leading-relaxed"
+                            },
+                            "children": [
                               {
-                                "type": "element",
-                                "tag": "div",
-                                "props": {
-                                  "className": "pb-12 mb-12 flex items-center border-b"
-                                },
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[1] && cardImages[1].description",
                                 "children": [
                                   {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#a8f2d7]"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "component",
-                                        "component": "Timer",
-                                        "package": "lucide-react"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "ms-4 box-border flex flex-col"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "font-semibold text-xl"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "Layered & Well Documented"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "text-[#768b8d] text-base"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "The best layer organisation"
-                                          }
-                                        ]
-                                      }
-                                    ]
+                                    "type": "dynamicText",
+                                    "text": "cardImages.1.description"
                                   }
-                                ]
-                              },
-                              {
-                                "type": "element",
-                                "tag": "div",
-                                "props": {
-                                  "className": "pb-12 mb-12 flex items-center border-b"
-                                },
-                                "children": [
+                                ],
+                                "else": [
                                   {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "w-[60px] h-[60px] rounded-full bg-pink flex items-center justify-center bg-[#c6eeff]"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "component",
-                                        "component": "Timer",
-                                        "package": "lucide-react"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "ms-4 box-border flex flex-col"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "font-semibold text-xl"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "World Class UI Design"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "text-[#768b8d] text-base"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "We are not tolerant about taste"
-                                          }
-                                        ]
-                                      }
-                                    ]
+                                    "type": "text",
+                                    "text": ""
                                   }
                                 ]
                               }
@@ -293,105 +202,93 @@
                           },
                           {
                             "type": "element",
-                            "tag": "div",
+                            "tag": "img",
                             "props": {
-                              "className": "lg:w-1/2 mb-20 order-1 px-3 flex flex-col justify-center"
+                              "src": "{cardImages && cardImages[1] && cardImages[1].src ? cardImages[1].src : \"\"}",
+                              "alt": "{cardImages && cardImages[1] && cardImages[1].alt ? cardImages[1].alt : \"\"}",
+                              "className": "mx-auto h-72 object-cover rounded-3xl shadow-3xl transform hover:translate-y-3 transition ease-in-out duration-1000"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-full md:w-1/3 p-16 md:p-3"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "px-10 pt-11 text-center bg-gray-100 h-96 rounded-3xl"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-3 text-xl font-bold font-heading leading-normal"
                             },
                             "children": [
                               {
-                                "type": "element",
-                                "tag": "div",
-                                "props": {
-                                  "className": "max-w-md"
-                                },
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[2] && cardImages[2].title",
                                 "children": [
                                   {
-                                    "type": "element",
-                                    "tag": "h4",
-                                    "props": {
-                                      "className": "mb-5 text-4xl font-bold"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "text",
-                                        "text": "Start custom & build!"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "p",
-                                    "props": {
-                                      "className": "mb-20 *:"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "text",
-                                        "text": "Nunc et tellus non erat accumsan\n                                aliquam eget non mi. Integer \n                                fringilla pellentesque finibus."
-                                      }
-                                    ]
+                                    "type": "dynamicText",
+                                    "text": "cardImages.2.title"
                                   }
-                                ]
-                              },
-                              {
-                                "type": "element",
-                                "tag": "div",
-                                "props": {
-                                  "className": "flex flex-col gap-5 lg:flex-row lg:items-center justify-around"
-                                },
-                                "children": [
+                                ],
+                                "else": [
                                   {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "block"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "span",
-                                        "props": {
-                                          "className": "font-bold text-4xl"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "Only $50"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "type": "element",
-                                        "tag": "p",
-                                        "props": {
-                                          "className": "text-xl font-semibold text-gray-400"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "text",
-                                            "text": "for Silver package"
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "a",
-                                    "props": {
-                                      "href": "",
-                                      "className": "rounded-full bg-red-500 hover:bg-red-200 text-center align-middle cursor-pointer px-7 py-4 text-white text-lg font-semibold"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "text",
-                                        "text": "See our plans"
-                                      }
-                                    ]
+                                    "type": "text",
+                                    "text": ""
                                   }
                                 ]
                               }
                             ]
+                          },
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "p",
+                              "className": "mb-10 text-gray-600 font-medium leading-relaxed"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "cardImages && cardImages[2] && cardImages[2].description",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "cardImages.2.description"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "img",
+                            "props": {
+                              "src": "{cardImages && cardImages[2] && cardImages[2].src ? cardImages[2].src : \"\"}",
+                              "alt": "{cardImages && cardImages[2] && cardImages[2].alt ? cardImages[2].alt : \"\"}",
+                              "className": "mx-auto h-72 object-cover rounded-3xl shadow-3xl transform hover:translate-y-3 transition ease-in-out duration-1000"
+                            }
                           }
                         ]
                       }

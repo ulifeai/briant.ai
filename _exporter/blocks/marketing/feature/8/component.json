@@ -1,16 +1,6 @@
 {
   "imports": [
     {
-      "source": "lucide-react",
-      "specifiers": [
-        {
-          "type": "named",
-          "imported": "ArrowUpRight",
-          "local": "ArrowUpRight"
-        }
-      ]
-    },
-    {
       "source": "@/components/ui/base/text",
       "specifiers": [
         {
@@ -19,120 +9,53 @@
           "local": "Text"
         }
       ]
-    },
-    {
-      "source": "react",
-      "specifiers": [
-        {
-          "type": "default",
-          "local": "React"
-        }
-      ]
     }
   ],
   "components": [
     {
-      "name": "FeaturesBlock",
+      "name": "FeatureBlock",
       "preReturnCode": "",
       "jsx": {
         "type": "element",
-        "tag": "div",
+        "tag": "section",
         "props": {
-          "className": "py-12"
+          "className": "px-[5%] pt-32 pb-36 bg-slate-100 overflow-hidden h-fit mx-auto"
         },
         "children": [
           {
             "type": "element",
             "tag": "div",
             "props": {
-              "className": "max-w-[28rem] mx-auto lg:max-w-[1280px]"
+              "className": "flex flex-col justify-center md:mb-36 mb-20"
             },
             "children": [
               {
-                "type": "element",
-                "tag": "div",
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
                 "props": {
-                  "className": "mb-[4rem] flex flex-wrap lg:flex-nowrap flex-col lg:flex-row lg:justify-between lg:items-center"
+                  "as": "h2",
+                  "className": "mb-2 text-4xl md:text-2xl lg:text-6xl font-bold leading-none"
                 },
                 "children": [
                   {
-                    "type": "element",
-                    "tag": "div",
-                    "props": {
-                      "className": "mb-[2rem] px-2"
-                    },
-                    "children": [
-                      {
-                        "type": "element",
-                        "tag": "div",
-                        "props": {
-                          "className": "max-w-lg block"
-                        },
-                        "children": [
-                          {
-                            "type": "element",
-                            "tag": "span",
-                            "props": {
-                              "className": "bg-[#fbe7e7] py-2 px-4  text-[#ee4b4b] rounded-full"
-                            },
-                            "children": [
-                              {
-                                "type": "dynamicText",
-                                "text": "tag"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "component",
-                            "component": "Text",
-                            "package": "@/components/ui/base/text",
-                            "props": {
-                              "as": "h2",
-                              "className": "text-5xl font-bold mt-8 leading-relaxed md:text-7xl"
-                            },
-                            "children": [
-                              {
-                                "type": "dynamicText",
-                                "text": "title"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  },
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "Text",
+                "package": "@/components/ui/base/text",
+                "props": {
+                  "as": "h3",
+                  "className": "text-lg font-semibold md:py-8 md:max-w-2xl"
+                },
+                "children": [
                   {
-                    "type": "element",
-                    "tag": "div",
-                    "props": {
-                      "className": "shrink px-3"
-                    },
-                    "children": [
-                      {
-                        "type": "element",
-                        "tag": "div",
-                        "props": {
-                          "className": "max-w-[28rem] box-border"
-                        },
-                        "children": [
-                          {
-                            "type": "component",
-                            "component": "Text",
-                            "package": "@/components/ui/base/text",
-                            "props": {
-                              "as": "p",
-                              "className": "text-lg"
-                            },
-                            "children": [
-                              {
-                                "type": "dynamicText",
-                                "text": "description"
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
+                    "type": "dynamicText",
+                    "text": "description"
                   }
                 ]
               }
@@ -142,69 +65,67 @@
             "type": "element",
             "tag": "div",
             "props": {
-              "className": "max-w-[28rem] mx-auto lg:max-w-[1280px]"
+              "className": "flex flex-col md:justify-between justify-center gap-y-4 md:flex-row md:gap-x-4"
             },
             "children": [
               {
                 "type": "element",
                 "tag": "div",
                 "props": {
-                  "className": "mb-12 w-full box-border px-3 flex flex-col sm:flex-row gap-4"
+                  "className": "p-3 w-full bg-white border border-gray-900 flex flex-row rounded-3xl"
                 },
                 "children": [
                   {
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "box-border mb-12"
+                      "className": "w-auto p-4"
                     },
                     "children": [
                       {
                         "type": "element",
-                        "tag": "img",
+                        "tag": "svg",
                         "props": {
-                          "src": "/1.jpg",
-                          "alt": "feature1",
-                          "className": "mb-6 w-full block align-middle box-border"
-                        }
-                      },
-                      {
-                        "type": "component",
-                        "component": "Text",
-                        "package": "@/components/ui/base/text",
-                        "props": {
-                          "as": "h3",
-                          "className": "text-2xl mb-6 box-border font-bold"
-                        },
-                        "children": [
-                          {
-                            "type": "text",
-                            "text": "The heart of what makes we valuable"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "element",
-                        "tag": "a",
-                        "props": {
-                          "href": "",
-                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                          "width": "28",
+                          "height": "28",
+                          "viewBox": "0 0 28 28",
+                          "fill": "none",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "data-config-id": "svg-5b8a8b-1"
                         },
                         "children": [
                           {
                             "type": "element",
-                            "tag": "span",
-                            "children": [
-                              {
-                                "type": "text",
-                                "text": "Learn more"
-                              }
-                            ]
+                            "tag": "path",
+                            "props": {
+                              "d": "M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
                           },
                           {
-                            "type": "component",
-                            "component": "ArrowUpRight",
-                            "package": "lucide-react"
+                            "type": "element",
+                            "tag": "path",
+                            "props": {
+                              "d": "M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "path",
+                            "props": {
+                              "d": "M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
                           }
                         ]
                       }
@@ -214,55 +135,125 @@
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "box-border mb-12"
+                      "className": "flex-1 p-4"
                     },
                     "children": [
-                      {
-                        "type": "element",
-                        "tag": "img",
-                        "props": {
-                          "src": "/1.jpg",
-                          "alt": "feature1",
-                          "className": "mb-6 w-full block align-middle box-border"
-                        }
-                      },
                       {
                         "type": "component",
                         "component": "Text",
                         "package": "@/components/ui/base/text",
                         "props": {
                           "as": "h3",
-                          "className": "text-2xl mb-6 box-border font-bold"
+                          "className": "py-0 mb-3 text-lg font-semibold leading-none"
                         },
                         "children": [
                           {
-                            "type": "text",
-                            "text": "The heart of what makes we valuable"
+                            "type": "conditional",
+                            "condition": "feature_items && feature_items[0] && feature_items[0].title",
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "feature_items.0.title"
+                              }
+                            ],
+                            "else": [
+                              {
+                                "type": "text",
+                                "text": ""
+                              }
+                            ]
                           }
                         ]
                       },
                       {
-                        "type": "element",
-                        "tag": "a",
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
                         "props": {
-                          "href": "",
-                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                          "as": "p",
+                          "className": "text-gray-600 font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "conditional",
+                            "condition": "feature_items && feature_items[0] && feature_items[0].description",
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "feature_items.0.description"
+                              }
+                            ],
+                            "else": [
+                              {
+                                "type": "text",
+                                "text": ""
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "p-3 w-full bg-white border border-gray-900 flex flex-row rounded-3xl"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-auto p-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "svg",
+                        "props": {
+                          "width": "28",
+                          "height": "28",
+                          "viewBox": "0 0 28 28",
+                          "fill": "none",
+                          "xmlns": "http://www.w3.org/2000/svg",
+                          "data-config-id": "svg-5b8a8b-1"
                         },
                         "children": [
                           {
                             "type": "element",
-                            "tag": "span",
-                            "children": [
-                              {
-                                "type": "text",
-                                "text": "Learn more"
-                              }
-                            ]
+                            "tag": "path",
+                            "props": {
+                              "d": "M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
                           },
                           {
-                            "type": "component",
-                            "component": "ArrowUpRight",
-                            "package": "lucide-react"
+                            "type": "element",
+                            "tag": "path",
+                            "props": {
+                              "d": "M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "path",
+                            "props": {
+                              "d": "M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z",
+                              "stroke": "#6366F1",
+                              "stroke-width": "2",
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round"
+                            }
                           }
                         ]
                       }
@@ -272,55 +263,60 @@
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "box-border mb-12"
+                      "className": "flex-1 p-4"
                     },
                     "children": [
-                      {
-                        "type": "element",
-                        "tag": "img",
-                        "props": {
-                          "src": "/1.jpg",
-                          "alt": "feature1",
-                          "className": "mb-6 w-full block align-middle box-border"
-                        }
-                      },
                       {
                         "type": "component",
                         "component": "Text",
                         "package": "@/components/ui/base/text",
                         "props": {
                           "as": "h3",
-                          "className": "text-2xl mb-6 box-border font-bold"
+                          "className": "py-0 mb-3 text-lg font-semibold leading-none"
                         },
                         "children": [
                           {
-                            "type": "text",
-                            "text": "The heart of what makes we valuable"
+                            "type": "conditional",
+                            "condition": "feature_items && feature_items[1] && feature_items[1].title",
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "feature_items.1.title"
+                              }
+                            ],
+                            "else": [
+                              {
+                                "type": "text",
+                                "text": ""
+                              }
+                            ]
                           }
                         ]
                       },
                       {
-                        "type": "element",
-                        "tag": "a",
+                        "type": "component",
+                        "component": "Text",
+                        "package": "@/components/ui/base/text",
                         "props": {
-                          "href": "",
-                          "className": "inline-flex items-center rounded-full px-4 py-3 border border-[#EEF0F3] text-red-500"
+                          "as": "p",
+                          "className": "text-gray-600 font-medium"
                         },
                         "children": [
                           {
-                            "type": "element",
-                            "tag": "span",
+                            "type": "conditional",
+                            "condition": "feature_items && feature_items[1] && feature_items[1].description",
                             "children": [
                               {
+                                "type": "dynamicText",
+                                "text": "feature_items.1.description"
+                              }
+                            ],
+                            "else": [
+                              {
                                 "type": "text",
-                                "text": "Learn more"
+                                "text": ""
                               }
                             ]
-                          },
-                          {
-                            "type": "component",
-                            "component": "ArrowUpRight",
-                            "package": "lucide-react"
                           }
                         ]
                       }

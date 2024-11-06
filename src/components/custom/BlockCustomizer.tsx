@@ -45,7 +45,9 @@ export default function BlockCustomizer({ data: initialData, onSave, componentTy
       if (section.id == id) {
         section.data = data
         section.data.version = selectedVersion;
+        console.log(section, "SECTION")
       }
+
       return section
     });
     setWebsiteContent({ ...websiteContent, pageCode: newValue })

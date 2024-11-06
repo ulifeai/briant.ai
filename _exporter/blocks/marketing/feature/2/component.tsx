@@ -8,7 +8,7 @@ interface FeatureBlockProps {
   title: string;
   description: string;
 
-      buttons: {
+  buttons: {
       title: string;
       variant: string;
       size: string;

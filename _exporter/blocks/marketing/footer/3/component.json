@@ -1,0 +1,730 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowRight",
+          "local": "ArrowRight"
+        },
+        {
+          "type": "named",
+          "imported": "Facebook",
+          "local": "Facebook"
+        },
+        {
+          "type": "named",
+          "imported": "Instagram",
+          "local": "Instagram"
+        },
+        {
+          "type": "named",
+          "imported": "Linkedin",
+          "local": "Linkedin"
+        },
+        {
+          "type": "named",
+          "imported": "Mail",
+          "local": "Mail"
+        },
+        {
+          "type": "named",
+          "imported": "SendHorizonal",
+          "local": "SendHorizonal"
+        },
+        {
+          "type": "named",
+          "imported": "Twitter",
+          "local": "Twitter"
+        },
+        {
+          "type": "named",
+          "imported": "Youtube",
+          "local": "Youtube"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Footer",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "footer",
+        "props": {
+          "className": "py-20 bg-gray-900"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "max-w-7xl mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "pb-10 mb-10 border-b border-gray-700 items-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -mx-4 items-center"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-full lg:w-1/2 px-4 mb-4 lg:mb-0"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "#",
+                                  "className": "w-full lg:w-1/2 px-4 mb-4 lg:mb-0"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{logo.src}",
+                                      "alt": "{logo.alt}",
+                                      "className": "h-14"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-full lg:w-1/2 px-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "sm:flex -mb-4 items-center lg:justify-end"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "inline-block text-white mb-4 mr-8"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "getStartedTitle"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "a",
+                                    "props": {
+                                      "href": "#",
+                                      "className": "relative group inline-block w-full sm:w-auto py-3 px-5 mb-4 text-center text-sm font-semibold text-orange-50 hover:text-orange-900 bg-orange-900 rounded-md overflow-hidden transition duration-300"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "relative"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "getStartedButtonText"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap -mx-4 mb-18"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full lg:w-2/5 px-4 mb-12 lg:mb-0"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "lg:max-w-xs"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "h4",
+                                  "className": "font-heading text-2xl font-semibold text-gray-50 mb-4"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "subscribeTitle || \"\""
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "form",
+                                "props": {
+                                  "action": ""
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "label",
+                                    "props": {
+                                      "htmlFor": "",
+                                      "className": "block mb-1.5 text-sm font-semibold text-white"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "subscribeLabel"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "md:flex items-center"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "relative mb-4 lg:mb-0 md:mr-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "span",
+                                            "props": {
+                                              "className": "absolute left-0 top-1/2 ml-4 transform -translate-y-1/2"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Mail",
+                                                "package": "lucide-react"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "input",
+                                            "props": {
+                                              "type": "email",
+                                              "placeholder": "{subscribePlaceholder}",
+                                              "className": "w-full p-12 pr-4 py-4 text-sm text-gray-300 placeholder-gray-400 rounded-lg bg-gray-800 border border-gray-700 outline-none"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "button",
+                                        "props": {
+                                          "className": "flex flex-shrink-0 ml-auto lg:ml-0 items-center justify-center w-12 h-12 text-orange-50 hover:text-orange-900 bg-orange-900 hover:bg-white rounded-full transition duration-200"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "SendHorizonal",
+                                            "package": "lucide-react"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full md:w-1/3 lg:w-1/5 px-4 mb-8 md:mb-0"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h5",
+                              "className": "text-lg font-semibold text-gray-50 mb-4"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.0?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.0?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "inline-block text-gray-300 hover:text-gray-200"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full md:w-1/3 lg:w-1/5 px-4 mb-8 md:mb-0"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h5",
+                              "className": "text-lg font-semibold text-gray-50 mb-4"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.1?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.1?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "inline-block text-gray-300 hover:text-gray-200"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/3 lg:w-1/5 px-4"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h5",
+                              "className": "text-lg font-semibold text-gray-50 mb-4"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.2?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.2?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-4"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "inline-block text-gray-300 hover:text-gray-200"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "sm:flex items-center justify-between"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "sm:flex mb-6 sm:mb-0 items-center"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{legalLinks.0.href}",
+                              "className": "inline-block mr-6 sm:mr-12 text-gray-300 hover:text-gray-200"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "legalLinks.0.title"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "a",
+                            "props": {
+                              "href": "{legalLinks.1.href}",
+                              "className": "inline-block text-gray-300 hover:text-gray-200"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "legalLinks.1.title"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex items-center"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "socialLinks",
+                              "iterator": "link"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "key": "{index}",
+                                  "href": "{link.href}",
+                                  "className": "inline-block mr-9 p-1 hover:bg-gray-800 rounded-md text-white"
+                                },
+                                "children": [
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == \"facebook\"",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Facebook",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == \"instagram\"",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Instagram",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == \"twitter\"",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Twitter",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == \"linkedin\"",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Linkedin",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "link.platform == \"youtube\"",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Youtube",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "className": "h-5 w-5"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

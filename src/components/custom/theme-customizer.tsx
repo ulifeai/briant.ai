@@ -73,10 +73,6 @@ export function ThemeCustomizer() {
     setThemeOptions((prev) => ({ ...prev, [key]: value }))
   }
 
-  useEffect(()=>{
-    console.log(themeOptions, "FILTER 2")
-  }, [themeOptions])
-
 //   const generateTailwindTheme = () => {
 //     console.log(themeOptions)
 //     return {
@@ -123,6 +119,8 @@ export function ThemeCustomizer() {
   return (
     <div className="grid gap-4 max-h-[80vh] overflow-y-auto">
             <h3 className="font-semibold text-md mb-8">Theme Customizer</h3>
+
+
             
             {/* Color Scheme */}
             <section className="grid gap-4">
@@ -195,6 +193,97 @@ export function ThemeCustomizer() {
                 />
                 </div> */}
             </section>
+
+            {/* Color Scheme */}
+            {/* <section className="grid gap-4"> */}
+                {/* <div className="font-semibold text-sm">Chooose a theme</div>
+                <div className="justify-start flex items-center flex-row">
+                    <div className="relative flex flex-col justify-center overflow-hidden bg-gray-50"> 
+                        <div className="relative bg-white shadow-xl flex space-x-4 ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg"> 
+                            <div className="mx-auto max-w-md"> 
+                                <div className="divide-y divide-gray-300/50"> 
+                                    <div className="space-y-6 text-base leading-7 text-gray-600"> 
+                                        <h3 className="text-2xl p-2">Aa</h3> 
+                                    </div> 
+                                </div> 
+                                <div className="h-8 w-12 rounded-tl-xl bg-red-500"></div> 
+                            </div> 
+                            <div className="mx-auto max-w-md"> 
+                                <div className="divide-y divide-gray-300/50"> 
+                                    <div className="space-y-6 text-base leading-7 text-gray-600"> 
+                                        <h3 className="text-2xl p-2 font-serif">Aa</h3> 
+                                    </div> 
+                                </div> 
+                                <div className="h-8 w-12 rounded-tl-xl bg-gray-500"></div> 
+                            </div> 
+                            <div className="mx-auto max-w-md"> 
+                                <div className="divide-y divide-gray-300/50"> 
+                                    <div className="space-y-6 text-base leading-7 text-gray-600"> 
+                                        <h3 className="text-2xl p-2 font-sans">Aa</h3> 
+                                    </div> 
+                                </div> 
+                                <div className="h-8 w-12 rounded-tl-xl bg-blue-500"></div> 
+                            </div> 
+                        </div>
+                    </div>
+
+                </div> */}
+                {/* Secondary Color */}
+                {/* <div className="justify-start flex items-center flex-row">
+                <Input
+                    id="secondaryColor"
+                    type="color"
+                    className="w-8 mr-2 h-8 p-0 rounded-full border-0"
+                    value={themeOptions.secondaryColor}
+                    onChange={(e) => updateThemeOption('secondaryColor', e.target.value)}
+                />
+                <Label className='text-xs font-normal' htmlFor="secondaryColor">Secondary Color</Label>
+
+                </div> */}
+                {/* Tag Colors */}
+                {/* <div className="grid gap-2">
+                <Label>Tag Colors</Label>
+                <div className="flex gap-2">
+                    <Input
+                    type="color"
+                    value={themeOptions.tagColors}
+                    onChange={(e) => updateThemeOption('tagColors', e.target.value)}
+                    />
+                </div>
+                </div>
+                <div className="grid gap-2">
+                <Label>Header Colors</Label>
+                <div className="flex gap-2">
+                    <Input
+                    type="color"
+                    value={themeOptions.headerColors}
+                    onChange={(e) => updateThemeOption('headerColors', e.target.value)}
+                    />
+                </div>
+                </div>
+                <div className="grid gap-2">
+                <Label className='text-xs mt-2 font-normal' htmlFor="pageTextColor">Page Text Color</Label>
+                <Input
+                    id="pageTextColor"
+                    type="color"
+                    value={themeOptions.pageTextColor}
+                    onChange={(e) => updateThemeOption('pageTextColor', e.target.value)}
+                />
+                </div> */}
+
+                {/* Transparency */}
+                {/* <div className="grid gap-2">
+                <Label className='text-xs mt-2 font-normal' htmlFor="transparency">Transparency: {themeOptions.transparency}%</Label>
+                <Slider
+                    id="transparency"
+                    min={0}
+                    max={100}
+                    step={1}
+                    value={[themeOptions.transparency]}
+                    onValueChange={(value) => updateThemeOption('transparency', value[0])}
+                />
+                </div> */}
+            {/* </section> */}
 
             {/* Layout Settings */}
             <section className="grid gap-4 mt-8">

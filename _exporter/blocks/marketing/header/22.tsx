@@ -7,7 +7,7 @@ import HeroHeaderBlock4 from "./4/component";
 import HeroHeaderBlock5 from "./5/component";
 import HeroHeaderBlock6 from "./6/component";
 import HeroHeaderBlock7 from "./7/component";
-import HeroHeaderBlock8 from "./8/component";
+import HeroHeaderBlock8 from "./6/8/component";
 import HeroHeaderBlock9 from "./9/component";
 import HeroHeaderBlock10 from "./10/component";
 import HeroHeaderBlock11 from "./11/component";

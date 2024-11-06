@@ -53,7 +53,7 @@ export default function FAQBlock({
           </div>
             <div className="border-t border-black mx-auto w-[40rem]">
               <Accordion type="single" collapsible>
-                {questions.map((question, index) => (
+                {questions?.map((question, index) => (
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
@@ -81,12 +81,12 @@ export default function FAQBlock({
             </p>
          
             <Button
-            variant={button.variant as "default" | "outline"}
-            size={button.size as "default" | "sm" | "lg"}
+            variant={button?.variant as "default" | "outline"}
+            size={button?.size as "default" | "sm" | "lg"}
             className="whitespace-nowrap h-10 mx-2 w-32 px-4 py-2"
             style={{ borderRadius: "var(--button-radius)" }}
             >
-            {button.title}
+            {button?.title}
             </Button>
           </div>
         </div>

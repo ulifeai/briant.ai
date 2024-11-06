@@ -2,15 +2,15 @@ export const generateComponentsOverview = () =>{
     // banners: A header banner for a simple anoucement if there is a need for it
     
     return `
-    cta : A call to action section. 
-    FAQSection : A FAQ section
-    feature : A single feature sections. A page can contains multiple feature section for more explanation
-    footer : The footer section
-    navbar : the navigation section containing the website navigation
-    header : A header section without the menu. It is the above the fold introducing the website
-    logo : set of logo for social proof
-    pricing : pricing section
-    testimonial: testimonial section
+    - **navbar**: The website navigation section, containing links to main pages.
+    - **header**: An above-the-fold section introducing the website without the menu.
+    - **cta**: A call-to-action section encouraging user engagement.
+    - **feature**: Single feature sections for detailed explanations (multiple can be used).
+    - **testimonial**: A section showcasing customer testimonials.
+    - **pricing**: A section outlining pricing options.
+    - **faq**: A frequently asked questions section.
+    - **logo**: A display of logos for social proof.
+    - **footer**: The footer section containing additional navigation and information.
     `
 }
 

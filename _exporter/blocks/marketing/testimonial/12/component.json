@@ -1,0 +1,111 @@
+{
+  "imports": [],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "py-36 bg-white overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex justify-center"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "relative overflow-hidden rounded-3xl h-[550px]"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{testimonials.0.imageAuthor}",
+                          "alt": "{testimonials.0.altAuthor}",
+                          "className": "transform hover:scale-105 transition ease-in-out duration-1000"
+                        }
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "absolute left-0 top-0 px-14 py-11 w-3/4 md:w-1/2 bg-white bg-opacity-30 overflow-y-auto h-full backdrop-opacity-0"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "img",
+                            "props": {
+                              "src": "images/quote.svg",
+                              "alt": "quote",
+                              "className": "mb-20 text-[#4F46E5]"
+                            }
+                          },
+                          {
+                            "type": "element",
+                            "tag": "h3",
+                            "props": {
+                              "className": "mb-8 lg:text-3xl font-semibold leading-snug text-lg"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "testimonials.0.quote"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "h4",
+                            "props": {
+                              "className": "mb-1 font-bold"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "testimonials.0.author"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "p",
+                            "props": {
+                              "className": "text-gray-600 font-medium"
+                            },
+                            "children": [
+                              {
+                                "type": "dynamicText",
+                                "text": "testimonials.0.position"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

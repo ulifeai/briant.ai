@@ -1,0 +1,99 @@
+{
+  "imports": [
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    },
+    {
+      "source": "./1/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar1"
+        }
+      ]
+    },
+    {
+      "source": "./2/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar2"
+        }
+      ]
+    },
+    {
+      "source": "./3/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar3"
+        }
+      ]
+    },
+    {
+      "source": "./4/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar4"
+        }
+      ]
+    },
+    {
+      "source": "./5/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar5"
+        }
+      ]
+    },
+    {
+      "source": "./6/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Navbar6"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "sample",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "component",
+            "component": "Navbar3",
+            "package": "./3/component"
+          },
+          {
+            "type": "component",
+            "component": "Navbar4",
+            "package": "./4/component"
+          },
+          {
+            "type": "component",
+            "component": "Navbar5",
+            "package": "./5/component"
+          },
+          {
+            "type": "component",
+            "component": "Navbar6",
+            "package": "./6/component"
+          }
+        ]
+      }
+    }
+  ]
+}

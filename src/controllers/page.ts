@@ -111,6 +111,55 @@ export async function createPage(data: {
     }
 }
 
+
+/**
+ * Create a new page within a project.
+ * @param data - The page data.
+ * @returns The newly created IPage object.
+ */
+export async function createMultiplePages(data: {
+    project_id: string; // UUID of the project
+    name: string;
+    path: string;
+    description: string;
+    category: string
+}[]): Promise<IPage[]> {
+    try {
+        const savedPage = []
+        for (let i = 0; i < data.length; i++) {
+            const { project_id, name, path, category, description } = data[i];
+            // Find the project by UUID
+            const project = await Project.findOne({ _id: project_id }).exec();
+            if (!project) {
+                throw new Error('Project not found');
+            }
+
+            // Optional: Check for duplicate page name within the project
+            const existingPage = await Page.findOne({ project_id: project._id, name }).exec();
+            if (existingPage) {
+                throw new Error('Page name already exists within this project');
+            }
+
+            const newPage: IPage = new Page({
+                project_id: project._id,
+                name,
+                path,
+                description,
+                category
+            });
+
+            savedPage.push(await newPage.save());
+            logger.info('Page created successfully:', savedPage); // Optional: Enhanced logging
+
+        }
+
+        return savedPage;
+    } catch (error: any) {
+        logger.error('Error creating page:', error); // Optional: Enhanced logging
+        throw new Error(error.message || 'Failed to create page');
+    }
+}
+
 /**
  * Update an existing page by its ID.
  * @param pageId - The UUID of the page.

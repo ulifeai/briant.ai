@@ -88,7 +88,7 @@ export default function SitePreviewContainer({ website_content, loadingIframe, w
          
         </div> */}
 
-        <iframe ref={iframeRef} src="http://localhost:3001/preview" className="w-full h-full"></iframe>
+        <iframe ref={iframeRef} src={(process.env.NEXT_PUBLIC_PREVIEW_URL??"http://localhost:3001")+"/preview"} className="w-full h-full"></iframe>
           
       </div>
     </ScrollArea>

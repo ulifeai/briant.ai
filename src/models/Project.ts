@@ -33,7 +33,6 @@ const projectSchema: Schema<IProject> = new Schema(
             type: String,
             required: true,
             trim: true,
-            index: true,
         },
         description: {
             type: String,

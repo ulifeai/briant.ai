@@ -79,7 +79,7 @@
                     "type": "element",
                     "tag": "a",
                     "props": {
-                      "href": "/",
+                      "href": "{logo.url}",
                       "className": "flex items-center"
                     },
                     "children": [
@@ -87,8 +87,8 @@
                         "type": "element",
                         "tag": "img",
                         "props": {
-                          "src": "{logo}",
-                          "alt": "Logo",
+                          "src": "{logo.url}",
+                          "alt": "{logo.alt}",
                           "className": "h-8 w-auto"
                         }
                       }

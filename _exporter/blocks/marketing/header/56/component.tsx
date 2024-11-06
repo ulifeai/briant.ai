@@ -13,6 +13,7 @@ import {
   DialogPortal,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Text } from "@/components/ui/base/text";
 
 interface HeaderProps {
   title: string;
@@ -64,12 +65,18 @@ export default function HeroHeaderBlock({
         <div className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
             <div className="max-w-md">
-              <h1 className="mb-5 text-2xl font-bold text-text-alternative md:mb-6 md:text-4xl lg:text-7xl">
+              <Text
+                as="hero"
+                className="mb-5 text-2xl font-bold text-text-alternative md:mb-6 md:text-4xl lg:text-7xl"
+              >
                 {title}
-              </h1>
-              <p className="text-base text-text-alternative md:text-md">
+              </Text>
+              <Text
+                as="h6"
+                className="text-base text-text-alternative md:text-md"
+              >
                 {description}
-              </p>
+              </Text>
               <div className="mt-6 flex gap-x-4 md:mt-8">
                 {buttons.map((button, index) => (
                   <Button
@@ -94,7 +101,6 @@ export default function HeroHeaderBlock({
                         | undefined
                     }
                     key={index}
-                    
                     className="whitespace-nowrap px-4 py-2 "
                   >
                     {button.title}

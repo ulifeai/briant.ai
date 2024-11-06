@@ -5,10 +5,10 @@ export const componentVersions: Record<string, number> = {
     blogPost: 5,
     cta: 10,
     header: 42,
-    feature: 23,
+    feature: 11,
     navbar: 8,
     pricing: 8,
-    testimonial: 4,
+    testimonial: 14,
     footer: 11,
 };
   

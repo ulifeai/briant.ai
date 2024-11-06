@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
     const validatedData = validation.data;
 
     try {
-        const newPage = await createPage({ ...validatedData, category: validatedData.category as Category ?? "static" });
+        const newPage = await createPage({ ...validatedData, category: validatedData.category as Category ?? "public" });
         return createResponse({ success: true, data: newPage }, 201);
     } catch (error: any) {
         console.error('POST /api/pages Error:', error);

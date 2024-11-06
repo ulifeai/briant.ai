@@ -14,7 +14,7 @@ export const createProjectSchema = z.object({
     .optional(),
 
   description: z.string(),
-  category: z.string().default("static"),
+  category: z.string().default("public"),
 
   customizations: z.record(z.any()).optional(),
 });
@@ -26,7 +26,7 @@ export const updateProjectSchema = z.object({
     .optional(),
 
   description: z.string().optional(),
-  category: z.string().default("static"),
+  category: z.string().default("public"),
 
 
   customizations: z.record(z.any()).optional(),
@@ -37,11 +37,22 @@ export const updateProjectSchema = z.object({
  */
 export const createPageSchema = z.object({
   project_id: z.string(),
-  category: z.string().default("static"),
+  category: z.string().default("public"),
   name: z.string()
     .min(1, { message: "Name must be at least 1 character long" })
     .max(100, { message: "Name must be at most 100 characters long" }),
 });
+
+
+export const createBulkPageSchema = z.array(z.object({
+  project_id: z.string(),
+  path: z.string(),
+  description: z.string(),
+  category: z.string().default("public"),
+  name: z.string()
+    .min(1, { message: "Name must be at least 1 character long" })
+    .max(100, { message: "Name must be at most 100 characters long" }),
+}))
 
 export const updatePageSchema = z.object({
   name: z.string()

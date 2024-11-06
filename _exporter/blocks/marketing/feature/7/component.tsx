@@ -1,19 +1,19 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight, Package2 } from "lucide-react";
+"use client"
+
+import { Text } from "@/components/ui/base/text";
 
 interface FeatureBlockProps {
   tag: string;
   title: string;
   description: string;
 
-      buttons: {
-      title: string;
-      variant: string;
-      size: string;
-    }[];
+  buttons: {
+    title: string;
+    variant: string;
+    size: string;
+  }[];
   image: {
-    image: string;
+    src: string;
     alt: string;
   };
   form?: {
@@ -24,106 +24,78 @@ interface FeatureBlockProps {
     title: string;
     description: string;
   }[];
+  cardImages?: {
+    link?: string;
+    src?: string;
+    alt?: string;
+    title?: string;
+    description?: string;
+  }[];
 }
 
 export default function FeatureBlock({
-  tag,
   title,
   description,
-  buttons,
-  form,
   image,
   feature_items,
 }: FeatureBlockProps) {
   return (
-    <div className="px-[5%] py-16 lg:max-h-full container mx-auto">
-      <div className="flex flex-col gap-y-12 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:items-center">
-        <div className="flex flex-col">
-          <div>
-            {tag && (
-              <span className="text-sm font-semibold uppercase tracking-wider  mb-2">
-                {tag}
-              </span>
-            )}
-            <h1
-              className="text-4xl font-bold py-2"
-              style={{ fontFamily: "var(--header-font)" }}
-            >
-              {title}
-            </h1>
-            <p
-              className="text-base py-2"
-              style={{ fontFamily: "var(--page-font)" }}
-            >
-              {description}
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2  mt-8">
-              {feature_items?.map((subheading, index) => (
-                <div
-                  key={index}
-                  className="flex items-start flex-col space-y-3"
-                >
-                  <div className="mx-0">
-                    <h3 className="text-3xl font-bold">{subheading.title}</h3>
-                    <p className="mt-2 text-sm">{subheading.description}</p>
-                  </div>
-                </div>
-              ))}
+    <section className="px-[5%] py-28 h-fit mx-auto">
+      <Text
+        as="h2"
+        className="mb-20 text-4xl md:text-4xl lg:text-6xl font-bold leading-none"
+      >
+        {title}
+      </Text>
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full h-full md:w-1/2 md:p-8 xl:p-10 mb-12">
+          <div className="block overflow-hidden rounded-3xl">
+            <img
+              className="w-full h-full object-cover aspect-square"
+              src={image?.src}
+              alt={image?.alt}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:w-1/2 md:p-8 xl:p-10 my-auto">
+          <Text
+            as="h3"
+            className="mb-11 pb-32 border-b text-lg font-semibold md:p-8 md:max-w-lg"
+          >
+            {description}
+          </Text>
+          <div className="flex flex-col md:flex-row">
+            <div className="w-auto md:w-1/2 md:p-8 md:max-w-xs">
+              <Text as="h3" className="mb-4 text-lg text-black font-semibold">
+                {feature_items && feature_items[0] && feature_items[0].title
+                  ? feature_items[0].title
+                  : ""}
+              </Text>
+              <Text as="p" className="text-gray-900 font-medium">
+                {feature_items &&
+                feature_items[0] &&
+                feature_items[0].description
+                  ? feature_items[0].description
+                  : ""}
+              </Text>
             </div>
-            <div className="mt-8">
-              <div className={`w-full flex items-center`}>
-                <div className="lg:max-w-[30rem]">
-                  {form ? (
-                    <form
-                      action=""
-                      className="flex flex-col gap-y-3 mb-4 lg:grid lg:grid-rows-1 lg:grid-cols-[1fr_max-content] lg:gap-x-4"
-                    >
-                      <Input
-                        type="text"
-                        placeholder={form?.placeholder ?? ""}
-                        className="border border-black h-auto min-h-11 mb-0 px-2 rounded-none text-base leading-relaxed bg-white text-black"
-                      />
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          className="whitespace-nowrap "
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </form>
-                  ) : (
-                    <>
-                      {buttons?.map((button, index) => (
-                        <Button
-                          key={index}
-                          variant={button.variant as "default" | "outline"}
-                          size={button.size as "default" | "sm" | "lg"}
-                          className="whitespace-nowrap h-10 px-4 mx-2 py-2"
-                          style={{ borderRadius: "var(--button-radius)" }}
-                        >
-                          {button.title}
-                        </Button>
-                      ))}
-                    </>
-                  )}
-
-                  <div className={` text-xs`}>{form?.description ?? ""}</div>
-                </div>
-              </div>
+            <div className="w-auto md:w-1/2 md:p-8 md:max-w-xs">
+              <Text as="h3" className="mb-4 text-lg text-black font-semibold">
+                {feature_items && feature_items[1] && feature_items[1].title
+                  ? feature_items[1].title
+                  : ""}
+              </Text>
+              <Text as="p" className="text-gray-900 font-medium">
+                {feature_items &&
+                feature_items[1] &&
+                feature_items[1].description
+                  ? feature_items[1].description
+                  : ""}
+              </Text>
             </div>
           </div>
         </div>
-        <div>
-          <img
-            src={image?.image}
-            alt={image?.alt}
-            className="w-full h-full object-cover max-h-[30rem]"
-            style={{ borderRadius: "var(--image-radius)" }}
-          />
-        </div>
       </div>
-    </div>
+    </section>
   );
 }

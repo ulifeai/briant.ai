@@ -108,6 +108,16 @@
           "local": "DialogTrigger"
         }
       ]
+    },
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
     }
   ],
   "components": [
@@ -151,9 +161,11 @@
                         },
                         "children": [
                           {
-                            "type": "element",
-                            "tag": "h1",
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
                             "props": {
+                              "as": "hero",
                               "className": "mb-5 text-2xl font-bold text-text-alternative md:mb-6 md:text-4xl lg:text-7xl"
                             },
                             "children": [
@@ -164,9 +176,11 @@
                             ]
                           },
                           {
-                            "type": "element",
-                            "tag": "p",
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
                             "props": {
+                              "as": "h6",
                               "className": "text-base text-text-alternative md:text-md"
                             },
                             "children": [

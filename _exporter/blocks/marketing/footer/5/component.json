@@ -1,0 +1,734 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ArrowRight",
+          "local": "ArrowRight"
+        },
+        {
+          "type": "named",
+          "imported": "Facebook",
+          "local": "Facebook"
+        },
+        {
+          "type": "named",
+          "imported": "Instagram",
+          "local": "Instagram"
+        },
+        {
+          "type": "named",
+          "imported": "Linkedin",
+          "local": "Linkedin"
+        },
+        {
+          "type": "named",
+          "imported": "Mail",
+          "local": "Mail"
+        },
+        {
+          "type": "named",
+          "imported": "SendHorizonal",
+          "local": "SendHorizonal"
+        },
+        {
+          "type": "named",
+          "imported": "Youtube",
+          "local": "Youtube"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Footer",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "footer",
+        "props": {
+          "className": "pt-24 bg-white overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "pb-20 border-b"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap -m-8"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/2 lg:w-2/12 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-6 font-semibold leading-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.0?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.0?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-3.5"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "text-gray-600 hover:text-gray-700 font-medium leading-relaxed"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/2 lg:w-2/12 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-6 font-semibold leading-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.1?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.1?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-3.5"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "text-gray-600 hover:text-gray-700 font-medium leading-relaxed"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/2 lg:w-2/12 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-6 font-semibold leading-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.2?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.2?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-3.5"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "text-gray-600 hover:text-gray-700 font-medium leading-relaxed"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/2 lg:w-2/12 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "Text",
+                            "package": "@/components/ui/base/text",
+                            "props": {
+                              "as": "h3",
+                              "className": "mb-6 font-semibold leading-normal"
+                            },
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "FooterLinkCols.3?.title"
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "ul",
+                            "children": [
+                              {
+                                "type": "conditional",
+                                "condition": "FooterLinkCols",
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "FooterLinkCols.3?.FooterLinks",
+                                      "iterator": "FooterLink"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "li",
+                                        "props": {
+                                          "key": "{index}",
+                                          "className": "mb-3.5"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "a",
+                                            "props": {
+                                              "href": "{FooterLink.href}",
+                                              "className": "text-gray-600 hover:text-gray-700 font-medium leading-relaxed"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "FooterLink.title"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "else": [
+                                  {
+                                    "type": "text",
+                                    "text": ""
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "w-full sm:w-1/2 lg:w-4/12 p-8"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "lg:max-w-sm"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "h3",
+                                  "className": "mb-6 font-semibold leading-normal"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "subscribeTitle || \"\""
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
+                                "props": {
+                                  "as": "p",
+                                  "className": "mb-5 font-sans text-gray-600 leading-relaxed"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "subscribeText || \"\""
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mb-3 xl:pl-6 inline-block md:max-w-xl w-full overflow-hidden border border-gray-300 rounded-xl focus-within:ring focus-within:ring-indigo-300"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-wrap items-center"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-full xl:flex-1"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "input",
+                                            "props": {
+                                              "type": "text",
+                                              "placeholder": "{subscribePlaceholder}",
+                                              "className": "p-3 lg:p-0 lg:pr-6 w-full font-medium text-gray-500 placeholder-gray-500 outline-none"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-full xl:w-auto"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "button",
+                                            "props": {
+                                              "className": "py-4 px-8 w-full text-white font-semibold border border-indigo-700 focus:ring focus:ring-indigo-300 bg-indigo-600 hover:bg-indigo-700 transition ease-in-out duration-200"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "subscribeButtonText"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-wrap justify-between items-center py-6 -m-4"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-auto p-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "a",
+                        "props": {
+                          "href": "#"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "img",
+                            "props": {
+                              "src": "{logo.src}",
+                              "alt": "{logo.alt}",
+                              "className": "h-14"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-auto p-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "text-sm text-gray-600 font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "copyrightText"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-auto p-4"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -m-4"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-auto p-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "",
+                                  "className": "text-blueGray-400 hover:text-blueGray-500"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Facebook",
+                                    "package": "lucide-react",
+                                    "props": {
+                                      "className": "h-5 w-5"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-auto p-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "",
+                                  "className": "text-blueGray-400 hover:text-blueGray-500"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Instagram",
+                                    "package": "lucide-react",
+                                    "props": {
+                                      "className": "h-5 w-5"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-auto p-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "",
+                                  "className": "text-blueGray-400 hover:text-blueGray-500"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Youtube",
+                                    "package": "lucide-react",
+                                    "props": {
+                                      "className": "h-5 w-5"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-auto p-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "",
+                                  "className": "text-blueGray-400 hover:text-blueGray-500"
+                                },
+                                "children": [
+                                  {
+                                    "type": "component",
+                                    "component": "Linkedin",
+                                    "package": "lucide-react",
+                                    "props": {
+                                      "className": "h-5 w-5"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

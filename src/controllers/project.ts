@@ -51,11 +51,7 @@ export async function createProject(data: {
         let { user_id, name, description = '', customizations = {} } = data;
         const sitemapData = await generateSitemap(description);
         name = sitemapData.sitename
-        // Optional: Check for duplicate project name for the user
-        const existingProject = await Project.findOne({ user_id, name }).exec();
-        if (existingProject) {
-            throw new Error('Project name already exists for this user');
-        }
+
         const newProject: IProject = new Project({
             user_id,
             name,
@@ -68,27 +64,27 @@ export async function createProject(data: {
         // create blocks automagically
 
         if (savedProject) {
-            const pages = sitemapData.pages;
-            for (const key in pages) {
-                if (Object.prototype.hasOwnProperty.call(pages, key)) {
-                    const pageSection = pages[key];
-                    for (let i = 0; i < pageSection.length; i++) {
-                        const page = pageSection[i];
-                        const createdPage = await createPage({
-                            category: key as Category,
-                            name: page.title,
-                            path: page.path,
-                            description: page.description,
-                            project_id: newProject._id as string
-                        });
-                        endPages.push(createdPage);
-                    }
-                }
-            }
+            // const pages = sitemapData.pages;
+            // for (const key in pages) {
+            //     if (Object.prototype.hasOwnProperty.call(pages, key)) {
+            //         const pageSection = pages[key];
+            //         for (let i = 0; i < pageSection.length; i++) {
+            //             const page = pageSection[i];
+            //             const createdPage = await createPage({
+            //                 category: key as Category,
+            //                 name: page.title,
+            //                 path: page.path,
+            //                 description: page.description,
+            //                 project_id: newProject._id as string
+            //             });
+            //             endPages.push(createdPage);
+            //         }
+            //     }
+            // }
 
             // Additional backend data generation can be handled here
         }
-        return { project: savedProject, pages: endPages };
+        return { project: savedProject, pages: sitemapData.pages };
     } catch (error: any) {
         logger.error('Error creating project:', error); // Optional: Enhanced logging
         throw new Error(error.message || 'Failed to create project');

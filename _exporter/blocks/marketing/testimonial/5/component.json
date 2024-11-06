@@ -1,0 +1,282 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/carousel",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Carousel",
+          "local": "Carousel"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselContent",
+          "local": "CarouselContent"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselItem",
+          "local": "CarouselItem"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselApi",
+          "local": "CarouselApi"
+        }
+      ]
+    },
+    {
+      "source": "clsx",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "clsx"
+        }
+      ]
+    },
+    {
+      "source": "embla-carousel-autoplay",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "Autoplay"
+        }
+      ]
+    },
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "useEffect",
+          "local": "useEffect"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "const [api, setApi] = useState<CarouselApi>();\nconst [current, setCurrent] = useState(0);\nuseEffect(() => {\n  if (!api) {\n    return;\n  }\n  setCurrent(api.selectedScrollSnap() + 1);\n  api.on(\"select\", () => {\n    setCurrent(api.selectedScrollSnap() + 1);\n  });\n}, [api]);",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "lg:container lg:mx-auto py-12 relative overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "img",
+            "props": {
+              "src": "{imageBg}",
+              "alt": "{altBg}",
+              "className": "absolute right-0 top-0 size-full  object-cover"
+            }
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "relative lg:max-w-none mx-auto max-w-[480px]"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex lg:flex-row flex-col items-center mb-16 px-3"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "h3",
+                    "props": {
+                      "className": "mb-8 lg:w-[51%] max-w-xl text-4xl font-bold w-full lg:text-5xl"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "props": {
+                      "className": "max-w-xl lg:w-[41%] text-slate-400 my-0 w-full"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "subtitle"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "component",
+                "component": "Carousel",
+                "package": "@/components/ui/carousel",
+                "props": {
+                  "opts": "{options}",
+                  "plugins": "{plugins}",
+                  "setApi": "{setApi}",
+                  "className": "px-3 items-center w-full mb-8 lg:mb-0"
+                },
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "CarouselContent",
+                    "package": "@/components/ui/carousel",
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "testimonials",
+                          "iterator": "testimonial"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "CarouselItem",
+                            "package": "@/components/ui/carousel",
+                            "props": {
+                              "key": "{index}",
+                              "className": "lg:flex lg:flex-row lg:gap-x-16"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex items-center w-full lg:w-[50%] mb-8"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{testimonial.imageAuthor}",
+                                      "alt": "{testimonial.altAuthor}",
+                                      "className": "block w-full max-w-full h-[280px] object-cover aspect-square"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "lg:w-[50%]"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "images/quote.svg",
+                                      "alt": "quote",
+                                      "className": "block max-w-full h-auto mb-8"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "p",
+                                    "props": {
+                                      "className": "lg:text-2xl text-xl font-bold mb-6"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "testimonial.quote"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "block text-base font-semibold mb-1"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "text": "—"
+                                      },
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "testimonial.author"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "text-slate-400 block text-base font-semibold mb-8"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "testimonial.position"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "px-3 flex flex-row justify-center"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "testimonials",
+                          "iterator": "_"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "button",
+                            "props": {
+                              "key": "{index}",
+                              "onClick": "{() => api?.scrollTo(index)}",
+                              "className": "{clsx(\"mx-[3px] inline-block size-2 rounded-full\", {\n  \"bg-black\": current === index + 1,\n  \"bg-[#ddd]\": current !== index + 1\n})}"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "imports": [],
+  "components": [
+    {
+      "name": "Footer",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "footer",
+        "props": {
+          "className": "py-20 bg-gray-900"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "max-w-7xl mx-auto"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "pb-10 mb-10 border-b border-gray-700 items-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -mx-4 items-center"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-full lg:w-1/2 px-4 mb-4 lg:mb-0"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "#",
+                                  "className": "w-full lg:w-1/2 px-4 mb-4 lg:mb-0"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{logo.src}",
+                                      "alt": "{logo.alt}",
+                                      "className": "h-14"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "w-full lg:w-1/2 px-4"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "sm:flex -mb-4 items-center lg:justify-end"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "span",
+                                    "props": {
+                                      "className": "inline-block text-white mb-4 mr-8"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "subscribeTitle"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "a",
+                                    "props": {
+                                      "href": "{getStartedHref}",
+                                      "className": "relative group inline-block w-full sm:w-auto py-3 px-5 mb-4 text-center text-sm font-semibold text-orange-50 hover:text-orange-900 bg-orange-900 rounded-md overflow-hidden transition duration-300"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "absolute top-0 right-full w-full h-full bg-white transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"
+                                        }
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "relative"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "getStartedButtonText"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "flex flex-wrap -mb-5 lg:-mx-6 items-center justify-center"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "navLinks",
+                          "iterator": "navLink"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "key": "{index}",
+                              "className": "px-6 mb-5"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "{navLink.href}",
+                                  "className": "inline-block text-gray-300 hover:text-gray-200"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "navLink.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mt-14 text-center"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "span",
+                        "props": {
+                          "className": "text-gray-500"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "copyrightText"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

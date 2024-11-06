@@ -1,4 +1,4 @@
-import { DownloadIcon, MonitorIcon, Settings, SmartphoneIcon, Sparkles, TabletIcon, UploadIcon } from "lucide-react"
+import { DownloadIcon, MessageCircle, MonitorIcon, Settings, SmartphoneIcon, Sparkles, TabletIcon, UploadIcon } from "lucide-react"
 import { Button } from "../ui/button"
 import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group"
 import { Dispatch, SetStateAction } from "react"
@@ -6,6 +6,7 @@ import { ModeToggle } from "./ModeToggle"
 import { ThemeCustomizer } from "@/components/custom/theme-customizer"
 import { useParams } from "next/navigation"
 import Link from "next/link"
+import { UserButton } from "@clerk/nextjs"
 
 type Props = {
     viewMode: string,
@@ -19,14 +20,28 @@ export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
         <div className="bg-muted py-2 px-4 border-b border-border">
             <div className="flex items-center justify-between">
             <div className="flex">
-                <Button className="bg-primary mr-4" size="sm">
+                {/* <Button className="bg-primary mr-4" size="sm">
                     <Sparkles className="h-4 w-4 mr-2" />
                     Change style with AI
                 </Button>
                 <Button size="sm">
                     <Settings className="h-4 w-4 mr-2" />
                     Custom style
-                </Button>
+                </Button> */}
+                <Link data-canny-link target="Briantai.canny.io" href="https://Briantai.canny.io/feature-requests">
+                    <Button className="bg-primary mr-4" size="sm">
+                        <Sparkles className="h-4 w-4 mr-2" />
+                        Request feature
+                    </Button>
+                </Link>
+                <Link data-canny-link target="Briantai.canny.io" href="https://Briantai.canny.io/feature-requests">
+                    <Button size="sm">
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Give feedback
+                    </Button>
+                </Link>
+                
+                
                 {/* <ThemeCustomizer /> */}
             </div>
             <div className="flex items-center space-x-4">
@@ -58,11 +73,12 @@ export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
                         Download source
                     </Button>
                 </Link>
-                <Button className="bg-primary" size="sm">
+                {/* <Button className="bg-primary" size="sm">
                     <UploadIcon className="h-4 w-4 mr-2" />
                     Deploy
-                </Button>
-                <ModeToggle></ModeToggle>
+                </Button> */}
+                <UserButton/>
+                {/* <ModeToggle></ModeToggle> */}
             </div>
 
             </div>

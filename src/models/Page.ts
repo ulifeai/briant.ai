@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 export enum Category {
     AUTH = "auth",
-    ADMIN = "admin",
-    STATIC = "static"
+    authenticated = "authenticated",
+    public = "public"
 }
 
 
@@ -53,7 +53,7 @@ const pageSchema: Schema<IPage> = new Schema(
             type: String,
             enum: Object.values(Category),
             required: true,
-            default: Category.STATIC
+            default: Category.public
         },
     },
     {

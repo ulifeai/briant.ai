@@ -1,6 +1,16 @@
 {
   "imports": [
     {
+      "source": "@/components/ui/base/text",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Text",
+          "local": "Text"
+        }
+      ]
+    },
+    {
       "source": "@/components/ui/button",
       "specifiers": [
         {
@@ -67,9 +77,11 @@
                             },
                             "children": [
                               {
-                                "type": "element",
-                                "tag": "h1",
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
                                 "props": {
+                                  "as": "hero",
                                   "className": "text-3xl font-bold text-text-alternative md:text-4xl lg:text-7xl"
                                 },
                                 "children": [
@@ -124,9 +136,11 @@
                             },
                             "children": [
                               {
-                                "type": "element",
-                                "tag": "p",
+                                "type": "component",
+                                "component": "Text",
+                                "package": "@/components/ui/base/text",
                                 "props": {
+                                  "as": "h6",
                                   "className": "text-base text-text-alternative md:text-md"
                                 },
                                 "children": [

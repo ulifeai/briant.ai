@@ -1,0 +1,271 @@
+{
+  "imports": [
+    {
+      "source": "@/components/ui/carousel",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Carousel",
+          "local": "Carousel"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselContent",
+          "local": "CarouselContent"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselItem",
+          "local": "CarouselItem"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselNext",
+          "local": "CarouselNext"
+        },
+        {
+          "type": "named",
+          "imported": "CarouselPrevious",
+          "local": "CarouselPrevious"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Star",
+          "local": "Star"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "relative py-20 lg:pt-32 lg:pb-36 container px-4 max-w-7xl mx-auto"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex flex-wrap -mx-4 items-center mb-16"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "w-full lg:w-2/3 px-4 mb-12 lg:mb-0"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "props": {
+                      "className": "inline-block py-1 px-3 mb-4 text-xs font-semibold text-orange-900 bg-orange-50 rounded-full"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "tag"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "h1",
+                    "props": {
+                      "className": "font-heading text-4xl xs:text-6xl font-bold text-gray-900 mb-4"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "title"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "p",
+                    "props": {
+                      "className": "text-gray-500"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "subtitle"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "max-w-5xl mx-auto"
+            },
+            "children": [
+              {
+                "type": "component",
+                "component": "Carousel",
+                "package": "@/components/ui/carousel",
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "CarouselContent",
+                    "package": "@/components/ui/carousel",
+                    "props": {
+                      "className": "-ml-2"
+                    },
+                    "children": [
+                      {
+                        "type": "loop",
+                        "loop": {
+                          "array": "testimonials",
+                          "iterator": "testimonial"
+                        },
+                        "children": [
+                          {
+                            "type": "component",
+                            "component": "CarouselItem",
+                            "package": "@/components/ui/carousel",
+                            "props": {
+                              "key": "{index}",
+                              "className": "flex-shrink-0 h-full w-full p-5"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex mb-8 items-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "loop",
+                                    "loop": {
+                                      "array": "[...Array(testimonial.rating)]",
+                                      "iterator": "_"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "Star",
+                                        "package": "lucide-react",
+                                        "props": {
+                                          "key": "{i}",
+                                          "className": "w-6 h-6 fill-current"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "p",
+                                "props": {
+                                  "className": "text-xl sm:text-2xl md:text-4xl text-gray-900 font-semibold mb-10"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "testimonial.quote"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "flex items-center"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "img",
+                                    "props": {
+                                      "src": "{testimonial.imageAuthor}",
+                                      "alt": "{testimonial.altAuthor}",
+                                      "className": "block w-14 h-14 rounded-full"
+                                    }
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "ml-5"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "block text-xl font-semibold leading-none"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "testimonial.author"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "props": {
+                                          "className": "block text-sm"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "testimonial.position"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "component",
+                    "component": "CarouselPrevious",
+                    "package": "@/components/ui/carousel",
+                    "props": {
+                      "className": "rounded-full size-16 -translate-x-[60%]"
+                    }
+                  },
+                  {
+                    "type": "component",
+                    "component": "CarouselNext",
+                    "package": "@/components/ui/carousel",
+                    "props": {
+                      "className": "size-16 translate-x-[30%]"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

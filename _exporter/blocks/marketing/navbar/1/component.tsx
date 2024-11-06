@@ -1,25 +1,26 @@
-import React from 'react';
+import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 interface NavItem {
   title: string;
   url: string;
+  subMenuItems?: NavItem[];
 }
 
 interface HeaderProps {
-  logo: string;
+  logo: {
+    url?: string;
+    src: string;
+    alt?: string;
+  };
   navItems: NavItem[];
   buttons: {
     title: string;
-    variant: string;
-    size: string;
-  }[]
+    variant?: string;
+    size?: string;
+  }[];
 }
 
 const Header: React.FC<HeaderProps> = ({ logo, navItems, buttons }) => {
@@ -27,8 +28,8 @@ const Header: React.FC<HeaderProps> = ({ logo, navItems, buttons }) => {
     <header className="bg-white shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="/" className="flex items-center">
-            <img src={logo} alt="Logo" className="h-8 w-auto" />
+          <a href={logo.url} className="flex items-center">
+            <img src={logo.url} alt={logo.alt} className="h-8 w-auto" />
           </a>
 
           <nav className="hidden md:flex space-x-8">
@@ -44,19 +45,19 @@ const Header: React.FC<HeaderProps> = ({ logo, navItems, buttons }) => {
           </nav>
 
           <div className="hidden md:block">
-          <>
-            {buttons?.map((button, index) => (
-              <Button
-                key={index}
-                variant={button.variant as "default" | "outline"}
-                size={button.size as "default" | "sm" | "lg"}
-                className="whitespace-nowrap h-10 mx-2 px-4 py-2"
-                style={{ borderRadius: "var(--button-radius)" }}
-              >
-                {button.title}
-              </Button>
-            ))}
-          </>
+            <>
+              {buttons?.map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant as "default" | "outline"}
+                  size={button.size as "default" | "sm" | "lg"}
+                  className="whitespace-nowrap h-10 mx-2 px-4 py-2"
+                  style={{ borderRadius: "var(--button-radius)" }}
+                >
+                  {button.title}
+                </Button>
+              ))}
+            </>
           </div>
 
           <Sheet>

@@ -22,9 +22,9 @@ export const LayoutSchema = z.object({
  * Zod schema for the Pages object within Sitemap.
  */
 export const PagesSchema = z.object({
-    static: z.array(LayoutSchema),
+    public: z.array(LayoutSchema),
     auth: z.array(LayoutSchema).optional(),
-    admin: z.array(LayoutSchema).optional(),
+    authenticated: z.array(LayoutSchema).optional(),
 });
 
 /**
@@ -109,9 +109,9 @@ interface Layout {
 export interface Sitemap {
     sitename: string;
     pages: {
-        static: Layout[];
+        public: Layout[];
         auth: Layout[];
-        admin: Layout[];
+        authenticated: Layout[];
     };
 }
 

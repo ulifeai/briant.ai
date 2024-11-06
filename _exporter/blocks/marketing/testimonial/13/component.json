@@ -1,0 +1,412 @@
+{
+  "imports": [
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Star",
+          "local": "Star"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "containerpt-24 lg:my-32 my-12 pb-32 bg-white overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex lg:flex-row flex-col lg:items-center lg:justify-between px-4 mx-auto mb-10"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h2",
+                "props": {
+                  "className": "w-auto p-2 text-6xl md:text-7xl font-bold font-heading tracking-px-n leading-tight"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex flex-wrap -m-2"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "w-full md:w-1/2 lg:w-1/4 p-2 px-8 py-6 h-full bg-white bg-opacity-80 rounded-3xl"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mb-7 block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -m-0.5 mb-6"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...Array(testimonials[0].rating)]",
+                              "iterator": "_"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Star",
+                                "package": "lucide-react",
+                                "props": {
+                                  "key": "{i}",
+                                  "className": "w-[24px] h-[23px] p-1"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-lg font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.0.quote"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.0.author"
+                          },
+                          {
+                            "type": "text",
+                            "text": "-"
+                          },
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.0.position"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "w-full md:w-1/2 lg:w-1/4 p-2 px-8 py-6 h-full bg-white bg-opacity-80 rounded-3xl"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mb-7 block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -m-0.5 mb-6"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...Array(testimonials[1].rating)]",
+                              "iterator": "_"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Star",
+                                "package": "lucide-react",
+                                "props": {
+                                  "key": "{i}",
+                                  "className": "w-[24px] h-[23px] p-1"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-lg font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.1.quote"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.1.author"
+                          },
+                          {
+                            "type": "text",
+                            "text": "-"
+                          },
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.1.position"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "w-full md:w-1/2 lg:w-1/4 p-2 px-8 py-6 h-full bg-white bg-opacity-80 rounded-3xl"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mb-7 block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -m-0.5 mb-6"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...Array(testimonials[2].rating)]",
+                              "iterator": "_"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Star",
+                                "package": "lucide-react",
+                                "props": {
+                                  "key": "{i}",
+                                  "className": "w-[24px] h-[23px] p-1"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-lg font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.2.quote"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.2.author"
+                          },
+                          {
+                            "type": "text",
+                            "text": "-"
+                          },
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.2.position"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "w-full md:w-1/2 lg:w-1/4 p-2 px-8 py-6 h-full bg-white bg-opacity-80 rounded-3xl"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mb-7 block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "className": "flex flex-wrap -m-0.5 mb-6"
+                        },
+                        "children": [
+                          {
+                            "type": "loop",
+                            "loop": {
+                              "array": "[...Array(testimonials[3].rating)]",
+                              "iterator": "_"
+                            },
+                            "children": [
+                              {
+                                "type": "component",
+                                "component": "Star",
+                                "package": "lucide-react",
+                                "props": {
+                                  "key": "{i}",
+                                  "className": "w-[24px] h-[23px] p-1"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "text-lg font-medium"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.3.quote"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "block"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "p",
+                        "props": {
+                          "className": "font-bold"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.3.author"
+                          },
+                          {
+                            "type": "text",
+                            "text": "-"
+                          },
+                          {
+                            "type": "dynamicText",
+                            "text": "testimonials.3.position"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

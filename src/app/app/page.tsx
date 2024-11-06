@@ -1,19 +1,14 @@
 "use client";
 
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import GradientCard from "@/components/custom/GradientCard";
 import Link from "next/link";
 import axios from "axios";
 import { IProject } from "@/models/Project";
 import truncateText from "@/lib/helpers/string";
-import { PencilIcon, Trash2 } from "lucide-react";
+import { NavbarDashboardComponent } from "./layout";
 
 
 export default function Component() {
@@ -26,7 +21,6 @@ export default function Component() {
     setLoading(true)
       axios.get("/api/app/project").then((response)=>{
         setProjects(response.data.data)
-        console.log(response.data.data, "FILTER")
         setLoading(false)
       });
 
@@ -34,6 +28,7 @@ export default function Component() {
 
   return (
     <>
+    <NavbarDashboardComponent/>
     
     <div className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center space-y-6">
@@ -47,7 +42,11 @@ export default function Component() {
         </Link>
 
         </div>
-        {loading ? (<span className="loader"></span>) : 
+        {loading ? (<div className="w-full h-1/2 flex justify-center items-center">
+
+          <span className="loader w-12 loader-black"></span>
+          Loading...
+        </div>) : 
         (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-4 mx-auto">
             {projects.map((project: IProject)=>(

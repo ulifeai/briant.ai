@@ -1,0 +1,161 @@
+{
+  "imports": [],
+  "components": [
+    {
+      "name": "CustomerTestimonials",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "section",
+        "props": {
+          "className": "relative pt-24 pb-32 bg-white overflow-hidden"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "relative z-10 container px-4 mx-auto"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "h2",
+                "props": {
+                  "className": "mb-16 text-6xl md:text-7xl font-bold font-heading text-center tracking-px-n leading-tight"
+                },
+                "children": [
+                  {
+                    "type": "dynamicText",
+                    "text": "title"
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "tag": "div",
+                "props": {
+                  "className": "flex flex-wrap -m-3"
+                },
+                "children": [
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "testimonials",
+                      "iterator": "testimonial"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "key": "{index}",
+                          "className": "w-full md:w-1/2 lg:w-1/3 p-3"
+                        },
+                        "children": [
+                          {
+                            "type": "element",
+                            "tag": "div",
+                            "props": {
+                              "className": "p-6 h-full bg-white bg-opacity-60 border rounded-3xl"
+                            },
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "className": "mb-5 block"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "div",
+                                    "props": {
+                                      "className": "flex flex-wrap mb-4 -m-2"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-auto p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "img",
+                                            "props": {
+                                              "src": "{testimonial.imageAuthor}",
+                                              "alt": "{testimonial.altAuthor}",
+                                              "className": "w-[46px] h-[46px] object-cover rounded-full"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-auto p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "h3",
+                                            "props": {
+                                              "className": "font-semibold leading-normal"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "dynamicText",
+                                                "text": "testimonials.0.author"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "type": "element",
+                                            "tag": "p",
+                                            "props": {
+                                              "className": "text-gray-500 uppercase"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "text",
+                                                "text": "@brooklysim"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "element",
+                                    "tag": "p",
+                                    "props": {
+                                      "className": "text-lg font-medium"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "dynamicText",
+                                        "text": "testimonial.quote"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

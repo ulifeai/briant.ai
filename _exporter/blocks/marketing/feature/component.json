@@ -1,0 +1,95 @@
+{
+  "imports": [
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        }
+      ]
+    },
+    {
+      "source": "./7/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "FeatureBlock1"
+        }
+      ]
+    },
+    {
+      "source": "./8/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "FeatureBlock2"
+        }
+      ]
+    },
+    {
+      "source": "./9/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "FeatureBlock3"
+        }
+      ]
+    },
+    {
+      "source": "./10/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "FeatureBlock4"
+        }
+      ]
+    },
+    {
+      "source": "./11/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "FeatureBlock5"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "sample",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "component",
+            "component": "FeatureBlock1",
+            "package": "./7/component"
+          },
+          {
+            "type": "component",
+            "component": "FeatureBlock2",
+            "package": "./8/component"
+          },
+          {
+            "type": "component",
+            "component": "FeatureBlock3",
+            "package": "./9/component"
+          },
+          {
+            "type": "component",
+            "component": "FeatureBlock4",
+            "package": "./10/component"
+          },
+          {
+            "type": "component",
+            "component": "FeatureBlock5",
+            "package": "./11/component"
+          }
+        ]
+      }
+    }
+  ]
+}

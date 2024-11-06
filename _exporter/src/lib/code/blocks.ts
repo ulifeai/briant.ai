@@ -30,7 +30,7 @@ export class Blocks {
         const json2react = new Json2React();
         try {
 
-            const filePath = path.join(__dirname, `../../../blocks/${folder == "static" ? "marketing" : folder}/${component}/${version}/component.json`);
+            const filePath = path.join(__dirname, `../../../blocks/${folder == "public" ? "marketing" : folder}/${component}/${version}/component.json`);
             const content = await fs.readFile(filePath, 'utf-8');
             const jsonData = JSON.parse(content);
             const componentName = capitalizeFirstLetter(`${component}${version}Component`)

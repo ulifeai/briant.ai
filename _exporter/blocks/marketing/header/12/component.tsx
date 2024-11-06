@@ -33,7 +33,7 @@ export default function HeroHeaderBlock({
             >
               {title}
             </Text>
-        <p className="md:text-md">{description}</p>
+        <Text as="h6" className="md:text-md">{description}</Text>
         <div className="mt-6 flex gap-x-4 md:mt-8">
           {buttons.map((button, index) => (
             <Button

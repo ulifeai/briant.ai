@@ -64,7 +64,7 @@
       ]
     },
     {
-      "source": "./8/component",
+      "source": "./6/8/component",
       "specifiers": [
         {
           "type": "default",

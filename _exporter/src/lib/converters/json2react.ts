@@ -189,7 +189,7 @@ ${this.indent(indentLevel)}export default ${componentName};`;
                 return this.indent(indentLevel) + jsonNode.text;
             case 'dynamicText':
                 const evaluatedText = this.evaluateExpression(jsonNode.text ?? "", props, context);
-                return `${this.indent(indentLevel)}${(evaluatedText)}`;
+                return `${this.indent(indentLevel)}${(evaluatedText ?? "")}`;
             case 'loop':
                 return this.loopToCode(jsonNode, props, context, indentLevel);
             case 'conditional':
@@ -241,7 +241,7 @@ ${this.indent(indentLevel)}export default ${componentName};`;
                         // Expression prop
                         const expression = value.slice(1, -1).trim();
                         const evaluatedValue = this.evaluateExpression(expression, propsData, context);
-
+                        console.log(evaluatedValue, evaluatedValue !== null,)
                         if (evaluatedValue !== null) {
                         // Successfully evaluated
                             if (typeof evaluatedValue === 'object') {
@@ -256,6 +256,7 @@ ${this.indent(indentLevel)}export default ${componentName};`;
                         } else {
                             // Evaluation failed, check if expression is a local variable
                             const variableName = expression.split(/[.\[]/)[0];
+                            console.log(this.localVariables.has(variableName), "VARIABLE")
                             if (this.localVariables.has(variableName)) {
                                 // Keep the expression as is
                                 return ` ${key}={${expression}}`;

@@ -9,122 +9,139 @@
           "local": "Text"
         }
       ]
-    },
-    {
-      "source": "lucide-react",
-      "specifiers": [
-        {
-          "type": "named",
-          "imported": "Mouse",
-          "local": "Mouse"
-        }
-      ]
-    },
-    {
-      "source": "react",
-      "specifiers": [
-        {
-          "type": "default",
-          "local": "React"
-        }
-      ]
     }
   ],
   "components": [
     {
-      "name": "FeaturesBlock",
+      "name": "FeatureBlock",
       "preReturnCode": "",
       "jsx": {
         "type": "element",
-        "tag": "div",
+        "tag": "section",
+        "props": {
+          "className": "py-36 bg-white overflow-hidden"
+        },
         "children": [
           {
             "type": "element",
-            "tag": "section",
+            "tag": "div",
             "props": {
-              "className": "relative pb-40 pt-12 box-border overflow-hidden"
+              "className": "container px-4 mx-auto"
             },
             "children": [
               {
                 "type": "element",
-                "tag": "img",
-                "props": {
-                  "src": "/images/star-left.png",
-                  "alt": "",
-                  "className": "absolute start-0 left-0 bottom-0 box-border overflow-clip"
-                }
-              },
-              {
-                "type": "element",
-                "tag": "img",
-                "props": {
-                  "src": "/images/blue-light-right.png",
-                  "alt": "",
-                  "className": "absolute end-0 top-0 align-middle box-border overflow-clip"
-                }
-              },
-              {
-                "type": "element",
                 "tag": "div",
                 "props": {
-                  "className": "relative max-w-[480px] lg:max-w-[1280px]  mx-auto"
+                  "className": "flex flex-wrap xl:items-center -m-8"
                 },
                 "children": [
                   {
                     "type": "element",
                     "tag": "div",
                     "props": {
-                      "className": "box-border"
+                      "className": "w-full md:w-1/2 p-8"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{image.src}",
+                          "alt": "{image.alt}",
+                          "className": "w-full h-full"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "w-full md:w-1/2 p-8"
                     },
                     "children": [
                       {
                         "type": "element",
                         "tag": "div",
                         "props": {
-                          "className": "flex flex-col-reverse items-center lg:flex-row lg:justify-between"
+                          "className": "md:max-w-md"
                         },
                         "children": [
                           {
                             "type": "element",
                             "tag": "div",
                             "props": {
-                              "className": "relative w-full box-border px-3"
+                              "className": "flex flex-wrap -m-4 gap-y-8"
                             },
                             "children": [
                               {
                                 "type": "element",
-                                "tag": "img",
-                                "props": {
-                                  "src": "/2.jpg",
-                                  "alt": "",
-                                  "className": "max-w-md mx-auto block align-middle rounded-xl"
-                                }
-                              },
-                              {
-                                "type": "element",
                                 "tag": "div",
                                 "props": {
-                                  "className": "rounded-xl bg-white ps-6 pe-20 py-6 absolute end-0 bottom-0 shadow-md"
+                                  "className": "w-auto p-2"
                                 },
                                 "children": [
                                   {
                                     "type": "element",
                                     "tag": "div",
                                     "props": {
-                                      "className": "mb-6 flex items-center box-border bg-white"
+                                      "className": "flex flex-wrap -m-2"
                                     },
                                     "children": [
                                       {
                                         "type": "element",
                                         "tag": "div",
                                         "props": {
-                                          "className": "w-[50px] h-[50px] bg-[#e6fdf5] rounded-full bg-pink flex items-center justify-center"
+                                          "className": "w-auto p-2"
                                         },
                                         "children": [
                                           {
-                                            "type": "component",
-                                            "component": "Mouse",
-                                            "package": "lucide-react"
+                                            "type": "element",
+                                            "tag": "svg",
+                                            "props": {
+                                              "width": "28",
+                                              "height": "28",
+                                              "viewBox": "0 0 28 28",
+                                              "fill": "none",
+                                              "xmlns": "http://www.w3.org/2000/svg",
+                                              "data-config-id": "svg-5b8a8b-1"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              }
+                                            ]
                                           }
                                         ]
                                       },
@@ -132,57 +149,35 @@
                                         "type": "element",
                                         "tag": "div",
                                         "props": {
-                                          "className": "ms-4 box-border bg-white flex flex-col"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "font-semibold text-sm bg-white"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "Sign Up for Free"
-                                              }
-                                            ]
-                                          },
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "text-[#768b8d] text-xm"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "We are not tolerant about taste"
-                                              }
-                                            ]
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "mb-6 flex items-center box-border bg-white"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "div",
-                                        "props": {
-                                          "className": "w-[50px] h-[50px] bg-[#ffb3b3] rounded-full bg-pink flex items-center justify-center"
+                                          "className": "flex-1 p-2"
                                         },
                                         "children": [
                                           {
                                             "type": "component",
-                                            "component": "Mouse",
-                                            "package": "lucide-react"
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg font-semibold"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "conditional",
+                                                "condition": "feature_items && feature_items[0]",
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "feature_items.0.title"
+                                                  }
+                                                ],
+                                                "else": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": ""
+                                                  }
+                                                ]
+                                              }
+                                            ]
                                           }
                                         ]
                                       },
@@ -190,90 +185,42 @@
                                         "type": "element",
                                         "tag": "div",
                                         "props": {
-                                          "className": "ms-4 box-border bg-white flex flex-col"
+                                          "className": "w-full p-2"
                                         },
                                         "children": [
                                           {
                                             "type": "element",
-                                            "tag": "span",
+                                            "tag": "div",
                                             "props": {
-                                              "className": "font-semibold text-sm bg-white"
+                                              "className": "pb-8 border-b"
                                             },
                                             "children": [
                                               {
-                                                "type": "text",
-                                                "text": "Sign Up for Free"
-                                              }
-                                            ]
-                                          },
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "text-[#768b8d] text-xm"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "We are not tolerant about taste"
-                                              }
-                                            ]
-                                          }
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "div",
-                                    "props": {
-                                      "className": "mb-6 flex items-center box-border bg-white"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "element",
-                                        "tag": "div",
-                                        "props": {
-                                          "className": "w-[50px] h-[50px] bg-[#c6eeff] rounded-full bg-pink flex items-center justify-center"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "component",
-                                            "component": "Mouse",
-                                            "package": "lucide-react"
-                                          }
-                                        ]
-                                      },
-                                      {
-                                        "type": "element",
-                                        "tag": "div",
-                                        "props": {
-                                          "className": "ms-4 box-border bg-white flex flex-col"
-                                        },
-                                        "children": [
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "font-semibold text-sm bg-white"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "Sign Up for Free"
-                                              }
-                                            ]
-                                          },
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "text-[#768b8d] text-xm"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "We are not tolerant about taste"
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-600 font-medium leading-relaxed"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "conditional",
+                                                    "condition": "feature_items && feature_items[0]",
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "feature_items.0.description"
+                                                      }
+                                                    ],
+                                                    "else": [
+                                                      {
+                                                        "type": "text",
+                                                        "text": ""
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
                                               }
                                             ]
                                           }
@@ -287,55 +234,148 @@
                                 "type": "element",
                                 "tag": "div",
                                 "props": {
-                                  "className": "rounded-xl bg-white p-4 mt-10 absolute start-0 top-0 shadow-sm"
+                                  "className": "w-auto p-2"
                                 },
                                 "children": [
                                   {
                                     "type": "element",
                                     "tag": "div",
                                     "props": {
-                                      "className": "flex items-center gap-4"
+                                      "className": "flex flex-wrap -m-2"
                                     },
                                     "children": [
                                       {
                                         "type": "element",
-                                        "tag": "img",
+                                        "tag": "div",
                                         "props": {
-                                          "src": "/7.jpg",
-                                          "alt": "",
-                                          "className": "w-[40px] align-middle overflow-clip rounded-full"
-                                        }
+                                          "className": "w-auto p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "svg",
+                                            "props": {
+                                              "width": "28",
+                                              "height": "28",
+                                              "viewBox": "0 0 28 28",
+                                              "fill": "none",
+                                              "xmlns": "http://www.w3.org/2000/svg",
+                                              "data-config-id": "svg-5b8a8b-1"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
                                       },
                                       {
                                         "type": "element",
                                         "tag": "div",
                                         "props": {
-                                          "className": "ms-2 flex flex-col"
+                                          "className": "flex-1 p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg font-semibold"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "conditional",
+                                                "condition": "feature_items && feature_items[1]",
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "feature_items.1.title"
+                                                  }
+                                                ],
+                                                "else": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": ""
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-full p-2"
                                         },
                                         "children": [
                                           {
                                             "type": "element",
-                                            "tag": "span",
+                                            "tag": "div",
                                             "props": {
-                                              "className": "font-semibold text-xm"
+                                              "className": "pb-8 border-b"
                                             },
                                             "children": [
                                               {
-                                                "type": "text",
-                                                "text": "Received $450.00"
-                                              }
-                                            ]
-                                          },
-                                          {
-                                            "type": "element",
-                                            "tag": "span",
-                                            "props": {
-                                              "className": "text-[#768b8d] text-xm"
-                                            },
-                                            "children": [
-                                              {
-                                                "type": "text",
-                                                "text": "From Angelilce Neisa!"
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-600 font-medium leading-relaxed"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "conditional",
+                                                    "condition": "feature_items && feature_items[1]",
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "feature_items.1.description"
+                                                      }
+                                                    ],
+                                                    "else": [
+                                                      {
+                                                        "type": "text",
+                                                        "text": ""
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
                                               }
                                             ]
                                           }
@@ -344,76 +384,157 @@
                                     ]
                                   }
                                 ]
-                              }
-                            ]
-                          },
-                          {
-                            "type": "element",
-                            "tag": "div",
-                            "props": {
-                              "className": "mb-12 w-full px-3 lg:w-1/2"
-                            },
-                            "children": [
+                              },
                               {
                                 "type": "element",
                                 "tag": "div",
                                 "props": {
-                                  "className": "max-w-xl box-border lg:w-full"
+                                  "className": "w-auto p-2"
                                 },
                                 "children": [
                                   {
                                     "type": "element",
-                                    "tag": "span",
+                                    "tag": "div",
                                     "props": {
-                                      "className": "bg-[#fbe7e7] text-red-500 rounded-full py-2 px-4"
+                                      "className": "flex flex-wrap -m-2"
                                     },
                                     "children": [
                                       {
-                                        "type": "dynamicText",
-                                        "text": "tag"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "element",
-                                    "tag": "h2",
-                                    "props": {
-                                      "className": "block text-5xl font-bold text-black mt-8  lg:text-6xl mb-6"
-                                    },
-                                    "children": [
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-auto p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "svg",
+                                            "props": {
+                                              "width": "28",
+                                              "height": "28",
+                                              "viewBox": "0 0 28 28",
+                                              "fill": "none",
+                                              "xmlns": "http://www.w3.org/2000/svg",
+                                              "data-config-id": "svg-5b8a8b-1"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              },
+                                              {
+                                                "type": "element",
+                                                "tag": "path",
+                                                "props": {
+                                                  "d": "M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z",
+                                                  "stroke": "#6366F1",
+                                                  "stroke-width": "2",
+                                                  "stroke-linecap": "round",
+                                                  "stroke-linejoin": "round"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
                                       {
-                                        "type": "dynamicText",
-                                        "text": "title"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "component",
-                                    "component": "Text",
-                                    "package": "@/components/ui/base/text",
-                                    "props": {
-                                      "as": "h6",
-                                      "className": "mb-8 font-semibold"
-                                    },
-                                    "children": [
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "flex-1 p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "component",
+                                            "component": "Text",
+                                            "package": "@/components/ui/base/text",
+                                            "props": {
+                                              "as": "h3",
+                                              "className": "text-lg font-semibold"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "conditional",
+                                                "condition": "feature_items && feature_items[2]",
+                                                "children": [
+                                                  {
+                                                    "type": "dynamicText",
+                                                    "text": "feature_items.2.title"
+                                                  }
+                                                ],
+                                                "else": [
+                                                  {
+                                                    "type": "text",
+                                                    "text": ""
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
                                       {
-                                        "type": "dynamicText",
-                                        "text": "description"
-                                      }
-                                    ]
-                                  },
-                                  {
-                                    "type": "component",
-                                    "component": "Text",
-                                    "package": "@/components/ui/base/text",
-                                    "props": {
-                                      "as": "p",
-                                      "className": "text-lg  text-[#768b8d]"
-                                    },
-                                    "children": [
-                                      {
-                                        "type": "text",
-                                        "text": "Payment with us is easy and straight forward, you can pay in dollars, \n                                    euros and bitcoin or ether tokens.We accept \n                                    all major currencies and cryptocurrencies"
+                                        "type": "element",
+                                        "tag": "div",
+                                        "props": {
+                                          "className": "w-full p-2"
+                                        },
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "div",
+                                            "props": {
+                                              "className": "pb-8 border-b"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "Text",
+                                                "package": "@/components/ui/base/text",
+                                                "props": {
+                                                  "as": "p",
+                                                  "className": "text-gray-600 font-medium leading-relaxed"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "conditional",
+                                                    "condition": "feature_items && feature_items[2]",
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "feature_items.2.description"
+                                                      }
+                                                    ],
+                                                    "else": [
+                                                      {
+                                                        "type": "text",
+                                                        "text": ""
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
                                       }
                                     ]
                                   }

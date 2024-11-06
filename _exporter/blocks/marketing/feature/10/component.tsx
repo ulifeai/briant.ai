@@ -1,152 +1,228 @@
-import { Text } from '@/components/ui/base/text'
-import { Mouse } from 'lucide-react'
-import React from 'react'
+import { Text } from "@/components/ui/base/text";
 
+interface FeatureBlockProps {
+  tag: string;
+  title: string;
+  description: string;
 
-interface Props {
-
-    title: string
-    description: string 
-    tag: string
+  buttons: {
+    title: string;
+    variant: string;
+    size: string;
+  }[];
+  image: {
+    src: string;
+    alt: string;
+  };
+  form?: {
+    description?: string;
+    placeholder?: string;
+  };
+  feature_items?: {
+    title: string;
+    description: string;
+  }[];
+  cardImages?: {
+    link?: string;
+    src?: string;
+    alt?: string;
+    title?: string;
+    description?: string;
+  }[];
 }
 
-const FeaturesBlock = ({
-    tag,
-    title,
-    description
-} : Props) => {
+export default function FeatureBlock({
+  title,
+  description,
+  image,
+  feature_items,
+  cardImages,
+}: FeatureBlockProps) {
   return (
-    <div>
-
-        <section className='relative pb-40 pt-12 box-border overflow-hidden '>
-
-            <img 
-                src="/images/star-left.png" 
-                alt=""
-                className='absolute start-0 left-0 bottom-0 box-border overflow-clip' 
-            />
-
-            <img 
-                src="/images/blue-light-right.png" 
-                alt=""
-                className='absolute end-0 top-0 align-middle box-border overflow-clip' 
-            />
-
-            <div className='relative max-w-[480px] lg:max-w-[1280px]  mx-auto'>
-
-                <div className=' box-border'>
-                    
-                    <div className='flex flex-col-reverse items-center lg:flex-row lg:justify-between'>
-
-
-                        {/* features block */}
-
-                        <div className='relative w-full box-border px-3 '>
-                            {/*  image */}
-                            <img 
-                                src="/2.jpg" 
-                                alt="" 
-                                className='max-w-md mx-auto block align-middle rounded-xl '
-                            />
-                        
-
-                            {/* feature */}
-
-                            <div className='rounded-xl bg-white ps-6 pe-20 py-6 absolute end-0 bottom-0 shadow-md'>
-
-                                <div className='mb-6 flex items-center box-border bg-white'>
-                                    <div className='w-[50px] h-[50px] bg-[#e6fdf5] rounded-full bg-pink flex items-center justify-center'>
-                                        <Mouse />
-                                    </div>
-                                    <div className='ms-4 box-border bg-white flex flex-col'>
-                                        <span className='font-semibold text-sm bg-white'>Sign Up for Free</span>
-                                        <span className='text-[#768b8d] text-xm '>
-                                            We are not tolerant about taste
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div className='mb-6 flex items-center box-border bg-white'>
-                                    <div className='w-[50px] h-[50px] bg-[#ffb3b3] rounded-full bg-pink flex items-center justify-center'>
-                                        <Mouse />
-                                    </div>
-                                    <div className='ms-4 box-border bg-white flex flex-col'>
-                                        <span className='font-semibold text-sm bg-white'>Sign Up for Free</span>
-                                        <span className='text-[#768b8d] text-xm '>
-                                            We are not tolerant about taste
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div className='mb-6 flex items-center box-border bg-white'>
-                                    <div className='w-[50px] h-[50px] bg-[#c6eeff] rounded-full bg-pink flex items-center justify-center'>
-                                        <Mouse />
-                                    </div>
-                                    <div className='ms-4 box-border bg-white flex flex-col'>
-                                        <span className='font-semibold text-sm bg-white'>Sign Up for Free</span>
-                                        <span className='text-[#768b8d] text-xm '>
-                                            We are not tolerant about taste
-                                        </span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            {/* profile*/}
-
-                            <div className='rounded-xl bg-white p-4 mt-10 absolute start-0 top-0 shadow-sm'>
-                                <div className='flex items-center gap-4'>
-                                    <img 
-                                        src="/7.jpg" 
-                                        alt=""
-                                        className='w-[40px] align-middle overflow-clip rounded-full' 
-                                    />
-                                    <div className='ms-2 flex flex-col'>
-                                        <span className='font-semibold text-xm ' >Received $450.00</span>
-                                        <span className='text-[#768b8d] text-xm '>From Angelilce Neisa!</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {/* Text block */}
-
-                        <div className='mb-12 w-full px-3 lg:w-1/2'>
-
-                            <div className='max-w-xl box-border lg:w-full'>
-
-                                <span className='bg-[#fbe7e7] text-red-500 rounded-full py-2 px-4'>
-                                    {tag}
-                                </span>
-
-                                <h2 className='block text-5xl font-bold text-black mt-8  lg:text-6xl mb-6'>
-                                    {title}
-                                </h2>
-
-                                <Text className=' mb-8 font-semibold' as='h6'>
-                                    {description}
-                                </Text>
-
-                                <Text className='text-lg  text-[#768b8d]' as='p'>
-                                    Payment with us is easy and straight forward, you can pay in dollars, 
-                                    euros and bitcoin or ether tokens.We accept 
-                                    all major currencies and cryptocurrencies
-                                </Text>
-                            </div>
-
-                        </div>
-
+    <section className="py-36 bg-white overflow-hidden">
+      <div className="container px-4 mx-auto">
+        <div className="flex flex-wrap xl:items-center -m-8">
+          <div className="w-full md:w-1/2 p-8">
+            <img src={image.src} alt={image.alt} className="w-full h-full" />
+          </div>
+          <div className="w-full md:w-1/2 p-8">
+            <div className="md:max-w-md">
+              <div className="flex flex-wrap -m-4 gap-y-8">
+                <div className="w-auto p-2">
+                  <div className="flex flex-wrap -m-2">
+                    <div className="w-auto p-2">
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 28 28"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-config-id="svg-5b8a8b-1"
+                      >
+                        <path
+                          d="M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
                     </div>
 
+                    <div className="flex-1 p-2">
+                      <Text as="h3" className="text-lg font-semibold">
+                        {feature_items && feature_items[0]
+                          ? feature_items[0].title
+                          : ""}
+                      </Text>
+                    </div>
+                    <div className="w-full p-2">
+                      <div className="pb-8 border-b">
+                        <Text
+                          as="p"
+                          className="text-gray-600 font-medium leading-relaxed"
+                        >
+                          {feature_items && feature_items[0]
+                            ? feature_items[0].description
+                            : ""}
+                        </Text>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
+                <div className="w-auto p-2">
+                  <div className="flex flex-wrap -m-2">
+                    <div className="w-auto p-2">
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 28 28"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-config-id="svg-5b8a8b-1"
+                      >
+                        <path
+                          d="M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+
+                    <div className="flex-1 p-2">
+                      <Text as="h3" className="text-lg font-semibold">
+                        {feature_items && feature_items[1]
+                          ? feature_items[1].title
+                          : ""}
+                      </Text>
+                    </div>
+                    <div className="w-full p-2">
+                      <div className="pb-8 border-b">
+                        <Text
+                          as="p"
+                          className="text-gray-600 font-medium leading-relaxed"
+                        >
+                          {feature_items && feature_items[1]
+                            ? feature_items[1].description
+                            : ""}
+                        </Text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-auto p-2">
+                  <div className="flex flex-wrap -m-2">
+                    <div className="w-auto p-2">
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 28 28"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        data-config-id="svg-5b8a8b-1"
+                      >
+                        <path
+                          d="M4.66669 5.83329C4.66669 5.18896 5.18902 4.66663 5.83335 4.66663H22.1667C22.811 4.66663 23.3334 5.18896 23.3334 5.83329V8.16663C23.3334 8.81096 22.811 9.33329 22.1667 9.33329H5.83335C5.18902 9.33329 4.66669 8.81096 4.66669 8.16663V5.83329Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M4.66669 15.1666C4.66669 14.5223 5.18902 14 5.83335 14H12.8334C13.4777 14 14 14.5223 14 15.1666V22.1666C14 22.811 13.4777 23.3333 12.8334 23.3333H5.83335C5.18902 23.3333 4.66669 22.811 4.66669 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M18.6667 15.1666C18.6667 14.5223 19.189 14 19.8334 14H22.1667C22.811 14 23.3334 14.5223 23.3334 15.1666V22.1666C23.3334 22.811 22.811 23.3333 22.1667 23.3333H19.8334C19.189 23.3333 18.6667 22.811 18.6667 22.1666V15.1666Z"
+                          stroke="#6366F1"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </div>
+
+                    <div className="flex-1 p-2">
+                      <Text as="h3" className="text-lg font-semibold">
+                        {feature_items && feature_items[2]
+                          ? feature_items[2].title
+                          : ""}
+                      </Text>
+                    </div>
+                    <div className="w-full p-2">
+                      <div className="pb-8 border-b">
+                        <Text
+                          as="p"
+                          className="text-gray-600 font-medium leading-relaxed"
+                        >
+                          {feature_items && feature_items[2]
+                            ? feature_items[2].description
+                            : ""}
+                        </Text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-
-        </section>
-      
-    </div>
-  )
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
-
-export default FeaturesBlock

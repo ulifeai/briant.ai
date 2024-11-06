@@ -1,6 +1,6 @@
 "use client";
 
-import {Text} from "@/components/ui/base/text";
+import { Text } from "@/components/ui/base/text";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -27,13 +27,15 @@ export default function HeroHeaderBlock({
   return (
     <section className="grid grid-cols-1 gap-y-16 pt-16 md:grid-flow-row md:pt-24 lg:grid-flow-col lg:grid-cols-2 lg:items-center lg:pt-0">
       <div className="mx-[5%] max-w-[40rem] justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end">
-            <Text
-              as="hero"
-              className="mb-4 text-8xl text-lowercase first-letter-uppercase"
-            >
-              {title}
-            </Text>
-        <p className="md:text-md">{description}</p>
+        <Text
+          as="hero"
+          className="mb-4 text-8xl text-lowercase first-letter-uppercase"
+        >
+          {title}
+        </Text>
+        <Text as="h6" className="md:text-md">
+          {description}
+        </Text>
         <div className="mt-6 flex gap-x-4 md:mt-8">
           {buttons.map((button, index) => (
             <Button

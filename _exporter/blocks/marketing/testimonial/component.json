@@ -1,0 +1,156 @@
+{
+  "imports": [
+    {
+      "source": "./5/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials1"
+        }
+      ]
+    },
+    {
+      "source": "./6/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials2"
+        }
+      ]
+    },
+    {
+      "source": "./7/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials3"
+        }
+      ]
+    },
+    {
+      "source": "./8/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials4"
+        }
+      ]
+    },
+    {
+      "source": "./9/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials5"
+        }
+      ]
+    },
+    {
+      "source": "./10/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials6"
+        }
+      ]
+    },
+    {
+      "source": "./11/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials7"
+        }
+      ]
+    },
+    {
+      "source": "./12/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials8"
+        }
+      ]
+    },
+    {
+      "source": "./13/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials9"
+        }
+      ]
+    },
+    {
+      "source": "./14/component",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "CustomerTestimonials10"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Sample",
+      "preReturnCode": "",
+      "jsx": {
+        "type": "element",
+        "tag": "div",
+        "children": [
+          {
+            "type": "component",
+            "component": "CustomerTestimonials1",
+            "package": "./5/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials2",
+            "package": "./6/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials3",
+            "package": "./7/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials4",
+            "package": "./8/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials5",
+            "package": "./9/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials6",
+            "package": "./10/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials7",
+            "package": "./11/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials8",
+            "package": "./12/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials9",
+            "package": "./13/component"
+          },
+          {
+            "type": "component",
+            "component": "CustomerTestimonials10",
+            "package": "./14/component"
+          }
+        ]
+      }
+    }
+  ]
+}

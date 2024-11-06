@@ -51,7 +51,7 @@ export const generatePageCode = async (app_layout: string, page_data: string, pa
 export const generateCopy = async (html_content: any, context_data: string, past_context: (HumanMessage & AIMessage)[] = [])=>{
     return await invoke(
         `
-        You are an expert in html, css, tailwinf and copywriting. You will receive an an object containing a description of the app, of each component and extracted text from these components to rewrite
+        You are an expert in html, css, tailwind and copywriting. You will receive an an object containing a description of the app, of each component and extracted text from these components to rewrite
 
         You should return the exact same code but with a new field for each texts properties which contains in the same order a copywright version of these texts adapted to the description. 
         You should rewrite the text content of the code to match the requirements and the context. Write as a professional copywriter. Don't be too vague. Be persuasive and write a concerting marketing content.

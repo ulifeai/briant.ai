@@ -1,0 +1,406 @@
+{
+  "imports": [
+    {
+      "source": "react",
+      "specifiers": [
+        {
+          "type": "default",
+          "local": "React"
+        },
+        {
+          "type": "named",
+          "imported": "useState",
+          "local": "useState"
+        }
+      ]
+    },
+    {
+      "source": "framer-motion",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "AnimatePresence",
+          "local": "AnimatePresence"
+        },
+        {
+          "type": "named",
+          "imported": "motion",
+          "local": "motion"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/button",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Button",
+          "local": "Button"
+        }
+      ]
+    },
+    {
+      "source": "@/components/ui/sheet",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "Sheet",
+          "local": "Sheet"
+        },
+        {
+          "type": "named",
+          "imported": "SheetContent",
+          "local": "SheetContent"
+        },
+        {
+          "type": "named",
+          "imported": "SheetTrigger",
+          "local": "SheetTrigger"
+        }
+      ]
+    },
+    {
+      "source": "lucide-react",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "ChevronDown",
+          "local": "ChevronDown"
+        },
+        {
+          "type": "named",
+          "imported": "Menu",
+          "local": "Menu"
+        }
+      ]
+    },
+    {
+      "source": "@uidotdev/usehooks",
+      "specifiers": [
+        {
+          "type": "named",
+          "imported": "useMediaQuery",
+          "local": "useMediaQuery"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "Header",
+      "preReturnCode": "const [openMenu, setOpenMenu] = useState(false);\nconst isMobile = useMediaQuery(\"(max-width: 991px)\");\nconst [openDropdown, setOpenDropdown] = useState(false);\nconsole.log(navItems);",
+      "jsx": {
+        "type": "element",
+        "tag": "nav",
+        "props": {
+          "className": "grid h-auto w-full grid-cols-[1fr_max-content_1fr] items-center justify-between border-b border-border-primary bg-background-primary px-[5%] md:min-h-18"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tag": "button",
+            "props": {
+              "onClick": "{() => setOpenMenu(prev => !prev)}",
+              "className": "flex size-12 flex-col justify-center lg:hidden"
+            },
+            "children": [
+              {
+                "type": "loop",
+                "loop": {
+                  "array": "Array(3).fill(null)",
+                  "iterator": "_"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "span",
+                    "props": {
+                      "key": "{index}",
+                      "className": "my-[3px] h-0.5 w-6 bg-black lg:hidden"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "component",
+            "component": "AnimatePresence",
+            "package": "framer-motion",
+            "children": [
+              {
+                "type": "element",
+                "tag": "motion.div",
+                "props": {
+                  "initial": "closed",
+                  "animate": "{openMenu ? \"open\" : \"closed\"}",
+                  "exit": "closed",
+                  "variants": "{{\n  closed: {\n    x: \"-100%\",\n    opacity: 1,\n    transition: {\n      type: \"spring\",\n      duration: 0.6,\n      bounce: 0\n    },\n    transitionEnd: {\n      opacity: \"var(--opacity-closed, 0%)\",\n      x: \"var(--x-closed, -100%)\"\n    }\n  },\n  open: {\n    x: 0,\n    opacity: 1,\n    transition: {\n      type: \"spring\",\n      duration: 0.4,\n      bounce: 0\n    }\n  }\n}}",
+                  "className": "absolute left-0 top-0 z-50 flex h-dvh w-[90%] flex-col border-r border-border-primary bg-white px-[5%] pb-4 md:w-[80%] lg:visible lg:static lg:-ml-4 lg:flex lg:h-auto lg:w-auto lg:flex-row lg:border-none lg:px-0 lg:pb-0 lg:[--opacity-closed:100%] lg:[--x-closed:0%]"
+                },
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "a",
+                    "props": {
+                      "href": "{logo.url}",
+                      "className": "mb-8 mt-10 flex flex-shrink-0 lg:hidden"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "img",
+                        "props": {
+                          "src": "{logo.src}",
+                          "alt": "{logo.alt}"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "loop",
+                    "loop": {
+                      "array": "navItems",
+                      "iterator": "navItem"
+                    },
+                    "children": [
+                      {
+                        "type": "element",
+                        "tag": "div",
+                        "props": {
+                          "key": "{index}",
+                          "className": "w-full lg:w-auto"
+                        },
+                        "children": [
+                          {
+                            "type": "conditional",
+                            "condition": "navItem.subMenuItems && navItem.subMenuItems.length > 0",
+                            "children": [
+                              {
+                                "type": "element",
+                                "tag": "div",
+                                "props": {
+                                  "onMouseEnter": "{() => !isMobile && setOpenDropdown(true)}",
+                                  "onMouseLeave": "{() => !isMobile && setOpenDropdown(false)}"
+                                },
+                                "children": [
+                                  {
+                                    "type": "element",
+                                    "tag": "button",
+                                    "props": {
+                                      "onClick": "{() => setOpenDropdown(prev => !prev)}",
+                                      "className": "flex w-full items-center justify-between gap-2 py-3 text-md lg:flex-none lg:justify-start lg:px-4 lg:py-2 lg:text-base"
+                                    },
+                                    "children": [
+                                      {
+                                        "type": "element",
+                                        "tag": "span",
+                                        "children": [
+                                          {
+                                            "type": "dynamicText",
+                                            "text": "navItem.title"
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "type": "component",
+                                        "component": "AnimatePresence",
+                                        "package": "framer-motion",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "motion.span",
+                                            "props": {
+                                              "animate": "{openDropdown ? \"rotated\" : \"initial\"}",
+                                              "variants": "{{\n  rotated: {\n    rotate: 180\n  },\n  initial: {\n    rotate: 0\n  }\n}}",
+                                              "transition": "{{\n  duration: 0.3\n}}"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "component",
+                                                "component": "ChevronDown",
+                                                "package": "lucide-react"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "type": "logical",
+                                    "operator": "&&",
+                                    "condition": "openDropdown",
+                                    "children": [
+                                      {
+                                        "type": "component",
+                                        "component": "AnimatePresence",
+                                        "package": "framer-motion",
+                                        "children": [
+                                          {
+                                            "type": "element",
+                                            "tag": "motion.nav",
+                                            "props": {
+                                              "variants": "{{\n  open: {\n    visibility: \"visible\",\n    opacity: \"var(--opacity-open, 100%)\",\n    y: 0\n  },\n  close: {\n    visibility: \"hidden\",\n    opacity: \"var(--opacity-close, 0)\",\n    y: \"var(--y-close, 0%)\"\n  }\n}}",
+                                              "initial": "close",
+                                              "exit": "close",
+                                              "animate": "{openDropdown ? \"open\" : \"close\"}",
+                                              "className": "bg-white lg:absolute lg:z-50 lg:border lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
+                                            },
+                                            "children": [
+                                              {
+                                                "type": "loop",
+                                                "loop": {
+                                                  "array": "navItem.subMenuItems",
+                                                  "iterator": "subMenuItem"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "type": "element",
+                                                    "tag": "a",
+                                                    "props": {
+                                                      "key": "{index}",
+                                                      "href": "{subMenuItem.url}",
+                                                      "className": "block py-3 pl-[5%] text-md lg:py-2 lg:pl-4 lg:pr-8 lg:text-left lg:text-base"
+                                                    },
+                                                    "children": [
+                                                      {
+                                                        "type": "dynamicText",
+                                                        "text": "subMenuItem.title"
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "else": [
+                              {
+                                "type": "element",
+                                "tag": "a",
+                                "props": {
+                                  "href": "{navItem.url}",
+                                  "className": "relative block py-3 text-md lg:px-4 lg:py-2 lg:text-base"
+                                },
+                                "children": [
+                                  {
+                                    "type": "dynamicText",
+                                    "text": "navItem.title"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "element",
+                    "tag": "div",
+                    "props": {
+                      "className": "mt-6 lg:hidden"
+                    },
+                    "children": [
+                      {
+                        "type": "component",
+                        "component": "Button",
+                        "package": "@/components/ui/button",
+                        "props": {
+                          "variant": "{buttons.0.variant}",
+                          "size": "{buttons.0.size}",
+                          "className": "w-full whitespace-nowrap"
+                        },
+                        "children": [
+                          {
+                            "type": "dynamicText",
+                            "text": "buttons.0.title"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "logical",
+                "operator": "&&",
+                "condition": "openMenu",
+                "children": [
+                  {
+                    "type": "element",
+                    "tag": "motion.div",
+                    "props": {
+                      "initial": "{{\n  opacity: 0\n}}",
+                      "exit": "{{\n  opacity: 0\n}}",
+                      "animate": "{{\n  opacity: 0.5\n}}",
+                      "transition": "{{\n  duration: 0.2\n}}",
+                      "onClick": "{() => setOpenMenu(false)}",
+                      "className": "fixed inset-0 z-40 bg-black lg:hidden"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "a",
+            "props": {
+              "href": "{logo.url}",
+              "className": "flex min-h-16 flex-shrink-0 items-center"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "img",
+                "props": {
+                  "src": "{logo.src}",
+                  "alt": "{logo.alt}"
+                }
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "tag": "div",
+            "props": {
+              "className": "flex min-h-16 items-center justify-end gap-x-4"
+            },
+            "children": [
+              {
+                "type": "element",
+                "tag": "div",
+                "children": [
+                  {
+                    "type": "component",
+                    "component": "Button",
+                    "package": "@/components/ui/button",
+                    "props": {
+                      "variant": "{buttons.0.variant}",
+                      "size": "{buttons.0.size}",
+                      "className": "w-full whitespace-nowrap"
+                    },
+                    "children": [
+                      {
+                        "type": "dynamicText",
+                        "text": "buttons.0.title"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -81,12 +81,12 @@ export default function FAQBlock({
             </p>
          
             <Button
-            variant={button.variant as "default" | "outline"}
-            size={button.size as "default" | "sm" | "lg"}
+            variant={button?.variant as "default" | "outline"}
+            size={button?.size as "default" | "sm" | "lg"}
             className="whitespace-nowrap h-10 mx-2 w-32 px-4 py-2"
             style={{ borderRadius: "var(--button-radius)" }}
             >
-            {button.title}
+            {button?.title}
             </Button>
           </div>
         </div>

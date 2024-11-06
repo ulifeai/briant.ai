@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Inter, Manrope, Urbanist } from "next/font/google";
+import { Inter, Manrope, Plus_Jakarta_Sans, Urbanist } from "next/font/google";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 
 // import PageLoading from "@/components/custom/PageLoading";
 
-// const inter = Manrope({ subsets: ["latin"] });
+const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dxter.ai",
+  title: "Briant.ai",
   description: "Create fullstack app easily with ai",
 };
 
@@ -22,8 +22,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         {/* <PageLoading></PageLoading> */}
-        <body>
-        <ThemeProvider
+        <body className={font.className}>
+          <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem

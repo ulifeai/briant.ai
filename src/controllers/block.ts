@@ -33,21 +33,17 @@ export async function getBlocks(pageId: string): Promise<IBlock[]> {
  */
 export async function getOrCreateBlocks(validatedData: { page_id: string, app_context: string, page_description: string }): Promise<IBlock[]> {
     try {
-        console.log(validatedData.page_id, "=======")
         const page = await Page.findOne({ _id: validatedData.page_id }).exec();
         if (!page) {
             throw new Error('Page not found');
         }
-        console.log(page, "=======")
-
-
         const blocks = await Block.find({ page_id: page._id })
             .sort({ createdAt: 1 })
             .lean().exec();
 
         if (blocks.length == 0) {
             let data = await generateLayout(validatedData.app_context.toString(), validatedData.page_description.toString())
-            console.log(data, "================================================================")
+            // console.log(data, "==============================================================")
             const pageCode = await generatePageCode(JSON.stringify(data.data), validatedData.page_description.toString())
             let endBlocks = []
             for (let index = 0; index < pageCode.data.length; index++) {
@@ -62,7 +58,7 @@ export async function getOrCreateBlocks(validatedData: { page_id: string, app_co
             return endBlocks;
         } else {
             //    return blocks;
-        }
+        } 
         return blocks;
     } catch (error) {
         logger.error('Error loading blocks: %o', error);
@@ -103,6 +99,19 @@ export async function createBlock(data: {
         if (!page) {
             throw new Error('Page not found');
         }
+
+        // if (content?.data?.image?.image && !content?.data?.image?.image?.startWith("/")) {
+        //     content?.data.image.image = `/${content?.data.image.image}`
+        // }
+
+        // if (content?.data?.images) {
+        //     content?.data.images = content?.data?.images?.map((image: any) => {
+        //         if (image?.image?.startWith("/"))
+        //             image.image = "/" + image.image
+        //         return image
+        //     })
+        //     // data.image.image=`/${data.image.image}`
+        // }
 
         const newBlock: IBlock = new Block({
             page_id: page._id,

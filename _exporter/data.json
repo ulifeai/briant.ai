@@ -466,32 +466,32 @@
    },
    {
       "page":"Dashboard",
-      "path":"/admin/dashboard",
-      "type":"admin",
+      "path": "/authenticated/dashboard",
+      "type": "authenticated",
       "data":[
          
       ]
    },
    {
       "page":"User_Management",
-      "path":"/admin/user-management",
-      "type":"admin",
+      "path": "/authenticated/user-management",
+      "type": "authenticated",
       "data":[
          
       ]
    },
    {
       "page":"AI_Performance_Logs",
-      "path":"/admin/ai-performance-logs",
-      "type":"admin",
+      "path": "/authenticated/ai-performance-logs",
+      "type": "authenticated",
       "data":[
          
       ]
    },
    {
       "page":"Feedback_&_Support",
-      "path":"/admin/feedback-support",
-      "type":"admin",
+      "path": "/authenticated/feedback-support",
+      "type": "authenticated",
       "data":[
          
       ]
