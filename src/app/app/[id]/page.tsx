@@ -78,14 +78,13 @@ export default function Component() {
       setWebsiteContent({pageCode: completePageCode});
       if(sitemap && sitemap?.pages){
         const old_sitemap = {...sitemap};
-        old_sitemap.pages[page_section].map((sitePage: any)=>{
+        old_sitemap.pages[page_section as "public" | "auth" | "authenticated"].map((sitePage: any)=>{
           if(page._id == sitePage._id){
             sitePage.blocks = response.data.data
           }
           return sitePage;
         })
 
-        console.log(old_sitemap, "FILTER")
         setSitemap(old_sitemap)
       }
       

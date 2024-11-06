@@ -11,6 +11,7 @@ async function invoke(prompt_text: string, message: string, history: (HumanMessa
         prompt_text + "\n{query}\n"
     );
     const model = Model.withStructuredOutput(schema)
+    // @ts-ignore
     let chain = prompt.pipe(model);
     const response = await chain.invoke({query: message, string: ""});
     return response

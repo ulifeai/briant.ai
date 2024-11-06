@@ -3,6 +3,7 @@ const nextConfig = {
     experimental: {
         serverComponentsExternalPackages: ['knex', 'pg'],
       },
+
 };
 
 

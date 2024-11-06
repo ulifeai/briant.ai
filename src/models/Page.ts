@@ -73,6 +73,6 @@ pageSchema.post('save', function (error: any, doc: IPage, next: Function) {
     }
 });
 
-const Page = mongoose.models.Page || mongoose.model<IPage>('Page', pageSchema);
+const Page = mongoose.model<IPage>('Page', pageSchema);
 
 export default Page;

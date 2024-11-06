@@ -1,12 +1,9 @@
-import {generateCopy} from "@/lib/ai/invoke";
-import { extractSchema } from "@/lib/connectors/sql/postgres";
+import { generateCopy } from "@/lib/ai/invoke";
 import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 
-type ResponseData = {
-    html: string,
-}
+type ResponseData = any
 
 type RequestData = {
     context_data: string,
@@ -15,8 +12,8 @@ type RequestData = {
 
 export async function POST (req: NextRequest){
     const body: RequestData = await req.json()
-    let data = await generateCopy(body.html_content, body.context_data.toString())
+    let data: Record<string, any> = await generateCopy(body.html_content, body.context_data.toString())
     return NextResponse.json({
         ...data,
-    } as ResponseData)
+    })
 }

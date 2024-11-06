@@ -66,7 +66,7 @@ export default function StatBlock({
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant={"none"}>
+              <Button variant={"default"}>
                 <div className="flex flex-row items-center justify-center gap-x-1 cursor-pointer w-8 h-8 my-auto">
                   <div className="w-1 h-1 rounded-[0.25rem] bg-black"></div>
                   <div className="w-1 h-1 rounded-[0.25rem] bg-black"></div>

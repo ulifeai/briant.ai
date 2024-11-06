@@ -11,7 +11,7 @@ const logoPath = {
 };
 
 const LogoSocial = ({ as = "f", className = "" }) => {
-  const logo = logoPath[as];
+  const logo = logoPath[as as "linkedin" | "x" | "facebook" | "youtube" | "instagram"];
   return (
     <Image
       src={logo}

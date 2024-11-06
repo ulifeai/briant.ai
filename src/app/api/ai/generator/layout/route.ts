@@ -1,7 +1,5 @@
-import {generateLayout, generatePageCode} from "@/lib/ai/invoke";
-import { extractSchema } from "@/lib/connectors/sql/postgres";
+import { generateLayout, generatePageCode } from "@/lib/ai/invoke";
 import { WebPageConfig } from "@/types/webpageconfig";
-import { NextApiRequest } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
 

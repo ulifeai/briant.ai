@@ -38,6 +38,7 @@ export const updateProjectSchema = z.object({
 export const createPageSchema = z.object({
   project_id: z.string(),
   category: z.string().default("public"),
+  path: z.string().default("/sample"),
   name: z.string()
     .min(1, { message: "Name must be at least 1 character long" })
     .max(100, { message: "Name must be at most 100 characters long" }),
@@ -66,6 +67,7 @@ export const updatePageSchema = z.object({
  */
 export const createBlockSchema = z.object({
   page_id: z.string(),
+  order: z.number(),
 
   content: z.record(z.any()),
 });

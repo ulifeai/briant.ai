@@ -75,8 +75,8 @@ export async function getPageById(pageId: string): Promise<IPage | null> {
 export async function createPage(data: {
     project_id: string; // UUID of the project
     name: string;
-    path: string;
-    description: string;
+    path?: string;
+    description?: string;
     category: Category
 }): Promise<IPage> {
     try {
@@ -122,7 +122,7 @@ export async function createMultiplePages(data: {
     name: string;
     path: string;
     description: string;
-    category: string
+    category?: string | undefined
 }[]): Promise<IPage[]> {
     try {
         const savedPage = []

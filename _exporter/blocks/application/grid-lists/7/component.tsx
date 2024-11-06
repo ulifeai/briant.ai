@@ -68,7 +68,7 @@ export default function GridListBlock({
           </form>
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant={"none"} size={"none"}>
+              <Button variant={"default"} size={"default"}>
                 <div className="flex flex-row items-center justify-center px-4 py-2 gap-1 border-[1px] border-black rounded-none cursor-pointer">
                   <div className="">{SortByName}</div>
                   <ChevronDown />

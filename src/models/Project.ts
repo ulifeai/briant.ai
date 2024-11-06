@@ -63,6 +63,6 @@ projectSchema.post('save', function (error: any, doc: IProject, next: Function) 
     }
 });
 
-const Project = mongoose.models.Project || mongoose.model<IProject>('Project', projectSchema);
+const Project = mongoose.model<IProject>('Project', projectSchema);
 
 export default Project;

@@ -89,8 +89,3 @@ export async function OPTIONS(req: NextRequest, context: any) {
     );
 }
 
-export const config = {
-    api: {
-        bodyParser: true,
-    },
-};

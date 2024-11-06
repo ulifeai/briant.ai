@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button"
 import { ChevronDown, ChevronRight, Trash2Icon } from 'lucide-react'
 import { Textarea } from '../ui/textarea';
 
-type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue }
+type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue|number|string } | {version: number}
 
 interface JsonEditorProps {
   data: JsonValue
@@ -35,6 +35,7 @@ export default function BlockCustomizer({ data: initialData, onSave, componentTy
 
   useEffect(() => {
     setData(initialData)
+    // @ts-ignore
     setSelectedVersion(initialData?.version)
   }, [initialData])
 

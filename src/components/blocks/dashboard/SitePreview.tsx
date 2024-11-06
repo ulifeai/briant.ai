@@ -240,67 +240,67 @@ export default function SitePreview() {
   }
 
 
-  useEffect(() => {
-    const loadComponentsAndGenerateHTML = async () => {
-      let app_description = localStorage.getItem("app_description")??""
-      const loadedHTML = await Promise.all(
-        data.map(async (item) => {
-          const moduleVal = await import(`../../../blocks/${item.title}/default/Component`);
-          const Component = moduleVal.default;
-          // Render the component to static HTML
-          let htmlContent = ReactDOMServer.renderToStaticMarkup(<Component />);
-          return {
-            component: item.title.replaceAll(" ", ""),
-            texts : extract_key_texts(htmlContent)
-          }
+  // useEffect(() => {
+  //   const loadComponentsAndGenerateHTML = async () => {
+  //     let app_description = localStorage.getItem("app_description")??""
+  //     const loadedHTML = await Promise.all(
+  //       data.map(async (item) => {
+  //         const moduleVal = await import(`../../../blocks/${item.title}/default/Component`);
+  //         const Component = moduleVal.default;
+  //         // Render the component to static HTML
+  //         let htmlContent = ReactDOMServer.renderToStaticMarkup(<Component />);
+  //         return {
+  //           component: item.title.replaceAll(" ", ""),
+  //           texts : extract_key_texts(htmlContent)
+  //         }
 
-        })
-      );
+  //       })
+  //     );
 
-      if(loadedHTML.length != 0){
-        // const response = await axios.post("/api/ai/generate_copy", {
-        //     context_data: app_description,
-        //     html_content: loadedHTML
-        // });
+  //     if(loadedHTML.length != 0){
+  //       // const response = await axios.post("/api/ai/generate_copy", {
+  //       //     context_data: app_description,
+  //       //     html_content: loadedHTML
+  //       // });
 
-        // setDataContent(response.data)
+  //       // setDataContent(response.data)
 
-      }
+  //     }
      
-    };
+  //   };
 
-    loadComponentsAndGenerateHTML();
-  }, [data]);
+  //   loadComponentsAndGenerateHTML();
+  // }, [data]);
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const dataApp: any = {};
-    if(true) {
-      Object.values(dataContent).forEach((val)=>{
-        dataApp[val.component] = val.texts;
-      });
+  //   const dataApp: any = {};
+  //   if(true) {
+  //     Object.values(dataContent).forEach((val)=>{
+  //       dataApp[val.component] = val.texts;
+  //     });
     
-      const loadComponentsAndGenerateHTML = async () => {
-        const loadedHTML = await Promise.all(
-          data.map(async (item) => {
-            const moduleVal = await import(`../../../blocks/${item.title}/default/Component`);
-            const Component = moduleVal.default;
-            let htmlContent = ReactDOMServer.renderToStaticMarkup(<Component />);
-            let old_text = extract_key_texts(htmlContent)
-            let new_texts = dataApp[item.title.replaceAll(" ", "")];
-            // old_text.forEach((text, index)=>{
-            //   htmlContent = htmlContent.replaceAll(extractTextFromHTML(text), extractTextFromHTML(new_texts[index]))
-            // })
-            return Component;
-          })
-        );     
-        setHtmlContents(loadedHTML);
-      };
+  //     const loadComponentsAndGenerateHTML = async () => {
+  //       const loadedHTML = await Promise.all(
+  //         data.map(async (item) => {
+  //           const moduleVal = await import(`../../../blocks/${item.title}/default/Component`);
+  //           const Component = moduleVal.default;
+  //           let htmlContent = ReactDOMServer.renderToStaticMarkup(<Component />);
+  //           let old_text = extract_key_texts(htmlContent)
+  //           let new_texts = dataApp[item.title.replaceAll(" ", "")];
+  //           // old_text.forEach((text, index)=>{
+  //           //   htmlContent = htmlContent.replaceAll(extractTextFromHTML(text), extractTextFromHTML(new_texts[index]))
+  //           // })
+  //           return Component;
+  //         })
+  //       );     
+  //       setHtmlContents(loadedHTML);
+  //     };
   
-      loadComponentsAndGenerateHTML();
-    }
+  //     loadComponentsAndGenerateHTML();
+  //   }
     
-  }, [data, dataContent])
+  // }, [data, dataContent])
 
 
   return (

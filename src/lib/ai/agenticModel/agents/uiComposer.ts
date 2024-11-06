@@ -149,6 +149,7 @@ export async function UIComposerAgent(state: typeof StateAnnotation.State) {
 }
 
 export const generateUIComponents = async (pageLayouts: any, projectDescription: string) => {
+    let pages: any = [];
     for (const pagePath in pageLayouts) {
         const pageLayout = pageLayouts[pagePath];
         const components: any[] = [];

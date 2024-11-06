@@ -8,7 +8,7 @@ import axios from "axios";
 import {ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import FeaturePickerModal from "@/components/custom/FeaturePicker";
 import { fork } from "child_process";
-import { NavbarDashboardComponent } from "../layout";
+import { NavbarDashboardComponent } from "@/components/blocks/dashboard/Navbar";
 
 type Feature = {
   name: string
@@ -21,71 +21,7 @@ export default function InteractiveSitemap() {
   const [appDescription, setAppDescription] = useState("")
   const [loading, setLoading] = useState<boolean>(false)  
   const [open, setOpen] = useState(false)
-  const [features, setFeatures] = useState(
-    {
-      "public": [
-          {
-              "title": "Dashboard",
-              "id": "/dashboard",
-              "description": "An intuitive overview provides users quick insights into key metrics, recent activities, and a personalized workspace to enhance productivity."
-          },
-          {
-              "title": "Connection Hub",
-              "id": "/connection-hub",
-              "description": "A unified platform for viewing and managing all client interactions, ensuring a streamlined communication process."
-          },
-          {
-              "title": "Growth Insights",
-              "id": "/growth-insights",
-              "description": "Analytics page offering deep dives into sales metrics, conversion rates, and customer trends, helping teams strategize effectively."
-          },
-          {
-              "title": "Campaign Catalyst",
-              "id": "/campaign-catalyst",
-              "description": "Innovative campaign management tools that empower users to design, launch, and evaluate marketing campaigns directly."
-          },
-          {
-              "title": "Integration Station",
-              "id": "/integration-station",
-              "description": "Facilitates integrations with various third-party tools, ensuring seamless connectivity and improved efficiency."
-          }
-      ],
-      "auth": [
-          {
-              "title": "User Login",
-              "id": "/login",
-              "description": "Secure login page for system authentication and personalized access based on roles."
-          },
-          {
-              "title": "Signup",
-              "id": "/signup",
-              "description": "Registration page for new users to join the platform."
-          },
-          {
-              "title": "Password Recovery",
-              "id": "/password-recovery",
-              "description": "Helps users recover access in case they forget their passwords, ensuring security."
-          }
-      ],
-      "authenticated": [
-          {
-              "title": "User Management",
-              "id": "/authenticated/user-management",
-              "description": "authenticated page for managing user roles, permissions, and access levels across the platform."
-          },
-          {
-              "title": "System Analytics",
-              "id": "/authenticated/system-analytics",
-              "description": "Provides authenticatedistrators with insights into system performance, user interactions, and operational metrics."
-          },
-          {
-              "title": "Data Console",
-              "id": "/authenticated/data-console",
-              "description": "authenticated interface for overseeing data integrity, backups, and system checks."
-          }
-      ]
-  
-  })
+  const [features, setFeatures] = useState<Record<string, Feature[]>>({})
   const [selectedFeatures, setSelectedFeatures] = useState<Feature[]>([])
 
   const router = useRouter()

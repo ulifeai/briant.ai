@@ -8,7 +8,7 @@ import Link from "next/link";
 import axios from "axios";
 import { IProject } from "@/models/Project";
 import truncateText from "@/lib/helpers/string";
-import { NavbarDashboardComponent } from "./layout";
+import { NavbarDashboardComponent } from "@/components/blocks/dashboard/Navbar";
 
 
 export default function Component() {
