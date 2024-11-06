@@ -35,7 +35,7 @@ function HeroHeaderBlock() {
     </div>
     <div key={0} className="">
             <div className=" w-full">
-              <Image src="/3.jpg" width={1920} height={"1500"} alt="Sampe Image" className="inset-0 size-full object-contain" />
+              <Image src="/3.jpg" width={900} height={"700"} alt="Sampe Image" className="inset-0 size-full object-contain" />
             </div>
           </div>
   </section>
