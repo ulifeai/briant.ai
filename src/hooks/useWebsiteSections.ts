@@ -1,7 +1,6 @@
-import { ThemeOptions } from "@/types/themeConfig"
-import { atom, useAtom } from "jotai"
-import { atomWithDefault, atomWithStorage } from "jotai/utils"
 
+import { atomWithStorage } from "jotai/utils"
+import { useAtom } from 'jotai/react';
 const data = [
     {
         "id": 1,

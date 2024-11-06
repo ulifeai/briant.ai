@@ -1,7 +1,8 @@
 import { defaultCustomization } from "@/lib/utils/ui"
 import { ThemeOptions } from "@/types/themeConfig"
-import { atom, useAtom } from "jotai"
-import { atomWithDefault, atomWithStorage } from "jotai/utils"
+import { atom } from "jotai"
+import { useAtom } from 'jotai/react';
+
 
 const configAtom = atom<ThemeOptions>(defaultCustomization)
 
