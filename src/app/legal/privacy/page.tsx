@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
       <p className="mb-4">Last Updated: October 31, 2024</p>
 
       <section className="mb-6">
-        <p>Ulife OU ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use Briant AI.</p>
+        <p>Ulife OU (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you use Briant AI.</p>
       </section>
 
       <section className="mb-6">

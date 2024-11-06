@@ -10,7 +10,7 @@ const TermsAndConditions = () => {
         <h2 className="text-xl font-semibold mb-2">Introduction</h2>
         <p>
           Welcome to Briant AI! By using our website and services provided by
-          Ulife OU ("we," "us," or "our"), you acknowledge that you have read,
+          Ulife OU (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), you acknowledge that you have read,
           understood, and agree to be bound by these Terms and Conditions.
           These Terms unconditionally apply to all related applications, internet services, or website extensions provided by Briant AI. If you disagree with any of these Terms, you are prohibited from using this Website and its services, and you may discontinue use immediately.
         </p>
@@ -23,7 +23,7 @@ const TermsAndConditions = () => {
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Agreement to Terms and Conditions</h2>
         <p>
-          These Briant AI Terms and Conditions ("Terms") shall govern your use of this Website and all content and services provided (collectively, "Website"). These Terms outline the rules and regulations for using Briant AI at <a href="https://Briant.ulife.ai" className="text-blue-600">https://Briant.ulife.ai</a>. All content, services, or other materials (collectively referred to as "Content") on the Briant AI Website shall be governed by these Terms. By accessing or using this Website, you explicitly agree to be bound by these Terms and Conditions.
+          These Briant AI Terms and Conditions (&quot;Terms&quot;) shall govern your use of this Website and all content and services provided (collectively, &quot;Website&quot;). These Terms outline the rules and regulations for using Briant AI at <a href="https://Briant.ulife.ai" className="text-blue-600">https://Briant.ulife.ai</a>. All content, services, or other materials (collectively referred to as &quot;Content&quot;) on the Briant AI Website shall be governed by these Terms. By accessing or using this Website, you explicitly agree to be bound by these Terms and Conditions.
         </p>
       </section>
 
@@ -33,9 +33,9 @@ const TermsAndConditions = () => {
           The following definitions apply to these Terms and Conditions, Privacy Statement, Disclaimer Notice, and all related agreements:
         </p>
         <ul className="list-disc list-inside">
-          <li><strong>"User," "Client," "Customer," "You,"</strong> and <strong>"Your"</strong> refer to you, the person(s) using this Website.</li>
-          <li><strong>"Briant AI," "We," "Our,"</strong> and <strong>"Us"</strong> refer to Ulife OU and its affiliates.</li>
-          <li><strong>"Party," "Parties,"</strong> or <strong>"Us"</strong> refer to both you and us.</li>
+          <li><strong>&quot;User,&quot; &quot;Client,&quot; &quot;Customer,&quot; &quot;You,&quot;</strong> and <strong>&quot;Your&quot;</strong> refer to you, the person(s) using this Website.</li>
+          <li><strong>&quot;Briant AI,&quot; &quot;We,&quot; &quot;Our,&quot;</strong> and <strong>&quot;Us&quot;</strong> refer to Ulife OU and its affiliates.</li>
+          <li><strong>&quot;Party,&quot; &quot;Parties,&quot;</strong> or <strong>&quot;Us&quot;</strong> refer to both you and us.</li>
         </ul>
       </section>
 
@@ -84,7 +84,7 @@ const TermsAndConditions = () => {
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">Disclaimers/Warranties/Limitation of Liabilities</h2>
         <p>
-          Briant AI is provided "as is" with all liabilities, and we make no express or implied representations or warranties of any kind regarding the Website or its content. Under no circumstances shall Briant AI or Ulife OU be liable for any indirect, consequential, incidental, or special damages, even if we have been advised of the possibility of such damages.
+          Briant AI is provided &quot;as is&quot; with all liabilities, and we make no express or implied representations or warranties of any kind regarding the Website or its content. Under no circumstances shall Briant AI or Ulife OU be liable for any indirect, consequential, incidental, or special damages, even if we have been advised of the possibility of such damages.
         </p>
       </section>
 

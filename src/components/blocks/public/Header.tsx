@@ -18,7 +18,7 @@ function HeroHeaderBlock() {
       <div className="mt-6 flex gap-x-4 md:mt-8">
         <Link href={"/sign-up"}>
           <Button variant="default" size="lg" key={0} className="whitespace-nowrap px-4 py-2">
-            Create an account- It's free
+            Create an account- It&apos;s free
           </Button>
         </Link>
 

@@ -49,8 +49,8 @@ export default function Component() {
         </div>) : 
         (
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-4 mx-auto">
-            {projects.map((project: IProject)=>(
-                <GradientCard link={"/app/"+project._id}>
+            {projects.map((project: IProject, index)=>(
+                <GradientCard link={"/app/"+project._id} key={index}>
                 <div className="flex flex-col px-2">
                     <div className="space-y-1">
                       <h3 className="font-semibold tracking-tight mt-1 text-base">

@@ -186,7 +186,7 @@ export default function InteractiveSitemap() {
       ): (
         <>
         <div className="h-screen bg-gray-100 w-1/2 flex justify-center flex-col items-center">
-        <p className="text-md text-gray-500  font-light mb-8 text-center px-12">"{appDescription}"</p>
+        <p className="text-md text-gray-500  font-light mb-8 text-center px-12">&quot;{appDescription}&quot;</p>
 
           <h1 className="text-4xl font-bold mb-8">Choose your project pages</h1>
           <p className="text-md font-light mb-8">You can add as many pages as you want later. only choose the relevant pages</p>

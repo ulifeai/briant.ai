@@ -10,9 +10,9 @@ function Header() {
   <header className="bg-white shadow-sm">
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between h-16">
-        <a href="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <img src="/logo.svg" alt="Logo" className="h-10 w-auto" />
-        </a>
+        </Link>
         
         <div className="hidden md:block">
           <Link href={"/sign-up"}>
@@ -38,9 +38,9 @@ function Header() {
           </SheetTrigger>
           <SheetContent side="right">
             <nav className="flex flex-col space-y-4">
-              <a key={0} href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
+              <Link key={0} href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Home
-              </a>
+              </Link>
               <a key={1} href="/features" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Features
               </a>
