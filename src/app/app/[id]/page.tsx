@@ -50,7 +50,7 @@ export default function Component() {
   }, [])
   useEffect(()=>{
     if(project?.customizations){
-      setWebsiteConfig(project?.customizations as ThemeOptions) // eslint-disable-line
+      // setWebsiteConfig(project?.customizations as ThemeOptions) // eslint-disable-line
     }
   }, [project])
 
