@@ -9,5 +9,5 @@ const configAtom = atomWithStorage<any>("websiteContent", {
 })
 
 export function useWebsiteContent() {
-    return useAtom(configAtom)
+    return useAtom<any, [any], void>(configAtom)
 }

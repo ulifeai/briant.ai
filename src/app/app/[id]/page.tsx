@@ -22,7 +22,7 @@ export default function Component() {
   const [loading, setLoading] = useState<boolean>(false)  
   const [menu, setMenu] = useState()
   const [websiteContent, setWebsiteContent] = useWebsiteContent()
-  const [websiteConfig, setWebsiteConfig] = useAtom<ThemeOptions, [SetStateAction<ThemeOptions>], void>(configAtom)
+  const [websiteConfig, setWebsiteConfig] = useConfig()
   const [sideContent, setSideContent] = useState<any>()
   const params = useParams<{ id: string }>()
   const [sitemap, setSitemap] = useState<Sitemap | undefined>()
