@@ -4,7 +4,7 @@ import { atom } from "jotai"
 import { useAtom } from 'jotai/react';
 
 
-const configAtom = atom<ThemeOptions>(defaultCustomization)
+export const configAtom = atom<ThemeOptions>(defaultCustomization)
 
 export function useConfig() {
   return useAtom(configAtom)
