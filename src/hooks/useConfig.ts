@@ -1,11 +1,11 @@
 import { defaultCustomization } from "@/lib/utils/ui"
 import { ThemeOptions } from "@/types/themeConfig"
-import { atom } from "jotai"
+import { SetStateAction, atom } from "jotai"
 import { useAtom } from 'jotai/react';
 
 
-export const configAtom = atom<ThemeOptions>(defaultCustomization)
+export const configAtom = atom(defaultCustomization)
 
 export function useConfig() {
-  return useAtom(configAtom)
+  return useAtom<ThemeOptions, [SetStateAction<ThemeOptions>], void>(configAtom)
 }

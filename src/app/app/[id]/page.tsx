@@ -11,18 +11,18 @@ import { Category } from "@/models/Page";
 import { Sitemap } from "@/validators/modelOutput";
 import { IProject } from "@/models/Project";
 import { ThemeOptions } from "@/types/themeConfig";
-import { configAtom } from "@/hooks/useConfig";
+import { configAtom, useConfig } from "@/hooks/useConfig";
 import { deepEqual } from "@/lib/utils/object";
 import { defaultCustomization } from "@/lib/utils/ui";
 import ComingSoonModal from "@/components/blocks/dashboard/CommingSoonModal";
-import { useAtom } from "jotai";
+import { SetStateAction, useAtom } from "jotai";
 
 
 export default function Component() {
   const [loading, setLoading] = useState<boolean>(false)  
   const [menu, setMenu] = useState()
   const [websiteContent, setWebsiteContent] = useWebsiteContent()
-  const [websiteConfig, setWebsiteConfig] = useAtom(configAtom)
+  const [websiteConfig, setWebsiteConfig] = useAtom<ThemeOptions, [SetStateAction<ThemeOptions>], void>(configAtom)
   const [sideContent, setSideContent] = useState<any>()
   const params = useParams<{ id: string }>()
   const [sitemap, setSitemap] = useState<Sitemap | undefined>()
