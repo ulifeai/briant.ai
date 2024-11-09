@@ -9,7 +9,7 @@ function HeroHeaderBlock() {
   return (
   <section className="grid h-[90vh] container mx-auto grid-cols-1 gap-y-16 pt-16 md:grid-flow-row md:pt-24 lg:grid-flow-col lg:grid-cols-2 lg:items-center lg:pt-0">
     <div className="max-w-[50rem] justify-self-start lg:mr-20 lg:justify-self-end">
-      <Text as="hero" className="mb-4 text-8xl text-lowercase first-letter-uppercase">
+      <Text as="hero" className="mb-4 text-7xl text-lowercase first-letter-uppercase">
         Build Your Nextjs Website with AI
       </Text>
       <Text as="h6" className="md:text-md">
