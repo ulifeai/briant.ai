@@ -155,7 +155,7 @@ Renders a header section with various layouts based on the version.
     - \`placeholder\` (string, optional): Placeholder text for the input field.
 
 **Versions and Layouts:**
-feature has 44 versions (from 1 to 44)
+header has 44 versions (from 1 to 44)
 
 
 
@@ -164,20 +164,20 @@ feature has 44 versions (from 1 to 44)
 \`\`\`jsx
 const data = {{
   version: 1,
-  tag: 'Feature',
+  tag: 'What#s new',
   title: 'Our Latest Update',
-  description: 'New features included.',
+  description: 'New headers included.',
 
   buttons: [
     {{ title: "Get started", variant: "default", size: "default" }},
     {{ title: "Read more", variant: "secondary", size: "default" }},
   ],
-  image: [{{ image: '/1.jpg', alt: 'Feature Image' }},
-  {{ image: '/1.jpg', alt: 'Feature Image' }},
-  {{ image: '/2.jpg', alt: 'Feature Image' }},
-  {{ image: '/3.jpg', alt: 'Feature Image' }},
-  {{ image: '/4.jpg', alt: 'Feature Image' }},
-  {{ image: '/5.jpg', alt: 'Feature Image' }},
+  image: [{{ image: '/1.jpg', alt: 'Header Image' }},
+  {{ image: '/1.jpg', alt: 'Header Image' }},
+  {{ image: '/2.jpg', alt: 'Header Image' }},
+  {{ image: '/3.jpg', alt: 'Header Image' }},
+  {{ image: '/4.jpg', alt: 'Header Image' }},
+  {{ image: '/5.jpg', alt: 'Header Image' }},
   ],
 }};
 
@@ -206,7 +206,7 @@ Renders a feature section with various layouts based on the version.
       - \`title\` (string): The title of the subheading.
       - \`image\` (string): The image of the subheading.
       - \`description\` (string): The description of the subheading.
-  - \`images\` (object): Contains image data for the section.
+  - \`image\` (object): Contains image data for the section.
       - \`src\` (string): URL of the main image.
       - \`alt\` (string): Alt text for the image.
   - \`form\` (object, optional): Contains form-related data.

@@ -1,5 +1,5 @@
 export const componentVersions: Record<string, number> = {
-    FAQSection: 14,
+    faq: 14,
     blog: 3,
     blogHeader: 2,
     blogPost: 5,

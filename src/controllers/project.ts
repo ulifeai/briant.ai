@@ -9,7 +9,7 @@ import { Category, IPage } from '@/models/Page';
  * @param userId - The UUID of the user.
  * @returns An array of IProject objects.
  */
-export async function getProjects(userId: string): Promise<IProject[]> {
+export async function getProjects(userId: string) {
     try {
         const projects = await Project.find({ user_id: userId }).sort([['createdAt', -1]]).lean().exec();
         return projects;
@@ -24,7 +24,7 @@ export async function getProjects(userId: string): Promise<IProject[]> {
  * @param projectId - The UUID of the project.
  * @returns The IProject object or null if not found.
  */
-export async function getProjectById(projectId: string): Promise<IProject | null> {
+export async function getProjectById(projectId: string): Promise<any> {
     try {
         const project = await Project.findOne({ _id: projectId }).lean().exec();
         return project;
@@ -44,7 +44,7 @@ export async function createProject(data: {
     name: string;
     description?: string;
     customizations?: Record<string, any>;
-}): Promise<{ project: IProject, pages: IPage[] }> {
+}) {
     try {
 
         let endPages: any[] = [];
@@ -104,7 +104,7 @@ export async function updateProject(
         description?: string;
         customizations?: Record<string, any>;
     }
-): Promise<IProject | null> {
+) {
     try {
         const updatedProject = await Project.findOneAndUpdate(
             { _id: projectId },
@@ -129,7 +129,7 @@ export async function updateProject(
  * @param projectId - The UUID of the project.
  * @returns An object containing the deletedCount.
  */
-export async function deleteProject(projectId: string): Promise<{ deletedCount?: number }> {
+export async function deleteProject(projectId: string) {
     try {
         const result = await Project.deleteOne({ _id: projectId }).exec();
         if (result.deletedCount === 0) {

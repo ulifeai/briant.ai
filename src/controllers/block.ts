@@ -1,6 +1,6 @@
 import Block, { IBlock } from '@/models/Block';
 import Page from '@/models/Page';
-import logger from '@/lib/utils/logger'; // Optional: For enhanced logging
+import logger from '@/lib/utils/logger';
 import { generateLayout, generatePageCode } from '@/lib/ai/invoke';
 
 /**
@@ -8,7 +8,7 @@ import { generateLayout, generatePageCode } from '@/lib/ai/invoke';
  * @param pageId - The UUID of the page.
  * @returns An array of IBlock objects.
  */
-export async function getBlocks(pageId: string): Promise<IBlock[]> {
+export async function getBlocks(pageId: string) {
     try {
         const page = await Page.findOne({ _id: pageId }).exec();
         if (!page) {
@@ -31,7 +31,7 @@ export async function getBlocks(pageId: string): Promise<IBlock[]> {
  * @param pageId - The UUID of the page.
  * @returns An array of IBlock objects.
  */
-export async function getOrCreateBlocks(validatedData: { page_id: string, app_context: string, page_description: string }): Promise<IBlock[]> {
+export async function getOrCreateBlocks(validatedData: { page_id: string, app_context: string, page_description: string }) {
     try {
         const page = await Page.findOne({ _id: validatedData.page_id }).exec();
         if (!page) {
@@ -71,7 +71,7 @@ export async function getOrCreateBlocks(validatedData: { page_id: string, app_co
  * @param pageId - The UUID of the page.
  * @returns An array of IBlock objects.
  */
-export async function getBlockById(blockId: string): Promise<IBlock | null> {
+export async function getBlockById(blockId: string) {
     try {
         const blocks = await Block.findOne({ _id: blockId }).lean().exec();
         return blocks;
@@ -90,7 +90,7 @@ export async function createBlock(data: {
     page_id: string; // UUID of the page
     content: Record<string, any>;
     order: number;
-}): Promise<IBlock> {
+}) {
     try {
         const { page_id, content, order } = data;
 
@@ -140,7 +140,7 @@ export async function updateBlock(
         content?: Record<string, any>;
         // Add other fields if necessary
     }
-): Promise<IBlock | null> {
+) {
     try {
         const updatedBlock = await Block.findOneAndUpdate(
             { _id: blockId },
@@ -165,7 +165,7 @@ export async function updateBlock(
  * @param blockId - The UUID of the block.
  * @returns An object containing the deletedCount.
  */
-export async function deleteBlock(blockId: string): Promise<{ deletedCount?: number }> {
+export async function deleteBlock(blockId: string) {
     try {
         const result = await Block.deleteOne({ _id: blockId }).exec();
         if (result.deletedCount === 0) {

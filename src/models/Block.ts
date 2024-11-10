@@ -51,6 +51,6 @@ blockSchema.post('save', function (error: any, doc: IBlock, next: Function) {
     }
 });
 
-const Block = mongoose.model<IBlock>('Block', blockSchema);
+const Block = mongoose.models.Block || mongoose.model<IBlock>('Block', blockSchema);
 
 export default Block;

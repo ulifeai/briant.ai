@@ -112,7 +112,6 @@ export default function Component() {
   useEffect(()=>{
     window.addEventListener("message", (iframeData)=>{
       if(iframeData.data.operation == "component_clicked"){
-        console.log("I am here after", iframeData.data, websiteContent)
         let side = websiteContent.pageCode.filter((data: any)=> {
             return data.id == iframeData.data.id.toString()
         })

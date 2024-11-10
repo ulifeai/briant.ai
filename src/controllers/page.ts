@@ -33,7 +33,7 @@ export async function getPages(projectId: string): Promise<IPage[]> {
  * @param projectId - The UUID of the project.
  * @returns An array of IPage objects.
  */
-export async function getPagesWithBlocksAndProject(projectId: string): Promise<{ pages: IPage[], project: IProject }> {
+export async function getPagesWithBlocksAndProject(projectId: string) {
     try {
         const project = await Project.findOne({ _id: projectId }).exec();
         if (!project) {
@@ -57,7 +57,7 @@ export async function getPagesWithBlocksAndProject(projectId: string): Promise<{
  * @param pageId - The UUID of the page.
  * @returns The IPage object or null if not found.
  */
-export async function getPageById(pageId: string): Promise<IPage | null> {
+export async function getPageById(pageId: string) {
     try {
         const page = await Page.findOne({ _id: pageId }).lean().exec();
         return page;
@@ -78,7 +78,7 @@ export async function createPage(data: {
     path?: string;
     description?: string;
     category: Category
-}): Promise<IPage> {
+}) {
     try {
         const { project_id, name, path, category, description } = data;
 
@@ -123,7 +123,7 @@ export async function createMultiplePages(data: {
     path: string;
     description: string;
     category?: string | undefined
-}[]): Promise<IPage[]> {
+}[]) {
     try {
         const savedPage = []
         for (let i = 0; i < data.length; i++) {
@@ -169,7 +169,7 @@ export async function createMultiplePages(data: {
 export async function updatePage(
     pageId: string,
     data: any
-): Promise<IPage | null> {
+) {
     try {
         const updatedPage = await Page.findOneAndUpdate(
             { _id: pageId },
@@ -194,7 +194,7 @@ export async function updatePage(
  * @param pageId - The UUID of the page.
  * @returns An object containing the deletedCount.
  */
-export async function deletePage(pageId: string): Promise<{ deletedCount?: number }> {
+export async function deletePage(pageId: string) {
     try {
         const result = await Page.deleteOne({ _id: pageId }).exec();
         if (result.deletedCount === 0) {

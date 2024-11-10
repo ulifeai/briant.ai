@@ -139,14 +139,40 @@ export function ThemeCustomizer() {
                 </div>
                 {/* Secondary Color */}
                 <div className="justify-start flex items-center flex-row">
-                <Input
-                    id="secondaryColor"
-                    type="color"
-                    className="w-8 mr-2 h-8 p-0 rounded-full border-0"
-                    value={themeOptions.secondaryColor}
-                    onChange={(e) => updateThemeOption('secondaryColor', e.target.value)}
-                />
-                <Label className='text-xs font-normal' htmlFor="secondaryColor">Secondary Color</Label>
+                    <Input
+                        id="secondaryColor"
+                        type="color"
+                        className="w-8 mr-2 h-8 p-0 rounded-full border-0"
+                        value={themeOptions.secondaryColor}
+                        onChange={(e) => updateThemeOption('secondaryColor', e.target.value)}
+                    />
+                    <Label className='text-xs font-normal' htmlFor="secondaryColor">Secondary Color</Label>
+
+                </div>
+
+                {/* Secondary Color */}
+                <div className="justify-start flex items-center flex-row">
+                    <Input
+                        id="backgroundColor"
+                        type="color"
+                        className="w-8 mr-2 h-8 p-0 rounded-full border-0"
+                        value={themeOptions.backgroundColor}
+                        onChange={(e) => updateThemeOption('backgroundColor', e.target.value)}
+                    />
+                    <Label className='text-xs font-normal' htmlFor="backgroundColor">Background Color</Label>
+
+                </div>
+
+                {/* Secondary Color */}
+                <div className="justify-start flex items-center flex-row">
+                    <Input
+                        id="foregroundColor"
+                        type="color"
+                        className="w-8 mr-2 h-8 p-0 rounded-full border-0"
+                        value={themeOptions.foregroundColor}
+                        onChange={(e) => updateThemeOption('foregroundColor', e.target.value)}
+                    />
+                    <Label className='text-xs font-normal' htmlFor="foregroundColor">Foreground Color</Label>
 
                 </div>
                 {/* Tag Colors */}
