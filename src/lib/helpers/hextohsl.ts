@@ -13,7 +13,7 @@ export const hexToHsl = (hex: string) => {
     let r = parseInt(hex.substring(0, 2), 16) / 255;
     let g = parseInt(hex.substring(2, 4), 16) / 255;
     let b = parseInt(hex.substring(4, 6), 16) / 255;
-  
+
     // Find min and max values among r, g, b
     let max = Math.max(r, g, b);
     let min = Math.min(r, g, b);
@@ -57,3 +57,23 @@ export const hexToHsl = (hex: string) => {
     return `${h}, ${s}%, ${l}%`;
   };
   
+
+// utils/colorUtils.js
+
+/**
+ * Converts a HEX color code to RGB.
+ * @param {string} hex - The HEX color code (e.g., "#3490dc").
+ * @returns {string} - The RGB representation without the 'rgb()' wrapper (e.g., "52, 144, 220").
+ */
+export const hexToRgb = (hex: string) => {
+  // Remove the hash symbol if present
+  hex = hex.replace(/^#/, '');
+
+  // Parse r, g, b values
+  let r = parseInt(hex.substring(0, 2), 16);
+  let g = parseInt(hex.substring(2, 4), 16);
+  let b = parseInt(hex.substring(4, 6), 16);
+
+  // Return the RGB values as a string
+  return `${r}, ${g}, ${b}`;
+};
