@@ -45,6 +45,7 @@ export async function getOrCreateBlocks(validatedData: { page_id: string, app_co
             let data = await generateLayout(validatedData.app_context.toString(), validatedData.page_description.toString())
             // console.log(data, "==============================================================")
             const pageCode = await generatePageCode(JSON.stringify(data.data), validatedData.page_description.toString())
+
             let endBlocks = []
             for (let index = 0; index < pageCode.data.length; index++) {
                 const element = pageCode.data[index];
