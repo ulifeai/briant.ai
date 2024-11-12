@@ -75,7 +75,7 @@ Renders a Call-To-Action section with various layouts based on the version.
 **Props:**
 
 - \`data\` (object)
-  - \`version\` (number): Determines the layout.
+  - \`version\` (number 1-4): Determines the layout.
   - \`tag\` (string, optional): Optional tag text.
   - \`title\` (string, optional): CTA title.
   - \`description\` (string, optional): CTA description.
@@ -94,12 +94,6 @@ Renders a Call-To-Action section with various layouts based on the version.
     - \`imageOverlayVideo\` (string, optional): Overlay video image URL.
     - \`imageBgOverlay\` (string, optional): Background overlay image URL.
     - \`alt\` (string, optional): Image alt text.
-
-**Versions and Layouts:**
-
-- Version 1: Two-column layout with text and image.
-- Version 2: Similar to version 1 with background overlay.
-- Versions 7, 8, 10: Single-column layouts with larger images.
 
 **Image Options:**
 
@@ -284,7 +278,7 @@ Renders a responsive navigation bar with multiple versions and styles.
 **Props:**
 
 - \`data\` (object)
-  - \`version\` (number): Version of the navbar (1-8), determines style and layout.
+  - \`version\` (number): Version of the navbar (1-5), determines style and layout.
   - \`logo\` :(string): URL to navigate to when the logo is clicked.
   - \`navItems\` (array of objects):
     - Each link has:
@@ -686,7 +680,7 @@ export const generateComponentsDocumentationOld = () =>{
          * @component
          * @param {{Object}} props - Component props.
          * @param {{Object}} props.data - Data object containing all the information needed to render the FAQ section.
-         * @param {{number}} props.data.version - Version number (1-14) that determines the layout and styling of the FAQ section.
+         * @param {{number}} props.data.version - Version number (1-8) that determines the layout and styling of the FAQ section.
          * @param {{string}} [props.data.logo] - Optional logo image source.
          * @param {{Array<Object>}} props.data.questions - An array of question objects.
          * @param {{string}} props.data.questions[].title - The question title.
@@ -703,13 +697,6 @@ export const generateComponentsDocumentationOld = () =>{
          *
          * @description
          * The FAQSection component dynamically renders an FAQ section based on the provided version prop. It supports multiple layouts and styles to fit different design requirements. The component displays a list of questions and answers, along with optional titles, paragraphs, and a call-to-action button.
-         *
-         * **Versions and Layouts:**
-         * - **Versions 1, 4, 7**: Centered titles and paragraphs, questions displayed in different styles.
-         * - **Versions 2, 5, 9**: Left-aligned text, different question display styles.
-         * - **Versions 3, 6, 8**: Split layout with text on the left and questions on the right.
-         * - **Versions 10, 11**: Grid layout with questions split into two columns.
-         * - **Versions 12, 13, 14**: Grid layout with questions in two or three columns, optional images.
          *
          * @example
          * 

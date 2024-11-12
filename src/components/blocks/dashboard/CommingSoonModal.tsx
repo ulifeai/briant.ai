@@ -65,7 +65,7 @@ export default function ComingSoonModal({
               Notify Me
             </Button>
 
-            <Link data-canny-link target="Briantai.canny.io" href="https://Briantai.canny.io/feature-requests">
+            <Link data-canny-link target="Briantai.canny.io" href="https://briantai.featurebase.app">
                 <Button className="gap-2" onClick={()=>setOpen(false)}>
                     <MessageCircle className="h-4 w-4" />
                     Send feedback

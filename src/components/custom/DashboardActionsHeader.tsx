@@ -28,13 +28,13 @@ export const DashboardActionsHeader = ({viewMode, setViewMode}:Props) => {
                     <Settings className="h-4 w-4 mr-2" />
                     Custom style
                 </Button> */}
-                <Link data-canny-link target="Briantai.canny.io" href="https://Briantai.canny.io/feature-requests">
+                <Link data-canny-link target="Briantai.canny.io" href="https://briantai.featurebase.app">
                     <Button className="bg-primary mr-4" size="sm">
                         <Sparkles className="h-4 w-4 mr-2" />
                         Request feature
                     </Button>
                 </Link>
-                <Link data-canny-link target="Briantai.canny.io" href="https://Briantai.canny.io/feature-requests">
+                <Link data-canny-link target="Briantai.canny.io" href="https://briantai.featurebase.app">
                     <Button size="sm">
                         <MessageCircle className="h-4 w-4 mr-2" />
                         Give feedback
