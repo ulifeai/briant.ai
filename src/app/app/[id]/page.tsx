@@ -27,7 +27,7 @@ export default function Component() {
   const params = useParams<{ id: string }>()
   const [sitemap, setSitemap] = useState<Sitemap | undefined>()
   const [project, setProject] = useState<IProject>()
-  const [commingSoonModalOpen, setCommingSoonModalOpen] = useState<boolean>(false)
+  const [comingSoonModalOpen, setComingSoonModalOpen] = useState<boolean>(false)
   
   
   useEffect(()=>{
@@ -45,6 +45,7 @@ export default function Component() {
         setSitemap({pages, sitename: ""})
         setProject(data.project)
         setLoading(false)
+        setWebsiteConfig(data.project.customizations as ThemeOptions)
       });
       // setSitemap(JSON.parse(localStorage.getItem("app_data") ?? "")??undefined)
 
@@ -59,7 +60,7 @@ export default function Component() {
 
   const handleMenuClick = async (page: any, page_section: string) =>{
     if(page_section == "__disabled__"){
-      setCommingSoonModalOpen(true)
+      setComingSoonModalOpen(true)
       return;
     }
     setLoading(true);
@@ -89,7 +90,7 @@ export default function Component() {
         setSitemap(old_sitemap)
       }
       
-
+      setWebsiteConfig(project?.customizations as ThemeOptions)
       // return response.data;
     } catch (error) {
       // console.log({ error });
@@ -97,14 +98,14 @@ export default function Component() {
     setLoading(false)
   }
 
-  const commingSoonModalOpenNotifyMe = async () => {
+  const comingSoonModalOpenNotifyMe = async () => {
     const response = axios('/api/app/notifications/feature-request', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    setCommingSoonModalOpen(false)
+    setComingSoonModalOpen(false)
 
     alert("Thank you! You will be notified when it is released.")
   }
@@ -171,9 +172,9 @@ export default function Component() {
       <RightNav sideContent={sideContent} saveContent={saveBlockContent}></RightNav>
 
       <ComingSoonModal feature="Auth/Dashboard" 
-      open={commingSoonModalOpen} 
-      submitItend={commingSoonModalOpenNotifyMe}
-      setOpen={setCommingSoonModalOpen}
+        open={comingSoonModalOpen} 
+        submitItend={comingSoonModalOpenNotifyMe}
+        setOpen={setComingSoonModalOpen}
       ></ComingSoonModal>
     </div>
   )

@@ -151,7 +151,8 @@ ${generateComponentsOverview()}
 # Notes
 - Always strive for consistency and reliability in the layout, ensuring that outlined patterns and elements reflect standards for that specific industry.
 - If needed, elaborate beyond the provided sections in a way that still makes logical sense for enhancing page coherency. Avoid any form of randomness; rely on real-world page flow and structure.
-- A feature section represent a single or maycimum 2 couples features that can be splitted into features items. So if a page has 5 features it should have at least 3 feature sections for example.
+- A feature section represent a single or maxiimum 2 couples features that can be splitted into features items. So if a page has 5 features it should have at least 3 feature sections for example.
+- A complete landing page should have enough sections. For example a page with a hero header, a cta section, a feature section, a testimonial section and a footer should have at least 5 sections.
 `
 
 
