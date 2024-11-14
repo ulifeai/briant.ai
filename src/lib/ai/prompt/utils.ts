@@ -432,7 +432,7 @@ Here's the reformatted documentation based on your example:
     - \`image\` (string): Source URL of the logo image.
     - \`alt\` (string): Alt text for the logo image.
   - \`navLinks\` (array of objects): Navigational links displayed in the footer.
-    - \`label\` (string): Text of the navigation link.
+    - \`title\` (string): Text of the navigation link.
     - \`href\` (string): URL the link points to.
   - \`subscribeText\` (string, optional): Text prompting users to subscribe to the newsletter.
   - \`subscribeButtonText\` (string, optional): Text displayed on the subscription button.
@@ -448,7 +448,7 @@ Here's the reformatted documentation based on your example:
   
 **Versions and Layouts:**
 
-- **Version 1:**
+- **Version 1 to 5:**
   - Displays the logo, newsletter subscription form, two columns of links, social media icons, and footer text with additional links.
   
 
