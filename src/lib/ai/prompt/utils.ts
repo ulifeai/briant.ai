@@ -1,7 +1,7 @@
-export const generateComponentsOverview = () =>{
-    // banners: A header banner for a simple anoucement if there is a need for it
-    
-    return `
+export const generateComponentsOverview = () => {
+  // banners: A header banner for a simple anoucement if there is a need for it
+
+  return `
     - **navbar**: The website navigation section, containing links to main pages.
     - **header**: An above-the-fold section introducing the website without the menu.
     - **cta**: A call-to-action section encouraging user engagement.
@@ -11,12 +11,11 @@ export const generateComponentsOverview = () =>{
     - **faq**: A frequently asked questions section.
     - **logo**: A display of logos for social proof.
     - **footer**: The footer section containing additional navigation and information.
-    `
-}
-
+    `;
+};
 
 export const generateComponentsDocumentation = () => {
-    return `
+  return `
 **Component Documentation for AI Application Development**
 
 This guide provides an overview of React components used in web application development. It details component functionalities, props, and usage examples to assist in creating applications.
@@ -231,17 +230,20 @@ const data = {{
   {{
     title: 'De-risking your project',
     description: 'Identify and mitigate potential risks early in your project lifecycle.',
-    image: '/1.jpg'
+    image: '/1.jpg',
+    alt: 'alt'
   }},
   {{
     title: 'Planning strategies',
     description: 'Develop comprehensive strategies to ensure project success.',
-    image: '/5.jpg'
+    image: '/5.jpg',
+    alt: 'alt'
   }},
   {{
     title: 'Return on investment',
     description: 'Maximize your ROI through careful planning and execution.',
-    image: '/2.jpg'
+    image: '/2.jpg',
+    alt: 'alt'
   }}
 ]
 }};
@@ -468,12 +470,10 @@ Here's the reformatted documentation based on your example:
 
 ---
 `;
+};
 
-}
-
-
-export const generateComponentsDocumentationOld = () =>{
-    return `
+export const generateComponentsDocumentationOld = () => {
+  return `
 
     These component is a versatile component that can have many different shapes based on the given parameters. You can customize them the way you will like it to be using the parameters
     Each component have multiple versions. You are free to choose between multiple version depending on the usecase and the version specification. 
@@ -775,7 +775,5 @@ export const generateComponentsDocumentationOld = () =>{
     // logo : set of logo for social proof
     // pricing : pricing section
     // testimonial: testimonial section
-    `
-    
-    
-}
+    `;
+};
