@@ -46,54 +46,6 @@ export async function getOrCreateBlocks(validatedData: {
       .lean()
       .exec();
 
-    console.log(blocks.length);
-
-    const response = await fetch(
-      `https://api.pexels.com/v1/search?query=mangas&per_page=30`,
-      {
-        headers: {
-          Authorization: process.env.PEXELS_API_KEY ?? "",
-        },
-      }
-    );
-
-    const photos = await response.json();
-
-    blocks.map((block: any, index: number) => {
-      if (block.content.type === "header") {
-        block.content.data.images.map((image: any, index: number) => {
-          if (image.src !== undefined)
-            image.src = photos.photos[index].src.original;
-        });
-      }
-      if (block.content.type === "feature") {
-        block.content.data.image.src = photos.photos[index].src.original;
-        if ("feature_items" in block.content.data) {
-          block.content.data.feature_items.map(
-            (feature_item: any, index: number) => {
-              feature_item.image = photos.photos[index].src.original;
-            }
-          );
-        }
-      }
-      if (block.content.type === "testimonial") {
-        if ("testimonials" in block.content.data) {
-          block.content.data.testimonials.map(
-            (testimonials: any, index: number) => {
-              testimonials.image.src = photos.photos[index].src.original;
-              testimonials.avatar.src = photos.photos[index].src.original;
-            }
-          );
-        }
-      }
-    });
-
-    blocks.map((block: any, index: number) => {
-      console.log(`${index}`);
-      console.log(block.content.type);
-      console.log(block.content.data);
-    });
-
     if (blocks.length == 0) {
       let data = await generateLayout(
         validatedData.app_context.toString(),
@@ -108,6 +60,54 @@ export async function getOrCreateBlocks(validatedData: {
       let endBlocks = [];
       for (let index = 0; index < pageCode.data.length; index++) {
         const element = pageCode.data[index];
+
+        const response = await fetch(
+          `https://api.pexels.com/v1/search?query=mangas&per_page=30`,
+          {
+            headers: {
+              Authorization: process.env.PEXELS_API_KEY ?? "",
+            },
+          }
+        );
+
+        const photos = await response.json();
+
+        if (element.type === "header") {
+          element.data.images.map((image: any, index: number) => {
+            if (image.src !== undefined)
+              image.src = photos.photos[index].src.original;
+          });
+        }
+        if (element.type === "feature") {
+          if ("src" in element.data.image) {
+            element.data.image.src = photos.photos[index].src.original;
+          }
+          if ("feature_items" in element.data) {
+            element.data.feature_items.map(
+              (feature_item: any, index: number) => {
+                if ("image" in feature_item) {
+                  feature_item.image = photos.photos[index].src.original;
+                }
+              }
+            );
+          }
+        }
+        if (element.type === "testimonial") {
+          if ("testimonials" in element.data) {
+            element.data.testimonials.map(
+              (testimonials: any, index: number) => {
+                if (
+                  ("image" in testimonials || "avatar" in testimonials) &&
+                  "src" in testimonials.image
+                ) {
+                  testimonials.image.src = photos.photos[index].src.original;
+                  testimonials.avatar.src = photos.photos[index].src.original;
+                }
+              }
+            );
+          }
+        }
+
         const newBlock = await createBlock({
           page_id: validatedData.page_id,
           content: element,

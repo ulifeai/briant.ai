@@ -1,6 +1,6 @@
-import { ChatOpenAI, AzureChatOpenAI } from "@langchain/openai";
+import { ChatOpenAI } from "@langchain/openai";
 
-export const Model = new AzureChatOpenAI({
-    model: "gpt-4o",
-    temperature: 1
+export const Model = new ChatOpenAI({
+  model: "gpt-4o",
+  temperature: 1,
 });
