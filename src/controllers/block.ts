@@ -2,6 +2,7 @@ import Block, { IBlock } from "@/models/Block";
 import Page from "@/models/Page";
 import logger from "@/lib/utils/logger";
 import { generateLayout, generatePageCode } from "@/lib/ai/invoke";
+import Project from "@/models/Project";
 
 /**
  * Retrieve all blocks for a specific page.
@@ -47,6 +48,7 @@ export async function getOrCreateBlocks(validatedData: {
       .exec();
 
     if (blocks.length == 0) {
+      const project = await Project.findOne({ _id: page.project_id }).exec();
       let data = await generateLayout(
         validatedData.app_context.toString(),
         validatedData.page_description.toString()
@@ -62,7 +64,7 @@ export async function getOrCreateBlocks(validatedData: {
         const element = pageCode.data[index];
 
         const response = await fetch(
-          `https://api.pexels.com/v1/search?query=mangas&per_page=30`,
+          `https://api.pexels.com/v1/search?query=${project.pexel_image_keyword ?? "computer "} app&per_page=30`,
           {
             headers: {
               Authorization: process.env.PEXELS_API_KEY ?? "",
@@ -79,7 +81,11 @@ export async function getOrCreateBlocks(validatedData: {
           });
         }
         if (element.type === "feature") {
-          if ("src" in element.data.image) {
+          if (element.data.image && "src" in element.data.image) {
+            element.data.image.src = photos.photos[index].src.original;
+          }
+          if (element.data.image && "image" in element.data.image) {
+            element.data.image.image = photos.photos[index].src.original;
             element.data.image.src = photos.photos[index].src.original;
           }
           if ("feature_items" in element.data) {
@@ -97,7 +103,7 @@ export async function getOrCreateBlocks(validatedData: {
             element.data.testimonials.map(
               (testimonials: any, index: number) => {
                 if (
-                  ("image" in testimonials || "avatar" in testimonials) &&
+                  ("image" in testimonials || "avatar" in testimonials) && testimonials.image &&
                   "src" in testimonials.image
                 ) {
                   testimonials.image.src = photos.photos[index].src.original;

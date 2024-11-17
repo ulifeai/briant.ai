@@ -6,7 +6,7 @@ import { z } from 'zod';
  */
 export const createProjectSchema = z.object({
   user_id: z.string(),
-
+  pexel_image_keyword: z.string().optional(),
   name: z.string()
     .min(3, { message: "Name must be at least 3 characters long" })
     .max(30, { message: "Name must be at most 30 characters long" })

@@ -9,6 +9,7 @@ export interface IProject extends Document {
     user_id: string; // From Clerk
     id: string; // Auto-generated UUID
     name: string;
+    pexel_image_keyword: string;
     description: string;
     customizations: Record<string, any>; // JSON field
     createdAt: Date;
@@ -32,6 +33,10 @@ const projectSchema: Schema<IProject> = new Schema(
         name: {
             type: String,
             required: true,
+            trim: true,
+        },
+        pexel_image_keyword: {
+            type: String,
             trim: true,
         },
         description: {

@@ -32,6 +32,7 @@ export const PagesSchema = z.object({
  */
 export const SitemapSchema = z.object({
     sitename: z.string(),
+    pexel_image_keyword: z.string(),
     pages: PagesSchema,
 });
 

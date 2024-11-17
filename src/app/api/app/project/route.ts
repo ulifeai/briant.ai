@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
         if (!validatedData.customizations)
             validatedData.customizations = defaultCustomization
 
-        const newProject = await createProject({ ...validatedData, name: "" });
+        const newProject = await createProject({ ...validatedData, name: "", pexel_image_keyword: "" });
 
         return createResponse(
             { success: true, data: newProject },

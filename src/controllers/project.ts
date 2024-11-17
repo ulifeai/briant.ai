@@ -44,17 +44,20 @@ export async function createProject(data: {
     name: string;
     description?: string;
     customizations?: Record<string, any>;
+    pexel_image_keyword: string
 }) {
     try {
 
         let endPages: any[] = [];
-        let { user_id, name, description = '', customizations = {} } = data;
+        let { user_id, name, description = '', customizations = {}, pexel_image_keyword } = data;
         const sitemapData = await generateSitemap(description);
         name = sitemapData.sitename
-
+        pexel_image_keyword = sitemapData.pexel_image_keyword ?? ""
+        console.log("pexel_image_keyword ================================================", pexel_image_keyword)
         const newProject: IProject = new Project({
             user_id,
             name,
+            pexel_image_keyword,
             description,
             customizations,
         });
