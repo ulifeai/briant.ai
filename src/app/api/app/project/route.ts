@@ -10,7 +10,7 @@ import { createPage } from '@/controllers/page';
 import { Category } from '@/models/Page';
 import { createResponse, ResponseData } from '@/lib/utils/response'; // Assuming these utilities exist
 import { validateSchema } from '@/lib/utils/validate'; // Assuming this utility exists
-import { defaultCustomization } from '@/lib/utils/ui';
+import { defaultCustomization, defaultTheme } from '@/lib/utils/ui';
 
 /**
  * Handle GET request to retrieve all projects for a user.
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
         );
     try {
         if (!validatedData.customizations)
-            validatedData.customizations = defaultCustomization
+            validatedData.customizations = defaultTheme
 
         const newProject = await createProject({ ...validatedData, name: "", pexel_image_keyword: "" });
 

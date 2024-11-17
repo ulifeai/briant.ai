@@ -1,10 +1,11 @@
 
 import { atomWithStorage } from "jotai/utils"
 import { useAtom } from 'jotai/react';
+import { atom } from "jotai";
 
 
 
-const configAtom = atomWithStorage<any>("websiteContent", {
+const configAtom = atom<any>({
     pageCode: []
 })
 

@@ -98,6 +98,15 @@ export default function Component() {
     setLoading(false)
   }
 
+
+  useEffect(()=>{
+    if(project?.customizations){
+      setWebsiteConfig(project?.customizations as ThemeOptions) // eslint-disable-line
+    // alert("TEST")
+
+    }
+  }, [websiteContent])
+
   const comingSoonModalOpenNotifyMe = async () => {
     const response = axios('/api/app/notifications/feature-request', {
       method: 'POST',

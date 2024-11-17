@@ -50,11 +50,13 @@ export default function Component() {
       // setSitemap(JSON.parse(localStorage.getItem("app_data") ?? "")??undefined)
 
   }, [])
-  useEffect(()=>{
-    if(project?.customizations){
-      setWebsiteConfig(project?.customizations as ThemeOptions) // eslint-disable-line
-    }
-  }, [project])
+
+  
+  // useEffect(()=>{
+  //   if(project?.customizations){
+  //     setWebsiteConfig(project?.customizations as ThemeOptions) // eslint-disable-line
+  //   }
+  // }, [project])
 
 
 
