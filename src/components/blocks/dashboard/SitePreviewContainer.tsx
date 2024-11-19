@@ -1,58 +1,76 @@
-"use client"
+"use client";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useRef, useState } from "react";
 import { DashboardActionsHeader } from "@/components/custom/DashboardActionsHeader";
 
 import { useConfig } from "@/hooks/useConfig";
 
-export default function SitePreviewContainer({ website_content, loadingIframe, windowClick, onThemeChange}: {website_content: any, loadingIframe: boolean, windowClick: Function, onThemeChange: Function}) {
+export default function SitePreviewContainer({
+  website_content,
+  loadingIframe,
+  windowClick,
+  onThemeChange,
+  pageid,
+}: {
+  website_content: any;
+  loadingIframe: boolean;
+  windowClick: Function;
+  onThemeChange: Function;
+  pageid: string;
+}) {
+  const [viewMode, setViewMode] = useState("web");
+  const [themeOptions, setThemeOptions] = useConfig();
+  const iframeRef = useRef<any>(null);
 
-  const [viewMode, setViewMode] = useState('web')
-  const [themeOptions, setThemeOptions] = useConfig()
-  const iframeRef = useRef<any>(null)
+  useEffect(() => {
+    sendIframeMessage("website_content", { ...website_content });
+  }, [website_content]);
 
-  useEffect(()=>{
-    sendIframeMessage("website_content", {...website_content})
-  }, [website_content])
+  useEffect(() => {
+    sendIframeMessage("loading", { loading: loadingIframe });
+  }, [loadingIframe]);
 
-  useEffect(()=>{
-    sendIframeMessage("loading",{loading: loadingIframe})
-  }, [loadingIframe])
-
-  useEffect(()=>{
-    sendIframeMessage("set_theme",{themeOptions})
-    onThemeChange(themeOptions)
-    
-  }, [themeOptions])
-
-
+  useEffect(() => {
+    sendIframeMessage("set_theme", { themeOptions });
+    onThemeChange(themeOptions);
+  }, [themeOptions]);
 
   const sendIframeMessage = (operation: string, data: any) => {
-    console.log(data)
+    console.log(data);
     if (iframeRef.current && iframeRef.current.contentWindow) {
-      iframeRef.current?.contentWindow.postMessage({...data, operation}, "*")
+      iframeRef.current?.contentWindow.postMessage({ ...data, operation }, "*");
     }
+  };
 
-  }
+  return (
+    <div className="flex-1 flex flex-col">
+      {/* Top Header */}
+      <DashboardActionsHeader
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        pageid={pageid ?? ""}
+      />
 
-    return <div className="flex-1 flex flex-col">
-    {/* Top Header */}
-    <DashboardActionsHeader viewMode={viewMode} setViewMode={setViewMode} />
-
-    {/* Main content */}
-    <div className=" bg-gray-200 w-full h-[95vh]" onClick={()=>windowClick()}>
-          {/* <div className="text-center pt-6 pb-2 text-gray-200">
+      {/* Main content */}
+      <div
+        className=" bg-gray-200 w-full h-[95vh]"
+        onClick={() => windowClick()}
+      >
+        {/* <div className="text-center pt-6 pb-2 text-gray-200">
             <Button variant={"outline"} className="px-8 py-0 border-gray-50 bg-transparent">{viewMode}</Button>
           </div> */}
-    <ScrollArea className="h-full w-[67vw] flex-1 container overflow-auto pt-6 pb-6 text-black">
-      <div className={`rounded-md ml-[3.5vw] h-[120vh] bg-white mx-auto ${
-        viewMode === 'web' ? 'w-[80vw]' : 
-        viewMode === 'tablet' ? 'max-w-2xl' : 
-        'max-w-sm'
-      }`}
-      style={{ transform: "scale(0.75)", transformOrigin: "left top"}}
-      >
-         {/* <header className="border-b border-gray-800 bg-background">
+        <ScrollArea className="h-full w-[67vw] flex-1 container overflow-auto pt-6 pb-6 text-black">
+          <div
+            className={`rounded-md ml-[3.5vw] h-[120vh] bg-white mx-auto ${
+              viewMode === "web"
+                ? "w-[80vw]"
+                : viewMode === "tablet"
+                ? "max-w-2xl"
+                : "max-w-sm"
+            }`}
+            style={{ transform: "scale(0.75)", transformOrigin: "left top" }}
+          >
+            {/* <header className="border-b border-gray-800 bg-background">
             <div className="container mx-auto px-4">
               <div className="flex items-center justify-between h-14">
                 <Menubar>
@@ -88,12 +106,17 @@ export default function SitePreviewContainer({ website_content, loadingIframe, w
          
         </div> */}
 
-        <iframe ref={iframeRef} src={(process.env.NEXT_PUBLIC_PREVIEW_URL??"http://localhost:3001")+"/preview"} className="w-full h-full"></iframe>
-          
+            <iframe
+              ref={iframeRef}
+              src={
+                (process.env.NEXT_PUBLIC_PREVIEW_URL ??
+                  "http://localhost:3001") + "/preview"
+              }
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </ScrollArea>
       </div>
-    </ScrollArea>
-
     </div>
-  
-  </div>
+  );
 }

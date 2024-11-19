@@ -22,6 +22,7 @@ Your response should only contain a JSON object representing the website structu
 
 - The response should be a valid JSON object structured as follows:
   - **sitename**: A short, three-word name for the application.
+  - **pexel_image_keyword**: A single string containing a keyword for the images of the website that resume the main ideas of the website.
   - **pages**: An object containing website pages, categorized as **public**, **auth**, or **authenticated**:
     - Each category (public, auth, authenticated) should be an array of page objects:
       - **title**: The name of the page.
