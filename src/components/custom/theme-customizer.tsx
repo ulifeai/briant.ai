@@ -1,12 +1,10 @@
 'use client'
-import { useAtom } from 'jotai'
 import { useState, useEffect } from 'react'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Slider } from '@/components/ui/slider'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useConfig } from '@/hooks/useConfig'
 import { ThemeOptions } from '@/types/themeConfig'
 import {
@@ -19,49 +17,9 @@ import {
   } from "@/components/ui/command"
 import { Check, ChevronsUpDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { fonts } from '@/lib/helpers/fonts'
 
-const fonts = [  "DM Sans",
-    "Inter",
-    "Space Mono",
-    "Space Grotesk",
-    "Work Sans",
-    "Syne",
-    "Libre Franklin",
-    "Cormorant",
-    "Fira Sans",
-    "Eczar",
-    "Alegreya Sans",
-    "Alegreya",
-    "Source Sans Pro",
-    "Source Serif Pro",
-    "Roboto",
-    "Fraunces",
-    "Inknut Antiqua",
-    "BioRhyme",
-    "Poppins",
-    "Archivo Narrow",
-    "Libre Baskerville",
-    "Playfair Display",
-    "Karla",
-    "Lora",
-    "Proza Libre",
-    "Spectral",
-    "IBM Plex Sans",
-    "Manrope",
-    "Montserrat",
-    "Lato",
-    "PT Sans",
-    "PT Serif",
-    "Cardo",
-    "Chivo",
-    "Neuton",
-    "Rubik",
-    "Open Sans",
-    "Inconsolata",
-    "Raleway",
-    "Merriweather",
-    "Plus Jakarta Sans"
-]
+
 
 export function ThemeCustomizer() {
   const [themeOptions, setThemeOptions] = useConfig()
