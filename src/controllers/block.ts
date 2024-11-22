@@ -60,11 +60,14 @@ export async function getOrCreateBlocks(validatedData: {
       );
 
       let endBlocks = [];
+      let pexelNb: number = 0;
       for (let index = 0; index < pageCode.data.length; index++) {
         const element = pageCode.data[index];
 
         const response = await fetch(
-          `https://api.pexels.com/v1/search?query=${project.pexel_image_keyword ?? "computer "} app&per_page=30`,
+          `https://api.pexels.com/v1/search?query=${
+            project.pexel_image_keyword ?? "computer "
+          } app&per_page=30`,
           {
             headers: {
               Authorization: process.env.PEXELS_API_KEY ?? "",
@@ -74,10 +77,14 @@ export async function getOrCreateBlocks(validatedData: {
 
         const photos = await response.json();
 
-        if (element.type === "header") {
+        if (element.type === "header" && element.data.images !== undefined) {
           element.data.images.map((image: any, index: number) => {
-            if (image.src !== undefined)
-              image.src = photos.photos[index].src.original;
+            if (
+              image.src !== undefined &&
+              photos.photos[pexelNb++].src !== undefined
+            ) {
+              image.src = photos.photos[pexelNb++].src.original;
+            }
           });
         }
         if (element.type === "feature") {
@@ -88,7 +95,7 @@ export async function getOrCreateBlocks(validatedData: {
             element.data.image.image = photos.photos[index].src.original;
             element.data.image.src = photos.photos[index].src.original;
           }
-          if ("feature_items" in element.data) {
+          if (element.data && element.data.feature_items !== undefined) {
             element.data.feature_items.map(
               (feature_item: any, index: number) => {
                 if ("image" in feature_item) {
@@ -103,7 +110,8 @@ export async function getOrCreateBlocks(validatedData: {
             element.data.testimonials.map(
               (testimonials: any, index: number) => {
                 if (
-                  ("image" in testimonials || "avatar" in testimonials) && testimonials.image &&
+                  ("image" in testimonials || "avatar" in testimonials) &&
+                  testimonials.image &&
                   "src" in testimonials.image
                 ) {
                   testimonials.image.src = photos.photos[index].src.original;
