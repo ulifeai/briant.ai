@@ -31,6 +31,7 @@ export default function Component() {
           return { ...item.content, id: item.id, _id: item._id };
         });
         console.log("completePageCode", completePageCode);
+        setThemeOptions(data.project.customizations);
         setWebsiteData({ pageCode: completePageCode });
       });
   }, []);
