@@ -7,11 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 // import PageLoading from "@/components/custom/PageLoading";
 
 import Hotjar from '@hotjar/browser';
-
-const siteId = 5218627;
-const hotjarVersion = 6;
-
-Hotjar.init(siteId, hotjarVersion);
+import { useEffect } from "react";
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -25,6 +21,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+  const siteId = 5218627;
+  const hotjarVersion = 6;
+
+  useEffect(() => {
+    Hotjar.init(siteId, hotjarVersion);
+  }, [])
+
   return (
     <ClerkProvider>
       <html lang="en">
