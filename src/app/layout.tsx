@@ -4,6 +4,7 @@ import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@c
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { GoogleTagManager } from '@next/third-parties/google'
+import Hotjar from '@hotjar/browser';
 
 // import PageLoading from "@/components/custom/PageLoading";
 
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
   title: "Briant.ai",
   description: "Create fullstack app easily with ai",
 };
+
+const siteId = 5218627;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
+
 
 export default function RootLayout({
   children,
