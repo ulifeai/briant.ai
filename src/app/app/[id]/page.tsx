@@ -16,6 +16,8 @@ import { deepEqual } from "@/lib/utils/object";
 import { defaultCustomization } from "@/lib/utils/ui";
 import ComingSoonModal from "@/components/blocks/dashboard/CommingSoonModal";
 import { SetStateAction, useAtom } from "jotai";
+import Hotjar from '@hotjar/browser';
+
 
 export default function Component() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -27,9 +29,16 @@ export default function Component() {
   const params = useParams<{ id: string }>();
   const [sitemap, setSitemap] = useState<Sitemap | undefined>();
   const [project, setProject] = useState<IProject>();
-  const [comingSoonModalOpen, setComingSoonModalOpen] =
-    useState<boolean>(false);
+  const [comingSoonModalOpen, setComingSoonModalOpen] = useState<boolean>(false);
 
+
+  const siteId = 5218627;
+  const hotjarVersion = 6;
+
+  useEffect(() => {
+    Hotjar.init(siteId, hotjarVersion);
+  }, [])
+  
   useEffect(() => {
     setLoading(true);
     axios

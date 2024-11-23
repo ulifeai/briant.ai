@@ -3,11 +3,10 @@ import { Inter, Manrope, Plus_Jakarta_Sans, Urbanist } from "next/font/google";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import { GoogleTagManager } from '@next/third-parties/google'
 
 // import PageLoading from "@/components/custom/PageLoading";
 
-import Hotjar from '@hotjar/browser';
-import { useEffect } from "react";
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -22,18 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-
-  const siteId = 5218627;
-  const hotjarVersion = 6;
-
-  useEffect(() => {
-    Hotjar.init(siteId, hotjarVersion);
-  }, [])
-
   return (
     <ClerkProvider>
       <html lang="en">
         {/* <PageLoading></PageLoading> */}
+        <GoogleTagManager gtmId="G-X9RC2MSFG5" />
         <body className={font.className}>
           <ThemeProvider
             attribute="class"
