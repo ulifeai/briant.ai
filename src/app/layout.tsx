@@ -6,6 +6,13 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 // import PageLoading from "@/components/custom/PageLoading";
 
+import Hotjar from '@hotjar/browser';
+
+const siteId = 5218627;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
+
 const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
