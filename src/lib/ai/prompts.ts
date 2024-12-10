@@ -128,12 +128,17 @@ Clearly define the flow and layout to ensure consistent, industry-specific page 
 
 ## Step 3: Ensure Logical and Reliable Page Flow
 - Arrange the selected elements in a logical, industry-recognized order.
-- Use a standard page structure logic to produce consistent results (e.g., 'navbar', followed by 'header', 'feature 1', 'feature 2', 'feature 3', and 'footer').
 - Ensure coherency throughout and avoid arbitrary shifts in layout. Confirm that each chosen section serves a user-friendly purpose.
 
 ## Step 4: Provide Detailed Titles and Descriptions for Each Section
 - Generate detailed and descriptive content specific to the use case.
 - Avoid generic descriptions; include functional details that adapt to the context (e.g., what type of testimonials would best suit a law firm vs. a wellness center).
+- home page: navbar, header, cta, feature, feature, feature,cta, footer
+- features page: navbar, header, feature, feature, feature, footer
+- About page: navbar, header, feature, faq, footer
+- Pricing page: navbar, header, pricing, faq, footer
+- FAQ page: navbar, header, faq, footer
+- Privacy page: navbar, header, feature, footer
 
 # Output Format
 

@@ -33,6 +33,7 @@ export default function RootLayout({
       <html lang="en">
         {/* <PageLoading></PageLoading> */}
         <GoogleTagManager gtmId="G-X9RC2MSFG5" />
+      
         <body className={font.className}>
           <ThemeProvider
             attribute="class"
