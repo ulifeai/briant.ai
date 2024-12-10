@@ -167,9 +167,11 @@ export async function createBlock(data: {
 }) {
   try {
     const { page_id, content, order } = data;
+    console.log("page", page_id);
 
     // Find the page by UUID
     const page = await Page.findOne({ _id: page_id }).exec();
+    console.log("page", page);
     if (!page) {
       throw new Error("Page not found");
     }
@@ -250,5 +252,69 @@ export async function deleteBlock(blockId: string) {
   } catch (error: any) {
     logger.error("Error deleting block: %o", error);
     throw new Error(error.message || "Failed to delete block");
+  }
+}
+
+export async function insertBlockWithOrder(data: {
+  page_id: string;
+  content: Record<string, any>;
+  order: number;
+}) {
+  try {
+    const { page_id, content, order } = data;
+
+    const page = await Page.findOne({ _id: page_id }).exec();
+    if (!page) {
+      throw new Error("Page not found");
+    }
+
+    await Block.updateMany(
+      { page_id: page._id, order: { $gte: order } },
+      { $inc: { order: 1 } }
+    ).exec();
+
+    const newBlock = new Block({
+      page_id: page._id,
+      content,
+      order,
+    });
+
+    await newBlock.save();
+
+    const updatedBlocks = await Block.find({ page_id: page._id })
+      .sort({ order: 1 })
+      .lean()
+      .exec();
+
+    logger.info("Block inserted successfully: %o", newBlock);
+    return updatedBlocks;
+  } catch (error: any) {
+    logger.error("Error inserting block with order: %o", error);
+    throw new Error(error.message || "Failed to insert block");
+  }
+}
+
+export async function reorderBlocks(blocks: any) {
+  try {
+   
+    // Valider les données
+    if (!Array.isArray(blocks)) {
+      throw new Error("Invalid data format");
+    }
+
+    // Mettre à jour les ordres dans la base de données
+    const bulkOps = blocks.map((block: any) => ({
+      updateOne: {
+        filter: { id: block.id },
+        update: { $set: { order: block.order } },
+      },
+    }));
+
+    await Block.bulkWrite(bulkOps);
+
+    logger.info("Blocks reordered successfully.");
+  } catch (error: any) {
+    logger.error("Error reordering blocks: %o", error);
+    throw new Error(error.message || "Failed to reorder blocks");
   }
 }

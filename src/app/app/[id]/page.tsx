@@ -23,6 +23,7 @@ export default function Component() {
   const [loading, setLoading] = useState<boolean>(false);
   const [menu, setMenu] = useState();
   const [pageid, setPageid] = useState<string>();
+  const [page_id, setPage_id] = useState<string>();
   const [websiteContent, setWebsiteContent] = useWebsiteContent();
   const [websiteConfig, setWebsiteConfig] = useConfig();
   const [sideContent, setSideContent] = useState<any>();
@@ -39,6 +40,9 @@ export default function Component() {
     Hotjar.init(siteId, hotjarVersion);
   }, [])
   
+  const [dataFromChildBlockCustomizer, setDataFromChildBlockCustomizer] =
+    useState<{ index: number; bool: boolean } | null>(null);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -73,6 +77,7 @@ export default function Component() {
       return;
     }
     setPageid(page.id);
+    setPage_id(page._id);
     setLoading(true);
     try {
       const key = page_section + " : " + page.name + " - " + page.description;
@@ -141,10 +146,39 @@ export default function Component() {
         });
         if (side.length > 0) {
           setSideContent(side[0]);
-          console.log(side[0]);
+          // console.log(side[0]);
         }
       }
+      if (iframeData.data.operation == "order_object_transfert") {
+        console.log("iframeData.data.orderObject", iframeData.data.orderObject);
+      }
     });
+  }, [websiteContent]);
+
+  useEffect(() => {
+    const handleMessage = async (iframeData: any) => {
+      if (iframeData.data.operation === "order_object_transfert") {
+        console.log("iframeData.data.orderObject", iframeData.data.orderObject);
+        try {
+          await axios.post("/api/app/block/reorder", {
+            blocks: Object.entries(iframeData.data.orderObject).map(
+              ([id, order]) => ({
+                id,
+                order,
+              })
+            ),
+          });
+        } catch (error: any) {
+          console.error("Error updating order:", error);
+        }
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
   }, [websiteContent]);
 
   const saveBlockContent = async () => {
@@ -183,6 +217,20 @@ export default function Component() {
     setSideContent(undefined);
   };
 
+  const handleChildRightNavData = ({
+    index,
+    bool,
+  }: {
+    index: number;
+    bool: boolean;
+  }) => {
+    setDataFromChildBlockCustomizer({ index, bool });
+  };
+
+  const handleChildLoading = (loading: boolean) => {
+    setLoading(loading);
+  };
+
   return (
     <div className="flex h-screen bg-background text-foreground">
       <LeftNav
@@ -198,11 +246,15 @@ export default function Component() {
         website_content={websiteContent}
         loadingIframe={loading}
         pageid={pageid ?? ""}
+        dataFromBlockCustomizer={dataFromChildBlockCustomizer}
       ></SitePreviewContainer>
 
       <RightNav
         sideContent={sideContent}
         saveContent={saveBlockContent}
+        page_id={page_id ?? ""}
+        onChildBlockCustomizerData={handleChildRightNavData}
+        onHandleChildLoading={handleChildLoading}
       ></RightNav>
 
       <ComingSoonModal

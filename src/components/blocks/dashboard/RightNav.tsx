@@ -2,21 +2,58 @@ import BlockCustomizer from "@/components/custom/BlockCustomizer";
 import { ThemeCustomizer } from "@/components/custom/theme-customizer";
 
 type RightNavProps = {
-  sideContent: any
-  saveContent: any
-}
+  sideContent: any;
+  saveContent: any;
+  page_id: string;
+  onChildBlockCustomizerData: ({
+    index,
+    bool,
+  }: {
+    index: number;
+    bool: boolean;
+  }) => void;
+  onHandleChildLoading: (loading: boolean) => void;
+};
 
-
-export default function RightNav({sideContent, saveContent}: RightNavProps) {
-    return (
-      <div className=" bg-muted w-[21vw] border-r border-border bg-white absolute flex flex-col right-0 top-[3.5rem] h-full">
-          
-        <div className="p-4 ">
-        {sideContent ? <div>
-              <BlockCustomizer data={sideContent.data} onSave={saveContent} componentType={sideContent.type} id={sideContent.id} onChange={(a: any)=>{console.log(a)}}/>  
-          </div> :  <ThemeCustomizer></ThemeCustomizer>}
-        </div>
-        {/* <ScrollArea className="flex-grow">
+export default function RightNav({
+  sideContent,
+  saveContent,
+  page_id,
+  onChildBlockCustomizerData,
+  onHandleChildLoading,
+}: RightNavProps) {
+  const handleChildData = ({
+    index,
+    bool,
+  }: {
+    index: number;
+    bool: boolean;
+  }) => {
+    onChildBlockCustomizerData({ index, bool });
+  };
+  return (
+    <div className=" bg-muted w-[21vw] border-r border-border bg-white absolute flex flex-col right-0 top-[3.5rem] h-full">
+      <div className="p-4 ">
+        {sideContent ? (
+          <div>
+            <BlockCustomizer
+              data={sideContent.data}
+              onSave={saveContent}
+              componentType={sideContent.type}
+              id={sideContent.id}
+              page_id={page_id ?? ""}
+              onChange={(a: any) => {
+                console.log(a);
+              }}
+              sendDataToParent={handleChildData}
+              sendHandleChildLoading={onHandleChildLoading}
+            />
+          </div>
+        ) : (
+          <ThemeCustomizer></ThemeCustomizer>
+        )}
+      </div>
+      {/* <ScrollArea className="flex-grow">
           <div className="pt-4 space-y-4">
             <div>
               <h3 className="mb-2 text-sm font-bold px-4 text-muted-foreground flex justify-start">
@@ -63,6 +100,6 @@ export default function RightNav({sideContent, saveContent}: RightNavProps) {
           
           </div>
         </ScrollArea> */}
-      </div>
-    )
+    </div>
+  );
 }

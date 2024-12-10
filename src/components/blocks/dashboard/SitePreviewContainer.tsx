@@ -11,12 +11,14 @@ export default function SitePreviewContainer({
   windowClick,
   onThemeChange,
   pageid,
+  dataFromBlockCustomizer,
 }: {
   website_content: any;
   loadingIframe: boolean;
   windowClick: Function;
   onThemeChange: Function;
   pageid: string;
+  dataFromBlockCustomizer: { index: number; bool: boolean } | null;
 }) {
   const [viewMode, setViewMode] = useState("web");
   const [themeOptions, setThemeOptions] = useConfig();
@@ -35,8 +37,13 @@ export default function SitePreviewContainer({
     onThemeChange(themeOptions);
   }, [themeOptions]);
 
+  useEffect(() => {
+    sendIframeMessage("data_from_BlockCustomizer", {
+      data: dataFromBlockCustomizer,
+    });
+  }, [website_content]);
+
   const sendIframeMessage = (operation: string, data: any) => {
-    console.log(data);
     if (iframeRef.current && iframeRef.current.contentWindow) {
       iframeRef.current?.contentWindow.postMessage({ ...data, operation }, "*");
     }
