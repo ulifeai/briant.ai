@@ -1,5 +1,5 @@
 import { componentVersions } from "@/lib/helpers/featureSettings";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -22,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronRight, Trash2Icon } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import axios from "axios";
+import { DndContext } from "@/hooks/useDnd";
 
 type JsonValue =
   | string
@@ -1652,12 +1653,12 @@ export default function BlockCustomizer({
     sendHandleChildLoading(false);
   };
 
-  console.log(websiteContent);
-
   return (
     <div>
       {isActive ? (
-        renderSelectBoxAdd()
+        <div className="w-full h-[90vh] overflow-y-auto py-4">
+          {renderSelectBoxAdd()}
+        </div>
       ) : (
         <form action="#" onSubmit={(e) => e.preventDefault()}>
           <div className="w-full h-[90vh] overflow-y-auto py-4">

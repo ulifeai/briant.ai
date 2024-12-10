@@ -1,9 +1,10 @@
 "use client";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { DashboardActionsHeader } from "@/components/custom/DashboardActionsHeader";
 
 import { useConfig } from "@/hooks/useConfig";
+import { DndContext, DndContextProvider } from "@/hooks/useDnd";
 
 export default function SitePreviewContainer({
   website_content,
@@ -23,6 +24,7 @@ export default function SitePreviewContainer({
   const [viewMode, setViewMode] = useState("web");
   const [themeOptions, setThemeOptions] = useConfig();
   const iframeRef = useRef<any>(null);
+  const { isDndEnabled } = useContext(DndContext);
 
   useEffect(() => {
     sendIframeMessage("website_content", { ...website_content });
@@ -42,6 +44,12 @@ export default function SitePreviewContainer({
       data: dataFromBlockCustomizer,
     });
   }, [website_content]);
+
+  useEffect(() => {
+    sendIframeMessage("data_is_Dnd_Enabled", {
+      isDndEnabled: isDndEnabled,
+    });
+  }, [isDndEnabled]);
 
   const sendIframeMessage = (operation: string, data: any) => {
     if (iframeRef.current && iframeRef.current.contentWindow) {

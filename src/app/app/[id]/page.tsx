@@ -16,6 +16,7 @@ import { deepEqual } from "@/lib/utils/object";
 import { defaultCustomization } from "@/lib/utils/ui";
 import ComingSoonModal from "@/components/blocks/dashboard/CommingSoonModal";
 import { SetStateAction, useAtom } from "jotai";
+import { DndContext, DndContextProvider } from "@/hooks/useDnd";
 
 export default function Component() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -79,9 +80,15 @@ export default function Component() {
         page_id: page._id,
       });
 
-      const completePageCode = response.data.data.map((item: any) => {
-        return { ...item.content, id: item.id, _id: item._id };
-      });
+      // const completePageCode = response.data.data.map((item: any) => {
+      //   return { ...item.content, id: item.id, _id: item._id };
+      // });
+
+      const completePageCode = response.data.data
+        .sort((a: any, b: any) => a.order - b.order)
+        .map((item: any) => {
+          return { ...item.content, id: item.id, _id: item._id };
+        });
 
       setWebsiteContent({ pageCode: completePageCode });
 
@@ -121,7 +128,7 @@ export default function Component() {
   };
 
   useEffect(() => {
-    window.addEventListener("message", (iframeData) => {
+    const handleMessage = (iframeData: any) => {
       if (iframeData.data.operation == "component_clicked") {
         let side = websiteContent.pageCode.filter((data: any) => {
           return data.id == iframeData.data.id.toString();
@@ -134,13 +141,17 @@ export default function Component() {
       if (iframeData.data.operation == "order_object_transfert") {
         console.log("iframeData.data.orderObject", iframeData.data.orderObject);
       }
-    });
+    };
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
   }, [websiteContent]);
 
   useEffect(() => {
     const handleMessage = async (iframeData: any) => {
       if (iframeData.data.operation === "order_object_transfert") {
-        console.log("iframeData.data.orderObject", iframeData.data.orderObject);
         try {
           await axios.post("/api/app/block/reorder", {
             blocks: Object.entries(iframeData.data.orderObject).map(
@@ -215,36 +226,38 @@ export default function Component() {
 
   return (
     <div className="flex h-screen bg-background text-foreground">
-      <LeftNav
-        onItemClick={handleMenuClick}
-        activeMenu={menu ?? ""}
-        sitemap={sitemap}
-      ></LeftNav>
+      <DndContextProvider>
+        <LeftNav
+          onItemClick={handleMenuClick}
+          activeMenu={menu ?? ""}
+          sitemap={sitemap}
+        ></LeftNav>
 
-      {/* Main content area */}
-      <SitePreviewContainer
-        windowClick={saveBlockContent}
-        onThemeChange={onThemeChange}
-        website_content={websiteContent}
-        loadingIframe={loading}
-        pageid={pageid ?? ""}
-        dataFromBlockCustomizer={dataFromChildBlockCustomizer}
-      ></SitePreviewContainer>
+        {/* Main content area */}
+        <SitePreviewContainer
+          windowClick={saveBlockContent}
+          onThemeChange={onThemeChange}
+          website_content={websiteContent}
+          loadingIframe={loading}
+          pageid={pageid ?? ""}
+          dataFromBlockCustomizer={dataFromChildBlockCustomizer}
+        ></SitePreviewContainer>
 
-      <RightNav
-        sideContent={sideContent}
-        saveContent={saveBlockContent}
-        page_id={page_id ?? ""}
-        onChildBlockCustomizerData={handleChildRightNavData}
-        onHandleChildLoading={handleChildLoading}
-      ></RightNav>
+        <RightNav
+          sideContent={sideContent}
+          saveContent={saveBlockContent}
+          page_id={page_id ?? ""}
+          onChildBlockCustomizerData={handleChildRightNavData}
+          onHandleChildLoading={handleChildLoading}
+        ></RightNav>
 
-      <ComingSoonModal
-        feature="Auth/Dashboard"
-        open={comingSoonModalOpen}
-        submitItend={comingSoonModalOpenNotifyMe}
-        setOpen={setComingSoonModalOpen}
-      ></ComingSoonModal>
+        <ComingSoonModal
+          feature="Auth/Dashboard"
+          open={comingSoonModalOpen}
+          submitItend={comingSoonModalOpenNotifyMe}
+          setOpen={setComingSoonModalOpen}
+        ></ComingSoonModal>
+      </DndContextProvider>
     </div>
   );
 }

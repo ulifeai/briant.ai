@@ -1,5 +1,8 @@
 import BlockCustomizer from "@/components/custom/BlockCustomizer";
 import { ThemeCustomizer } from "@/components/custom/theme-customizer";
+import { Button } from "@/components/ui/button";
+import { DndContext } from "@/hooks/useDnd";
+import { useContext } from "react";
 
 type RightNavProps = {
   sideContent: any;
@@ -22,6 +25,7 @@ export default function RightNav({
   onChildBlockCustomizerData,
   onHandleChildLoading,
 }: RightNavProps) {
+  const { isDndEnabled, toggleDnd } = useContext(DndContext);
   const handleChildData = ({
     index,
     bool,
@@ -33,6 +37,18 @@ export default function RightNav({
   };
   return (
     <div className=" bg-muted w-[21vw] border-r border-border bg-white absolute flex flex-col right-0 top-[3.5rem] h-full">
+      <Button
+        className={`m-5 rounded-xl ${
+          isDndEnabled
+            ? "bg-red-900 text-white hover:bg-red-900 hover:text-white"
+            : "bg-green-950 text-white hover:bg-green-950 hover:text-white"
+        }`}
+        onClick={toggleDnd}
+      >
+        {isDndEnabled
+          ? "Désactiver le deplacement section"
+          : "Activer le deplacement section"}
+      </Button>
       <div className="p-4 ">
         {sideContent ? (
           <div>
