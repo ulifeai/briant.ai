@@ -74,6 +74,7 @@ export default function Component() {
     try {
       const key = page_section + " : " + page.name + " - " + page.description;
       setMenu(page.title);
+
       const response = await axios.post("/api/app/block/getOrCreate", {
         app_context: project?.description,
         page_description: key,
@@ -89,8 +90,22 @@ export default function Component() {
         .map((item: any) => {
           return { ...item.content, id: item.id, _id: item._id };
         });
-
       setWebsiteContent({ pageCode: completePageCode });
+
+      const newNav: any = [];
+
+      sitemap?.pages.public.map((item: any, index: number) => {
+        newNav.push({
+          title: item.name,
+          url: `/${item.name.replace(/ /g, "_")}`,
+        });
+      });
+
+      completePageCode.map((section: any) => {
+        if (section.type === "navbar") {
+          section.data.navItems = newNav;
+        }
+      });
 
       if (sitemap && sitemap?.pages) {
         const old_sitemap = { ...sitemap };
@@ -138,8 +153,13 @@ export default function Component() {
           // console.log(side[0]);
         }
       }
-      if (iframeData.data.operation == "order_object_transfert") {
-        console.log("iframeData.data.orderObject", iframeData.data.orderObject);
+      if (iframeData.data.operation == "link_clicked") {
+        const pageName = iframeData.data.pageName;
+        sitemap?.pages.public.map((item: any, index: number) => {
+          if (item.name.replace(/ /g, "_") === pageName) {
+            handleMenuClick(item, "public page");
+          }
+        });
       }
     };
     window.addEventListener("message", handleMessage);
